@@ -11,10 +11,10 @@
     "days": "*"
   },
   "llm": {
-    "provider": "gemini",
-    "model": "gemini-2.5-flash",
-    "fallback_provider": "groq",
-    "fallback_model": "llama-3.3-70b-versatile",
+    "provider": "groq",
+    "model": "llama-3.3-70b-versatile",
+    "fallback_provider": "gemini",
+    "fallback_model": "gemini-2.5-flash",
     "language": "tr",
     "max_items_per_run": 60,
     "relevance_threshold": 4

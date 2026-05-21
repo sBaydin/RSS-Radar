@@ -7112,6 +7112,1681 @@
       ],
       "must_read": false,
       "processed_at": "2026-05-21T22:35:22.020027+00:00"
+    },
+    "71e04fe3c8d4e37a": {
+      "id": "71e04fe3c8d4e37a",
+      "title": "Explainability Methods for Hardware Trojan Detection: A Systematic Comparison",
+      "summary_en": "arXiv:2601.18696v4 Announce Type: replace Abstract: Hardware trojans are malicious circuits which compromise the functionality and security of an integrated circuit (IC). These circuits are manufactured directly into the silicon and cannot be fixed by security patches like software. The solution would require a costly product recall by replacing the IC and hence, early detection in the design process is essential. Hardware detection at best provides statistically based solutions with many false positives and false negatives. These detection methods require more thorough explainable analysis to filter out false indicators. Existing explainability methods developed for general domains like image classification may not provide the actionable insights that hardware engineers need. A question remains: How do domain-aware property analysis, model-agnostic case-based reasoning, and model-agnostic feature attribution techniques compare for hardware security applications? This work compares three categories of explainability for gate-level hardware trojan detection on the Trust-Hub benchmark dataset: (1) domain-aware property-based analysis of 31 circuit-specific features derived from gate fanin patterns, flip-flop distances, and primary Input/Output (I/O) connectivity; (2) model-agnostic case-based reasoning using k-nearest neighbors for precedent-based explanations; and (3) model-agnostic feature attribution methods (Local Interpretable Model-agnostic Explanations (LIME), SHapley Additive exPlanations (SHAP), gradient) that provide generic importance scores without circuit-level context.",
+      "link": "https://arxiv.org/abs/2601.18696",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 6,
+      "matched_keywords": [
+        "core:image classification",
+        "core:ViT",
+        "related:dataset",
+        "related:benchmark"
+      ],
+      "summary_tr": "Bu çalışmada, donanım Truva atı tespiti için üç farklı açıklanabilirlik yöntemi karşılaştırılmıştır. Bunlar; domaine özgü özellik analizi, model-bağımsız vaka-temelli akıl yürütme ve model-bağımsız özellik atıf teknikleridir. Trust-Hub benchmark veri seti üzerinde yapılan karşılaştırmada, her bir yöntemin avantaj ve dezavantajları belirlenmiştir.",
+      "relevance": 2,
+      "why_relevant": "Doktora konusu deprem sonrası hasar tespiti ile ilgiliyken, bu çalışma donanım güvenliği ile ilgilidir.",
+      "tags": [
+        "hardware-trojan-detection",
+        "explainability-methods",
+        "model-agnostic-techniques"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:36:48.832258+00:00"
+    },
+    "41be87ed065511f2": {
+      "id": "41be87ed065511f2",
+      "title": "Seismic fragility functions for embankments on liquefiable soils affected by induced seismicity: application to the Groningen region",
+      "summary_en": "Fragility functions are often used to determine earthquake related damage to houses and infrastructures. To be reliable, such fragility functions need to be specific for the structure, the subsoil and the earthquake characteristics. This study derives fragility curves for embankments located on liquefiable soils subjected to induced seismicity in the Groningen region, The Netherlands. The results are based on more than 3000 nonlinear fully coupled dynamic analyses of embankments on liquefiable soils using PLAXIS2D with the PM4Sand model. Both the liquefaction criterion and the input motions used are Groningen-specific and capture the response of embankments under increasing levels of shaking intensity. The fragility curves are developed to evaluate the seismic risk of embankments on liquefiable soil, with the damage states (DSs) described in terms of embankment settlement. The effectiveness of the criteria, including sufficiency, efficiency, practicality, and proficiency, is assessed based on the relationship between intensity measures (IMs) and engineering demand parameters (EDPs). The paper also presents a novel general model that allows for the derivation of fragility curves beyond the specific predefined configurations, providing a more comprehensive analysis. This approach allows for a more holistic understanding of the system’s response and provides valuable insights into the contributions of various intermediate factors.",
+      "link": "https://link.springer.com/article/10.1007/s10518-026-02481-1",
+      "source": "Bulletin of Earthquake Engineering",
+      "category": "journal",
+      "published": "2026-05-12T00:00:00+00:00",
+      "pre_score": 6,
+      "matched_keywords": [
+        "core:damage state",
+        "related:earthquake",
+        "related:seismic",
+        "related:infrastructure",
+        "related:fragility"
+      ],
+      "summary_tr": "Bu çalışmada, Hollanda'nın Groningen bölgesindeki sıvılaşabilir zeminlerde bulunan setlerin deprem hasarlarına ilişkin kırılganlık fonksiyonları türetilmiştir. PLAXIS2D ve PM4Sand modeli kullanılarak 3000'den fazla doğrusal olmayan dinamik analiz yapılmıştır. Sonuçlar, setlerin deprem hasarlarına ilişkin daha kapsamlı bir analiz sunmaktadır.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu deprem sonrası hasarların tespiti ile ilgili olduğu için, bu çalışmada kullanılan yöntemler ve elde edilen sonuçlar doktora konusuna uygunluk göstermektedir.",
+      "tags": [
+        "deprem-hasarı",
+        "sıvılaşabilir-zemin",
+        "kırılganlık-fonksiyonları",
+        "dinamik-analiz",
+        "set-hasarı"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:36:51.591622+00:00"
+    },
+    "7379036a0a3c274a": {
+      "id": "7379036a0a3c274a",
+      "title": "A Systematic Failure Analysis of Vision Foundation Models for Open Set Iris Presentation Attack Detection",
+      "summary_en": "arXiv:2605.19020v1 Announce Type: new Abstract: Vision foundation models have demonstrated strong transferability across diverse visual recognition tasks and are increasingly considered for biometric applications. Their suitability for iris Presentation Attack Detection (PAD), particularly under realistic open-set operating conditions, remains insufficiently examined. This work presents a systematic failure analysis of general-purpose vision foundation models for open-set iris PAD using periocular imagery. Five representative foundation models are evaluated under three open-set protocols that explicitly separate different sources of distribution shift: unseen Presentation Attack Instruments (PAIs), unseen datasets captured with different sensors and cross-spectral transfer from near-infrared (NIR) to visible spectrum (VIS) imagery. Both frozen feature representations and parameter-efficient task adaptation using Low-Rank Adaptation (LoRA) are assessed within a unified experimental framework. The results indicate that foundation models can transfer across datasets with similar sensing characteristics, but fail to generalise reliably to unseen attack instruments and degrade sharply under cross-spectral evaluation. While LoRA improves performance in certain cross-dataset settings, it frequently amplifies failure under attack-level and spectral shifts. Additional validation experiments using segmented iris inputs, full backbone fine-tuning, joint cross-dataset and cross-PAI shifts, and reverse VIS to NIR transfer further confirm that these failures are not simply artefacts of periocular input, weak adaptation, or one-directional spectral evaluation. These findings show that strong closed-set or cross-dataset performance should not be treated as evidence of robust open-set security, and highlight the need for PAD representations that maintain sensitivity to presentation artefacts while remaining stable under realistic deployment variation.",
+      "link": "https://arxiv.org/abs/2605.19020",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:ViT",
+        "core:foundation model",
+        "related:dataset"
+      ],
+      "summary_tr": "Bu çalışmada, genel amaçlı vizyon temel modellerinin açık set iris sunum saldırısı tespitinde başarısızlık analizi yapılmıştır. Beş temsilci temel model, üç açık set protokolü altında değerlendirilmiştir. Sonuçlar, temel modellerin benzer algılama özelliklerine sahip veri setleri arasında aktarım yapabildiğini ancak görünmeyen saldırı araçlarına ve spektral değişimlere karşı güvenilir bir şekilde genelleşemediğini göstermiştir.",
+      "relevance": 2,
+      "why_relevant": "Doktora konusu ile bağlantısı, derin öğrenme metodlarının hasar tespitindeki uygulanabilirliği ile ilgilidir.",
+      "tags": [
+        "image-processing",
+        "deep-learning",
+        "failure-analysis"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:36:54.721068+00:00"
+    },
+    "aa9cbe22cdc110d5": {
+      "id": "aa9cbe22cdc110d5",
+      "title": "TextAlign: Preference Alignment for Text Rendering with Hierarchical Rewards",
+      "summary_en": "arXiv:2605.19320v1 Announce Type: new Abstract: Faithful text rendering remains a persistent weakness of large text-to-image generative models, as it requires both semantic instruction following and fine-grained glyph-level structure. Prior methods often improve this ability through architecture-specific modules or encoder modifications, which complicate deployment across foundation models. We study text rendering as a post-training preference-alignment problem and propose TextAlign, a non-invasive framework that keeps the generator architecture unchanged. The key component is a hierarchical vision-language model (VLM)-based reward that decomposes rendering errors into global, word, and glyph levels, then converts binary defect judgments into a scalar preference signal. The resulting signal supports both Group Relative Policy Optimization (GRPO) and Direct Preference Optimization (DPO). Experiments on FLUX.1-dev and Z-Image-Turbo show consistent gains in OCR-based text accuracy without degrading general generation quality. Compared with strong foundation and text-rendering baselines, including SD3.5, Qwen-Image, AnyText, and TextDiffuser, these results indicate that reward design offers a scalable alternative to model redesign for improving text rendering.",
+      "link": "https://arxiv.org/abs/2605.19320",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:foundation model",
+        "core:VLM",
+        "related:generative model"
+      ],
+      "summary_tr": "Bu çalışmada, büyük metin-görsel üreten modellerin metin oluşturma yeteneklerini geliştirmek için bir çerçeve önerilmiştir. Metin oluşturma hataları hiyerarşik bir şekilde ele alınarak, global, kelime ve glif düzeylerinde hatalar tespit edilmiştir. Bu yaklaşım, metin oluşturma kalitesini geliştirmiş ve diğer güçlü modellere kıyasla iyi sonuçlar elde edilmiştir.",
+      "relevance": 2,
+      "why_relevant": "Doktora konusu deprem sonrası hasar tespiti ile ilgiliyken, bu çalışma metin oluşturma ve görsel işleme ile ilgilidir.",
+      "tags": [
+        "text-rendering",
+        "deep-learning",
+        "image-generation"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:36:57.360332+00:00"
+    },
+    "6770e92c3205b4d7": {
+      "id": "6770e92c3205b4d7",
+      "title": "LMM-Track4D: Eliciting 4D Dynamic Reasoning in LMMs via Trajectory-Grounded Dialogue",
+      "summary_en": "arXiv:2605.19390v1 Announce Type: new Abstract: Recent large multimodal models (LMMs) have become increasingly capable on image and video understanding, yet still struggle to sustain 4D continuous spatiotemporal dynamic reasoning. To study this capability gap, we formulate trajectory-grounded multi-turn spatiotemporal dialogue, a new task in which a model must answer spatiotemporal queries while returning structured 3D target trajectories over an entire short clip or a specified segment of a longer clip, and introduce Track4D-Bench, a benchmark with 526 clip-level dialogue samples spanning 23.5k frames and 7.5k object annotations, for training and evaluation. Building on this task, we propose LMM-Track4D, which combines RTGE (Ray--Time Geometry Encoding), a dedicated streaming state token TRK for long-horizon dynamic propagation, and an Object-Slot Kinematic, Residual-Anchor (OSK-RA) decoder for stable 4-step 3D state estimation under occlusion and viewpoint variation. Experiments on Track4D-Bench show consistent improvements over strong baselines, suggesting that explicit dynamic state modeling is a useful design principle for eliciting 4D dynamic reasoning in LMMs. Our code and dataset will be publicly available at https://github.com/mikubaka88/LMM-Track4D.",
+      "link": "https://arxiv.org/abs/2605.19390",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:CLIP",
+        "related:dataset",
+        "related:benchmark",
+        "related:annotation"
+      ],
+      "summary_tr": "Bu çalışmada, büyük multimodal modellerin (LMM) 4D sürekli uzay-zaman dinamik akıl yürütme yeteneklerini geliştirmek için bir yöntem önerilmiştir. LMM-Track4D adlı model, RTGE (Ray-Zaman Geometri Kodlama), TRK (Ray-Zaman Geometri Kodlama için özel bir akış durumu tokeni) ve OSK-RA (Nesne-Slot Kinematik, Kalıntı-Çapa) dekoder kullanır. Deneyimler, Track4D-Bench veri setinde güçlü temel modellerden daha iyi sonuçlar verdiğini göstermiştir.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu ile bağlantılı çünkü derin öğrenme metodları ile yapısal hasarların tespitine odaklanmaktadır.",
+      "tags": [
+        "deep-learning",
+        "object-detection",
+        "4d-reasoning",
+        "video-analysis"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:37:00.625909+00:00"
+    },
+    "8e614854a724ff28": {
+      "id": "8e614854a724ff28",
+      "title": "Vision Harnessing Agent for Open Ad-hoc Segmentation",
+      "summary_en": "arXiv:2605.19410v1 Announce Type: new Abstract: Segmentation has become easy when the concept is known, requiring retrieval of a learned visual grounding from text. It remains hard for open ad-hoc concepts, where the grounding may not exist as one learned mask and must often be constructed from image evidence through parts, relations, exclusions, and collections. We propose a Vision-guided Ad-hoc Segmentation Agent (VASA), the first vision harnessing agent for open ad-hoc segmentation. VASA is training-free and couples a VLM agent, a segmentation foundation model, and a visually grounded workflow. Rather than revising text prompts alone, VASA uses a persistent working mask to reason, construct, and validate a solution. It plans visual operations, invokes segmentation tools, inspects results, edits the mask, and recovers from errors. We construct PARS, a new benchmark that turns part-level labels in PartImageNet into open ad-hoc concepts through long-form definition queries. On PARS, VASA outperforms open-vocabulary, reasoning-based, and agentic baselines, surpassing SAM3 Agent by 14-25%. On RefCOCOm, a standard multi-granularity referring segmentation benchmark, VASA improves over SAM3 Agent by 5-9% and over other agentic baselines by up to 20%. These results validate agentic visual construction for open ad-hoc segmentation. Our work points to a path for AI agents beyond wrapping foundation models as tools: Programming them with task knowledge, VLM behavior, visual routines, working memory, and failure-aware workflows.",
+      "link": "https://arxiv.org/abs/2605.19410",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:foundation model",
+        "core:VLM",
+        "related:benchmark"
+      ],
+      "summary_tr": "Araştırmada, açık ad-hoc segmentasyon için vizyon rehberli bir ajan olan VASA önerilmiştir. VASA, görüntülerden segmentasyon çıkarmak için bir VLM ajanı, bir segmentasyon temel modeli ve görsel olarak temellenmiş bir iş akışını birleştirir. PARS ve RefCOCOm veri setlerinde yapılan deneylerde VASA, diğer ajan tabanlı yöntemleri geride bırakmıştır.",
+      "relevance": 8,
+      "why_relevant": "Doktora konusu ile bağlantısı, deprem sonrası hasarların tespitinde açık ad-hoc segmentasyon yöntemlerinin kullanılmasıdır.",
+      "tags": [
+        "image-segmentation",
+        "deep-learning",
+        "agent-based-methods",
+        "damage-detection",
+        "computer-vision"
+      ],
+      "must_read": true,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:37:03.140078+00:00"
+    },
+    "fb3c9d9da0808266": {
+      "id": "fb3c9d9da0808266",
+      "title": "deadtrees.earth-aerial: A Multi-Resolution Aerial Image Dataset for Tree Cover and Mortality Detection",
+      "summary_en": "arXiv:2605.19605v1 Announce Type: new Abstract: Forests worldwide are increasingly threatened by climate change and disturbances such as fire, pests, and pathogens, creating an urgent need for scalable monitoring of tree cover and tree mortality. Aerial imagery from drones and aircraft is a key data source for detailed and large-scale mapping of tree crowns and mortality. However, related progress is limited by the lack of globally representative, harmonized datasets for joint segmentation of tree cover and mortality. We introduce two novel, open, machine-learning-ready datasets to enable joint segmentation of tree cover and tree mortality from centimeter-scale aerial imagery for the first time at global scales. With DTE-aerial-train, we provide a training dataset comprising 385K image patches of size 1024x1024 pixels, with resolutions ranging from 2.5 to 20 cm. It includes multi-class expert-annotated and -audited pseudo-labels for tree cover and mortality. With DTE-aerial-bench, we provide a geographically balanced benchmark test set of 25 globally distributed orthoimages totaling 525 patches with high-quality expert annotations for both tree cover and mortality. Both the training and benchmark datasets span tropical, temperate, boreal, and dryland biomes and cover a wide range of forest structures and mortality patterns. Using the benchmark test set for evaluation, we establish strong reference baselines that improve mortality segmentation across all biomes and scales with significant gains in challenging regions, such as boreal forests, where the F1 score increases from 0.40 to 0.58 with around 45% relative improvement. All data, models, and code will be publicly released under permissive open-source licenses. An interactive visualization of the benchmark dataset is available at deadtrees.earth/releases/dte-aerial-bench.",
+      "link": "https://arxiv.org/abs/2605.19605",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:aerial imagery",
+        "related:dataset",
+        "related:benchmark",
+        "related:annotation"
+      ],
+      "summary_tr": "Araştırmada, ağaç örtüsü ve ağaç ölümlüğü tespiti için çok çözünürlüklü bir hava görüntüsü veri seti oluşturulmuştur. Veri seti, 385K görüntü parçasından oluşmaktadır ve uzman tarafından etiketlenmiş ve denetlenmiştir. Araştırma, ağaç örtüsü ve ölümlüğü segmentasyonu için güçlü referans noktaları oluşturmuştur.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu ile bağlantısı, hasar tespiti için kullanılan derin öğrenme metodlarının benzer şekilde ağaç örtüsü ve ölümlüğü tespitinde de kullanılabileceği gerçeğinde yatmaktadır.",
+      "tags": [
+        "aerial-image-dataset",
+        "tree-cover-detection",
+        "deep-learning",
+        "segmentation",
+        "dataset"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:37:06.137848+00:00"
+    },
+    "72e684f2c8aef4c9": {
+      "id": "72e684f2c8aef4c9",
+      "title": "PrAda: Few-Shot Visual Adaptation for Text-Prompted Segmentation",
+      "summary_en": "arXiv:2605.19623v1 Announce Type: new Abstract: Segmenting images is critical for visual understanding but demands extensive pixel-level annotations. Foundational models have enabled new paradigms for predicting new classes guided by textual prompts, without annotations from the target domain. Yet, on specialized target domains, far from the original pre-training, their performance degrades. We study the errors of existing methods under such domain-shift, finding that misclassification rather than mask generation is the main culprit. To address this, we introduce the novel problem of Few-Shot Visual Adaptation for text-prompted Segmentation. This kind of adaptation has been largely studied for image classification, but it remains unexplored for segmentation. We tackle this task with Prototype Adaptation (PrAda), a novel, parameter-efficient method that adapts a frozen text-prompted segmentation model. Our approach learns class-specific prototypes by combining fine-grained pixel features and high-level transformer representations, which are then fused with the original text-based predictions through a learned importance factor. This preserves the model's zero-shot potential while enabling strong adaptation to new domains. Experiments across semantic, instance, and panoptic segmentation on five benchmarks demonstrate that PrAda yields significant improvements over state-of-the-art and proposed baselines.",
+      "link": "https://arxiv.org/abs/2605.19623",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:image classification",
+        "related:benchmark",
+        "related:annotation",
+        "related:few-shot"
+      ],
+      "summary_tr": "Bu çalışmada, metin-öncelikli segmentasyon için az-örnekli görsel uyarlanma problemi ele alınmaktadır. PrAda adlı bir yöntem geliştirilmiştir. Bu yöntem, dondurulmuş bir metin-öncelikli segmentasyon modelini uyarlar ve sınıf-spesifik prototipler öğrenir. Deneyimler, çeşitli segmentasyon görevlerinde önemli gelişmeler göstermiştir.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu olan deprem sonrası hasar tespitinde, metin-öncelikli segmentasyon ve az-örnekli uyarlanma yöntemleri kullanılabilir.",
+      "tags": [
+        "image-segmentation",
+        "deep-learning",
+        "domain-adaptation",
+        "text-prompted"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:37:08.939074+00:00"
+    },
+    "c841debfdd5814b3": {
+      "id": "c841debfdd5814b3",
+      "title": "Tango3D: Towards Alignment for Global and Local 2D-3D Correspondence",
+      "summary_en": "arXiv:2605.19727v1 Announce Type: new Abstract: Existing 3D foundation models typically align point clouds to frozen vision-language spaces like CLIP, which achieve strong cross-modal retrieval by compressing 3D shape into a global vector. However, this global-only alignment cannot establish fine-grained pixel-to-point correspondence. To solve this, we present Tango3D, a foundation model that unifies dense correspondence and global retrieval. We use a geometry-aware 2D visual backbone and a pretrained 3D VAE to encode images into 2D patches and point clouds into 3D tokens. These are mapped into a single shared space to achieve both local pixel-to-point alignment and global semantic alignment. To stabilize the joint learning of dense and global objectives, we introduce a three-stage progressive training strategy. Experiments show our model successfully achieves object-level pixel-to-point alignment while maintaining competitive global retrieval, a joint capability not offered by existing 3D foundation models. By establishing a fine-grained alignment feature space, Tango3D injects rich semantics into purely geometric 3D tokens, paving the way for a wide range of dense 3D downstream tasks.",
+      "link": "https://arxiv.org/abs/2605.19727",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:CLIP",
+        "core:foundation model",
+        "related:point cloud"
+      ],
+      "summary_tr": "Tango3D adlı bir temel model geliştirilmiştir. Bu model, 2B-3B dense correspondence ve global retrieval'i birleştirmektedir. Model, geometri farkında 2B görsel sinir ağı ve önceden eğitilmiş 3B VAE kullanmaktadır. Deneylerde model, nesne düzeyinde piksel-nokta hizalaması yaparken rekabetçi global geri çağırma performansı göstermiştir.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusuyla bağlantısı, Tango3D'nin 2B-3B dense correspondence yeteneğinin deprem sonrası hasar tespitinde kullanılabilecek olmasıdır.",
+      "tags": [
+        "deep-learning",
+        "3d-reconstruction",
+        "image-processing",
+        "object-detection",
+        "computer-vision"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:37:11.951453+00:00"
+    },
+    "a49304afe33d7eb8": {
+      "id": "a49304afe33d7eb8",
+      "title": "Real-World On-Vehicle Evaluation of Embedding-Based Anomaly Detection",
+      "summary_en": "arXiv:2605.19744v1 Announce Type: new Abstract: Detecting anomalies in traffic scenes is crucial for ensuring safety in autonomous driving, yet collecting representative anomalous data remains challenging. Existing anomaly detection methods are highly specialized and rely on normality as defined by the abstract semantic Cityscapes classes, making it difficult to adapt to diverse real-world scenarios. We propose an adaptable real-time anomaly detection method that leverages foundation models in the form of pretrained vision transformer embeddings to detect deviations via nearest-neighbor similarity in the latent semantic feature space. Based on patch-wise processing, the algorithm produces dense anomaly masks, allowing for the localization of detected anomalies. The method robustly models normality through a single reference image. This formulation avoids explicit supervision and dataset-specific training, making it suitable for real-world deployment. We evaluate the method on standard benchmarks and on an automated vehicle in real-world scenarios. Despite its simplicity, the method achieves good performance on the Road Anomaly benchmark and demonstrates consistent qualitative behavior in practice, successfully highlighting semantically unusual objects in diverse scenes. These results suggest that simple, reference-based methods can provide useful anomaly signals under realistic operating conditions.",
+      "link": "https://arxiv.org/abs/2605.19744",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:vision transformer",
+        "core:foundation model",
+        "related:dataset",
+        "related:benchmark",
+        "related:real-time",
+        "related:anomaly detection",
+        "EXCL:autonomous driving"
+      ],
+      "summary_tr": "Bu çalışmada, gerçek dünya koşullarında araç üzerindeki anomali tespiti için bir yöntem önerilmiştir. Önerilen yöntem, önceden eğitilmiş vizyon transformatör gömme modellerini kullanarak anormallikleri tespit etmektedir. Yöntem, tek bir referans görüntüsünden normaliteyi modelleyerek explicit süpervizyon ve veri kümesi özel eğitimine gerek duymaz. Gerçek dünya senaryolarında ve standart testlerde iyi performans göstermiştir.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu ile bağlantısı, anomali tespiti ve görsel işleme metodlarının kullanılmasıdır.",
+      "tags": [
+        "anomaly-detection",
+        "deep-learning",
+        "real-world-scenarios",
+        "vision-transformer",
+        "autonomous-driving"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:37:14.928969+00:00"
+    },
+    "2343ac7f5d0c25e3": {
+      "id": "2343ac7f5d0c25e3",
+      "title": "Preferences Order, Ratings Anchor: From Fused Expert Aesthetic Ground Truth to Self-Distillation",
+      "summary_en": "arXiv:2605.19776v2 Announce Type: new Abstract: Pairwise preferences and pointwise ratings are the two dominant annotation protocols in image aesthetic assessment (IAA), yet existing benchmarks adopt only one, leaving their complementarity unmeasured under controlled conditions. We introduce PPaint, a matched dual-protocol benchmark in which 15 domain experts, 5 per category, annotate 150 Chinese paintings under both protocols across five aesthetic dimensions, collecting 45,900 pairwise expert judgments through a locally dense preference design alongside the matched ratings. The matched design reveals complementary strengths: preferences yield more consistent ordinal rankings, while ratings anchor the absolute score scale. Fusing both signals via two independent preference-to-score methods yields a fused expert ground truth on which the two constructions converge to nearly identical scores. The same preference-to-score principle extends to label-free VLM training. PSDistill converts VLM pairwise judgments into calibrated pseudo-scores via an Elo reference pool, and trains the same VLM with confidence-weighted ranking optimization to produce a single-pass aesthetic scorer. Trained on a single painting category, the distilled Qwen3-VL-8B improves mean SRCC from 0.504 to 0.709 across all three categories, outperforming all open-source baselines including the dedicated aesthetic model ArtiMuse and matching closed-source Gemini-3.1-Pro within 0.04 SRCC at single-pass inference cost, with cross-domain transfer further validated on APDDv2. We will release the full PPaint dataset and training code.",
+      "link": "https://arxiv.org/abs/2605.19776",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:VLM",
+        "related:dataset",
+        "related:benchmark",
+        "related:annotation"
+      ],
+      "summary_tr": "Bu çalışmada, görsel estetik değerlendirme için iki farklı anotasyon protokolü (çiftler arası tercihler ve puanlamalar) karşılaştırılmış ve birleştirilmiştir. PPaint isimli bir veri seti oluşturularak, uzmanların hem çiftler arası tercihlerini hem de puanlarını topladıktan sonra, bu iki sinyali birleştirmek için iki bağımsız yöntem geliştirilmiştir. Bu yöntemler, görsel estetik değerlendirme için daha tutarlı ve doğru sonuçlar elde edilmesini sağlamıştır.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu olan deprem sonrası hasarların görsel işleme ile tespiti, bu çalışmadaki görsel estetik değerlendirme yöntemleriyle benzerlik göstermektedir.",
+      "tags": [
+        "image-processing",
+        "deep-learning",
+        "aesthetic-evaluation",
+        "dataset",
+        "fusion-methods"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:37:17.922094+00:00"
+    },
+    "fec38a22b42f4cdb": {
+      "id": "fec38a22b42f4cdb",
+      "title": "CADENet: Condition-Adaptive Asynchronous Dual-Stream Enhancement Network for Adverse Weather Perception in Autonomous Driving",
+      "summary_en": "arXiv:2605.19837v1 Announce Type: new Abstract: Adverse weather (rain, fog, sand, and snow) degrades camera-based object detection in autonomous vehicles. Existing enhancement-then-detect approaches stall the safety-critical perception loop, violating hard real-time requirements. Progress on this problem is also constrained by an under-recognized evaluation ceiling: ground truth annotated on degraded images cannot credit a detector that recovers objects the annotators themselves could not see, so a genuinely useful enhancement can register as a near-flat F1 gain. This paper presents CADENet (Condition-Adaptive Asynchronous Dual-stream Enhancement Network), a training-free three-thread system: Thread S (YOLOv11n) delivers detections at full frame rate with zero added latency; Thread Q applies condition-adaptive enhancement (CAPE) and fuses results via entropy-guided NMS (EG-NMS) without blocking Thread S; Thread E provides CLIP zero-shot weather classification, so new weather categories require only a new text prompt, with no labeled data and no retraining. Evaluated on 1327 DAWN images (YOLOv11m, IoU = 0.5, confidence = 0.25), CADENet achieves Recall = 0.0103 (micro), F1 = 0.0230 on snow, and F1 = 0.0038 on rain. We formalize the annotation completeness bias on DAWN-class data, so the reported F1 values are lower bounds on the true gain; recall is the annotation-gap-immune headline metric. Thread S sustains approximately 44 FPS regardless of enhancement load. No model retraining or additional sensor hardware is required.",
+      "link": "https://arxiv.org/abs/2605.19837",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:object detection",
+        "core:YOLO",
+        "core:CLIP",
+        "related:annotation",
+        "related:real-time",
+        "EXCL:autonomous driving"
+      ],
+      "summary_tr": "Bu çalışmada, otonom sürüş için kötü hava koşullarında (yağmur, sis, kum, kar) kamera tabanlı nesne tespitini iyileştirmek için CADENet adlı bir ağ geliştirilmiştir. Bu ağ, koşula bağlı asenkron çift akışlı geliştirme ağıdır ve gerçek zamanlı gereksinimlerini karşılar. Çalışmada, 1327 DAWN görüntüsünde değerlendirme yapılmış ve Recall ve F1 değerleri elde edilmiştir.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusuyla bağlantısı, görsel işleme ve derin öğrenme metodlarının kullanılmasıdır.",
+      "tags": [
+        "otonom-sürüş",
+        "hava-koşulları",
+        "nesne-tespiti",
+        "YOLO",
+        "derin-öğrenme"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:37:20.671418+00:00"
+    },
+    "cdb829205604ba0b": {
+      "id": "cdb829205604ba0b",
+      "title": "Passive Construction Site Safety Monitoring via Persona-Scaffolded Adversarial Chain-of-Thought VLM Verification",
+      "summary_en": "arXiv:2605.19869v1 Announce Type: new Abstract: Construction remains the deadliest industry sector in the United States, with 1,055 fatal worker injuries recorded in 2023, and the majority preventable. Existing monitoring approaches are expensive, require real-time human operators, or address only a narrow subset of violations. This paper presents a passive, end-of-shift construction safety monitoring pipeline processing video from POV body-worn and fixed wall-mounted cameras through a three-stage architecture: (1) fine-tuned YOLO11 for primary PPE and hazard detection, (2) SAM 3 for segmentation refinement and worker deduplication, and (3) Qwen3-VL-8B-Instruct with a method-prompted, persona-scaffolded three-pass adversarial chain-of-thought protocol for compliance verification and hallucination control. The principal contribution is the Stage 3 prompt design: professional persona backstories following the method-actor framing drive an observed 12% precision improvement over single-pass prompting in an informal three-author review of the 12-video Ironsite development corpus, with the largest gains on hallucination-prone violation categories. Structural message isolation enforces observational independence between a generator, discriminator, and reconciliation pass governed by asymmetric rules encoding priors about human observation versus automated detection reliability. The system maps violations to OSHA standards, performs REBA-inspired ergonomic risk scoring from pose keypoints, and produces per-worker safety reports with timestamped evidence. An evaluation harness is released for future reproduction.",
+      "link": "https://arxiv.org/abs/2605.19869",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:YOLO",
+        "core:VLM",
+        "related:real-time"
+      ],
+      "summary_tr": "Bu çalışmada, inşaat şantiyelerinde iş güvenliğini pasif olarak izlemek için bir pipeline geliştirilmiştir. Bu pipeline, POV body-worn ve fixed wall-mounted kameralardan alınan videoları işler ve üç aşamalı bir mimari kullanır. İlk aşama, YOLO11 ile PPE ve tehlike tespiti yapar, ikinci aşama SAM 3 ile segmentasyon rafine eder ve işçi deduplikasyonu yapar, üçüncü aşama ise Qwen3-VL-8B-Instruct ile uyumluluk doğrulama ve hallucination kontrolü yapar.",
+      "relevance": 8,
+      "why_relevant": "Doktora konusu olan deprem sonrası betonarme yapılardaki hasarların tespiti ile ilgili olarak, bu çalışmada kullanılan görsel işleme ve derin öğrenme metodları benzerlik gösterir.",
+      "tags": [
+        "construction-site-safety",
+        "YOLO",
+        "deep-learning",
+        "compliance-verification",
+        "safety-monitoring"
+      ],
+      "must_read": true,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:37:23.579838+00:00"
+    },
+    "f7c00087b1dd3c35": {
+      "id": "f7c00087b1dd3c35",
+      "title": "World-Ego Modeling for Long-Horizon Evolution in Hybrid Embodied Tasks",
+      "summary_en": "arXiv:2605.19957v1 Announce Type: new Abstract: World models are widely explored in embodied intelligence, yet they typically predict distinct evolutions of the world and the ego within a single stream, where the world captures persistent instruction-agnostic scene regularities and the ego captures robot-centric instruction-conditioned dynamics. This world-ego entanglement leads to a degradation in long-horizon embodied scenarios, particularly in hybrid tasks with interleaved navigation and manipulation behaviors. In this paper, we introduce \\emph{World-Ego Modeling}, a new conceptual paradigm that decomposes future evolution into world and ego components. We define the world-ego boundary from three perspectives, i.e., motion-, semantic-, and intention-based views, and analyze three disentanglement strategies with post-, pre-, and full disentanglement. Further, we instantiate this paradigm as the World-Ego Model (WEM), a unified embodied world model that couples an implicit separate world-ego planner with a cascade-parallel mixture-of-experts (CP-MoE) diffusion generator. To enable rigorous evaluation, we further construct HTEWorld, the first benchmark for long-horizon world modeling with hybrid navigation-manipulation tasks, providing 125K video clips (over 4.5M frames) with fine-grained action annotations and 300 multi-turn evaluation trajectories (over 2K instructions). Extensive experiments show that WEM achieves state-of-the-art performance on HTEWorld while remaining competitive on existing manipulation-only benchmarks.",
+      "link": "https://arxiv.org/abs/2605.19957",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:CLIP",
+        "related:benchmark",
+        "related:annotation",
+        "related:diffusion"
+      ],
+      "summary_tr": "Bu çalışmada, uzun vadeli evrim için hibrit gömülü görevlerde dünya-ego modellemesi sunulmuştur. Dünya ve ego bileşenlerini ayrıntılandırarak, dünya-ego sınırını hareket, anlamsal ve niyet temelli bakış açılarından analiz etmişlerdir. Ayrıca, birleşik bir gömülü dünya modeli olan WEM'i tanıtıp, HTEWorld adlı bir benchmark oluşturmuşlardır.",
+      "relevance": 2,
+      "why_relevant": "Doktora konusu ile bağlantısı, derin öğrenme metodlarının yapı hasarlarının tespitinde kullanılmasıdır.",
+      "tags": [
+        "deep-learning",
+        "world-modeling",
+        "embodied-intelligence"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:37:26.409847+00:00"
+    },
+    "31142d136ab1f0d9": {
+      "id": "31142d136ab1f0d9",
+      "title": "RECIPE: Procedural Planning via Grounding in Instructional Video",
+      "summary_en": "arXiv:2605.19976v1 Announce Type: new Abstract: Visual planning asks a model to generate the remaining steps of a procedure in natural language given a partial video context and a goal. Progress on this task is bottlenecked by annotation: clean labeled datasets are small, domain-narrow, and encode a single execution trajectory per example, even though many valid orderings exist. Large-scale instructional video corpora offer orders of magnitude more procedural content, but supervised fine-tuning on pseudo-labels from their noisy ASR narrations propagates segmentation and alignment errors and stays single-trajectory. We identify a key asymmetry: extracting clean step labels from noisy video is hard, but verifying whether a generated step sequence is temporally grounded in ASR transcripts is cheap and scales to millions of videos via precomputed text embeddings. We exploit this asymmetry in RECIPE, which uses grounding quality as a reward for GRPO, turning the noisy corpus into a verifier rather than a label source. The framework applies uniformly to two planner input configurations (Socratic, with a textual history extracted by a frozen VLM, and Video, consuming video tokens directly) and to annotated and weakly supervised regimes. We evaluate on 7 procedural benchmarks using a reference-based LLM-as-judge protocol scoring plans across 6 procedural criteria. RECIPE-RL improves over the base checkpoint at all scales (0.5B, 3B, 7B) and every benchmark, with macro-accuracy gains of +7 to +8 points in-domain and up to +16 points zero-shot. It outperforms supervised fine-tuning on both annotated and pseudo-labeled plans (the latter degrades the base) and remains robust without human annotations. Used as the proposal stage of a prior propose-assess-search planner, it improves over the strongest zero-shot baseline at every horizon on Visual Planning for Assistance, and on COIN it preserves the generation diversity that SFT collapses.",
+      "link": "https://arxiv.org/abs/2605.19976",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:VLM",
+        "related:dataset",
+        "related:benchmark",
+        "related:annotation"
+      ],
+      "summary_tr": "Bu çalışmada, RECIPE adlı bir metod geliştirilmiştir. Bu metod, video içeriklerinde prosedürel planlama yapabilmektedir. Video ve metin tabanlı girdilerle çalışabilen bu metod, büyük ölçekli eğitim verilerini kullanarak daha iyi sonuçlar elde etmektedir. RECIPE, prosedürel planlama görevlerinde başarılı sonuçlar elde etmiş ve diğer metodları geride bırakmıştır.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu olan deprem sonrası hasar tespitinde, video işleme ve derin öğrenme metodlarının kullanılması bağlamında ilgili bir çalışma.",
+      "tags": [
+        "video-processing",
+        "deep-learning",
+        "procedural-planning",
+        "instructional-videos",
+        "grounding"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:37:29.295556+00:00"
+    },
+    "a2ae0e8186ea9c4a": {
+      "id": "a2ae0e8186ea9c4a",
+      "title": "MetaEarth-MM: Unified Multimodal Remote Sensing Image Generation with Scene-centered Joint Modeling",
+      "summary_en": "arXiv:2605.20090v1 Announce Type: new Abstract: Multi-modal remote sensing images are vital for Earth observation, yet complete paired observations are often scarce in practice. Existing generative methods commonly address this problem through isolated pairwise modality translation, but their versatility and scalability remain limited as the number of modalities and generation tasks increases. Here, we develop a generative foundation model MetaEarth-MM for multi-modal remote sensing imagery, enabling paired joint generation and any-to-any translation across five modalities within a unified model. Recognizing the intrinsic scene consistency underlying multi-modal observations, we introduce a scene-centered joint modeling paradigm in MetaEarth-MM. Unlike previous methods that rely on direct appearance-level cross-modal mapping, our model organizes the generation around the underlying scene content. Specifically, MetaEarth-MM adopts a decoupled architecture that first infers a latent scene representation from available observations, and then generates target modalities conditioned on this intermediate state. To support training, we further construct EarthMM, a large-scale dataset comprising 2.8 million multi-resolution global images with 2.2 million aligned pairs. Extensive experiments demonstrate that MetaEarth-MM not only exhibits strong generative capability and robust generalization across diverse generation tasks, but also supports downstream tasks at both data and representation levels, highlighting its potential as a general foundation model for cross-modal Earth observation. The code and dataset will be available at https://github.com/YZPioneer/MetaEarth-MM.",
+      "link": "https://arxiv.org/abs/2605.20090",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:ViT",
+        "core:foundation model",
+        "related:dataset"
+      ],
+      "summary_tr": "Çok modlu uzaktan algılama görüntülerinin oluşturulması için MetaEarth-MM adlı bir model geliştirilmiştir. Bu model, beş farklı mod arasında birleştirilmiş joint modelleme kullanarak görüntüler oluşturabilir. Model, ilk olarak mevcut gözlemlerden bir latent sahne temsili oluşturur ve daha sonra bu ara durumdan hedef modlarını oluşturur.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu ile bağlantısı, hasar tespitinde kullanılan görüntülerin işlenmesinde ve analizinde benzer yöntemlerin kullanılması olabilir.",
+      "tags": [
+        "image-generation",
+        "remote-sensing",
+        "deep-learning",
+        "scene-understanding"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:37:32.293371+00:00"
+    },
+    "b4296564595f216a": {
+      "id": "b4296564595f216a",
+      "title": "PixVerve: Advancing Native UHR Image Generation to 100MP with a Large-Scale High-Quality Dataset",
+      "summary_en": "arXiv:2605.20147v1 Announce Type: new Abstract: Text-to-Image (T2I) models have recently seen notable progress around 1K and 2K resolution. With the extreme desire for better visual experience and the rapid development of imaging technology, the demand for Ultra-High-Resolution (UHR) image generation has grown significantly. However, UHR image generation poses great challenges due to the scarcity and complexity of high-resolution content. In this paper, we first introduce PixVerve-95K, a high-quality, open-source UHR T2I dataset curated with a carefully designed data pipeline, which contains 95K images across diverse scenarios (each image has a minimum pixel-count of 100M) and seven-dimensional annotations. Based on our large-scale image-text dataset, we take a pioneering step to extend various T2I foundation models to native 100MP generation with three training schemes. Finally, leveraging both conventional metrics and multimodal large language model-based assessments, our proposed PixVerve-Bench benchmark establishes a comprehensive evaluation protocol for UHR images encompassing visual quality and semantic alignment. Extensive experimental results on our benchmark and the constructive exploration of training strategies collaboratively provide valuable insights for future breakthroughs.",
+      "link": "https://arxiv.org/abs/2605.20147",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:foundation model",
+        "related:dataset",
+        "related:benchmark",
+        "related:annotation"
+      ],
+      "summary_tr": "Bu çalışmada, PixVerve-95K adlı büyük ölçekli, yüksek kaliteli bir veri seti oluşturulmuş ve bu veri seti kullanılarak 100MP çözünürlüğünde görseller oluşturmak için üç farklı eğitim yöntemi uygulanmıştır. Çalışmada, geleneksel metriklere ek olarak çok modlu büyük dil modeli tabanlı değerlendirmeler de kullanılmıştır. Sonuç olarak, PixVerve-Bench adlı bir benchmark oluşturulmuş ve bu benchmark ile UHR görsellerin görsel kalitesi ve semantik hizalaması değerlendirilmiştir.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu olan deprem sonrası hasar tespitinde, yüksek çözünürlüklü görsellerin işlenmesi önemlidir ve bu çalışmada sunulan yöntemler bu alanda faydalı olabilir.",
+      "tags": [
+        "image-generation",
+        "deep-learning",
+        "dataset",
+        "uhr-image",
+        "benchmark"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:37:35.306368+00:00"
+    },
+    "8522652b64ffbef7": {
+      "id": "8522652b64ffbef7",
+      "title": "DarkLLM: Learning Language-Driven Adversarial Attacks with Large Language Models",
+      "summary_en": "arXiv:2605.18868v1 Announce Type: cross Abstract: While vision and multimodal foundation models underpin critical tasks from perception to complex reasoning, they remain highly vulnerable to adversarial attacks. However, traditional adversarial attacks are typically limited to single, predefined objectives, tightly coupling each attack to a specific model or task, which restricts their scalability and flexibility in real-world scenarios. In this work, we present DarkLLM, a novel attack framework that trains an LLM to translate natural-language attack instructions into latent attack vectors, which are then decoded into visual adversarial perturbations. By leveraging natural-language instruction tuning, DarkLLM not only unifies targeted, untargeted, segmentation, and multi-model attacks within a single framework, but also achieves flexible and controllable adversarial generation, enabling each instruction to produce a perturbation that induces desired behaviors across heterogeneous models. Through extensive experiments across 4 tasks, 13 datasets, and 15 models, we demonstrate that DarkLLM with only 1B parameters can follow attacker instructions and generate highly effective attacks against CLIP, SAM, and frontier LLMs, revealing a systemic vulnerability in modern foundation models.",
+      "link": "https://arxiv.org/abs/2605.18868",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:CLIP",
+        "core:foundation model",
+        "related:dataset"
+      ],
+      "summary_tr": "Bu çalışmada, DarkLLM adlı bir saldırı çerçevesi sunulmuştur. Bu çerçeve, büyük dil modellerini kullanarak doğal dil saldırı talimatlarını gizli saldırı vektörlerine çevirir ve bunları görsel saldırı bozulmalarına dönüştürür. Bu sayede, hedefli, hedefsiz, segmentasyon ve çoklu model saldırıları tek bir çerçeve altında birleştirilmiştir. Deneyimler, DarkLLM'nin 1B parametreye sahip olarak attacker talimatlarını takip edebildiğini ve CLIP, SAM ve diğer büyük dil modellerine karşı etkili saldırılar üretebildiğini göstermiştir.",
+      "relevance": 2,
+      "why_relevant": "Doktora konusu deprem sonrası hasar tespiti ile ilgiliyken, bu çalışma görsel saldırılar ve büyük dil modelleri ile ilgilidir.",
+      "tags": [
+        "adversarial-attacks",
+        "large-language-models",
+        "computer-vision"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:37:38.176033+00:00"
+    },
+    "eb6c0650f0846b45": {
+      "id": "eb6c0650f0846b45",
+      "title": "Adaptive Camera Sensor for Vision Models",
+      "summary_en": "arXiv:2503.02170v3 Announce Type: replace Abstract: Domain shift remains a persistent challenge in deep-learning-based computer vision, often requiring extensive model modifications or large labeled datasets to address. Inspired by human visual perception, which adjusts input quality through corrective lenses rather than over-training the brain, we propose Lens, a novel camera sensor control method that enhances model performance by capturing high-quality images from the model's perspective rather than relying on traditional human-centric sensor control. Lens is lightweight and adapts sensor parameters to specific models and scenes in real-time. At its core, Lens utilizes VisiT, a training-free, model-specific quality indicator that evaluates individual unlabeled samples at test time using confidence scores without additional adaptation costs. To validate Lens, we introduce ImageNet-ES Diverse, a new benchmark dataset capturing natural perturbations from varying sensor and lighting conditions. Extensive experiments on both ImageNet-ES and our new ImageNet-ES Diverse show that Lens significantly improves model accuracy across various baseline schemes for sensor control and model modification while maintaining low latency in image captures. Lens effectively compensates for large model size differences and integrates synergistically with model improvement techniques. Our code and dataset are available at github.com/Edw2n/Lens.git.",
+      "link": "https://arxiv.org/abs/2503.02170",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:computer vision",
+        "related:dataset",
+        "related:benchmark",
+        "related:real-time"
+      ],
+      "summary_tr": "Bu çalışmada, Lens adında bir kamera sensörü kontrol yöntemi önerilmiştir. Lens, derin öğrenme tabanlı bilgisayar vizyonunda domain shift sorununu çözmek için tasarlanmıştır. Bu yöntem, geleneksel insan merkezli sensör kontrolünün yerine, modelin bakış açısına göre yüksek kaliteli görüntüler yakalamayı hedeflemektedir. Lens, VisiT adlı bir kalite göstergesini kullanarak modelin performansını geliştirmektedir.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu olan deprem sonrası betonarme yapılardaki hasarların görsel işleme ve derin öğrenme metodları ile tespiti ile ilgili olarak, bu çalışmada önerilen Lens yöntemi, hasar tespitinde kullanılan görüntülerin kalitesini artırmak için kullanılabilecektir.",
+      "tags": [
+        "görüntü-işleme",
+        "derin-öğrenme",
+        "kamera-sensörü",
+        "domain-shift",
+        "model-performansı"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:37:41.074438+00:00"
+    },
+    "b11ef9204ba2c619": {
+      "id": "b11ef9204ba2c619",
+      "title": "Spatial-MLLM: Boosting MLLM Capabilities in Visual-based Spatial Intelligence",
+      "summary_en": "arXiv:2505.23747v2 Announce Type: replace Abstract: Recent advancements in Multimodal Large Language Models (MLLMs) have significantly enhanced performance on 2D visual tasks. However, improving their spatial intelligence remains a challenge. Existing 3D MLLMs always rely on additional 3D or 2.5D data to incorporate spatial awareness, restricting their utility in scenarios with only 2D inputs, such as images or videos. In this paper, we present Spatial-MLLM, a novel framework for visual-based spatial reasoning from purely 2D observations. Unlike conventional video MLLMs which rely on CLIP-based visual encoders optimized for semantic understanding, our key insight is to unleash the strong structure prior from the feed-forward visual geometry foundation model. Specifically, we propose a dual-encoder architecture: a pretrained 2D visual encoder to extract semantic features, and a 3D spatial encoder-initialized from the backbone of the visual geometry model-to extract 3D structure features. A connector then integrates both features into unified visual tokens for enhanced spatial understanding. Furthermore, we propose a space-aware frame sampling strategy at inference time, which selects the spatially informative frames of a video sequence, ensuring that even under limited token length, the model focuses on frames critical for spatial reasoning. Beyond architecture improvements, we construct a training dataset from multiple sources and train the model on it using supervised fine-tuning and GRPO. Extensive experiments on various real-world datasets demonstrate that Spatial-MLLM achieves state-of-the-art performance in a wide range of visual-based spatial understanding and reasoning tasks. Project page: https://diankun-wu.github.io/Spatial-MLLM/.",
+      "link": "https://arxiv.org/abs/2505.23747",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:CLIP",
+        "core:foundation model",
+        "related:dataset"
+      ],
+      "summary_tr": "Bu çalışmada, görsel tabanlı uzaysal zeka için Spatial-MLLM adlı bir çerçeve geliştirilmiştir. Bu çerçeve, 2B görsel veri üzerinden uzaysal akıl yürütme yapabilen bir modeldir. Çift kodlayıcı mimarisi ve uzay-farkındalık çerçevesi ile geliştirilmiştir.",
+      "relevance": 8,
+      "why_relevant": "Doktora konusu olan deprem sonrası hasar tespitinde görsel işleme ve derin öğrenme metodları kullanıldığı için bu çalışma ile ilgili",
+      "tags": [
+        "görsel-işleme",
+        "derin-öğrenme",
+        "uzaysal-zeka",
+        "video-analizi"
+      ],
+      "must_read": true,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:37:43.708383+00:00"
+    },
+    "1a11a5da5003f3c5": {
+      "id": "1a11a5da5003f3c5",
+      "title": "Landslide Detection and Mapping Using Deep Learning Across Multi-Source Satellite Data and Geographic Regions",
+      "summary_en": "arXiv:2507.01123v2 Announce Type: replace Abstract: Landslides pose severe threats to infrastructure, economies, and human lives, necessitating accurate detection and predictive mapping across diverse geographic regions. With advancements in deep learning and remote sensing, automated landslide detection has become increasingly effective. This study presents a comprehensive approach integrating multi-source satellite imagery and deep learning models to enhance landslide identification and prediction. We leverage Sentinel-2 multispectral data and ALOS PALSAR-derived slope and Digital Elevation Model (DEM) layers to capture critical environmental features influencing landslide occurrences. Various geospatial analysis techniques are employed to assess the impact of terra in characteristics, vegetation cover, and rainfall on detection accuracy. Additionally, we evaluate the performance of multiple stateof-the-art deep learning segmentation models, including U-Net, DeepLabV3+, and Res-Net, to determine their effectiveness in landslide detection. The proposed framework contributes to the development of reliable early warning systems, improved disaster risk management, and sustainable land-use planning. Our findings provide valuable insights into the potential of deep learning and multi-source remote sensing in creating robust, scalable, and transferable landslide prediction models.",
+      "link": "https://arxiv.org/abs/2507.01123",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:deep learning",
+        "core:U-Net",
+        "related:infrastructure"
+      ],
+      "summary_tr": "Bu çalışmada, derin öğrenme modelleri ve çoklu uydu verilerinin birleştirilmesi ile heyelanların otomatik olarak tespit edilmesi amaçlanmıştır. Sentinel-2 multispektral verileri ve ALOS PALSAR türetilen eğimi ve Digital Elevation Model (DEM) katmanları kullanılarak kritik çevresel özellikler elde edilmiştir. Farklı coğrafi analiz teknikleri uygulanarak terra özellikleri, bitki örtüsü ve yağmurun tespit doğruluğuna etkisi değerlendirilmiştir.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusunun derin öğrenme ve görsel işleme metodları ile hasar tespiti üzerine odaklanması nedeniyle bu çalışmanın sonuçları ve yöntemleri konuyla ilgili bulunmuştur.",
+      "tags": [
+        "deep-learning",
+        "image-segmentation",
+        "remote-sensing",
+        "disaster-detection",
+        "geospatial-analysis"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:37:46.854034+00:00"
+    },
+    "5b4ce3d5bbef05a6": {
+      "id": "5b4ce3d5bbef05a6",
+      "title": "MVI-Bench: A Comprehensive Benchmark for Evaluating Robustness to Misleading Visual Inputs in LVLMs",
+      "summary_en": "arXiv:2511.14159v2 Announce Type: replace Abstract: Evaluating the robustness of Large Vision-Language Models (LVLMs) is essential for their continued development and responsible deployment in real-world applications. However, existing robustness benchmarks typically focus on hallucination or misleading textual inputs, while largely overlooking the equally critical challenge posed by misleading visual inputs in assessing visual understanding. To fill this important gap, we introduce MVI-Bench, the first comprehensive benchmark specially designed for evaluating how Misleading Visual Inputs undermine the robustness of LVLMs. Grounded in fundamental visual primitives, the design of MVI-Bench centers on three hierarchical levels of misleading visual inputs: Visual Concept, Visual Attribute, and Visual Relationship. Using this taxonomy, we curate six representative categories and compile 1,248 expertly annotated VQA instances. To facilitate fine-grained robustness evaluation, we further introduce MVI-Sensitivity, a novel metric that characterizes LVLM robustness at a granular level. Empirical results across 18 state-of-the-art LVLMs uncover pronounced vulnerabilities to misleading visual inputs, and our in-depth analyses on MVI-Bench provide actionable insights that can guide the development of more reliable and robust LVLMs. The benchmark and codebase can be accessed at https://github.com/chenyil6/MVI-Bench.",
+      "link": "https://arxiv.org/abs/2511.14159",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:ViT",
+        "core:VLM",
+        "related:benchmark"
+      ],
+      "summary_tr": "Bu çalışmada, Büyük Görsel-Dil Modellerinin (LVLM) güvenilirliğini değerlendirmek için MVI-Bench adlı bir benchmark tanıtılmıştır. MVI-Bench, LVLM'lerin yanıltıcı görsel girdilere karşı dayanıklılığını değerlendirmek için tasarlanmış bir çerçeve sunar. Bu benchmark, görsel kavram, görsel öznitelik ve görsel ilişki gibi üç hiyerarşik düzeyde yanıltıcı görsel girdileri içerir.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu, deprem sonrası betonarme yapılardaki hasarların görsel işleme ve derin öğrenme metodları ile tespiti ile ilgiliyken, bu çalışma görsel girdi dayanıklılığı ile ilgili bir benchmark sunuyor.",
+      "tags": [
+        "görsel-işleme",
+        "derin-öğrenme",
+        "benchmark",
+        "dayanıklılık-değerlendirmesi"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:37:49.873593+00:00"
+    },
+    "47e0e2bcd4b86696": {
+      "id": "47e0e2bcd4b86696",
+      "title": "EduVQA: Towards Concept-Aware Assessment of Educational AI-Generated Videos",
+      "summary_en": "arXiv:2603.03066v3 Announce Type: replace Abstract: Existing AI-generated video quality assessment (AIGVQA) methods mainly focus on global perceptual realism and coarse text-video alignment, while overlooking a critical requirement in educational scenarios: concept correctness. In early mathematics education, subtle errors in numerical quantities, geometric relations, or spatial configurations may fundamentally alter the conveyed knowledge despite visually plausible generation. To address this problem, we introduce EduAVQABench, the first benchmark for concept-aware educational AIGV assessment, containing 1,130 videos generated by ten state-of-the-art T2V models together with over 310,650 fine-grained human annotations spanning perceptual quality and semantic alignment. Built upon this benchmark, we further propose EduVQA, a concept-aware AIGVQA framework equipped with a Structured 2D Mixture-of-Experts (S2D-MoE) architecture. By jointly modeling fine-grained concept assessment and overall quality prediction through shared experts and adaptive two-dimensional routing, EduVQA effectively captures subtle concept-level inconsistencies overlooked by conventional global scoring methods. Extensive experiments demonstrate that EduVQA consistently outperforms existing AIGVQA approaches across both perceptual and semantic evaluation tasks while exhibiting strong generalization capability on unseen benchmarks. Code and dataset will be publicly available at: https://github.com/EduVQA/EduVQA.",
+      "link": "https://arxiv.org/abs/2603.03066",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:UAV",
+        "related:dataset",
+        "related:benchmark",
+        "related:annotation"
+      ],
+      "summary_tr": "Eğitim videolarının kalitesini değerlendirmek için EduVQA adlı bir çerçeve geliştirilmiştir. Bu çerçeve, yapay zeka tarafından oluşturulan videolardaki kavramsal hataları tespit etmek için Structured 2D Mixture-of-Experts (S2D-MoE) mimarisini kullanır. EduVQA, geleneksel yöntemlerin gözden kaçırdığı ince kavram düzeyindeki tutarsızlıkları etkili bir şekilde yakalar. Deneyimler, EduVQA'nın mevcut yöntemlerden daha iyi performans gösterdiğini ve güçlü bir genellemeye sahip olduğunu göstermiştir.",
+      "relevance": 2,
+      "why_relevant": "Doktora konusu deprem sonrası hasarların tespiti ile ilgiliyken, bu makale eğitim videolarının kalitesini değerlendirmek ile ilgilidir.",
+      "tags": [
+        "video-quality-assessment",
+        "deep-learning",
+        "education",
+        "ai-generated-content"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:37:52.717290+00:00"
+    },
+    "9ba28f1111cfe8aa": {
+      "id": "9ba28f1111cfe8aa",
+      "title": "A Grid-Based Framework for E-Scooter Demand Representation and Temporal Input Design for Deep Learning: Evidence from Austin, Texas",
+      "summary_en": "arXiv:2603.13609v2 Announce Type: replace Abstract: Despite progress in deep learning for shared micromobility demand prediction, the systematic design and statistical validation of temporal input structures remain underexplored. Temporal features are often selected heuristically, even though historical demand strongly affects model performance and generalizability. This paper introduces a reproducible data-processing pipeline and a statistically grounded method for designing temporal input structures for image-to-image demand prediction. Using large-scale e-scooter data from Austin, Texas, we build a grid-based spatiotemporal dataset by converting trip records into hourly pickup and dropoff demand images. The pipeline includes trip filtering, mapping Census Tracts to spatial locations, grid construction, demand aggregation, and creation of a global activity mask that limits evaluation to historically active areas. This representation supports consistent spatial learning while preserving demand patterns. We then introduce a combined correlation- and error-based procedure to identify informative historical inputs. Optimal temporal depth is selected through an ablation study using a baseline UNET model with paired non-parametric tests and Holm correction. The resulting temporal structures capture short-term persistence as well as daily and weekly cycles. Compared with adjacent-hour and fixed-period baselines, the proposed design reduces mean squared error by up to 37 percent for next-hour prediction and 35 percent for next-24-hour prediction. These results highlight the value of principled dataset construction and statistically validated temporal input design for spatiotemporal micromobility demand prediction.",
+      "link": "https://arxiv.org/abs/2603.13609",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:deep learning",
+        "core:ViT",
+        "related:dataset"
+      ],
+      "summary_tr": "Bu çalışmada, derin öğrenme için paylaşımlı mikromobilite talebi öngörüsünde zamanlı girdi yapılarının sistematik tasarımı ve istatistiksel geçerliliği araştırılmıştır. Austin, Teksas'tan büyük ölçekli e-scooter verileri kullanılarak, saatlik alma ve bırakma talebi resimleri oluşturmak için bir ızgara tabanlı uzay-zaman veri seti oluşturulmuştur. Birleştirilmiş korelasyon ve hata tabanlı bir işlem kullanılarak bilgilendirici tarihi girdiler tanımlanmıştır.",
+      "relevance": 2,
+      "why_relevant": "Doktora konusu deprem sonrası hasarların görsel işleme ve derin öğrenme ile tespiti ile ilgiliyken, bu makale mikromobilite talebi öngörüsüne odaklanmaktadır.",
+      "tags": [
+        "deep-learning",
+        "spatiotemporal-analysis",
+        "demand-prediction",
+        "micromobility",
+        "dataset-construction"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:37:55.623120+00:00"
+    },
+    "53f670638fc5e7a9": {
+      "id": "53f670638fc5e7a9",
+      "title": "UAVFF3D: A Geometry-Aware Benchmark for Feed-Forward UAV 3D Reconstruction",
+      "summary_en": "arXiv:2605.17942v2 Announce Type: replace Abstract: Feed-forward 3D reconstruction has advanced rapidly, but current models remain unreliable in UAV photogrammetric acquisition. We argue that this failure is caused not only by appearance-domain shift, but also by UAV-specific camera-geometry variations, especially oblique views and HFOV-height ambiguity. Existing UAV datasets mainly emphasize scene diversity and provide limited coverage of camera configurations, which restricts robustness evaluation and UAV-domain adaptation. To address this gap, we introduce UAVFF3D, a geometry-aware real-synthetic benchmark for feed-forward UAV 3D reconstruction. UAVFF3D contains more than 170k real UAV images and more than 370k synthetic images rendered from high-quality textured 3D models, covering diverse HFOVs, flight altitudes, viewing directions, and acquisition patterns. It also includes a controlled HFOV-height test subset for diagnosing projection-geometry ambiguity. We further propose an evaluation protocol that jointly assesses camera-geometry estimation and dense scene reconstruction under a shared global alignment, avoiding the bias caused by separate camera and geometry alignments. Experiments on representative feed-forward reconstruction models show that UAVFF3D-based domain adaptation consistently improves camera and geometry estimation, reducing Ray Error by up to 84.2%, Pose ATE by up to 76.0%, and Chamfer Distance by up to 41.1%. In oblique scenes, adaptation reduces the oblique-nadir rotation gap by up to 90.7%. Under HFOV-height ambiguity, it improves robustness across HFOV-height configurations and yields more stable performance across HFOV settings. Incorporating camera priors further improves reconstruction under UAV-specific acquisition geometries. The dataset and evaluation code are available at https://github.com/yanxian-ll/UAVFF3D .",
+      "link": "https://arxiv.org/abs/2605.17942",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:UAV",
+        "related:dataset",
+        "related:benchmark",
+        "related:domain adaptation"
+      ],
+      "summary_tr": "Bu çalışmada, UAVFF3D adında bir benchmark seti tanıtılmıştır. Bu set, UAV'lardan alınan fotoğrafların 3D olarak yeniden yapılandırılmasını hedefleyen bir dizi gerçek ve sentetik görüntü içerir. Bu setin amacı, UAV'lardan alınan fotoğrafların 3D olarak yeniden yapılandırılmasını hedefleyen modellerin güvenilirliğini artırmaktır.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu deprem sonrası hasar tespiti ile ilgiliyken, bu çalışma 3D yeniden yapılandırma ile ilgilidir, ancak hasar tespitinde de benzer yöntemler kullanılabilir.",
+      "tags": [
+        "3d-reconstruction",
+        "uav-photogrammetry",
+        "geometry-aware",
+        "benchmark-dataset"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:37:58.295058+00:00"
+    },
+    "7a518d2967f6211e": {
+      "id": "7a518d2967f6211e",
+      "title": "PERL: Parameter Efficient Reasoning in CLIP Latent Space",
+      "summary_en": "arXiv:2605.18464v2 Announce Type: replace Abstract: Contrastively trained vision-language models such as CLIP provide strong zero-shot transfer by aligning images and text in a shared embedding space. However, adapting these models to downstream tasks without degrading their open-vocabulary generalization remains challenging. Existing parameter-efficient adaptation methods typically improve task specialization through learned prompts, adapters, or multimodal transformations, where adaptation capacity is primarily expressed through additional trainable parameters. Inspired by recent latent reasoning methods in language models, we investigate a complementary perspective: can adaptation emerge from iterative reasoning on latent representations rather than from increasing parameter count alone? We introduce PERL (Parameter-Efficient Reasoning in CLIP Latent Space), a lightweight adaptation framework that augments a frozen CLIP model with a compact shared reasoning module applied recurrently across refinement steps. At each step, PERL generates a latent reasoning token conditioned on the current representation and injects it into an intermediate encoder layer, progressively refining higher-level semantic representations while preserving CLIP's pretrained multimodal structure. Across 15 benchmarks spanning base-to-novel generalization, cross-dataset transfer, and out-of-distribution ImageNet variants, PERL achieves the best parameter-performance trade-off among the compared methods under a fast-adaptation few-shot setting, combining strong novel-class accuracy and competitive transfer performance with only about 6K trainable parameters, up to 817x fewer than the largest compared approach. Overall, our results suggest that iterative latent reasoning provides a complementary adaptation mechanism to parameter scaling in discriminative vision-language models.",
+      "link": "https://arxiv.org/abs/2605.18464",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:CLIP",
+        "related:dataset",
+        "related:benchmark",
+        "related:few-shot"
+      ],
+      "summary_tr": "Bu çalışmada, PERL adlı bir framework geliştirilmiştir. Bu framework, CLIP modelini dondurup, bir reasoning modülü ekleyerek, görsel ve metin verilerini işler. Bu yöntem, modelin performansını artırmak için parametre sayısını artırmak yerine, latent représentasyonları kullanarak adapte olur.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu olan deprem sonrası hasar tespitinde, görsel işleme ve derin öğrenme metodları kullanılır, bu nedenle bu çalışma ile doktora konusu arasında bir bağlantı vardır.",
+      "tags": [
+        "deep-learning",
+        "image-processing",
+        "clip-model",
+        "parameter-efficient",
+        "reasoning-module"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:38:01.262110+00:00"
+    },
+    "389ae050a031a213": {
+      "id": "389ae050a031a213",
+      "title": "LongLive-2.0: An NVFP4 Parallel Infrastructure for Long Video Generation",
+      "summary_en": "arXiv:2605.18739v2 Announce Type: replace Abstract: We present LongLive-2.0, an NVFP4-based parallel infrastructure throughout the full training and inference workflow of long video generation, addressing speed and memory bottlenecks. For training, we introduce sequence-parallel autoregressive (AR) training, instantiated as Balanced SP, which co-designs the efficient teacher-forcing layout with SP execution by pairing clean-history and noisy-target temporal chunks on each rank, enabling a natural teacher-forcing mask with SP-aware chunked VAE encoding. Combined with NVFP4 precision, it reduces GPU memory cost and accelerates GEMM computation during training, the proportion of which increases as video length grows. Moreover, we show that a high-quality infrastructure and dataset enable a remarkably clean training pipeline. Unlike existing Self-Forcing series methods that rely on ODE initialization and subsequent distribution matching distillation (DMD), LongLive-2.0 directly tunes a diffusion model into a long, multi-shot, interactive auto-regressive (AR) diffusion model. It can be further converted to real-time generation (4 to 2 denoising steps) with standalone LoRA weights. For inference on Blackwell GPUs, we enable W4A4 NVFP4 inference, quantize KV cache into NVFP4 for memory savings, and boost end-to-end throughput with asynchronous streaming VAE decoding. On non-Blackwell GPU architectures, we deploy SP inference to match the speed on Blackwell GPUs, while the quantized KV cache can lower inter-GPU communication of SP. Experiments show up to 2.15x speedup in training, and 1.84x in inference. LongLive-2.0-5B achieves 45.7 FPS inference while attaining strong performance on benchmarks. To our knowledge, LongLive-2.0 is the first NVFP4 training and inference system for long video generation.",
+      "link": "https://arxiv.org/abs/2605.18739",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "related:infrastructure",
+        "related:dataset",
+        "related:benchmark",
+        "related:real-time",
+        "related:diffusion"
+      ],
+      "summary_tr": "LongLive-2.0 adlı bir paralel altyapı geliştirilmiştir. Bu altyapı, uzun video oluşturma işlemlerinde hız ve bellek sorunlarını çözmeyi amaçlamaktadır. LongLive-2.0, NVFP4 tabanlı bir paralel altyapıdır ve eğitim ve çıkarım işlemlerinde kullanılmaktadır.",
+      "relevance": 2,
+      "why_relevant": "Doktora konusu deprem sonrası hasar tespiti ile ilgiliyken, bu makale video oluşturma ile ilgili olduğu için direkt bir bağlantısı yoktur.",
+      "tags": [
+        "video-generation",
+        "nvfp4",
+        "parallel-infrastructure",
+        "deep-learning"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:38:03.992172+00:00"
+    },
+    "7eefcda3a90af8c5": {
+      "id": "7eefcda3a90af8c5",
+      "title": "E-ReCON: An Energy- and Resource-Efficient Precision-Configurable Sparse nvCIM Macro for Conventional and Spiking Neural Edge Inference",
+      "summary_en": "arXiv:2605.20717v1 Announce Type: cross Abstract: This work presents E-ReCON, a 16 Kb energy and resource-efficient digital compute-in-memory (DCIM) macro based on a compact 3T1R ReRAM bitcell for edge-AI inference. The proposed bitcell occupies only 0.85 um^2 and supports reliable AND-based in-memory multiplication for both conventional convolutional neural network (CNN) and spiking neural network (SNN) workloads. To reduce accumulation overhead, a novel interleaved 10T/28T adder tree is introduced, reducing transistor count and power consumption by 37% and 28%, respectively, compared to a conventional 28T RCA-based design. Implemented in 65 nm CMOS at 1.2 V, the proposed macro achieves a minimum latency of 0.48 ns, throughput of 2.31-3.1 TOPS, and energy efficiency of up to 419 TOPS/W. When evaluated on LeNet-5, AlexNet, and CNN-8 models, the macro achieves 97.81%, 93.23%, and 96.51% accuracy on MNIST/A-Z, CIFAR10, and SVHN datasets, respectively. In addition, 40% pruning preserves nearly 99.8% of the original accuracy while reducing MAC operations and computation cycles. For SNN-oriented workloads, the proposed AND-type bitcell efficiently supports spike-weight multiplication with low switching activity, where the 2A2W configuration achieves accuracy close to the FP32 baseline across VGG-8, VGG-16, and ResNet-18 networks on CIFAR-10, CIFAR-100, and ImageNet-1K datasets. Compared to prior ADC-based ReRAM-CIM designs, the proposed architecture improves latency and energy efficiency by nearly 30-40% while maintaining robust operation under full PVT and ReRAM variability. Overall, E-ReCON provides a scalable, low-latency, and energy-efficient nvCIM platform for next-generation edge-AI, IoT, biomedical sensing, and neuromorphic applications.",
+      "link": "https://arxiv.org/abs/2605.20717",
+      "source": "arXiv eess.IV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:convolutional neural network",
+        "core:ViT",
+        "related:dataset"
+      ],
+      "summary_tr": "Bu çalışmada E-ReCON adlı bir dijital hesap-in-memory (DCIM) makrosu geliştirilmiştir. Bu makro, enerji ve kaynak verimliliği odaklı bir tasarım olup, conventional ve spiking neural network işlemlerini desteklemektedir. E-ReCON, 16 Kb'lik bir kapasiteye sahiptir ve 0.85 um^2'lik bir alana sahiptir. Bu makro, LeNet-5, AlexNet ve CNN-8 modellerinde yüksek doğruluk oranlarına ulaşmıştır.",
+      "relevance": 2,
+      "why_relevant": "Doktora konusu deprem sonrası hasar tespiti ile ilgiliyken, bu çalışma yapay zeka ve derin öğrenme ile ilgili bir konuyu ele almaktadır.",
+      "tags": [
+        "deep-learning",
+        "edge-ai",
+        "nv-cim",
+        "spiking-neural-networks",
+        "digital-circuits"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:38:06.990618+00:00"
+    },
+    "cc8849e595d10e87": {
+      "id": "cc8849e595d10e87",
+      "title": "WaveGraphNet: Physics-Consistent Guided-Wave Damage Localization through Coupled Inverse-Forward Graph Learning",
+      "summary_en": "arXiv:2605.20311v1 Announce Type: new Abstract: Guided-wave structural health monitoring enables damage localization in composite plates using sparse networks of bonded piezoelectric transducers. However, inferring the spatial location of defects from pitch-catch measurements remains weakly constrained when only a limited set of damage locations is available for training. As a result, models trained to predict defect locations may perform well on seen cases but generalize poorly to unseen regions of the structure. This paper proposes WaveGraphNet, a coupled inverse--forward graph learning framework for guided-wave damage localization in Carbon Fiber Reinforced Polymer (CFRP) plates. The sensing layout is explicitly modeled as a graph, where transducers are represented as nodes and measured propagation paths define the graph connectivity. An inverse branch maps graph-structured spectral descriptors of differential guided-wave responses to a damage location, while a forward branch predicts the path-wise energy-deviation patterns of measured wave responses associated with a candidate location. During training, the forward branch serves as a physics-consistent regularizer, discouraging location estimates that are numerically plausible but inconsistent with the measured redistribution of wave-response energy. This coupling encourages agreement between inferred damage coordinates and the underlying wave propagation behavior. Within this benchmark, the proposed graph-based formulation provides a strong localization model for sparse guided-wave sensing and demonstrates improved robustness in extrapolation to held-out regions compared to both non-graph and graph baselines. These results highlight the potential of coupled inverse-forward graph learning as an effective strategy for guided-wave localization under limited spatial coverage.",
+      "link": "https://arxiv.org/abs/2605.20311",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:structural health monitoring",
+        "core:ViT",
+        "related:benchmark"
+      ],
+      "summary_tr": "Bu çalışmada, WaveGraphNet adlı bir yöntemle, kompozit plaklardaki hasarların yerinin belirlenmesi için bir grafik öğrenme çerçevesi önerilmiştir. Bu çerçeve, bir grafik olarak modellenen algılama düzenini kullanır ve hasar yerinin belirlenmesi için ters ve ileri grafik öğrenme dallarını birleştirir. Sonuçlar, bu yöntemin, sınırlı sayıda algılayıcı ile hasar yerinin belirlenmesinde güçlü bir performans gösterdiğini ve diğer yöntemlere kıyasla daha iyi bir genellemeye sahip olduğunu göstermiştir.",
+      "relevance": 8,
+      "why_relevant": "Doktora konusu olan deprem sonrası oluşan betonarme yapılardaki hasarların tespiti ile ilgili bu çalışma, hasar yerinin belirlenmesi için yeni bir yaklaşım sunması açısından alakalıdır.",
+      "tags": [
+        "guided-wave",
+        "graph-learning",
+        "damage-localization",
+        "composite-plates",
+        "physics-consistent"
+      ],
+      "must_read": true,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:38:10.158990+00:00"
+    },
+    "736dc890668a8768": {
+      "id": "736dc890668a8768",
+      "title": "WildRoadBench: A Wild Aerial Road-Damage Grounding Benchmark for Vision-Language Models and Autonomous Agents",
+      "summary_en": "arXiv:2605.20306v1 Announce Type: cross Abstract: We introduce WildRoadBench, a wild aerial road-damage grounding benchmark that couples direct visual grounding by vision-language models with autonomous research-and-engineering by LLM-driven agents on a single professionally annotated UAV corpus. The same image set and the same per-class AP_50 metric are evaluated under two protocols. The VLM Track measures whether a fixed VLM can localise domain-specific damage from one image and one short prompt under a unified prompting, decoding and parsing pipeline. The Agent Track measures whether an autonomous agent, given only a written task brief, a small exploratory slice and a fixed interaction budget, can search the public web, adapt pretrained components, write training and inference code, and submit predictions through a scalar-feedback oracle on a hidden holdout. We benchmark a broad pool of closed-source frontier models and open-source VLMs together with several frontier LLM-driven agents. Both routes remain far from reliable performance in this wild setting: closed-source frontier models lead the VLM leaderboard but still leave more than half of the metric on the table; open-source grounders plateau well below them, and newer generations or reasoning-style variants do not consistently improve grounding; small targets collapse for every open-source model; agents lag the strongest VLM despite richer affordances, and several fail to land a valid submission within the budget. We release the code and data at https://anonymous.4open.science/r/wildroadbench-0607 to support reproducible follow-up research.",
+      "link": "https://arxiv.org/abs/2605.20306",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:VLM",
+        "core:UAV",
+        "related:benchmark"
+      ],
+      "summary_tr": "WildRoadBench, bir havaalanı yol hasarının yerelleştirilmesini değerlendirmek için bir benchmark sunar. Bu benchmark, görme-dil modelleri ve otonom ajanlar tarafından hasarın tespit edilmesini sağlar. Sonuçlar, kapalı kaynaklı ön plan modellerinin lider olduğunu ancak güvenilir performansın hala uzak olduğunu gösterir.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusuyla bağlantısı, hasar tespitinin görme-dil modelleri ve derin öğrenme metodları ile yapılmasıdır.",
+      "tags": [
+        "road-damage-detection",
+        "vision-language-models",
+        "autonomous-agents",
+        "benchmark",
+        "uav-corpus"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:38:12.874996+00:00"
+    },
+    "84dfec925e984531": {
+      "id": "84dfec925e984531",
+      "title": "Unlocking the Potential of Continual Model Merging: An ODE Perspective",
+      "summary_en": "arXiv:2605.19409v2 Announce Type: replace Abstract: Continual Model Merging (CMM) enables rapid customization of foundation models across sequentially arriving tasks, offering a scalable alternative to repeated retraining. However, existing merging rules lack explicit controllability over the allocation of learning capacity between previously learned capabilities and newly merged models. Consequently, as tasks are merged sequentially, this deficiency accumulates into severe forgetting, particularly in scenarios with heterogeneous task importance, where performance allocation becomes highly inconsistent. The key reason can be attributed to the fact that previous methods treat each task model as an isolated parameter point and apply fixed algebraic combinations, rather than explicitly constructing a transition that respects how independently trained models can be connected in parameter space. Motivated by mode connectivity, we assume that desirable merged models lie on low loss connecting paths, and that continual merging should follow such paths without crossing loss barriers that induce forgetting. Grounded in these insights, we propose a novel ODE-driven Merging (ODE-M) tailored for CMM that traces such a path by integrating a time-dependent velocity field and enforcing barrier constraints to prevent loss-increasing steps. Extensive experiments demonstrate that ODE-M achieves state-of-the-art performance compared to its competitors across mainstream CMM benchmarks.",
+      "link": "https://arxiv.org/abs/2605.19409",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:ViT",
+        "core:foundation model",
+        "related:benchmark"
+      ],
+      "summary_tr": "Bu çalışmada, Continual Model Merging (CMM) için yeni bir yaklaşım önerilmiştir. ODE-driven Merging (ODE-M) adlı bu yöntem, zaman bağımlı bir hız alanı entegre ederek ve barrier kısıtlamalarını uygulayarak, kayıp artışı olmadan düşük kaybı bağlayan yolları izlemeyi hedeflemektedir. Bu sayede, önceki yöntemlerin maruz kaldığı unutma sorununu azaltmayı amaçlamaktadır. Deneyimler, ODE-M'nin ana akım CMM benchmarklarında rakiplerine kıyasla üstün performans sergilediğini göstermiştir.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu olan deprem sonrası hasar tespitinde, Continual Model Merging gibi yöntemler kullanılarak model performansını artırmak mümkündür.",
+      "tags": [
+        "continual-learning",
+        "model-merging",
+        "ode-driven-merging",
+        "deep-learning",
+        "computer-vision"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:38:16.042349+00:00"
+    },
+    "a24708d83382d1f9": {
+      "id": "a24708d83382d1f9",
+      "title": "TelecomTS: A Multi-Modal Observability Dataset for Time Series and Language Analysis",
+      "summary_en": "arXiv:2510.06063v2 Announce Type: replace-cross Abstract: Modern enterprises generate vast streams of time series metrics when monitoring complex systems, known as observability data. Unlike conventional time series from domains such as climate, observability data are zero-inflated, highly stochastic, and exhibit minimal temporal structure. Despite their importance, observability datasets remain underrepresented in public benchmarks due to proprietary restrictions and privacy concerns. Existing datasets are often anonymized and normalized, removing scale information and limiting their use for tasks such as anomaly detection, root cause analysis, and multi-modal reasoning. To address this gap, we introduce TelecomTS, a large-scale observability dataset derived from a 5G telecommunications network. TelecomTS features heterogeneous, de-anonymized covariates with explicit absolute scale information and provides a diverse suite of downstream tasks, including anomaly detection, root cause analysis, and multi-modal question-answering. Benchmarking state-of-the-art time series, language, reasoning, and multi-modal foundation models reveals that existing approaches struggle with the abrupt, noisy, and high-variance dynamics characteristic of observability data. Our experiments further underscore the importance of preserving covariates' absolute scale, emphasizing the need for foundation time series models that natively leverage scale information for practical real-world observability applications. The code is available at: https://github.com/Ali-maatouk/TelecomTS.",
+      "link": "https://arxiv.org/abs/2510.06063",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:foundation model",
+        "related:dataset",
+        "related:benchmark",
+        "related:anomaly detection"
+      ],
+      "summary_tr": "Bu çalışmada, modern işletmelerin karmaşık sistemleri izlerken oluşturduğu zaman serisi verilerini analiz etmek için TelecomTS adlı bir çok modlu gözlemlenebilirlik veri seti tanıtılmıştır. Veri seti, 5G telekomünikasyon ağından elde edilen büyük ölçekli bir veri setidir ve anomali tespiti, kök neden analizi ve çok modlu soru-cevap gibi çeşitli görevler için kullanılabilir.",
+      "relevance": 2,
+      "why_relevant": "Doktora konusu deprem sonrası hasarların tespiti ile ilgiliyken, bu çalışma zaman serisi verilerinin analizi ile ilgilidir.",
+      "tags": [
+        "time-series-analysis",
+        "anomaly-detection",
+        "dataset"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:38:18.688542+00:00"
+    },
+    "71b30f047ddedefd": {
+      "id": "71b30f047ddedefd",
+      "title": "Maxitive Donsker-Varadhan Formulation for Possibilistic Variational Inference",
+      "summary_en": "arXiv:2511.21223v2 Announce Type: replace-cross Abstract: Variational inference (VI) is a cornerstone of modern Bayesian learning, enabling approximate inference in complex models. However, its formulation depends on expectations and divergences defined through high-dimensional integrals, often rendering analytical treatment impossible and necessitating heavy reliance on approximations. Possibility theory, an imprecise probability framework, allows us to directly model epistemic uncertainty instead of relying on a subjective interpretation of probabilities. While this framework provides robustness and interpretability under sparse or imprecise information, adapting VI to the possibilistic setting requires rethinking core concepts such as divergences, which presuppose additivity. In this work, we develop a principled formulation for performing possibilistic VI by establishing a maxitive analogue of the classical Donsker-Varadhan formulation. The resulting framework enables us to derive a learning rule for possibilistic VI with exponential-family candidates and practical update rules for neural-network training, giving rise to a family of optimizers termed CBOpt. Finally, we demonstrate that CBOpt achieves competitive performance on both in-domain and out-of-domain image classification tasks.",
+      "link": "https://arxiv.org/abs/2511.21223",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:image classification",
+        "core:ViT",
+        "related:uncertainty"
+      ],
+      "summary_tr": "Bu çalışmada, varyasyonel çıkarım için bir olasılık çerçevesi olan possibility theory kullanılarak, klasik Donsker-Varadhan formülasyonunun maxitive bir analoğu geliştirilmiştir. Bu, possibilistic varyasyonel çıkarım için bir öğrenme kuralı türetilmesini ve nöral ağ eğitimi için pratik güncelleme kurallarının elde edilmesini sağlamıştır. CBOpt adlı bir optimizasyon ailesi oluşturularak, bu yöntemin resim sınıflandırma görevlerinde rekabetçi performans gösterdiği gösterilmiştir.",
+      "relevance": 2,
+      "why_relevant": "Doktora konusu deprem sonrası hasarların tespiti ile ilgiliyken, bu çalışma varyasyonel çıkarım ve olasılık teorisi ile ilgilidir.",
+      "tags": [
+        "possibility-theory",
+        "variational-inference",
+        "deep-learning",
+        "image-classification"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:38:21.811393+00:00"
+    },
+    "27fd28ecf64c2c38": {
+      "id": "27fd28ecf64c2c38",
+      "title": "JoyAI-Image: Awaking Spatial Intelligence in Unified Multimodal Understanding and Generation",
+      "summary_en": "arXiv:2605.04128v2 Announce Type: replace-cross Abstract: We present JoyAI-Image, a unified multimodal foundation model for visual understanding, text-to-image generation, and instruction-guided image editing. JoyAI-Image couples a spatially enhanced Multimodal Large Language Model (MLLM) with a Multimodal Diffusion Transformer (MMDiT), allowing perception and generation to interact through a shared multimodal interface. Around this architecture, we build a scalable training recipe that combines unified instruction tuning, long-text rendering supervision, spatially grounded data, and both general and spatial editing signals. This design gives the model broad multimodal capability while strengthening geometry-aware reasoning and controllable visual synthesis. Experiments across understanding, generation, long-text rendering, and editing benchmarks show that JoyAI-Image achieves state-of-the-art or highly competitive performance. More importantly, the bidirectional loop between enhanced understanding, controllable spatial editing, and novel-view-assisted reasoning enables the model to move beyond general visual competence toward stronger spatial intelligence. These results suggest a promising path for unified visual models in downstream applications such as vision-language-action systems and world models.",
+      "link": "https://arxiv.org/abs/2605.04128",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:foundation model",
+        "related:benchmark",
+        "related:diffusion",
+        "related:strengthening"
+      ],
+      "summary_tr": "JoyAI-Image adlı birleştirilmiş çoklu modal temel model geliştirilmiştir. Bu model, görsel anlama, metin-görsel oluşturma ve talimatlı görsel düzenleme için tasarlanmıştır. Model, uzaysal olarak geliştirilmiş bir Çoklu Modal Büyük Dil Modeli (MLLM) ve Çoklu Modal Difüzyon Dönüştürücü (MMDiT) ile birleştirilmiştir.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu ile bağlantısı, görsel işleme ve derin öğrenme metodlarının yapı hasarlarının tespitinde kullanılmasıdır.",
+      "tags": [
+        "image-processing",
+        "deep-learning",
+        "multimodal-models",
+        "computer-vision"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:38:24.306708+00:00"
+    },
+    "5003d1ca326e7626": {
+      "id": "5003d1ca326e7626",
+      "title": "Life-cycle based time-dependent seismic design of reinforced concrete bridge piers empowered by data-driven fragility analysis",
+      "summary_en": "Publication date: 1 September 2026 Source: Engineering Structures, Volume 362 Author(s): Kangshuai Yin, Xinzhi Duan, Xun Zhou, Yan Xu, Yin Gu",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0141029626008618?dgcid=rss_sd_all",
+      "source": "Engineering Structures",
+      "category": "journal",
+      "published": "2026-05-21T23:36:44.892508+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:reinforced concrete",
+        "related:concrete",
+        "related:seismic",
+        "related:fragility"
+      ],
+      "summary_tr": "Bu çalışmada, betonarme köprü kulelerinin deprem dayanımı için veri odaklı kırılganlık analizi kullanılarak zaman bağımlı deprem tasarımı yapılmıştır. Yaşam döngüsü temelli bir yaklaşım uygulanmıştır. Veri odaklı fragility analizi ile köprü kulelerinin deprem hasarlarına karşı dayanıklılığı değerlendirilmiştir.",
+      "relevance": 8,
+      "why_relevant": "Doktora konusu deprem sonrası hasarların tespiti ile ilgili olduğu için bu çalışma köprü kulelerinin deprem hasarlarına karşı dayanıklılığını değerlendirmesi açısından alakalı",
+      "tags": [
+        "seismic-design",
+        "reinforced-concrete",
+        "bridge-piers",
+        "fragility-analysis",
+        "data-driven"
+      ],
+      "must_read": true,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:38:27.337421+00:00"
+    },
+    "dd063b4236aac697": {
+      "id": "dd063b4236aac697",
+      "title": "Automated rail spalling detection and quantification via pose rectification and enhanced deep semantic segmentation",
+      "summary_en": "Publication date: August 2026 Source: Automation in Construction, Volume 188 Author(s): Mingjing Yue, Jian Yang, Allen A. Zhang, Jingmang Xu, Yao Qian, Ping Wang, Kai Wang",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0926580526002529?dgcid=rss_sd_all",
+      "source": "Automation in Construction",
+      "category": "journal",
+      "published": "2026-05-21T23:36:44.991732+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "critical:spalling detection",
+        "core:semantic segmentation"
+      ],
+      "summary_tr": "Bu çalışmada, demiryolu raylarının aşınmasını otomatik olarak tespit etmek ve ölçmek için bir yöntem geliştirilmiştir. Pozisyon düzeltme ve geliştirilmiş derin anlamsal segmentasyon teknikleri kullanılarak, demiryolu raylarındaki hasarların tespit edilmesi amaçlanmıştır. Bu yöntem, yüksek doğruluk oranıyla hasarların tespit edilmesini sağlar.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusuyla bağlantısı, hasar tespitinde kullanılan derin öğrenme metodlarının benzer şekilde betonarme yapılardaki hasarların tespitinde de kullanılabileceği ihtimalidir.",
+      "tags": [
+        "rail-spalling-detection",
+        "deep-semantic-segmentation",
+        "pose-rectification",
+        "automation",
+        "construction"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:38:30.192161+00:00"
+    },
+    "082d09cb67daa761": {
+      "id": "082d09cb67daa761",
+      "title": "VTECSeg: Edge-aware hybrid CNN-vision transformer network with zero-shot vision-language-guided region proposals for crack segmentation",
+      "summary_en": "Publication date: August 2026 Source: Automation in Construction, Volume 188 Author(s): Oscar Poudel, Xi Hu, Rayan H. Assaad, Wei Wang, Tommy Huang, Gavin Wang",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0926580526002396?dgcid=rss_sd_all",
+      "source": "Automation in Construction",
+      "category": "journal",
+      "published": "2026-05-21T23:36:44.991881+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "critical:crack segmentation",
+        "core:vision transformer"
+      ],
+      "summary_tr": "Bu çalışmada, VTECSeg adlı bir ağ geliştirilmiş ve bu ağ, betonarme yapılardaki çatlakların segmentasyonunda kullanılmıştır. Edge-aware hibrit CNN-vision transformer ağı, zero-shot vision-language-guided bölge önerileri ile birlikte çalışarak çatlakları tespit etmiştir. Bu yöntem, geleneksel yöntemlere kıyasla daha yüksek doğruluk ve hız sunmaktadır. Ayrıca, bu ağın performansı Automation in Construction dergisinde yayınlanan bir makalede gösterilmiştir.",
+      "relevance": 9,
+      "why_relevant": "Doktora konusu deprem sonrası betonarme yapılardaki hasarların tespiti ile ilgili olduğu için bu makale doğrudan konu ile ilgili",
+      "tags": [
+        "crack-detection",
+        "deep-learning",
+        "cnn",
+        "vision-transformer",
+        "segmentation"
+      ],
+      "must_read": true,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:38:33.072414+00:00"
+    },
+    "bffb36590eed266f": {
+      "id": "bffb36590eed266f",
+      "title": "Deep learning and digital twin driven structural health monitoring of masonry structures: Progress and challenges",
+      "summary_en": "Publication date: August 2026 Source: Automation in Construction, Volume 188 Author(s): Zhongliang Zou, Mansheng Wang, Bo Song, Junbiao He, Shuzhen Yang",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0926580526002347?dgcid=rss_sd_all",
+      "source": "Automation in Construction",
+      "category": "journal",
+      "published": "2026-05-21T23:36:44.992089+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:structural health monitoring",
+        "core:deep learning",
+        "related:masonry"
+      ],
+      "summary_tr": "Bu çalışmada, derin öğrenme ve dijital ikiz teknolojilerinin tuğla yapıların yapısal sağlık izlemesinde kullanımı ele alınmıştır. Yöntem, yapının durumunu izlemek ve hasarları tespit etmek için dijital ikiz modeli ve derin öğrenme algoritmalarını birleştirir. Çalışma, bu teknolojilerin tuğla yapıların sağlık izlemesindeki ilerlemesini ve zorluklarını tartışmaktadır.",
+      "relevance": 8,
+      "why_relevant": "Doktora konusu olan deprem sonrası betonarme yapılardaki hasarların tespitine benzer şekilde, bu çalışma da yapısal sağlık izlemesi ve hasar tespiti konularına odaklanmaktadır.",
+      "tags": [
+        "deep-learning",
+        "digital-twin",
+        "structural-health-monitoring",
+        "masonry-structures",
+        "damage-detection"
+      ],
+      "must_read": true,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:38:36.083133+00:00"
+    },
+    "d9087dd853749357": {
+      "id": "d9087dd853749357",
+      "title": "From instance segmentation to physical quantification: High-resolution UAV-based dataset for façade defect assessment",
+      "summary_en": "Publication date: August 2026 Source: Automation in Construction, Volume 188 Author(s): Benyun Zhao, Jihan Zhang, Yijun Huang, Xi Chen, Ben M. Chen",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0926580526002219?dgcid=rss_sd_all",
+      "source": "Automation in Construction",
+      "category": "journal",
+      "published": "2026-05-21T23:36:44.992165+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:instance segmentation",
+        "core:UAV",
+        "related:dataset"
+      ],
+      "summary_tr": "Bu çalışmada, yüksek çözünürlüklü insansız hava aracı (UAV) tabanlı bir veri seti oluşturularak, cephe hasarlarının fiziksel miktarlarının belirlenmesi amaçlanmıştır. Çalışmada, örnek segmentasyonu yöntemleri kullanılarak cephe kusurlarının tespit edilmesi sağlanmıştır. Yüksek çözünürlüklü görüntülerin kullanımı, hasarların daha doğru bir şekilde belirlenmesine olanak tanımıştır.",
+      "relevance": 9,
+      "why_relevant": "Doktora konusu olan deprem sonrası betonarme yapılardaki hasarların görsel işleme/derin öğrenme metodları ile tespiti ile doğrudan ilgili",
+      "tags": [
+        "uav-based-dataset",
+        "facade-defect-assessment",
+        "instance-segmentation",
+        "deep-learning",
+        "construction-monitoring"
+      ],
+      "must_read": true,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:38:38.896030+00:00"
+    },
+    "b9c388b2c1c8e361": {
+      "id": "b9c388b2c1c8e361",
+      "title": "Impact of inter-story pounding on the seismic demands of adjacent reinforced concrete buildings",
+      "summary_en": "Publication date: September 2026 Source: Soil Dynamics and Earthquake Engineering, Volume 208 Author(s): Mohammed Y.M. Fooly, Ahmed A. Elsonbaty, Mahmoud H. Mansour, Shehata E. Abdel Raheem",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0267726126002605?dgcid=rss_sd_all",
+      "source": "Soil Dynamics and Earthquake Engineering",
+      "category": "journal",
+      "published": "2026-05-21T23:36:45.248661+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:reinforced concrete",
+        "related:concrete",
+        "related:earthquake",
+        "related:seismic"
+      ],
+      "summary_tr": "Bu çalışmada, komşu betonarme binaların deprem taleplerine inter-story pounding'ın etkisi incelenmiştir. Yöntem olarak, sayısal modelleme ve analiz kullanılmıştır. Sonuç olarak, inter-story pounding'ın binaların deprem performansı üzerinde önemli bir etkisi olduğu görülmüştür.",
+      "relevance": 8,
+      "why_relevant": "Doktora konusu deprem sonrası betonarme yapılardaki hasarların tespiti ile ilgili olduğu için, bu çalışma doktora konusuna uygunluk göstermektedir.",
+      "tags": [
+        "deprem-talepleri",
+        "inter-story-pounding",
+        "betonarme-binalar",
+        "sayısal-modelleme",
+        "deprem-performansı"
+      ],
+      "must_read": true,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:38:41.565850+00:00"
+    },
+    "ba99e2455bc5cd84": {
+      "id": "ba99e2455bc5cd84",
+      "title": "Seismic performance and design method of concrete-filled multicellular steel tube composite shear walls connected with vertical joints",
+      "summary_en": "Publication date: August 2026 Source: Soil Dynamics and Earthquake Engineering, Volume 207 Author(s): Xiaokun Qu, Yufen Zhang, Xian Rong",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0267726126002198?dgcid=rss_sd_all",
+      "source": "Soil Dynamics and Earthquake Engineering",
+      "category": "journal",
+      "published": "2026-05-21T23:36:45.250148+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:shear wall",
+        "related:concrete",
+        "related:earthquake",
+        "related:seismic"
+      ],
+      "summary_tr": "Bu çalışmada, dikey eklemelerle birbirine bağlanan çok hücreli çelik tüplü beton dolu kompozit kesme duvarlarının deprem performansı ve tasarım yöntemi incelenmiştir. Araştırmada, bu duvarların deprem sırasında gösterdiği davranış ve tasarım yöntemleri ele alınmıştır. Çalışma, deprem mühendisliği ve yapı tasarımı alanına katkıda bulunmuştur.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu deprem sonrası hasarların tespiti ile ilgiliyken, bu çalışma deprem performansı ve tasarım yöntemleri ile ilgilidir.",
+      "tags": [
+        "deprem-performansı",
+        "çelik-tüplü-beton",
+        "kesme-duvarları",
+        "yapı-tasarımı",
+        "deprem-mühendisliği"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:38:44.725563+00:00"
+    },
+    "54b3a7108942d4f9": {
+      "id": "54b3a7108942d4f9",
+      "title": "Seismic Assessment Procedure for Exterior Reinforced Concrete Beam–Column Joints With Slab and Transverse Beams",
+      "summary_en": "Earthquake Engineering &amp;Structural Dynamics, Volume 55, Issue 8, Page 1655-1674, 10 July 2026.",
+      "link": "https://onlinelibrary.wiley.com/doi/10.1002/eqe.70125?af=R",
+      "source": "Earthquake Engineering & Structural Dynamics",
+      "category": "journal",
+      "published": "2026-05-07T11:33:53+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:reinforced concrete",
+        "related:concrete",
+        "related:earthquake",
+        "related:seismic"
+      ],
+      "summary_tr": "Deprem sonrası betonarme yapıların hasar tespitine yönelik bir çalışma değil, ancak deprem öncesi betonarme kiriş-kolon birleşimlerinin sismik değerlendirilmesine odaklanan bir makale. Makale, dış betonarme kiriş-kolon birleşimlerinin sismik davranışını incelemektedir. Birleşimlerin davranışını değerlendirmek için bir yöntem geliştirilmiştir. ",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu deprem sonrası hasar tespiti ile ilgiliyken, bu makale deprem öncesi yapıların sismik değerlendirilmesine odaklanıyor, ancak her iki konu da yapısal mühendislik ve deprem mühendisliği ile ilgili.",
+      "tags": [
+        "seismic-assessment",
+        "RC-joint",
+        "structural-dynamics",
+        "earthquake-engineering"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:38:47.734374+00:00"
+    },
+    "919ca71b0dfd22b3": {
+      "id": "919ca71b0dfd22b3",
+      "title": "Experimentally informed limit states and fragility curves of rocking blocks via shaking table tests",
+      "summary_en": "This paper presents an extensive shaking table campaign conducted on free-standing rocking blocks subjected to recorded earthquakes. The campaign investigates different sources and degrees of variability in the rocking response, considering material irregularities, differences in block aspect ratios, and variability in the input ground motions. The experimental programme consists of the development of experimental incremental dynamic curves, incorporating test repetitions, thereby addressing the repeatability limitation of most experimental campaigns, resulting in a dataset of over 300 shaking table tests. The analysis of the results is organised in a three-stage framework. First, the rocking response is examined through a deterministic approach based on time-history analyses. Subsequently, a statistical evaluation is conducted to explore the experimental relationships between engineering demand parameter and selected intensity measures. Finally, the pronounced influence of various sources of uncertainty on the rocking response highlights the necessity of a probabilistic interpretation of the data, culminating in the development of experimentally informed fragility curves. This paper introduces a novel methodology for the objective identification of experimental limit states for rocking structures, proposing ranges for three response thresholds corresponding to limited rocking, moderate rocking, and near-collapse conditions that can be adopted for vulnerability assessments.",
+      "link": "https://link.springer.com/article/10.1007/s10518-026-02493-x",
+      "source": "Bulletin of Earthquake Engineering",
+      "category": "journal",
+      "published": "2026-05-18T00:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "related:earthquake",
+        "related:dataset",
+        "related:uncertainty",
+        "related:fragility",
+        "related:vulnerability assessment"
+      ],
+      "summary_tr": "Bu çalışmada, sallanan masa testleri kullanılarak serbest duran kaya bloklarının deprem kayıtlarına maruz bırakılmasıyla ilgili bir dizi deney yapılmıştır. Deney sonuçları, kaya bloklarının davranışını belirlemek için deterministik ve istatistiksel bir yaklaşım kullanılarak analiz edilmiştir. Sonuçlar, kaya bloklarının davranışındaki belirsizlik kaynaklarını vurgulamaktadır.",
+      "relevance": 8,
+      "why_relevant": "Doktora konusu deprem sonrası hasar tespiti ile ilgili olduğu için, bu çalışma deprem etkileri altında yapıların davranışını anlamak için önemlidir.",
+      "tags": [
+        "deprem-etkileri",
+        "kaya-bloklari",
+        "sallanan-masa-testleri",
+        "belirsizlik-analizi",
+        "zayiflik-degerlendirmesi"
+      ],
+      "must_read": true,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:38:50.533676+00:00"
+    },
+    "6347b8a08107edf4": {
+      "id": "6347b8a08107edf4",
+      "title": "Multi-hazard fragility analysis of a single-span prefabricated concrete frame structure under sequential earthquake and blast loading",
+      "summary_en": "Prefabricated concrete frame structures (PCFSs) have been promoted and widely used in the construction industry due to the advantages of efficient construction, energy saving and environmental protection, etc. PCFSs may be exposed to the combined effects of multiple hazards, including earthquakes and blasts during their service life. In this paper, the damage evolution law and failure mechanism of the PCFS under the coupled effects of earthquake and blast are studied. The investigation focuses on a reference three-story, single-span PCFS (plan dimension 6 m × 3 m, total height 9 m) with specified member sizes, a simplified exterior cladding representation, and an equivalent cast-in-place joint idealization. A fragility analysis framework is proposed to evaluate the vulnerability of the PCFS under multiple loads. Firstly, the fragility of PCFS was analyzed under the action of an earthquake or blast using the single-hazard fragility analysis method. Secondly, the dynamic response under multi-hazard action was analyzed by randomly combining the hazard intensities of peak ground acceleration ( PGA ) and scaled distance ( Z ). Finally, the combined fragility analysis method considers the sequential impacts of earthquake and blast to efficiently assess the failure probability of the ultimate damage state under various combinations of hazard intensities. The results show that the failure probability of the single-span PCFS increases with the increase of earthquake and blast intensities under single-hazard action. The cumulative damage of the structure caused by earthquake action significantly exacerbates the damage effect of the secondary hazards (blast) compared with the single-hazard and multi-hazard fragility curves. In addition, the elevated earthquake intensity significantly amplifies the damage effects of the secondary blast hazard on the frame structure. For a fixed scaled distance of Z = 0.24 m/kg 1/3 , the sequential earthquake-blast scenario with PGA = 0.4 g increases the exceedance probabilities of the I-II, II-III, and III-IV limit states by approximately 6.98, 46.72, and 9.35% points, respectively, compared with the blast-only scenario with no preceding earthquake, this exacerbation effect is particularly evident in the moderate to severe damage interval. Within the scope of this reference configuration, the study provides a transferable fragility analysis workflow and quantitative references for the multi-hazard assessment and design of similar prefabricated concrete frame structures.",
+      "link": "https://link.springer.com/article/10.1007/s10518-026-02494-w",
+      "source": "Bulletin of Earthquake Engineering",
+      "category": "journal",
+      "published": "2026-05-13T00:00:00+00:00",
+      "pre_score": 5,
+      "matched_keywords": [
+        "core:damage state",
+        "related:concrete",
+        "related:earthquake",
+        "related:fragility"
+      ],
+      "summary_tr": "Bu çalışmada, prefabrik beton çerçeveli yapıların (PCFS) deprem ve patlama yükleri altında hasar davranışları incelenmiştir. Tek tehlike ve çoklu tehlike analiz yöntemleri kullanılarak yapıların kırılganlık analizi yapılmıştır. Sonuçlar, yapıların hasar olasılıklarının deprem ve patlama şiddetlerinin artmasıyla birlikte arttığını göstermiştir.",
+      "relevance": 8,
+      "why_relevant": "Doktora konusu deprem sonrası betonarme yapılardaki hasarların tespiti ile ilgili olduğu için bu çalışma ilgili ve önemlidir.",
+      "tags": [
+        "deprem-hasarı",
+        "patlama-yükü",
+        "kırılganlık-analizi",
+        "prefabrik-beton",
+        "yapı-hasarı"
+      ],
+      "must_read": true,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:38:53.467958+00:00"
+    },
+    "bf8ab806848912b0": {
+      "id": "bf8ab806848912b0",
+      "title": "MetaRA: Metamorphic Robustness Assessment for Multimodal Large Language Model-based Visual Question Answering Systems",
+      "summary_en": "arXiv:2605.19307v1 Announce Type: new Abstract: Visual Question Answering (VQA), as the representative multimodal task, serves as a key benchmark for evaluating the reasoning capabilities of Multimodal Large Language Models (MLLMs). However, existing evaluations largely rely on static datasets and accuracy-based metrics, which fail to capture robustness, consistency, and generalization. Inspired by Metamorphic Testing (MT), we propose Metamorphic Robustness Assessment (MetaRA), a testing framework that employs Metamorphic Relations (MRs) to systematically probe vulnerabilities in MLLM-based VQA systems. MetaRA generates controlled variations of image-question inputs based on specific MRs and evaluates models across diverse conditions. Applying MetaRA to multiple MLLM-based VQA models across different tasks reveals nuanced failure patterns, including sensitivity to linguistic perturbations, over-reliance on superficial visual cues, and deeper weaknesses in multimodal reasoning. Experimental results demonstrate that MetaRA provides richer diagnostic insights than conventional accuracy metrics, exposing failure modes that remain hidden under standard benchmarks. Overall, this work highlights the need for systematic robustness evaluation in VQA and positions metamorphic assessment as a scalable, model-agnostic approach toward trustworthy multimodal AI.",
+      "link": "https://arxiv.org/abs/2605.19307",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:ViT",
+        "related:dataset",
+        "related:benchmark"
+      ],
+      "summary_tr": "Bu çalışmada, Metamorphic Robustness Assessment (MetaRA) adlı bir çerçeve önerilmiş ve bu çerçevenin Multimodal Large Language Model (MLLM) tabanlı Görsel Soru Cevaplandırma (VQA) sistemlerinin güvenliğini değerlendirmek için kullanılabileceği gösterilmiştir. MetaRA, Metamorphic İlişkiler (MR) kullanarak kontrollü varyasyonlar oluşturur ve modelleri çeşitli koşullarda değerlendirir. Deney sonuçları, MetaRA'nın geleneksel doğruluk ölçütlerine göre daha zengin tanısal içgörüler sağladığını ve standarda göre gizli kalan başarısızlık modlarını ortaya çıkardığını göstermiştir.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu ile bağlantısı, görsel işleme ve derin öğrenme metodlarının kullanılmasıdır.",
+      "tags": [
+        "görsel-işleme",
+        "derin-öğrenme",
+        "multimodal-modelleme",
+        "güvenilirlik-değerlendirmesi"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:38:56.593101+00:00"
+    },
+    "2dd3cda032480a86": {
+      "id": "2dd3cda032480a86",
+      "title": "RE-VLM: Event-Augmented Vision-Language Model for Scene Understanding",
+      "summary_en": "arXiv:2605.19329v1 Announce Type: new Abstract: Conventional vision-language models (VLMs) struggle to interpret scenes captured under adverse conditions (e.g., low light, high dynamic range, or fast motion) because standard RGB images degrade in such environments. Event cameras provide a complementary modality: they asynchronously record per-pixel brightness changes with high temporal resolution and wide dynamic range, preserving motion cues where frames fail. We propose RE-VLM, the first dual-stream vision-language model that jointly leverages RGB images and event streams for robust scene understanding across both normal and challenging conditions. RE-VLM employs parallel RGB and event encoders together with a progressive training strategy that aligns heterogeneous visual features with language. To address the scarcity of RGB-Event-Text supervision, we further propose a graph-driven pipeline that converts synchronized RGB-Event streams into verifiable scene graphs, from which we synthesize captions and question-answer (QA) pairs. To develop and evaluate RE-VLM, we construct two datasets: PEOD-Chat, targeting illumination-challenged scenes, and RGBE-Chat, covering diverse scenarios. On captioning and VQA benchmarks, RE-VLM consistently outperforms state-of-the-art RGB-only and event-only models with comparable parameter counts, with particularly large gains under challenging conditions. These results demonstrate the effectiveness of event-augmented VLMs in achieving robust vision-language understanding across a wide range of real-world environments. Code and datasets are available at https://github.com/bupt-ai-cz/RE-VLM.",
+      "link": "https://arxiv.org/abs/2605.19329",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:VLM",
+        "related:dataset",
+        "related:benchmark"
+      ],
+      "summary_tr": "Bu çalışmada, RE-VLM adlı bir model geliştirilmiştir. Bu model, geleneksel görüntüleme modellerinin zor koşullarda (örneğin düşük ışık, yüksek dinamik aralık veya hızlı hareket) zorlandığı sorunları çözmek için tasarlanmıştır. RE-VLM, RGB görüntüleri ve olay akışlarını birleştirerek sahne anlama için daha güçlü bir model oluşturur.",
+      "relevance": 8,
+      "why_relevant": "Doktora konusu olan deprem sonrası betonarme yapılardaki hasarların tespiti için geliştirilen bu model, zor koşullarda görüntü işleme için faydalı olabilir.",
+      "tags": [
+        "görüntü-işleme",
+        "derin-öğrenme",
+        "olay-akışı",
+        "sahne-anlama",
+        "rgb-görüntü"
+      ],
+      "must_read": true,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:38:59.187305+00:00"
+    },
+    "7a444be432c9076c": {
+      "id": "7a444be432c9076c",
+      "title": "Are Watermarked Images Editable? SafeMark for Watermark-Preserving Text-Guided Image Editing",
+      "summary_en": "arXiv:2605.19511v1 Announce Type: new Abstract: This paper investigates a fundamental yet underexplored question: can watermarked images remain editable without compromising watermark integrity? We propose SafeMark, a framework for watermark-preserving text-guided image manipulation that explicitly integrates watermark integrity into the editing process. Specifically, SafeMark adds a thresholded watermark-decoding loss directly to the diffusion editor's training objective, fine-tuning the editor so that semantically valid edits also preserve the embedded watermark at the final output. This design admits a clean information-theoretic justification: maintaining high bit-accuracy on the edited image lower-bounds the mutual information that the editor channel preserves between watermark and edited output, the quantity that fundamentally controls watermark recoverability. SafeMark is compatible with differentiable diffusion-based editors, and requires no architectural modification. Extensive evaluations across multiple datasets, text-guided editing methods, and post-edit distortion settings demonstrate that SafeMark achieves high watermark bit accuracy across diverse editing settings while maintaining high-quality semantic edits, without sacrificing robustness to common post-edit distortions. These results demonstrate that semantic editability and watermark integrity are fundamentally compatible, enabling trustworthy image provenance in generative editing pipelines.",
+      "link": "https://arxiv.org/abs/2605.19511",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:FEMA",
+        "related:dataset",
+        "related:diffusion"
+      ],
+      "summary_tr": "Bu çalışmada, su işareti içeren görsellerin düzenlenip düzenlenemeyeceği araştırılmıştır. SafeMark adlı bir çerçeve geliştirilmiş ve bu çerçeve, su işaretinin bütünlüğünü korurken görsellerin metin yönlendirmeli olarak düzenlenmesine olanak tanımıştır. Sonuçlar, yüksek kaliteli düzenleme işlemlerinin su işaretinin bütünlüğünü korurken gerçekleştirilebileceğini göstermiştir.",
+      "relevance": 2,
+      "why_relevant": "Doktora konusu deprem sonrası hasarların tespiti ile ilgiliyken, bu çalışma görsel işleme ve su işaretleri ile ilgilidir.",
+      "tags": [
+        "image-editing",
+        "watermarking",
+        "diffusion-based-editors"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:39:02.109956+00:00"
+    },
+    "22478948f481542a": {
+      "id": "22478948f481542a",
+      "title": "Trust It or Not: Evidential Uncertainty for Feed-Forward 3D Reconstruction with Trust3R",
+      "summary_en": "arXiv:2605.19539v1 Announce Type: new Abstract: Geometric foundation models hold promise for unconstrained dense geometry prediction from uncalibrated images. However, in current feed-forward designs, their predicted confidence scores are heuristic, lack probabilistic interpretation, and often fail to indicate where and how much the predicted geometry can be trusted. To address this gap, we present Trust3R, a lightweight evidential uncertainty framework for feed-forward 3D reconstruction. Trust3R combines gated residual mean refinement with a Normal-Inverse-Wishart evidential head, yielding a closed-form multivariate Student-t distribution for per-point geometric uncertainty. This design provides probabilistically grounded pointmap uncertainty estimates while adding moderate inference overhead. We evaluate on diverse indoor and outdoor benchmarks and compare against MASt3R's built-in confidence map as well as common uncertainty-aware baselines spanning single-pass heteroscedastic regression and sampling-based methods such as MC dropout and deep ensembles. Experimental results show that Trust3R consistently improves risk-coverage and sparsification, and generally improves geometric accuracy. These gains are reflected in stronger uncertainty ranking across benchmarks, with 25% lower AURC and 41% lower AUSE on ScanNet++, providing a practical reliability signal for uncertainty-aware weighting in downstream geometry pipelines. The project page and code are available at https://trust3r-z.github.io/.",
+      "link": "https://arxiv.org/abs/2605.19539",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:foundation model",
+        "related:benchmark",
+        "related:uncertainty"
+      ],
+      "summary_tr": "Bu çalışmada, Trust3R adlı bir framework geliştirilmiştir. Bu framework, 3D yeniden yapılandırma için evidential uncertainty kullanır. Trust3R, gated residual mean refinement ve Normal-Inverse-Wishart evidential head'i birleştirir. Bu sayede, per-point geometric uncertainty tahmini yapılır. Diverse indoor ve outdoor benchmarks üzerinde değerlendirilen Trust3R, risk-coverage ve sparsification'ı iyileştirir ve geometrik doğruluğu artırır.",
+      "relevance": 8,
+      "why_relevant": "Doktora konusu olan deprem sonrası oluşan betonarme yapılardaki hasarların görsel işleme/derin öğrenme metodları ile tespiti ile ilgili olarak, bu çalışmada geliştirilen Trust3R framework'ü hasar tespitinde kullanılabilir.",
+      "tags": [
+        "3d-reconstruction",
+        "evidential-uncertainty",
+        "deep-learning",
+        "geometry-prediction",
+        "trust3r"
+      ],
+      "must_read": true,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:39:04.928006+00:00"
+    },
+    "6cf596851106eeae": {
+      "id": "6cf596851106eeae",
+      "title": "LIFT and PLACE: A Simple, Stable, and Effective Knowledge Distillation Framework for Lightweight Diffusion Models",
+      "summary_en": "arXiv:2605.19729v2 Announce Type: new Abstract: We demonstrate that in knowledge distillation for diffusion models, the teacher network's highly complex denoising process - stemming from its substantially larger capacity - poses a significant challenge for the student model to faithfully mimic. To address this problem, we propose a coarse-to-fine distillation framework with LInear FiTtingbased distillation (LIFT) and Piecewise Local Adaptive Coefficient Estimation (PLACE). First, LIFT decomposes the objective into a \"coarse\" alignment and a \"fine\" refinement. The student is then trained on coarse alignment before proceeding to hard refinement. Second, PLACE extends LIFT to address spatially non-uniform errors by partitioning outputs into error-based groups, providing locally adaptive guidance. Our experiments show that LIFT and PLACE is effective across diffusion spaces (image/latent), backbones (U-Net/DiT), tasks (unconditional/conditional), datasets, and even extends to flow-based models such as MMDiT (SD3). Furthermore, under extreme compression with a 1.3M-parameter student (only 1.6% of the teacher), conventional KD fails to provide sufficient guidance for stable training, with FID scores often degrading to 50-200+, but our method remains stably convergent and achieves an FID of 15.73.",
+      "link": "https://arxiv.org/abs/2605.19729",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:U-Net",
+        "related:dataset",
+        "related:diffusion"
+      ],
+      "summary_tr": "Bu çalışmada, difüzyon modelleri için basit, kararlı ve etkili bir bilgi damıtma çerçevesi önerilmiştir. LIFT ve PLACE adlı bu çerçeve, büyük kapasiteli öğretmen ağının gürültü giderme sürecini taklit etmede öğrenci modelinin karşılaştığı zorluğu gidermeyi amaçlar. Deneyimler, bu yöntemin çeşitli difüzyon uzaylarında, görevlerde ve veri setlerinde etkili olduğunu göstermiştir.",
+      "relevance": 2,
+      "why_relevant": "Doktora konusu deprem sonrası hasarların tespiti ile ilgiliyken, bu çalışma difüzyon modelleri ve derin öğrenme ile ilgilidir.",
+      "tags": [
+        "deep-learning",
+        "diffusion-models",
+        "knowledge-distillation"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:39:08.034689+00:00"
+    },
+    "d201f7426fc33cfb": {
+      "id": "d201f7426fc33cfb",
+      "title": "Towards Fine-Grained Robustness: Attention-Guided Test-Time Prompt Tuning for Vision-Language Models",
+      "summary_en": "arXiv:2605.19956v1 Announce Type: new Abstract: Vision-Language Models (VLMs), such as CLIP, have achieved significant zero-shot performance on downstream tasks with various fine-tuning adaptation methods. However, recent studies have proven that adversarial attacks can significantly degrade the inference ability of VLMs, posing substantial risks to their practical applications. Prevalent test-time adaptation methods typically rely on multi-view augmentation to implement various fine-tuning strategies, which struggle to identify semantic information and are prone to destroying discriminative regions in fine-grained scenarios. To address these limitations, we propose Attention-Guided Test-Time Prompt Tuning (A-TPT), a semantics-preserving method designed for test-time adaptation. We first refine the gradient attention rollout mechanism to identify semantically meaningful regions surviving under adversarial attacks. Furthermore, we leverage them to guide the spatially varying augmentation intensities and multi-view ensemble for prompt tuning and inference. Extensive experiments demonstrate that A-TPT outperforms existing test-time adaptation methods on both adversarial and clean data. Codes are available at https://github.com/SEU-VIPGroup/A-TPT .",
+      "link": "https://arxiv.org/abs/2605.19956",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:CLIP",
+        "core:VLM"
+      ],
+      "summary_tr": "Bu çalışmada, Attention-Guided Test-Time Prompt Tuning (A-TPT) adlı bir yöntem önerilmiştir. Bu yöntem, görsel-dil modellerinin (VLM) test zamanı adaptasyonunu geliştirmeyi amaçlar. A-TPT, adversarial saldırılar altında semantik olarak anlamlı bölgeleri tanımlamak için bir dikkatle yönlendirilmiş gradyan attention rollout mekanizması kullanır. Bu, VLM'lerin fine-grained senaryolarda daha iyi performans göstermesini sağlar.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu olan deprem sonrası hasar tespitinde, görsel-dil modellerinin ve derin öğrenme metodlarının kullanılması bağlamında ilgili bir çalışma.",
+      "tags": [
+        "deep-learning",
+        "vision-language-models",
+        "attention-mechanism",
+        "test-time-adaptation",
+        "adversarial-attacks"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:39:10.881332+00:00"
+    },
+    "f6107900d6d809f4": {
+      "id": "f6107900d6d809f4",
+      "title": "InterLight: Leveraging Intrinsic Illumination Priors for Low-Light Image Enhancement",
+      "summary_en": "arXiv:2605.19982v1 Announce Type: new Abstract: Low-Light Image Enhancement (LLIE) has long been a challenging problem in low-level vision, as insufficient illumination often leads to low contrast, detail loss, and noise. Recent studies show that deep learning-based Retinex theory can effectively decouple illumination and reflectance. However, existing methods frequently suffer from over-enhancement or color distortion, and often assume uniform noise or ideal lighting. To address these limitations, we propose InterLight, a novel framework that systematically excavates and operationalizes intrinsic illumination priors for LLIE.Our core insight is that robust enhancement requires not just estimating illumination, but constructing an illumination-aware pipeline. We first inject sensor-level illumination-response priors via physics-guided augmentation, then represent the degradation through adaptive prompts conditioned on the scene's latent illumination state. This explicit representation directly guides a luminance-gated intrinsic memory mechanism to selectively compensate for information loss, prioritizing reconstruction in dark regions while preserving fidelity in bright ones. Finally, the entire process is regularized by a self-supervised consistency objective that distills illumination-invariant features. By deeply exploiting intrinsic illumination priors, our method achieves clearer textures and more visually coherent enhancement results. Extensive experiments across multiple benchmarks demonstrate the effectiveness of our approach. Code is available at: https://github.com/House-yuyu/InterLight.",
+      "link": "https://arxiv.org/abs/2605.19982",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:deep learning",
+        "related:benchmark",
+        "related:self-supervised"
+      ],
+      "summary_tr": "Araştırmada, düşük aydınlatmalı görüntü iyileştirme problemine çözüm olarak InterLight adlı bir çerçeve önerilmiştir. Bu çerçeve, içsel aydınlatma öncüllerini sistemli bir şekilde kazıarak ve işleyerek düşük aydınlatmalı görüntülerin iyileştirilmesini hedeflemektedir. Çalışmada, fiziksel olarak rehberlik edilen artırma ve adaptif promtlar kullanılarak görüntülerin iyileştirilmesi sağlanmıştır.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu olan deprem sonrası hasarların tespitinde, düşük aydınlatmalı görüntü iyileştirme yöntemleri kullanılabilir.",
+      "tags": [
+        "image-enhancement",
+        "low-light",
+        "deep-learning",
+        "illumination-priors"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:39:13.726634+00:00"
+    },
+    "e9418834511b8afc": {
+      "id": "e9418834511b8afc",
+      "title": "CogOmniControl: Reasoning-Driven Controllable Video Generation via Creative Intent Cognition",
+      "summary_en": "arXiv:2605.19995v1 Announce Type: new Abstract: Recent diffusion models achieve strong photorealism and fluency in video generation, yet remain fragile under abstract, sparse or complex conditions, leading to poor performance in professional production workflows such as storyboard sketches and clay render conditions. Existing video generation models, either inject conditions through adapters or couple a generic vision-language model (VLM) within a diffusion backbone, leaving a capability gap and failing to produce the videos that align with the user's creative intent. We present CogOmniControl, a reasoning-driven framework that factorizes controllable video generation into creative intent cognition and generation. Specifically, we train a specialized CogVLM using authentic anime production data. Compared to generic VLMs, it generates more professional and clear outputs, accurately cognizing user creative intent from sparse and abstract conditions and tuning these cues into dense reasoning output. Besides, CogOmniDiT unifies the controls from various conditions through in-context generation and is aligned to the CogVLM reasoning outputs via reinforcement learning. Furthermore, leveraging CogVLM's robust capability in guiding video generation, we release its potential in planning specific evaluators and enable a Best-of-N selection for the generated videos. This integration transforms the entire framework into a closed-loop \"harness-like\" architecture. We further introduce CogReasonBench and CogControlBench, built from professional workflows data that carry genuine creative intent rather than simulated ones. Experiments on two benchmarks show that CogOmniControl surpassed the existing open-source models. The project website: https://um-lab.github.io/CogOmniControl/",
+      "link": "https://arxiv.org/abs/2605.19995",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:VLM",
+        "related:benchmark",
+        "related:diffusion"
+      ],
+      "summary_tr": "CogOmniControl adlı bir çerçeve geliştirilmiştir. Bu çerçeve, video oluşturma işlemini yaratıcı intent algılama ve oluşturma olarak faktörize eder. Authentic anime üretim verilerini kullanarak CogVLM adlı bir model eğitilmiştir. Bu model, kullanıcıların yaratıcı intentini doğru bir şekilde algılar ve video oluşturma işlemini yönlendirir.",
+      "relevance": 2,
+      "why_relevant": "Doktora konusu deprem sonrası hasarların tespitiyle ilgiliyken, bu makale video oluşturma ve yaratıcı intent algılama ile ilgilidir.",
+      "tags": [
+        "video-generation",
+        "deep-learning",
+        "creative-intent"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:39:16.485953+00:00"
+    },
+    "c324afd3212bb88e": {
+      "id": "c324afd3212bb88e",
+      "title": "EgoBabyVLM: Benchmarking Cross-Modal Learning from Naturalistic Egocentric Video Data",
+      "summary_en": "arXiv:2605.19130v1 Announce Type: cross Abstract: Children acquire language grounding with remarkable robustness from limited visuo-linguistic input in ways that surpass today's best large multimodal models. Recent research suggests current vision-language models (VLMs) trained on curated web data fail to generalize to the sparse, weakly-aligned egocentric streams produced by wearable devices, embodied agents, and infant head-cams -- and no fixed evaluation pipeline exists for measuring progress on this regime. We train VLMs on datasets with varying degrees of semantic alignment between visual and linguistic inputs, including naturalistic infant and adult egocentric videos, and evaluate them with a comprehensive suite spanning multimodal language grounding and unimodal vision and language tasks. At the core of this suite is Machine-DevBench, a corpus-grounded benchmark of lexical and grammatical competence, automatically generated from the model's training vocabulary across logarithmic frequency bins to eliminate the train/eval mismatch and low statistical power of prior developmental benchmarks. Our results show that current VLM paradigms hinge on the tight semantic alignment of curated data and fail to exploit the weakly-aligned signal that dominates naturalistic egocentric input -- the very regime in which humans thrive. To motivate progress, we introduce the EgoBabyVLM Challenge to drive the development of models capable of grounded language learning from the kind of naturalistic data that human infants experience.",
+      "link": "https://arxiv.org/abs/2605.19130",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:VLM",
+        "related:dataset",
+        "related:benchmark"
+      ],
+      "summary_tr": "Bu çalışmada, doğal egosantrik video verilerini kullanarak çok modlu öğrenme yöntemleri değerlendirilmiştir. Araştırmacılar, vizyon-dil modellerini (VLM) farklı düzeylerde semantik hizalamaya sahip veri setlerinde eğittiler ve bunları çeşitli görevlerde değerlendirdiler. Sonuçlar, mevcut VLM paradigmalarının tight semantik hizalamaya dayandığını ve doğal egosantrik girdideki zayıf hizalanmış sinyali kullanamadığını gösterdi.",
+      "relevance": 2,
+      "why_relevant": "Doktora konusu deprem sonrası hasarların tespiti ile ilgiliyken, bu çalışma çok modlu öğrenme yöntemleri ile ilgilidir.",
+      "tags": [
+        "cross-modal-learning",
+        "vision-language-models",
+        "egocentric-vision"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:39:19.677460+00:00"
+    },
+    "e6169ded90606289": {
+      "id": "e6169ded90606289",
+      "title": "Seeing SDG 6 from space: local-scale monitoring of piped water and sewage system access across Africa using satellite imagery and self-supervised learning",
+      "summary_en": "arXiv:2411.19093v5 Announce Type: replace Abstract: Access to drinking water and sanitation is essential for health and well-being, yet major disparities remain, especially in data-scarce regions such as Africa. SDG 6 aims for universal access, but current monitoring relies on costly, infrequent, and spatially uneven surveys and censuses with long reporting delays. This study develops a scalable remote-sensing framework to estimate piped water and sewage system access at approximately 2.56 km resolution using Sentinel-2 imagery, Afrobarometer survey responses, 30 m population data, and DINO self-supervised Vision Transformer features. The best model achieves AUROC values of 91.54% for piped water and 93.24% for sewage access. Across 50 African countries, population-weighted estimates strongly align with WHO/UNICEF JMP statistics for piped water ($R^2 = 0.92$) and show meaningful agreement for sewage access ($R^2 = 0.72$). In countries without Afrobarometer coverage, MAEs are 9.5% and 10.7%, with estimates within 15% of JMP values for 121.4 million and 159.7 million people, respectively. A Nigeria case study across 767 Local Government Areas (LGAs) shows that the framework reveals fine-scale environmental inequality. The largest no-access burdens reach 1.155 million people for piped water and 1.452 million for sewage, 7.9 and 8.3 times the median LGA burden, while top-decile no-access thresholds of 0.805 and 0.952 indicate that deprivation is widespread. These findings show that DINO-based satellite models can complement household surveys with low-cost, spatially detailed evidence for SDG 6 monitoring, infrastructure targeting, and environmental equity assessment.",
+      "link": "https://arxiv.org/abs/2411.19093",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:vision transformer",
+        "related:infrastructure",
+        "related:self-supervised"
+      ],
+      "summary_tr": "Bu çalışma, Afrika genelinde borulu su ve kanalizasyon sistemlerine erişimi uydu görüntüleri ve kendi kendine denetimli öğrenme (DINO Vision Transformer) kullanarak yerel ölçekte izlemek için ölçeklenebilir bir uzaktan algılama çerçevesi geliştirmiştir. Sentinel-2 görüntüleri, anket verileri ve nüfus verileri kullanılarak yaklaşık 2.56 km çözünürlükte erişim tahminleri yapılmıştır. Model, borulu su için %91.54, kanalizasyon için %93.24 AUROC değerlerine ulaşarak yüksek doğruluk göstermiştir. Bulgular, DINO tabanlı uydu modellerinin hanehalkı anketlerini düşük maliyetli, mekansal olarak detaylı kanıtlarla tamamlayabileceğini ve SDG 6 izleme, altyapı hedefleme ve çevresel eşitlik değerlendirmesi için kullanılabileceğini ortaya koymuştur.",
+      "relevance": 8,
+      "why_relevant": "Bu çalışma, altyapı izleme ve hasar/erişim tespiti için uydu görüntüleri ve kendi kendine denetimli derin öğrenme yöntemlerini kullanması nedeniyle, betonarme yapılardaki deprem hasarı tespiti için benzer görsel işleme ve derin öğrenme yaklaşımlarının potansiyelini göstermektedir.",
+      "tags": [
+        "satellite-imagery",
+        "deep-learning",
+        "self-supervised-learning",
+        "infrastructure-monitoring",
+        "vision-transformer"
+      ],
+      "must_read": true,
+      "llm_provider_used": "gemini",
+      "processed_at": "2026-05-21T23:39:27.927897+00:00"
+    },
+    "59273b79114fb89c": {
+      "id": "59273b79114fb89c",
+      "title": "Efficient Transferable Optimal Transport via Min-Sliced Transport Plans",
+      "summary_en": "arXiv:2511.19741v3 Announce Type: replace Abstract: Optimal Transport (OT) offers a powerful framework for finding correspondences between distributions and addressing matching and alignment problems in various areas of computer vision, including shape analysis, image generation, and multimodal tasks. The computation cost of OT, however, hinders its scalability. Slice-based transport plans have recently shown promise for reducing the computational cost by leveraging the closed-form solutions of 1D OT problems. These methods optimize a one-dimensional projection (slice) to obtain a conditional transport plan that minimizes the transport cost in the ambient space. While efficient, these methods leave open the question of whether learned optimal slicers can transfer to new distribution pairs under distributional shift. Understanding this transferability is crucial in settings with evolving data or repeated OT computations across closely related distributions. In this paper, we study the min-Sliced Transport Plan (min-STP) framework and investigate the transferability of optimized slicers: can a slicer trained on one distribution pair yield effective transport plans for new, unseen pairs? Theoretically, we show that optimized slicers remain close under slight perturbations of the data distributions, enabling efficient transfer across related tasks. To further improve scalability, we introduce a minibatch formulation of min-STP and provide statistical guarantees on its accuracy. Empirically, we demonstrate that the transferable min-STP achieves strong one-shot matching performance and facilitates amortized training for point cloud alignment and flow-based generative modeling.",
+      "link": "https://arxiv.org/abs/2511.19741",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:computer vision",
+        "related:generative model",
+        "related:point cloud"
+      ],
+      "summary_tr": "Bu çalışmada, Optimal Transport (OT) problemlerini çözmek için Min-Sliced Transport Plan (min-STP) çerçevesi incelenmiştir. min-STP, 1D OT problemlerinin kapalı form çözümlerini kullanarak hesaplama maliyetini azaltır. Çalışmada, optimize edilmiş slicerlerin yeni dağılım çiftlerine aktarılabilirliği araştırılmış ve teorik olarak slight perturbasyonlar altında optimize edilmiş slicerlerin yakın kaldığı gösterilmiştir.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu olan deprem sonrası hasar tespitinde, Optimal Transport gibi yöntemler hasarlı ve hasarsız yapıların karşılaştırılmasında kullanılabilir.",
+      "tags": [
+        "optimal-transport",
+        "min-stp",
+        "deep-learning",
+        "image-processing",
+        "transfer-learning"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:39:30.490037+00:00"
+    },
+    "a2af498638181b97": {
+      "id": "a2af498638181b97",
+      "title": "BabyMamba-HAR: Lightweight Selective State Space Models for Efficient Human Activity Recognition on Resource Constrained Devices",
+      "summary_en": "arXiv:2602.09872v2 Announce Type: replace Abstract: Human activity recognition (HAR) on resource constrained devices requires high accuracy across diverse sensor setups. Selective state space models (SSMs) offer efficient linear time sequence processing, presenting a compelling alternative to attention mechanisms. However, their TinyML design space remains unexplored. This paper introduces BabyMamba-HAR, comprising two lightweight architectures: (1) CI-BabyMamba-HAR, utilizing a channel independent stem for noise robustness, and (2) Crossover-BiDir-BabyMamba-HAR, utilizing an early fusion stem for channel count independent complexity. Both integrate weight tied bidirectional scanning and gated temporal attention pooling. Across eight benchmarks, Crossover-BiDir-BabyMamba-HAR averages an 86.52% F1-score with 27K parameters and 2.21M MACs, matching TinyHAR (86.16%) while requiring 11x fewer MACs on high channel datasets. On-device deployment on the Raspberry Pi Pico 2 and ESP32 utilized a mixed precision C++ runtime (INT8 projections, float32 states). A fused computation strategy with lifetime aware memory management reduces peak memory footprint from O(B*dmodel*L*dstate) to O(B*dmodel*dstate), adapting to support weight-tied bidirectional and channel-streaming execution. Both architectures achieved full 8/8 dataset coverage with >99.2% PyTorch parity, whereas INT8 quantized TFLite baselines showed degraded coverage and parity (TinyHAR: 7/8 and 4/8 coverage at 60.4% and 88.6% parity, TinierHAR: 8/8 and 6/8 at 54.2% and 90.8%, DeepConvLSTM: 1/8 and 0/8 on Pico 2 and ESP32, respectively). Crossover-BiDir-BabyMamba-HAR averages 154.4 ms latency on ESP32 and 481.9 ms on Pico 2. Ablations confirm bidirectional scanning and gated attention improve F1-scores by up to 8.42% and 8.94%, respectively, establishing practical principles for TinyML SSM deployment.",
+      "link": "https://arxiv.org/abs/2602.09872",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:ViT",
+        "related:dataset",
+        "related:benchmark"
+      ],
+      "summary_tr": "Bu çalışmada, BabyMamba-HAR adlı iki hafif mimari tanıtılmıştır. Bu mimariler, insan faaliyeti tanıma (HAR) için seçici durum uzayı modellerini (SSM) kullanır. CI-BabyMamba-HAR ve Crossover-BiDir-BabyMamba-HAR, gürültü dayanıklılığı ve kanal bağımsız karmaşıklık için tasarlanmıştır. Sekiz benchmark üzerinden ortalama %86,52 F1-skoru elde edilmiştir.",
+      "relevance": 2,
+      "why_relevant": "Doktora konusu deprem sonrası hasar tespiti ile ilgiliyken, bu çalışma insan faaliyeti tanıma odaklıdır.",
+      "tags": [
+        "human-activity-recognition",
+        "selective-state-space-models",
+        "tinyml",
+        "efficient-computation"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:39:33.257103+00:00"
+    },
+    "4f6f9d47d03f65c2": {
+      "id": "4f6f9d47d03f65c2",
+      "title": "Locate-then-Sparsify: Attribution Guided Sparse Strategy for Visual Hallucination Mitigation",
+      "summary_en": "arXiv:2603.16284v2 Announce Type: replace Abstract: Despite the significant advancements in Large Vision-Language Models (LVLMs), their tendency to generate hallucinations undermines reliability and restricts broader practical deployment. Among the hallucination mitigation methods, feature steering emerges as a promising approach that reduces erroneous outputs in LVLMs without increasing inference costs. However, current methods apply uniform feature steering across all layers. This heuristic strategy ignores inter-layer differences, potentially disrupting layers unrelated to hallucinations and ultimately leading to performance degradation on general tasks. In this paper, we propose Locate-Then-Sparsify for Feature Steering (LTS-FS), a plug-and-play framework which controls the steering intensity according to the hallucination relevance of each layer. We first construct a dataset comprising token-level and sentence-level hallucination cases. Based on this dataset, we introduce an attribution method based on causal interventions to quantify the hallucination relevance of each layer. With the attribution scores across layers, we propose a layerwise strategy that converts these scores into feature steering intensities for individual layers, enabling more precise adjustments specifically on hallucination-relevant layers. Extensive experiments across multiple LVLMs and benchmarks demonstrate that LTS-FS effectively mitigates hallucination while preserving strong performance. Codes are available at https://github.com/huttersadan/LTS-FS.",
+      "link": "https://arxiv.org/abs/2603.16284",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:VLM",
+        "related:dataset",
+        "related:benchmark"
+      ],
+      "summary_tr": "Bu çalışmada, büyük görsel dil modellerinde (LVLM) görsel sanrıların azaltılması için bir çerçeve önerilmiştir. Locate-Then-Sparsify for Feature Steering (LTS-FS) adlı bu çerçeve, her katmanın sanrı ile ilgili önemini belirlemek için bir atıf yöntemi kullanır ve bu önem puanlarını her katman için özelleştirilmiş özellik yönlendirme yoğunluklarına dönüştürür.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu olan deprem sonrası hasarların görsel işleme ile tespiti, görsel sanrıların azaltılması ile ilgili çalışmalardan faydalanabilir.",
+      "tags": [
+        "görsel-sanrı-azaltma",
+        "büyük-görsel-dil-modelleri",
+        "derin-öğrenme",
+        "özellik-yönlendirme"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:39:36.335966+00:00"
+    },
+    "764b42c7ee138973": {
+      "id": "764b42c7ee138973",
+      "title": "A Lightweight Transformer for Pain Recognition from Brain Activity",
+      "summary_en": "arXiv:2604.16491v5 Announce Type: replace Abstract: Pain is a multifaceted and widespread phenomenon with substantial clinical and societal burden, making reliable automated assessment a critical objective. This paper presents a lightweight transformer architecture that fuses multiple fNIRS representations through a unified tokenization mechanism, enabling joint modeling of complementary signal views without requiring modality-specific adaptations or increasing architectural complexity. The proposed token-mixing strategy preserves spatial, temporal, and time-frequency characteristics by projecting heterogeneous inputs onto a shared latent representation, using a structured segmentation scheme to control the granularity of local aggregation and global interaction. The model is evaluated on the AI4Pain dataset using stacked raw waveform and power spectral density representations of fNIRS inputs. Experimental results demonstrate competitive pain recognition performance while remaining computationally compact, making the approach suitable for real-time inference on both GPU and CPU hardware.",
+      "link": "https://arxiv.org/abs/2604.16491",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:ViT",
+        "related:dataset",
+        "related:real-time"
+      ],
+      "summary_tr": "Bu çalışmada, beyin aktivitesinden ağrı tanıma için hafif bir transformer mimarisi geliştirilmiştir. Birden fazla fNIRS temsilini birleştiren bu mimari, tokenleştirme mekanizması aracılığıyla işbirliği yapmaktadır. Deney sonuçları, rekabetçi ağrı tanıma performansı gösterirken, hesaplamalı olarak kompakt kalmaktadır.",
+      "relevance": 2,
+      "why_relevant": "Doktora konusu deprem sonrası hasarların tespiti ile ilgiliyken, bu çalışma ağrı tanıma ile ilgili olduğu için doktora konusuna uygunluk derecesi düşük.",
+      "tags": [
+        "pain-recognition",
+        "transformer-architecture",
+        "fnirs",
+        "brain-activity",
+        "deep-learning"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:39:39.057036+00:00"
+    },
+    "1c1eabcd553f8d9e": {
+      "id": "1c1eabcd553f8d9e",
+      "title": "MobileEgo Anywhere: Open Infrastructure for long horizon egocentric data on commodity hardware",
+      "summary_en": "arXiv:2605.05945v5 Announce Type: replace Abstract: The recent advancement of Vision Language Action (VLA) models has driven a critical demand for large scale egocentric datasets. However, existing datasets are often limited by short episode durations, typically spanning only a few minutes, which fails to capture the long horizon temporal dependencies necessary for complex robotic task execution. To bridge this gap, we present MobileEgo Anywhere, a framework designed to facilitate the collection of robust, hour plus egocentric trajectories using commodity mobile hardware. We leverage the ubiquitous sensor suites of modern smartphones to provide high fidelity, long term camera pose tracking, effectively removing the high hardware barriers associated with traditional robotics data collection. Our contributions are three fold: (1) we release a novel dataset comprising 200 hours of diverse, long form egocentric data with persistent state tracking; (2) we open source our whole video processing infrastructure - STERA - that enables any user to record and process egocentric data, and (3) we provide a comprehensive processing pipeline to convert raw mobile captures into standardized, training ready formats for Vision Language Action model and foundation model research. By democratizing the data collection process, this work enables the massive scale acquisition of long horizon data across varied global environments, accelerating the development of generalizable robotic policies. Dataset and code can be accessed from https://www.fpvlabs.ai/stera",
+      "link": "https://arxiv.org/abs/2605.05945",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:foundation model",
+        "related:infrastructure",
+        "related:dataset"
+      ],
+      "summary_tr": "Bu çalışmada, MobilEgo Anywhere adlı bir framework geliştirilmiştir. Bu framework, uzun süreli egosentrik veri toplamak için tasarlanmıştır. Mobil cihazlardaki sensörleri kullanarak yüksek kaliteli, uzun süreli kamera pozalama takibi sağlar. 200 saatlik egosentrik veri seti yayınlanmıştır.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu olan deprem sonrası hasar tespitinde, uzun süreli veri toplama ve işleme yöntemleri ile ilgili olabilir.",
+      "tags": [
+        "egosentrik-veri",
+        "görsel-işleme",
+        "derin-öğrenme",
+        "veri-toplama",
+        "mobil-cihaz"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:39:41.871540+00:00"
+    },
+    "258814cbcbea85cf": {
+      "id": "258814cbcbea85cf",
+      "title": "Weakly Supervised Cross-Modal Learning for 4D Radar Scene Flow Estimation",
+      "summary_en": "arXiv:2605.18507v2 Announce Type: replace Abstract: Due to the difficulty of obtaining ground-truth data for 4D radar scene flow estimation, previous methods typically rely on either self-supervised losses or cross-modal supervision using 3D LiDAR data, 2D images, and odometry. However, self-supervised approaches often yield suboptimal results due to radar's inherently low-fidelity measurements, while existing cross-modal supervised methods introduce complex multi-task architecture and require costly LiDAR sensors to generate pseudo radar scene flow labels from pretrained 3D tracking models. To overcome these limitations, we propose a task-specific iterative framework for weakly supervised radar scene flow learning, using only images and odometry for auxiliary supervision during training. Specially, we establish two novel instance-aware self-supervised losses by exploiting off-the-shelf 2D tracking and segmentation algorithms to obtain tracked instance masks, which are back-projected into 3D space to provide instance-level semantic guidance; for static regions, we integrate vehicle odometry with radar's intrinsic motion cues to construct a rigid static loss. Extensive experiments on the real-world View-of-Delft (VoD) dataset demonstrate that our method not only surpasses state-of-the-art cross-modal supervised approaches that rely on 3D multi-object tracking on dense LiDAR point clouds but also outperforms existing fully supervised scene flow estimation methods. The code is open-sourced at \\href{https://github.com/FuJingyun/IterFlow}{https://github.com/FuJingyun/IterFlow}.",
+      "link": "https://arxiv.org/abs/2605.18507",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-21T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "related:dataset",
+        "related:self-supervised",
+        "related:point cloud",
+        "related:LiDAR"
+      ],
+      "summary_tr": "Bu çalışmada, 4D radar sahne akışı tahmini için zayıf denetimli çapraz modlu öğrenme yöntemi önerilmiştir. Yöntem, yalnızca görüntüler ve odometri kullanarak yardımcı denetim sağlar. İki yeni örneğe özgü öz-denetim kaybı oluşturulmuş ve statik bölgeler için araç odometrisi ile radarın içkin hareket ipuçlarını birleştiren bir rigid statik kaybı oluşturulmuştur.",
+      "relevance": 6,
+      "why_relevant": "Doktora konusu olan deprem sonrası betonarme yapılardaki hasarların görsel işleme/derin öğrenme metodları ile tespiti ile ilgili olarak, bu çalışmada kullanılan derin öğrenme yöntemleri ve çapraz modlu öğrenme yaklaşımı ilgili olabilir.",
+      "tags": [
+        "radar-sahne-akisi",
+        "zayif-denetim",
+        "derin-ogrenme",
+        "odometri",
+        "gorsel-isleme"
+      ],
+      "must_read": false,
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-21T23:39:45.285385+00:00"
     }
   }
 }
