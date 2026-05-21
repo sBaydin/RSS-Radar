@@ -10,7 +10,7 @@ schedule_local:
   hour: 20
   minute: 0
   tz_offset: 3
-  days: '*'
+  days: '1'
 llm:
   provider: groq
   model: llama-3.3-70b-versatile
