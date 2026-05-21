@@ -1,0 +1,13 @@
+{
+  "runs": [
+    {
+      "ran_at": "2026-05-21T22:35:22.035616+00:00",
+      "new_count": 60,
+      "processed_count": 60,
+      "candidates": 512,
+      "provider": "gemini",
+      "llm_ok": 0,
+      "llm_fail": 0
+    }
+  ]
+}

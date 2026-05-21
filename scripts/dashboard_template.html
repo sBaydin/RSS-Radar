@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RSS Radar — {{ profile.name }}</title>
+<style>
+  :root{
+    --bg:#0b1020; --panel:#121933; --panel2:#1a2247; --ink:#e6ecff;
+    --muted:#9aa6c7; --accent:#7cc4ff; --accent2:#ffb86b; --good:#9ae6b4;
+    --bad:#ff8a8a; --line:#2a3568; --critical:#ff7eb6; --core:#7cc4ff; --related:#9ae6b4;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+    font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,sans-serif}
+  a{color:var(--accent)}
+  button{font:inherit;cursor:pointer}
+
+  header{padding:22px 26px 14px;border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,#11183a,#0b1020);position:relative}
+  header h1{margin:0 0 4px;font-size:21px;letter-spacing:.2px}
+  header p{margin:0;color:var(--muted);max-width:900px;font-size:13px}
+  .meta{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px;color:var(--muted);font-size:12px}
+  .meta b{color:var(--ink)}
+  .meta .chip{background:var(--panel2);padding:3px 10px;border-radius:999px;border:1px solid var(--line)}
+  .meta .chip.crit{border-color:var(--critical);color:var(--critical)}
+  .meta .chip.core{border-color:var(--core);color:var(--core)}
+  .meta .chip.rel{border-color:var(--related);color:var(--related)}
+  .meta .chip.excl{border-color:var(--bad);color:var(--bad)}
+  .top-actions{position:absolute;top:18px;right:20px;display:flex;gap:8px}
+  .btn{background:var(--panel2);color:var(--ink);border:1px solid var(--line);
+    padding:7px 13px;border-radius:8px;font-size:13px;transition:.15s}
+  .btn:hover{background:var(--accent);color:#001833;border-color:var(--accent)}
+  .btn.primary{background:var(--accent);color:#001833;border-color:var(--accent);font-weight:600}
+  .btn.primary:hover{filter:brightness(1.1)}
+  .btn.scan{background:var(--good);color:#003322;border-color:var(--good);font-weight:600}
+  .btn.scan:hover{filter:brightness(1.1)}
+  .btn.danger{border-color:var(--bad);color:var(--bad)}
+  .btn.danger:hover{background:var(--bad);color:#330000}
+  .btn.ghost{background:transparent}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+
+  main{display:grid;grid-template-columns:280px 1fr;gap:0;min-height:80vh}
+  aside{padding:18px;border-right:1px solid var(--line);background:#0d1430;
+    position:sticky;top:0;height:100vh;overflow:auto}
+  aside h3{margin:18px 0 8px;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}
+  .tag{display:inline-block;margin:3px 4px 0 0;padding:3px 9px;border-radius:999px;
+    background:var(--panel2);color:var(--ink);font-size:12px;cursor:pointer;border:1px solid var(--line);user-select:none}
+  .tag:hover{border-color:var(--accent)}
+  .tag.active{background:var(--accent);color:#001833;border-color:var(--accent)}
+  .tag .n{opacity:.6;margin-left:4px;font-size:11px}
+  .runs{font-size:12px;color:var(--muted)}
+  .runs .row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dashed var(--line)}
+  .search{width:100%;padding:9px 11px;background:var(--panel);border:1px solid var(--line);
+    color:var(--ink);border-radius:8px;font-size:13px;outline:none}
+  .search:focus{border-color:var(--accent)}
+
+  .content{padding:18px 26px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:15px 17px;margin:0 0 12px;transition:transform .08s,border-color .15s}
+  .card:hover{transform:translateY(-1px);border-color:#3b4a91}
+  .card.must{border-color:var(--accent2);box-shadow:0 0 0 1px rgba(255,184,107,.2)}
+  .card h2{margin:0 0 6px;font-size:15.5px;line-height:1.35}
+  .card h2 a{color:var(--ink);text-decoration:none}
+  .card h2 a:hover{color:var(--accent)}
+  .row1{display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-bottom:6px}
+  .badge{padding:2px 8px;border-radius:6px;background:var(--panel2);color:var(--ink);font-size:11px;font-weight:600;border:1px solid var(--line)}
+  .score{padding:2px 8px;border-radius:6px;font-weight:700;font-size:11px}
+  .s-high{background:rgba(154,230,180,.15);color:var(--good)}
+  .s-mid{background:rgba(124,196,255,.15);color:var(--accent)}
+  .s-low{background:rgba(154,166,199,.15);color:var(--muted)}
+  .why{color:var(--accent);font-size:12.5px;font-style:italic;margin:5px 0}
+  .summary{color:#cfd6f0;font-size:13.5px;margin:6px 0 6px}
+  .footer-tags .tag{cursor:pointer;font-size:11px;padding:2px 7px}
+  .matched{font-size:10.5px;color:var(--muted);font-family:ui-monospace,Menlo,monospace;
+    margin-top:6px;padding-top:6px;border-top:1px dashed var(--line);display:none}
+  .card.show-debug .matched{display:block}
+  .empty{text-align:center;padding:60px 20px;color:var(--muted)}
+
+  .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);
+    z-index:100;backdrop-filter:blur(4px)}
+  .modal-bg.open{display:flex;align-items:flex-start;justify-content:center;padding:30px 16px;overflow:auto}
+  .modal{background:var(--bg);border:1px solid var(--line);border-radius:14px;
+    width:min(960px,100%);max-height:calc(100vh - 60px);overflow:auto;
+    box-shadow:0 20px 60px rgba(0,0,0,.6)}
+  .modal header{position:sticky;top:0;background:#11183a;z-index:2;padding:16px 22px;
+    border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+  .modal header h2{margin:0;font-size:17px}
+  .modal .body{padding:20px 22px}
+  .tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:18px;flex-wrap:wrap}
+  .tab{padding:9px 14px;background:transparent;color:var(--muted);border:0;border-bottom:2px solid transparent}
+  .tab.active{color:var(--ink);border-bottom-color:var(--accent)}
+  .panel{display:none}
+  .panel.active{display:block}
+  .section-title{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin:18px 0 8px;display:flex;justify-content:space-between;align-items:center}
+  .help{font-size:12px;color:var(--muted);margin:4px 0 14px;line-height:1.5}
+  .kw-list{display:flex;flex-wrap:wrap;gap:6px;padding:10px;background:var(--panel);border:1px solid var(--line);border-radius:10px;min-height:50px}
+  .kw{display:inline-flex;align-items:center;gap:6px;padding:4px 8px 4px 10px;
+    border-radius:999px;background:var(--panel2);border:1px solid var(--line);font-size:12.5px}
+  .kw.critical{border-color:var(--critical)}
+  .kw.core{border-color:var(--core)}
+  .kw.related{border-color:var(--related)}
+  .kw.exclude{border-color:var(--bad);color:#ffb1b1}
+  .kw .x{background:transparent;border:0;color:inherit;opacity:.6;font-size:14px;padding:0 2px;line-height:1;cursor:pointer}
+  .kw .x:hover{opacity:1;color:var(--bad)}
+  .kw-add{display:flex;gap:6px;margin-top:8px}
+  .kw-add input{flex:1;padding:7px 10px;background:var(--panel);border:1px solid var(--line);
+    color:var(--ink);border-radius:7px;font-size:13px;outline:none}
+  .kw-add input:focus{border-color:var(--accent)}
+  .feed-row{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;
+    padding:8px 10px;background:var(--panel);border:1px solid var(--line);border-radius:8px;margin-bottom:6px}
+  .feed-row .url{font-size:11px;color:var(--muted);font-family:ui-monospace,Menlo,monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .switch{position:relative;width:36px;height:20px;background:var(--panel2);border-radius:999px;cursor:pointer;border:1px solid var(--line);flex-shrink:0}
+  .switch::after{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;background:var(--muted);border-radius:50%;transition:.18s}
+  .switch.on{background:rgba(124,196,255,.25);border-color:var(--accent)}
+  .switch.on::after{left:18px;background:var(--accent)}
+  .field{display:grid;grid-template-columns:200px 1fr;gap:14px;align-items:center;margin:10px 0}
+  .field input,.field select,.field textarea{padding:8px 11px;background:var(--panel);
+    border:1px solid var(--line);color:var(--ink);border-radius:7px;font-size:13px;width:100%;outline:none}
+  .field input:focus,.field select:focus{border-color:var(--accent)}
+  .field-row{display:flex;gap:8px;align-items:center}
+  .field-row input{width:auto}
+  .cron-preview{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--accent);padding:6px 10px;background:var(--panel);border:1px dashed var(--line);border-radius:6px;margin-top:6px}
+  .modal footer{position:sticky;bottom:0;background:#11183a;padding:14px 22px;
+    border-top:1px solid var(--line);display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+    background:var(--panel2);border:1px solid var(--line);padding:10px 18px;border-radius:10px;
+    color:var(--ink);font-size:13px;z-index:200;display:none;box-shadow:0 8px 24px rgba(0,0,0,.4);max-width:90vw}
+  .toast.show{display:block;animation:fade .3s}
+  .toast.error{border-color:var(--bad);color:var(--bad)}
+  .toast.success{border-color:var(--good);color:var(--good)}
+  @keyframes fade{from{opacity:0;transform:translate(-50%,8px)}to{opacity:1;transform:translate(-50%,0)}}
+
+  @media (max-width:800px){
+    main{grid-template-columns:1fr}
+    aside{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}
+    .field{grid-template-columns:1fr}
+    .top-actions{position:static;margin-top:12px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="top-actions">
+    <button class="btn ghost" onclick="toggleDebug()" title="Eşleşen anahtar kelimeleri göster">🔍 debug</button>
+    <button class="btn scan" id="scan-btn" onclick="runScanNow()" title="GitHub Actions üzerinden manuel tarama tetikle">▶️ Şimdi Tara</button>
+    <button class="btn" onclick="openSettings()">⚙️ Ayarlar</button>
+  </div>
+  <h1>📡 RSS Radar — {{ profile.name }}</h1>
+  <p>{{ profile.description }}</p>
+  <div class="meta">
+    <span>Üretildi: <b>{{ generated_at }}</b></span>
+    <span>Gösterilen: <b>{{ total_shown }}</b> / Toplam görülen: <b>{{ total_seen }}</b></span>
+    <span>Eşik: <b>{{ threshold }}</b>/10</span>
+    <span class="chip">🛰 Feed: <b>{{ feed_count }}/{{ feed_total }}</b></span>
+    <span class="chip crit">⚡ critical: {{ kw_counts.critical }}</span>
+    <span class="chip core">● core: {{ kw_counts.core }}</span>
+    <span class="chip rel">○ related: {{ kw_counts.related }}</span>
+    <span class="chip excl">✕ exclude: {{ kw_counts.exclude }}</span>
+    <span class="chip" title="Dashboard sadece lokal görüntülenir; public web'de açık değildir.">🔒 lokal-mod</span>
+    {% if llm_provider %}<span class="chip">🤖 {{ llm_provider }}/{{ llm_model }}</span>{% endif %}
+  </div>
+</header>
+
+<main>
+  <aside>
+    <input class="search" id="q" placeholder="🔍 ara (başlık/özet/etiket)..." oninput="filter()">
+
+    <h3>Etiketler</h3>
+    <div id="tags">
+      <span class="tag active" data-tag="*" onclick="pickTag(this)">tümü <span class="n">{{ items|length }}</span></span>
+      {% for t,n in tags %}
+        <span class="tag" data-tag="{{ t }}" onclick="pickTag(this)">{{ t }} <span class="n">{{ n }}</span></span>
+      {% endfor %}
+    </div>
+
+    <h3>Kaynaklar</h3>
+    <div id="sources" style="font-size:12px;color:var(--muted)">
+      {% for s,n in sources %}
+        <div class="row" style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px dashed var(--line)">
+          <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:200px">{{ s }}</span>
+          <b style="color:var(--ink)">{{ n }}</b>
+        </div>
+      {% endfor %}
+    </div>
+
+    <h3>Son koşular</h3>
+    <div class="runs">
+      {% for r in runs %}
+        <div class="row"><span>{{ r.ran_at[:10] }}</span><span>+{{ r.new_count }} ({{ r.candidates or '?' }} aday)</span></div>
+      {% endfor %}
+    </div>
+  </aside>
+
+  <section class="content" id="list">
+    {% if not items %}
+      <div class="empty">Henüz eşik üstü item yok. Sistem bu akşam tekrar tarayacak.<br>
+        İstersen <a href="#" onclick="openSettings();return false">Ayarlar</a>'dan eşiği düşür.</div>
+    {% endif %}
+    {% for it in items %}
+      {% set rel = it.relevance or 0 %}
+      <article class="card {% if it.must_read %}must{% endif %}"
+               data-tags="{{ (it.tags or [])|join(' ')|lower }}"
+               data-text="{{ (it.title ~ ' ' ~ (it.summary_tr or '') ~ ' ' ~ (it.summary_en or ''))|lower }}">
+        <div class="row1">
+          <span class="badge">{{ it.source }}</span>
+          <span class="score {% if rel>=8 %}s-high{% elif rel>=5 %}s-mid{% else %}s-low{% endif %}">
+            ⭐ {{ rel }}/10
+          </span>
+          {% if it.must_read %}<span class="badge" style="background:var(--accent2);color:#3a2200;border-color:var(--accent2)">MUTLAKA OKU</span>{% endif %}
+          <span>{{ it.published[:10] }}</span>
+          <span class="badge">{{ it.category }}</span>
+        </div>
+        <h2><a href="{{ it.link }}" target="_blank" rel="noopener">{{ it.title }}</a></h2>
+        {% if it.why_relevant %}<div class="why">→ {{ it.why_relevant }}</div>{% endif %}
+        <div class="summary">{{ it.summary_tr or it.summary_en[:400] }}</div>
+        <div class="footer-tags">
+          {% for t in (it.tags or []) %}<span class="tag" data-tag="{{ t }}" onclick="pickTag(this)">{{ t }}</span>{% endfor %}
+        </div>
+        {% if it.matched_keywords %}
+        <div class="matched">eşleşen: {{ it.matched_keywords|join(' · ') }} | pre_score: {{ it.pre_score }}</div>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </section>
+</main>
+
+<!-- ================= AYARLAR MODAL ================= -->
+<div class="modal-bg" id="modal" onclick="if(event.target===this)closeSettings()">
+  <div class="modal">
+    <header>
+      <h2>⚙️ Yönetim Paneli</h2>
+      <button class="btn ghost" onclick="closeSettings()">✕</button>
+    </header>
+    <div class="body">
+
+      <div class="tabs">
+        <button class="tab active" onclick="showTab('tab-kw',this)">🔑 Anahtar Kelimeler</button>
+        <button class="tab" onclick="showTab('tab-feeds',this)">🛰 Feed'ler</button>
+        <button class="tab" onclick="showTab('tab-general',this)">🎚 Genel</button>
+        <button class="tab" onclick="showTab('tab-github',this)">🐙 GitHub</button>
+        <button class="tab" onclick="showTab('tab-save',this)">💾 Kaydet</button>
+      </div>
+
+      <!-- KEYWORDS TAB -->
+      <div class="panel active" id="tab-kw">
+        <div class="help">
+          Ön-skor = <b style="color:var(--critical)">critical×3</b> + <b style="color:var(--core)">core×2</b> + <b style="color:var(--related)">related×1</b> − <b style="color:var(--bad)">exclude×3</b>.
+          Ön-skoru ≥2 olanlar LLM'e gider. Yeni kelime eklemek için kutucuğa yazıp Enter'a bas.
+        </div>
+
+        {% for tier in ['critical','core','related','exclude'] %}
+        <div class="section-title">
+          <span>
+            {% if tier=='critical' %}⚡{% elif tier=='core' %}●{% elif tier=='related' %}○{% else %}✕{% endif %}
+            {{ tier|upper }}
+            <span style="color:var(--muted);font-weight:normal">
+              ({% if tier=='critical' %}×3 ağırlık - tezin göbeği{% elif tier=='core' %}×2 - alanın bel kemiği{% elif tier=='related' %}×1 - bağlamsal{% else %}-×3 - dışla{% endif %})
+            </span>
+          </span>
+          <span id="cnt-{{tier}}" style="color:var(--muted);font-weight:normal;font-size:12px">0</span>
+        </div>
+        <div class="kw-list" id="kw-{{tier}}"></div>
+        <div class="kw-add">
+          <input id="add-{{tier}}" placeholder="yeni kelime ekle (Enter)" onkeydown="if(event.key==='Enter'){addKw('{{tier}}');event.preventDefault()}">
+          <button class="btn" onclick="addKw('{{tier}}')">+ ekle</button>
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- FEEDS TAB -->
+      <div class="panel" id="tab-feeds">
+        <div class="help">Feed'leri aç/kapat veya yeni ekle. URL'in geçerli bir RSS/Atom akışı olmasına dikkat et.</div>
+        <div id="feeds-list"></div>
+        <div class="section-title"><span>+ YENİ FEED EKLE</span></div>
+        <div class="field"><label>Ad</label><input id="nf-name" placeholder="ör. MDPI Materials"></div>
+        <div class="field"><label>URL</label><input id="nf-url" placeholder="https://..."></div>
+        <div class="field"><label>Kategori</label>
+          <select id="nf-cat">
+            <option>journal</option><option>preprint</option>
+            <option>preprint-query</option><option>blog</option><option>other</option>
+          </select>
+        </div>
+        <button class="btn" onclick="addFeed()">+ feed ekle</button>
+      </div>
+
+      <!-- GENERAL TAB -->
+      <div class="panel" id="tab-general">
+        <div class="help">Çalışma zamanı, LLM ve eşik ayarları.</div>
+        <div class="field"><label>Profil adı</label><input id="g-name"></div>
+        <div class="field"><label>Açıklama</label><textarea id="g-desc" rows="3"></textarea></div>
+
+        <div class="section-title"><span>⏰ OTOMATİK TARAMA ZAMANI</span></div>
+        <div class="field">
+          <label>Saat (yerel)</label>
+          <div class="field-row">
+            <input id="g-hh" type="number" min="0" max="23" style="width:75px" oninput="updateCron()">
+            <span>:</span>
+            <input id="g-mm" type="number" min="0" max="59" style="width:75px" oninput="updateCron()">
+            <select id="g-tz" style="width:auto" onchange="updateCron()">
+              <option value="3">Türkiye (UTC+3)</option>
+              <option value="0">UTC (UTC+0)</option>
+              <option value="1">Orta Avrupa (UTC+1)</option>
+              <option value="2">Doğu Avrupa (UTC+2)</option>
+              <option value="-5">New York (UTC-5)</option>
+              <option value="-8">Los Angeles (UTC-8)</option>
+              <option value="8">Pekin/Singapur (UTC+8)</option>
+              <option value="9">Tokyo (UTC+9)</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label>Hangi günler</label>
+          <div class="field-row" id="g-days" style="flex-wrap:wrap;gap:6px">
+            <!-- doldurulacak -->
+          </div>
+        </div>
+        <div class="field"><label></label>
+          <div class="cron-preview" id="cron-preview">cron: 0 17 * * *</div>
+        </div>
+
+        <div class="section-title"><span>🤖 LLM</span></div>
+        <div class="field"><label>LLM provider</label>
+          <select id="g-prov">
+            <option value="gemini">🆓 Gemini (Google) — önerilen</option>
+            <option value="groq">🆓 Groq (Llama) — ultra hızlı</option>
+            <option value="ollama">🆓 Ollama (yerel model)</option>
+            <option value="openai">💵 OpenAI (ücretli)</option>
+            <option value="anthropic">💵 Anthropic (ücretli)</option>
+          </select>
+        </div>
+        <div class="field"><label>LLM model</label><input id="g-model" placeholder="ör. gemini-2.5-flash"></div>
+        <div class="field"><label>Yedek provider</label>
+          <select id="g-fbprov">
+            <option value="">— yok —</option>
+            <option value="gemini">🆓 Gemini</option>
+            <option value="groq">🆓 Groq</option>
+            <option value="ollama">🆓 Ollama</option>
+            <option value="openai">💵 OpenAI</option>
+            <option value="anthropic">💵 Anthropic</option>
+          </select>
+        </div>
+        <div class="field"><label>Yedek model</label><input id="g-fbmodel" placeholder="ör. llama-3.3-70b-versatile"></div>
+        <div class="help" style="margin-left:200px">Birincil hata verirse (rate-limit, çökme) otomatik yedeğe düşer.</div>
+        <div class="field"><label>Günlük max item</label><input id="g-max" type="number" min="5" max="500"></div>
+        <div class="field"><label>Eşik skor (1-10)</label><input id="g-thr" type="number" min="1" max="10"></div>
+      </div>
+
+      <!-- GITHUB TAB (token + repo bilgisi tek noktada) -->
+      <div class="panel" id="tab-github">
+        <div class="help">
+          GitHub bağlantısı kurulduktan sonra <b>"Şimdi Tara"</b> butonu ve
+          <b>"GitHub'a Kaydet"</b> butonu çalışır hale gelir.
+        </div>
+        <div class="field"><label>Repo (kullanıcı/repo)</label><input id="gh-repo" placeholder="kullaniciadi/rss-radar"></div>
+        <div class="field"><label>Branch</label><input id="gh-branch" value="main"></div>
+        <div class="field"><label>Workflow dosyası</label><input id="gh-workflow" value="daily.yml"></div>
+        <div class="field"><label>Personal Access Token</label>
+          <input id="gh-token" type="password" placeholder="github_pat_...">
+        </div>
+        <div class="help">
+          <b>Token nasıl alınır?</b><br>
+          1. <a href="https://github.com/settings/personal-access-tokens/new" target="_blank">github.com/settings/personal-access-tokens/new</a> →
+             "Fine-grained token" oluştur.<br>
+          2. <b>Resource owner:</b> kendi hesabın · <b>Repository access:</b> sadece bu repo.<br>
+          3. <b>Permissions → Repository permissions:</b>
+             "Contents: Read &amp; write" ve "Actions: Read &amp; write" izinlerini ver.<br>
+          4. Token'ı kopyala, buraya yapıştır. Sadece tarayıcı localStorage'da saklanır,
+             başka hiçbir yere gönderilmez (GitHub API'ye doğrudan POST).
+        </div>
+        <button class="btn primary" onclick="saveGithub()">💾 GitHub ayarlarını kaydet</button>
+        <button class="btn" onclick="testGithub()">🔌 Bağlantıyı test et</button>
+      </div>
+
+      <!-- SAVE TAB -->
+      <div class="panel" id="tab-save">
+        <div class="help">
+          Değişiklikleri 2 şekilde uygulayabilirsin:<br>
+          <b>1. YAML indir:</b> Yeni <code>config.yaml</code>'ı bilgisayarına indir, repo'ya kendin commit'le.<br>
+          <b>2. GitHub'a doğrudan kaydet:</b> 🐙 GitHub sekmesindeki bilgiler kullanılır.<br>
+          Saat değiştirdiysen <b>workflow dosyası da</b> otomatik güncellenir.
+        </div>
+
+        <div class="section-title"><span>📄 config.yaml ÖNİZLEME</span>
+          <button class="btn ghost" onclick="copyYaml()">📋 kopyala</button>
+        </div>
+        <textarea id="yaml-preview" rows="14" style="width:100%;font-family:ui-monospace,Menlo,monospace;font-size:12px;background:var(--panel);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:10px"></textarea>
+      </div>
+
+    </div>
+    <footer>
+      <button class="btn ghost" onclick="resetForm()">↶ baştan yükle</button>
+      <button class="btn" onclick="downloadYaml()">⬇ YAML indir</button>
+      <button class="btn primary" onclick="commitToGithub()">🚀 GitHub'a kaydet</button>
+    </footer>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+ * YÖNETİM PANELİ
+ * ============================================================ */
+
+let CONFIG = null;
+const TIERS = ['critical','core','related','exclude'];
+const DAYS = [['1','Pzt'],['2','Sal'],['3','Çar'],['4','Per'],['5','Cum'],['6','Cmt'],['0','Paz']];
+
+// ---- Sayfa filtre ----
+let activeTag = "*";
+function pickTag(el){
+  activeTag = el.dataset.tag;
+  document.querySelectorAll('#tags .tag').forEach(t=>t.classList.toggle('active', t.dataset.tag===activeTag));
+  filter();
+}
+function filter(){
+  const q = document.getElementById('q').value.toLowerCase().trim();
+  document.querySelectorAll('#list .card').forEach(c=>{
+    const tags = c.dataset.tags;
+    const text = c.dataset.text;
+    const tagOk = (activeTag==="*") || tags.split(/\s+/).includes(activeTag);
+    const qOk = !q || text.includes(q) || tags.includes(q);
+    c.style.display = (tagOk && qOk) ? "" : "none";
+  });
+}
+function toggleDebug(){ document.querySelectorAll('#list .card').forEach(c=>c.classList.toggle('show-debug')); }
+
+// ---- Modal ----
+function openSettings(){
+  document.getElementById('modal').classList.add('open');
+  loadConfig();
+}
+function closeSettings(){ document.getElementById('modal').classList.remove('open'); }
+function showTab(id, btn){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if(id==='tab-save') refreshYaml();
+  if(id==='tab-github') loadGithub();
+}
+
+// ---- Config yükle/render ----
+async function loadConfig(){
+  try{
+    const inline = document.getElementById('inline-config');
+    if(inline){ CONFIG = JSON.parse(inline.textContent); renderAll(); return; }
+    const r = await fetch('config.json?t=' + Date.now());
+    CONFIG = await r.json();
+    renderAll();
+  }catch(e){ toast('config yüklenemedi: ' + e, 'error'); }
+}
+function renderAll(){
+  renderKw();
+  renderFeeds();
+  renderGeneral();
+}
+function renderKw(){
+  TIERS.forEach(tier=>{
+    const list = CONFIG.keywords[tier] || [];
+    const cont = document.getElementById('kw-'+tier);
+    document.getElementById('cnt-'+tier).textContent = list.length + ' kelime';
+    cont.innerHTML = list.map((k,i)=>`
+      <span class="kw ${tier}">
+        ${escapeHtml(k)}
+        <button class="x" onclick="rmKw('${tier}',${i})" title="sil">×</button>
+      </span>
+    `).join('') || '<span style="color:var(--muted);font-size:12px;padding:6px">boş</span>';
+  });
+}
+function addKw(tier){
+  const inp = document.getElementById('add-'+tier);
+  const val = inp.value.trim();
+  if(!val) return;
+  CONFIG.keywords[tier] = CONFIG.keywords[tier] || [];
+  if(!CONFIG.keywords[tier].includes(val)) CONFIG.keywords[tier].push(val);
+  inp.value = '';
+  renderKw();
+}
+function rmKw(tier, idx){
+  CONFIG.keywords[tier].splice(idx,1);
+  renderKw();
+}
+function renderFeeds(){
+  const cont = document.getElementById('feeds-list');
+  cont.innerHTML = CONFIG.feeds.map((f,i)=>`
+    <div class="feed-row">
+      <div class="switch ${f.enabled!==false?'on':''}" onclick="toggleFeed(${i})"></div>
+      <div>
+        <div><b>${escapeHtml(f.name)}</b> <span style="color:var(--muted);font-size:11px">[${f.category||'?'}]</span></div>
+        <div class="url">${escapeHtml(f.url)}</div>
+      </div>
+      <button class="btn danger" onclick="rmFeed(${i})" title="sil">🗑</button>
+    </div>
+  `).join('');
+}
+function toggleFeed(i){ CONFIG.feeds[i].enabled = CONFIG.feeds[i].enabled === false ? true : false; renderFeeds(); }
+function rmFeed(i){
+  if(!confirm('Bu feed silinsin mi?\n' + CONFIG.feeds[i].name)) return;
+  CONFIG.feeds.splice(i,1);
+  renderFeeds();
+}
+function addFeed(){
+  const name = document.getElementById('nf-name').value.trim();
+  const url  = document.getElementById('nf-url').value.trim();
+  const cat  = document.getElementById('nf-cat').value;
+  if(!name || !url){ toast('Ad ve URL gerekli', 'error'); return; }
+  CONFIG.feeds.push({name, url, category:cat, enabled:true});
+  document.getElementById('nf-name').value = '';
+  document.getElementById('nf-url').value = '';
+  renderFeeds();
+  toast('Feed eklendi', 'success');
+}
+
+// ---- Genel ayarlar (saat dahil) ----
+function renderGeneral(){
+  document.getElementById('g-name').value  = CONFIG.profile.name || '';
+  document.getElementById('g-desc').value  = CONFIG.profile.description || '';
+  document.getElementById('g-prov').value  = CONFIG.llm.provider || 'gemini';
+  document.getElementById('g-model').value = CONFIG.llm.model || '';
+  document.getElementById('g-fbprov').value  = CONFIG.llm.fallback_provider || '';
+  document.getElementById('g-fbmodel').value = CONFIG.llm.fallback_model || '';
+  document.getElementById('g-max').value   = CONFIG.llm.max_items_per_run || 60;
+  document.getElementById('g-thr').value   = CONFIG.llm.relevance_threshold || 4;
+
+  // Yerel saat alanları - schedule_local'dan oku, yoksa cron'dan tahmin
+  const sched = CONFIG.schedule_local || {hour:20, minute:0, tz_offset:3, days:'*'};
+  document.getElementById('g-hh').value = sched.hour;
+  document.getElementById('g-mm').value = sched.minute;
+  document.getElementById('g-tz').value = String(sched.tz_offset);
+
+  // Günler
+  const daysContainer = document.getElementById('g-days');
+  const selectedDays = sched.days === '*' ? DAYS.map(d=>d[0]) : String(sched.days).split(',');
+  daysContainer.innerHTML = DAYS.map(([n,lbl])=>`
+    <label style="display:flex;align-items:center;gap:4px;background:var(--panel);
+      padding:5px 10px;border-radius:6px;border:1px solid var(--line);cursor:pointer;font-size:12px">
+      <input type="checkbox" value="${n}" ${selectedDays.includes(n)?'checked':''} onchange="updateCron()">
+      ${lbl}
+    </label>
+  `).join('');
+  updateCron();
+}
+function updateCron(){
+  const hh = parseInt(document.getElementById('g-hh').value)||0;
+  const mm = parseInt(document.getElementById('g-mm').value)||0;
+  const tz = parseInt(document.getElementById('g-tz').value)||0;
+  // UTC'ye çevir
+  let utcH = hh - tz;
+  let dayShift = 0;
+  while(utcH < 0){ utcH += 24; dayShift = -1; }
+  while(utcH >= 24){ utcH -= 24; dayShift = 1; }
+
+  // Günler
+  const checked = [...document.querySelectorAll('#g-days input:checked')].map(i=>i.value);
+  let daysCron = '*';
+  if(checked.length>0 && checked.length<7){
+    // gün kaydırması varsa cron'da günleri de kaydır
+    const shifted = checked.map(d=>{
+      let v = (parseInt(d) + dayShift + 7) % 7;
+      return String(v);
+    });
+    daysCron = shifted.sort().join(',');
+  }
+
+  const cron = `${mm} ${utcH} * * ${daysCron}`;
+  document.getElementById('cron-preview').textContent =
+    `cron: ${cron}   →   yerel saat ${pad(hh)}:${pad(mm)}` +
+    (checked.length===7||checked.length===0 ? '  (her gün)' : `  (${checked.length} gün)`);
+
+  if(!CONFIG.schedule_local) CONFIG.schedule_local = {};
+  CONFIG.schedule_local.hour = hh;
+  CONFIG.schedule_local.minute = mm;
+  CONFIG.schedule_local.tz_offset = tz;
+  CONFIG.schedule_local.days = checked.length===7 ? '*' : checked.join(',');
+  CONFIG.schedule_utc = cron;
+}
+function pad(n){ return String(n).padStart(2,'0'); }
+function syncGeneral(){
+  CONFIG.profile.name = document.getElementById('g-name').value;
+  CONFIG.profile.description = document.getElementById('g-desc').value;
+  CONFIG.llm.provider = document.getElementById('g-prov').value;
+  CONFIG.llm.model = document.getElementById('g-model').value;
+  CONFIG.llm.fallback_provider = document.getElementById('g-fbprov').value || null;
+  CONFIG.llm.fallback_model = document.getElementById('g-fbmodel').value || null;
+  CONFIG.llm.max_items_per_run = parseInt(document.getElementById('g-max').value)||60;
+  CONFIG.llm.relevance_threshold = parseInt(document.getElementById('g-thr').value)||4;
+  updateCron();
+}
+function resetForm(){ loadConfig(); toast('Yeniden yüklendi'); }
+
+// ---- YAML üretici ----
+function toYaml(cfg){
+  const q = s => {
+    s = String(s);
+    if(/[:#&*!|>'"%@`{}\[\],?\-]|^\s|\s$|^(true|false|null|yes|no|on|off)$/i.test(s) || s==='')
+      return JSON.stringify(s);
+    return s;
+  };
+  let y = '';
+  y += 'profile:\n';
+  y += `  name: ${q(cfg.profile.name)}\n`;
+  const desc = (cfg.profile.description||'').replace(/\n/g,'\n    ');
+  y += `  description: |\n    ${desc}\n\n`;
+  y += `schedule_utc: ${q(cfg.schedule_utc)}\n`;
+  if(cfg.schedule_local){
+    y += 'schedule_local:\n';
+    y += `  hour: ${cfg.schedule_local.hour}\n`;
+    y += `  minute: ${cfg.schedule_local.minute}\n`;
+    y += `  tz_offset: ${cfg.schedule_local.tz_offset}\n`;
+    y += `  days: ${q(cfg.schedule_local.days)}\n`;
+  }
+  y += '\nllm:\n';
+  for(const [k,v] of Object.entries(cfg.llm)) y += `  ${k}: ${typeof v==='number'?v:q(v)}\n`;
+  y += '\nkeywords:\n';
+  for(const tier of TIERS){
+    y += `  ${tier}:\n`;
+    for(const k of (cfg.keywords[tier]||[])) y += `    - ${q(k)}\n`;
+  }
+  y += '\nfeeds:\n';
+  for(const f of cfg.feeds){
+    y += `  - name: ${q(f.name)}\n`;
+    y += `    url: ${q(f.url)}\n`;
+    y += `    category: ${q(f.category||'other')}\n`;
+    y += `    enabled: ${f.enabled===false?'false':'true'}\n`;
+  }
+  return y;
+}
+function refreshYaml(){
+  syncGeneral();
+  document.getElementById('yaml-preview').value = toYaml(CONFIG);
+}
+function copyYaml(){
+  refreshYaml();
+  navigator.clipboard.writeText(document.getElementById('yaml-preview').value);
+  toast('Panoya kopyalandı', 'success');
+}
+function downloadYaml(){
+  syncGeneral();
+  const blob = new Blob([toYaml(CONFIG)], {type:'text/yaml'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'config.yaml';
+  a.click();
+  toast('config.yaml indirildi. Repo köküne koyup commit\'le.', 'success');
+}
+
+// ---- GitHub ----
+function ghCreds(){
+  try{ return JSON.parse(localStorage.getItem('rss-radar-gh')||'{}'); }catch{ return {}; }
+}
+function loadGithub(){
+  const g = ghCreds();
+  if(g.repo)     document.getElementById('gh-repo').value = g.repo;
+  if(g.branch)   document.getElementById('gh-branch').value = g.branch;
+  if(g.workflow) document.getElementById('gh-workflow').value = g.workflow;
+  if(g.token)    document.getElementById('gh-token').value = g.token;
+}
+function saveGithub(){
+  const data = {
+    repo:     document.getElementById('gh-repo').value.trim(),
+    branch:   document.getElementById('gh-branch').value.trim() || 'main',
+    workflow: document.getElementById('gh-workflow').value.trim() || 'daily.yml',
+    token:    document.getElementById('gh-token').value.trim(),
+  };
+  if(!data.repo || !data.token){ toast('Repo ve token gerekli', 'error'); return; }
+  localStorage.setItem('rss-radar-gh', JSON.stringify(data));
+  toast('✓ GitHub ayarları kaydedildi', 'success');
+}
+async function testGithub(){
+  saveGithub();
+  const g = ghCreds();
+  try{
+    const r = await fetch(`https://api.github.com/repos/${g.repo}`, {
+      headers:{'Authorization':'Bearer '+g.token,'Accept':'application/vnd.github+json'}
+    });
+    if(!r.ok){ const e=await r.json(); throw new Error(e.message||r.statusText); }
+    const j = await r.json();
+    toast(`✓ Bağlandı: ${j.full_name} (${j.default_branch})`, 'success');
+  }catch(e){ toast('Hata: '+e.message, 'error'); }
+}
+
+// ---- "Şimdi Tara" - workflow_dispatch tetikleyici ----
+async function runScanNow(){
+  const g = ghCreds();
+  if(!g.repo || !g.token){
+    toast('Önce ⚙️ Ayarlar → 🐙 GitHub sekmesinden bağlantı kur', 'error');
+    openSettings(); setTimeout(()=>showTab('tab-github', document.querySelectorAll('.tab')[3]), 100);
+    return;
+  }
+  if(!confirm('GitHub Actions üzerinde manuel tarama tetiklensin mi?\n\nRepo: '+g.repo+'\nWorkflow: '+(g.workflow||'daily.yml'))) return;
+  const btn = document.getElementById('scan-btn');
+  btn.disabled = true;
+  btn.textContent = '⏳ Tetikleniyor...';
+  try{
+    const wf = g.workflow || 'daily.yml';
+    const url = `https://api.github.com/repos/${g.repo}/actions/workflows/${wf}/dispatches`;
+    const r = await fetch(url, {
+      method:'POST',
+      headers:{'Authorization':'Bearer '+g.token,
+               'Accept':'application/vnd.github+json',
+               'Content-Type':'application/json'},
+      body: JSON.stringify({ref: g.branch||'main'})
+    });
+    if(!r.ok){
+      const e = await r.json().catch(()=>({message:r.statusText}));
+      throw new Error(e.message || r.statusText);
+    }
+    toast('🚀 Tarama başlatıldı! ~2-3 dk sonra sayfayı yenile.', 'success');
+    setTimeout(()=>{
+      window.open(`https://github.com/${g.repo}/actions`, '_blank');
+    }, 1500);
+  }catch(e){
+    toast('Hata: '+e.message, 'error');
+  }finally{
+    btn.disabled = false;
+    btn.textContent = '▶️ Şimdi Tara';
+  }
+}
+
+// ---- GitHub'a config + workflow kaydet ----
+async function commitToGithub(){
+  syncGeneral();
+  const g = ghCreds();
+  if(!g.repo || !g.token){
+    toast('Önce ⚙️ Ayarlar → 🐙 GitHub sekmesinden bağlantı kur', 'error');
+    showTab('tab-github', document.querySelectorAll('.tab')[3]);
+    return;
+  }
+
+  toast('GitHub\'a gönderiliyor...');
+  try{
+    // 1. config.yaml
+    await putFile(g, 'config.yaml', toYaml(CONFIG),
+                  'panel: config güncellendi');
+
+    // 2. cron değiştiyse workflow dosyasını da güncelle
+    const wfPath = '.github/workflows/' + (g.workflow||'daily.yml');
+    const wfCur  = await getFile(g, wfPath);
+    if(wfCur && wfCur.content){
+      const cur = decodeBase64(wfCur.content);
+      const updated = cur.replace(/(-\s*cron:\s*)"[^"]*"/, `$1"${CONFIG.schedule_utc}"`);
+      if(updated !== cur){
+        await putFile(g, wfPath, updated, 'panel: cron güncellendi → '+CONFIG.schedule_utc, wfCur.sha);
+      }
+    }
+
+    toast('✓ Commit edildi! Bir sonraki koşuda yeni ayarlar geçerli olacak.', 'success');
+  }catch(e){
+    toast('Hata: ' + e.message, 'error');
+  }
+}
+async function getFile(g, path){
+  const r = await fetch(`https://api.github.com/repos/${g.repo}/contents/${path}?ref=${g.branch||'main'}`,
+    {headers:{'Authorization':'Bearer '+g.token,'Accept':'application/vnd.github+json'}});
+  if(!r.ok) return null;
+  return await r.json();
+}
+async function putFile(g, path, content, msg, sha=null){
+  if(!sha){
+    const cur = await getFile(g, path);
+    if(cur) sha = cur.sha;
+  }
+  const body = {
+    message: msg + ' (' + new Date().toISOString().slice(0,16) + ')',
+    content: btoa(unescape(encodeURIComponent(content))),
+    branch: g.branch||'main',
+  };
+  if(sha) body.sha = sha;
+  const r = await fetch(`https://api.github.com/repos/${g.repo}/contents/${path}`,
+    {method:'PUT',
+     headers:{'Authorization':'Bearer '+g.token,'Accept':'application/vnd.github+json'},
+     body: JSON.stringify(body)});
+  if(!r.ok){ const e=await r.json(); throw new Error(`${path}: ${e.message||r.statusText}`); }
+  return await r.json();
+}
+function decodeBase64(b64){
+  return decodeURIComponent(escape(atob(b64.replace(/\s/g,''))));
+}
+
+// ---- Yardımcılar ----
+function toast(msg, kind=''){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show ' + kind;
+  clearTimeout(window._tT);
+  window._tT = setTimeout(()=>t.classList.remove('show'), 5000);
+}
+function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeSettings(); });
+</script>
+</body>
+</html>

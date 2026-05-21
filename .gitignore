@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Local secrets (kazara repo'ya gitmesin)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*_key.txt
+*_token.txt
+credentials.json
+
+# IDE
+.DS_Store
+.idea/
+.vscode/
+*.swp

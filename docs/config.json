@@ -1,0 +1,338 @@
+{
+  "profile": {
+    "name": "Betonarme Hasar Tespiti - Görüntü İşleme",
+    "description": "Doktora konusu: Deprem sonrası oluşan betonarme yapılardaki hasarların\ngörsel işleme/derin öğrenme metodları ile tespiti.\n"
+  },
+  "schedule_utc": "0 17 * * *",
+  "schedule_local": {
+    "hour": 20,
+    "minute": 0,
+    "tz_offset": 3,
+    "days": "*"
+  },
+  "llm": {
+    "provider": "gemini",
+    "model": "gemini-2.5-flash",
+    "fallback_provider": "groq",
+    "fallback_model": "llama-3.3-70b-versatile",
+    "language": "tr",
+    "max_items_per_run": 60,
+    "relevance_threshold": 4
+  },
+  "keywords": {
+    "critical": [
+      "post-earthquake",
+      "post earthquake",
+      "earthquake damage",
+      "seismic damage",
+      "reinforced concrete damage",
+      "RC building damage",
+      "rapid visual screening",
+      "rapid post-earthquake assessment",
+      "building damage assessment",
+      "damage classification",
+      "damage detection",
+      "crack detection",
+      "crack segmentation",
+      "crack quantification",
+      "crack width measurement",
+      "spalling detection",
+      "rebar exposure",
+      "concrete spalling"
+    ],
+    "core": [
+      "reinforced concrete",
+      "RC column",
+      "RC beam",
+      "beam-column joint",
+      "shear wall",
+      "structural damage",
+      "structural health monitoring",
+      "SHM",
+      "damage state",
+      "damage index",
+      "damage level",
+      "EMS-98",
+      "FEMA",
+      "computer vision",
+      "deep learning",
+      "convolutional neural network",
+      "semantic segmentation",
+      "instance segmentation",
+      "object detection",
+      "image classification",
+      "image processing",
+      "YOLO",
+      "Mask R-CNN",
+      "U-Net",
+      "vision transformer",
+      "ViT",
+      "Segment Anything",
+      "SAM model",
+      "CLIP",
+      "foundation model",
+      "vision language model",
+      "VLM",
+      "UAV",
+      "drone inspection",
+      "aerial imagery",
+      "smartphone inspection"
+    ],
+    "related": [
+      "concrete",
+      "earthquake",
+      "seismic",
+      "infrastructure",
+      "bridge inspection",
+      "tunnel inspection",
+      "non-destructive",
+      "NDT",
+      "transfer learning",
+      "data augmentation",
+      "dataset",
+      "benchmark",
+      "annotation",
+      "edge computing",
+      "real-time",
+      "explainable AI",
+      "XAI",
+      "uncertainty",
+      "domain adaptation",
+      "synthetic data",
+      "generative model",
+      "diffusion",
+      "self-supervised",
+      "few-shot",
+      "anomaly detection",
+      "drift estimation",
+      "displacement measurement",
+      "fragility",
+      "vulnerability assessment",
+      "retrofit",
+      "strengthening",
+      "masonry",
+      "BIM",
+      "point cloud",
+      "LiDAR",
+      "photogrammetry"
+    ],
+    "exclude": [
+      "medical imaging",
+      "chest x-ray",
+      "MRI",
+      "CT scan",
+      "tumor",
+      "cancer",
+      "lesion",
+      "histopathology",
+      "ultrasound",
+      "retinal",
+      "skin",
+      "lung nodule",
+      "white blood cell",
+      "wound tissue",
+      "fetal",
+      "BI-RADS",
+      "mammography",
+      "plant trait",
+      "leaf disease",
+      "crop",
+      "agriculture",
+      "weed detection",
+      "fruit detection",
+      "satellite weather",
+      "cloud detection",
+      "land cover",
+      "vegetation index",
+      "ocean",
+      "atmospheric",
+      "autonomous driving",
+      "self-driving",
+      "lane detection",
+      "pedestrian detection",
+      "traffic sign",
+      "dashcam",
+      "face recognition",
+      "facial expression",
+      "pose estimation",
+      "gesture",
+      "person re-identification",
+      "human action",
+      "deepfake",
+      "wind turbine",
+      "aerospace",
+      "x-ray tomography",
+      "PCB",
+      "additive manufacturing",
+      "3D printing",
+      "weld defect",
+      "fabric defect",
+      "textile",
+      "military",
+      "weapon",
+      "surveillance",
+      "anti-spoofing",
+      "robot manipulation",
+      "grasping",
+      "SLAM mapping",
+      "speech",
+      "audio",
+      "music",
+      "NLP",
+      "language model evaluation",
+      "recommendation",
+      "molecular",
+      "protein",
+      "drug",
+      "particle physics",
+      "jet tagging",
+      "high energy physics"
+    ]
+  },
+  "feeds": [
+    {
+      "name": "arXiv cs.CV",
+      "url": "http://export.arxiv.org/rss/cs.CV",
+      "category": "preprint",
+      "enabled": true
+    },
+    {
+      "name": "arXiv eess.IV",
+      "url": "http://export.arxiv.org/rss/eess.IV",
+      "category": "preprint",
+      "enabled": true
+    },
+    {
+      "name": "arXiv cs.LG",
+      "url": "http://export.arxiv.org/rss/cs.LG",
+      "category": "preprint",
+      "enabled": true
+    },
+    {
+      "name": "arXiv: concrete damage detection",
+      "url": "http://export.arxiv.org/api/query?search_query=all:%22concrete+damage%22+AND+all:%22deep+learning%22&sortBy=submittedDate&sortOrder=descending&max_results=20",
+      "category": "preprint-query",
+      "enabled": true
+    },
+    {
+      "name": "arXiv: post-earthquake building",
+      "url": "http://export.arxiv.org/api/query?search_query=all:%22post-earthquake%22+AND+all:%22building%22&sortBy=submittedDate&sortOrder=descending&max_results=20",
+      "category": "preprint-query",
+      "enabled": true
+    },
+    {
+      "name": "arXiv: crack segmentation",
+      "url": "http://export.arxiv.org/api/query?search_query=all:%22crack+segmentation%22&sortBy=submittedDate&sortOrder=descending&max_results=20",
+      "category": "preprint-query",
+      "enabled": true
+    },
+    {
+      "name": "arXiv: RC column damage",
+      "url": "http://export.arxiv.org/api/query?search_query=all:%22reinforced+concrete%22+AND+all:%22damage+detection%22&sortBy=submittedDate&sortOrder=descending&max_results=20",
+      "category": "preprint-query",
+      "enabled": true
+    },
+    {
+      "name": "MDPI Sensors",
+      "url": "https://www.mdpi.com/rss/journal/sensors",
+      "category": "journal",
+      "enabled": true
+    },
+    {
+      "name": "MDPI Buildings",
+      "url": "https://www.mdpi.com/rss/journal/buildings",
+      "category": "journal",
+      "enabled": true
+    },
+    {
+      "name": "MDPI Applied Sciences",
+      "url": "https://www.mdpi.com/rss/journal/applsci",
+      "category": "journal",
+      "enabled": true
+    },
+    {
+      "name": "MDPI Remote Sensing",
+      "url": "https://www.mdpi.com/rss/journal/remotesensing",
+      "category": "journal",
+      "enabled": true
+    },
+    {
+      "name": "MDPI Infrastructures",
+      "url": "https://www.mdpi.com/rss/journal/infrastructures",
+      "category": "journal",
+      "enabled": true
+    },
+    {
+      "name": "Engineering Structures",
+      "url": "https://rss.sciencedirect.com/publication/science/01410296",
+      "category": "journal",
+      "enabled": true
+    },
+    {
+      "name": "Automation in Construction",
+      "url": "https://rss.sciencedirect.com/publication/science/09265805",
+      "category": "journal",
+      "enabled": true
+    },
+    {
+      "name": "Structures",
+      "url": "https://rss.sciencedirect.com/publication/science/23520124",
+      "category": "journal",
+      "enabled": true
+    },
+    {
+      "name": "Construction and Building Materials",
+      "url": "https://rss.sciencedirect.com/publication/science/09500618",
+      "category": "journal",
+      "enabled": true
+    },
+    {
+      "name": "Soil Dynamics and Earthquake Engineering",
+      "url": "https://rss.sciencedirect.com/publication/science/02677261",
+      "category": "journal",
+      "enabled": true
+    },
+    {
+      "name": "Mechanical Systems and Signal Processing",
+      "url": "https://rss.sciencedirect.com/publication/science/08883270",
+      "category": "journal",
+      "enabled": true
+    },
+    {
+      "name": "Structural Control and Health Monitoring",
+      "url": "https://onlinelibrary.wiley.com/feed/15452263/most-recent",
+      "category": "journal",
+      "enabled": true
+    },
+    {
+      "name": "Earthquake Engineering & Structural Dynamics",
+      "url": "https://onlinelibrary.wiley.com/feed/10969845/most-recent",
+      "category": "journal",
+      "enabled": true
+    },
+    {
+      "name": "Computer-Aided Civil and Infrastructure Engineering",
+      "url": "https://onlinelibrary.wiley.com/feed/14678667/most-recent",
+      "category": "journal",
+      "enabled": true
+    },
+    {
+      "name": "Bulletin of Earthquake Engineering",
+      "url": "https://link.springer.com/search.rss?facet-content-type=Article&facet-journal-id=10518",
+      "category": "journal",
+      "enabled": true
+    },
+    {
+      "name": "Journal of Structural Engineering (ASCE)",
+      "url": "https://ascelibrary.org/action/showFeed?type=etoc&feed=rss&jc=jsendh",
+      "category": "journal",
+      "enabled": true
+    },
+    {
+      "name": "Journal of Computing in Civil Engineering (ASCE)",
+      "url": "https://ascelibrary.org/action/showFeed?type=etoc&feed=rss&jc=jccee5",
+      "category": "journal",
+      "enabled": true
+    }
+  ]
+}

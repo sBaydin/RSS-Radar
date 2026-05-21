@@ -1,0 +1,12 @@
+# Her 'git commit' öncesi otomatik secret tarama
+# Kurulum:
+#   pip install pre-commit
+#   pre-commit install
+# Bundan sonra her commit'te gitleaks çalışır, key bulursa commit'i durdurur.
+
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.21.2
+    hooks:
+      - id: gitleaks
+        args: ["--config", ".gitleaks.toml"]
