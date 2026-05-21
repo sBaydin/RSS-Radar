@@ -1,13 +1,6 @@
 #!/usr/bin/env python3
 """
 RSS Radar - Akademik makale tarayıcı + LLM özetleyici + dashboard üretici.
-
-Desteklenen LLM'ler (hepsi ÜCRETSİZ):
-  - gemini  : Google Gemini (önerilen, free tier kredi kartı istemez)
-  - groq    : Groq Cloud (Llama 3.3 70B, ultra hızlı, free)
-  - ollama  : Yerel model (tam ücretsiz, internet bile gerekmez)
-  - openai  : OpenAI (ücretli)
-  - anthropic: Anthropic Claude (ücretli)
 """
 from __future__ import annotations
 
@@ -102,7 +95,7 @@ def keyword_prescore(text: str, kw: dict) -> tuple[int, list[str]]:
 
 
 # --------------------------------------------------------------------------- 
-# LLM çağrısı - çoklu provider + rate limiting
+# LLM - dinamik provider yönetimi
 # --------------------------------------------------------------------------- 
 
 LLM_SYSTEM = (
@@ -128,10 +121,10 @@ Bana SADECE şu JSON şemasında cevap ver, başka hiçbir şey yazma. Markdown 
 }}"""
 
 
-# Provider başına free tier rate limits (RPM = requests per minute)
+# Provider başına free tier limitleri (Mayıs 2026 itibarıyla)
 RATE_LIMITS = {
-    "gemini":    {"rpm": 10,  "env_key": "GEMINI_API_KEY"},
-    "groq":      {"rpm": 28,  "env_key": "GROQ_API_KEY"},      # 30 RPM'in altında kal
+    "gemini":    {"rpm": 8,   "env_key": "GEMINI_API_KEY"},     # 10 RPM'in altında kal
+    "groq":      {"rpm": 25,  "env_key": "GROQ_API_KEY"},       # 30 RPM'in altında kal
     "openai":    {"rpm": 60,  "env_key": "OPENAI_API_KEY"},
     "anthropic": {"rpm": 50,  "env_key": "ANTHROPIC_API_KEY"},
     "ollama":    {"rpm": 999, "env_key": None},
@@ -139,14 +132,11 @@ RATE_LIMITS = {
 
 
 def extract_json(content: str) -> dict:
-    """LLM cevabından JSON'u çıkar, markdown code fence varsa temizle."""
     if not content:
         raise ValueError("boş yanıt")
     content = content.strip()
-    # ```json ... ``` veya ``` ... ``` temizle
     content = re.sub(r"^```(?:json)?\s*", "", content)
     content = re.sub(r"\s*```\s*$", "", content)
-    # İlk { ile son } arasını al (LLM bazen önce/sonra açıklama yazar)
     m = re.search(r"\{[\s\S]*\}", content)
     if m:
         content = m.group(0)
@@ -154,25 +144,22 @@ def extract_json(content: str) -> dict:
 
 
 def call_provider(provider: str, model: str, prompt: str) -> str:
-    """Tek bir provider'a çağrı yapar, ham yanıtı döner."""
+    """Tek bir provider'a çağrı yapar, ham yanıtı döner. Hata varsa exception fırlatır."""
 
     if provider == "gemini":
         import requests
         api_key = os.getenv("GEMINI_API_KEY")
         if not api_key:
-            raise RuntimeError("GEMINI_API_KEY environment değişkeni yok")
+            raise RuntimeError("no-key")
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={api_key}"
         body = {
             "system_instruction": {"parts": [{"text": LLM_SYSTEM}]},
             "contents": [{"role": "user", "parts": [{"text": prompt}]}],
-            "generationConfig": {
-                "temperature": 0.2,
-                "responseMimeType": "application/json",
-            },
+            "generationConfig": {"temperature": 0.2, "responseMimeType": "application/json"},
         }
         r = requests.post(url, json=body, timeout=60)
         if r.status_code == 429:
-            raise RuntimeError("rate-limit (429)")
+            raise RuntimeError("429")
         r.raise_for_status()
         j = r.json()
         return j["candidates"][0]["content"]["parts"][0]["text"]
@@ -181,11 +168,10 @@ def call_provider(provider: str, model: str, prompt: str) -> str:
         import requests
         api_key = os.getenv("GROQ_API_KEY")
         if not api_key:
-            raise RuntimeError("GROQ_API_KEY environment değişkeni yok")
+            raise RuntimeError("no-key")
         r = requests.post(
             "https://api.groq.com/openai/v1/chat/completions",
-            headers={"Authorization": f"Bearer {api_key}",
-                     "Content-Type": "application/json"},
+            headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
             json={
                 "model": model,
                 "messages": [
@@ -198,7 +184,7 @@ def call_provider(provider: str, model: str, prompt: str) -> str:
             timeout=60,
         )
         if r.status_code == 429:
-            raise RuntimeError("rate-limit (429)")
+            raise RuntimeError("429")
         r.raise_for_status()
         return r.json()["choices"][0]["message"]["content"]
 
@@ -207,10 +193,8 @@ def call_provider(provider: str, model: str, prompt: str) -> str:
         client = OpenAI()
         resp = client.chat.completions.create(
             model=model,
-            messages=[
-                {"role": "system", "content": LLM_SYSTEM},
-                {"role": "user", "content": prompt},
-            ],
+            messages=[{"role": "system", "content": LLM_SYSTEM},
+                      {"role": "user", "content": prompt}],
             temperature=0.2,
             response_format={"type": "json_object"},
         )
@@ -231,8 +215,7 @@ def call_provider(provider: str, model: str, prompt: str) -> str:
         host = os.getenv("OLLAMA_HOST", "http://localhost:11434")
         r = requests.post(
             f"{host}/api/generate",
-            json={"model": model,
-                  "prompt": LLM_SYSTEM + "\n\n" + prompt,
+            json={"model": model, "prompt": LLM_SYSTEM + "\n\n" + prompt,
                   "stream": False, "format": "json"},
             timeout=180,
         )
@@ -240,36 +223,85 @@ def call_provider(provider: str, model: str, prompt: str) -> str:
         return r.json().get("response", "{}")
 
     else:
-        raise RuntimeError(f"Bilinmeyen provider: {provider}")
+        raise RuntimeError(f"bilinmeyen provider: {provider}")
 
 
-def call_llm(title: str, summary: str, source: str, cfg: dict) -> dict | None:
-    """Birincil provider + opsiyonel yedek ile dene."""
-    primary = cfg["llm"]["provider"]
-    model = cfg["llm"]["model"]
-    fallback_provider = cfg["llm"].get("fallback_provider")
-    fallback_model = cfg["llm"].get("fallback_model")
+class LLMRunner:
+    """
+    Birincil → yedek provider zinciri yönetir.
+    Bir provider 3 kez üst üste 429/hata alırsa o koşu için DEVRE DIŞI bırakır.
+    """
 
-    prompt = LLM_USER_TEMPLATE.format(
-        title=title[:300], source=source[:120], summary=summary[:2000]
-    )
+    def __init__(self, cfg: dict):
+        self.attempts = []   # [(provider, model, delay), ...]
+        prov = cfg["llm"]["provider"]
+        if os.getenv(RATE_LIMITS.get(prov, {}).get("env_key") or ""):
+            self.attempts.append(self._make(prov, cfg["llm"]["model"]))
+        fb_prov = cfg["llm"].get("fallback_provider")
+        fb_mdl = cfg["llm"].get("fallback_model")
+        if fb_prov and fb_mdl and fb_prov != prov:
+            if RATE_LIMITS.get(fb_prov, {}).get("env_key") is None or \
+               os.getenv(RATE_LIMITS.get(fb_prov, {}).get("env_key") or ""):
+                self.attempts.append(self._make(fb_prov, fb_mdl))
 
-    attempts = [(primary, model)]
-    if fallback_provider and fallback_model:
-        attempts.append((fallback_provider, fallback_model))
+        self.disabled = set()        # devre dışı bırakılan provider'lar
+        self.fail_streak = {}        # provider -> üst üste hata sayısı
+        self.last_call = {}          # provider -> son çağrı zamanı (rate limit için)
+        self.usage = {}              # provider -> başarılı çağrı sayısı
 
-    last_err = None
-    for prov, mdl in attempts:
-        try:
-            content = call_provider(prov, mdl, prompt)
-            return extract_json(content)
-        except Exception as e:
-            last_err = f"{prov}/{mdl}: {e}"
-            print(f"  ! {last_err}", file=sys.stderr)
-            # Rate-limit'se kısa bekle, sonra yedeğe geç
-            if "429" in str(e) or "rate" in str(e).lower():
-                time.sleep(8)
-    return None
+    @staticmethod
+    def _make(provider, model):
+        rpm = RATE_LIMITS.get(provider, {}).get("rpm", 30)
+        delay = max(0.2, 60.0 / rpm + 0.5)
+        return (provider, model, delay)
+
+    def active_providers(self):
+        return [a for a in self.attempts if a[0] not in self.disabled]
+
+    def call(self, title: str, summary: str, source: str) -> tuple[dict | None, str | None]:
+        """Aktif provider zincirini sırayla dene. (sonuç, kullanılan_provider) döner."""
+        prompt = LLM_USER_TEMPLATE.format(
+            title=title[:300], source=source[:120], summary=summary[:2000]
+        )
+        active = self.active_providers()
+        if not active:
+            return None, None
+
+        for provider, model, delay in active:
+            # Bu provider için rate-limit bekleyişi
+            last = self.last_call.get(provider, 0)
+            wait = delay - (time.time() - last)
+            if wait > 0:
+                time.sleep(wait)
+
+            try:
+                self.last_call[provider] = time.time()
+                content = call_provider(provider, model, prompt)
+                self.fail_streak[provider] = 0
+                self.usage[provider] = self.usage.get(provider, 0) + 1
+                result = extract_json(content)
+                return result, provider
+            except Exception as e:
+                err = str(e)
+                self.fail_streak[provider] = self.fail_streak.get(provider, 0) + 1
+                streak = self.fail_streak[provider]
+                print(f"  ! {provider}/{model}: {err}  (üst üste hata: {streak})",
+                      file=sys.stderr)
+
+                # 3 üst üste hata = bu koşu için devre dışı
+                if streak >= 3:
+                    self.disabled.add(provider)
+                    remaining = [a[0] for a in self.active_providers()]
+                    print(f"  ⊘ {provider} DEVRE DIŞI bırakıldı. "
+                          f"Kalan provider'lar: {remaining or '(yok, offline moda geçilecek)'}",
+                          file=sys.stderr)
+                    if not remaining:
+                        return None, None
+                # 429'da extra bekleme (sadece o provider için)
+                if "429" in err:
+                    self.last_call[provider] = time.time() + 5  # +5sn ceza
+                # Sonraki provider'a otomatik geçer (loop devam eder)
+        return None, None
 
 
 # --------------------------------------------------------------------------- 
@@ -332,50 +364,58 @@ def main() -> int:
     budget = cfg["llm"].get("max_items_per_run", 60)
     to_process = candidates[:budget]
 
-    provider = cfg["llm"]["provider"]
-    env_key = RATE_LIMITS.get(provider, {}).get("env_key")
-    has_key = (env_key is None) or bool(os.getenv(env_key))
-    rpm = RATE_LIMITS.get(provider, {}).get("rpm", 30)
-    delay = max(0.2, 60.0 / rpm + 0.3)   # rate-limit'e ekstra güvenlik payı
+    runner = LLMRunner(cfg)
+    chain = [f"{p}/{m}" for p, m, _ in runner.attempts]
 
     print(f"\n→ {len(candidates)} aday | LLM'e gidecek: {len(to_process)}")
-    print(f"  Provider: {provider} | Model: {cfg['llm']['model']} | "
-          f"Bekleme: {delay:.1f}s/istek (RPM~{rpm})")
-    if not has_key:
-        print(f"  ⚠ {env_key} bulunamadı → offline mod (sadece ön-skor)")
+    if chain:
+        print(f"  Provider zinciri: {' → '.join(chain)}")
+    else:
+        print(f"  ⚠ Hiç aktif provider yok → offline mod (sadece ön-skor)")
     print()
 
     llm_ok = llm_fail = 0
+    used_by: dict[str, int] = {}
+
     for i, c in enumerate(to_process, 1):
         print(f"[{i}/{len(to_process)}] [{c['pre_score']:>2}] {c['title'][:80]}")
-        if not has_key:
+
+        if not runner.attempts:
             result = {
-                "summary_tr": "(LLM çağrılmadı – API key yok) " + c["summary_en"][:400],
+                "summary_tr": "(API key yok – offline) " + c["summary_en"][:400],
                 "relevance": min(10, max(1, c["pre_score"])),
-                "why_relevant": f"Ön-skor: {c['pre_score']} "
-                                f"({len(c['matched_keywords'])} eşleşme)",
+                "why_relevant": f"Ön-skor: {c['pre_score']} ({len(c['matched_keywords'])} eşleşme)",
                 "tags": ["offline-mode"],
                 "must_read": c["pre_score"] >= 8,
             }
+            llm_provider_used = "offline"
         else:
-            result = call_llm(c["title"], c["summary_en"], c["source"], cfg)
+            result, llm_provider_used = runner.call(c["title"], c["summary_en"], c["source"])
             if result:
                 llm_ok += 1
+                used_by[llm_provider_used] = used_by.get(llm_provider_used, 0) + 1
+                print(f"      ✓ {llm_provider_used}  (skor: {result.get('relevance','?')}/10)")
             else:
                 llm_fail += 1
-                # LLM tamamen başarısızsa ön-skoru kullan
+                llm_provider_used = "failed"
                 result = {
-                    "summary_tr": "(LLM başarısız) " + c["summary_en"][:400],
+                    "summary_tr": "(LLM zinciri başarısız) " + c["summary_en"][:400],
                     "relevance": min(10, max(1, c["pre_score"])),
-                    "why_relevant": "LLM hata verdi, ön-skor kullanıldı.",
+                    "why_relevant": "Tüm provider'lar hata verdi, ön-skor kullanıldı.",
                     "tags": ["llm-failed"],
                     "must_read": False,
                 }
-            time.sleep(delay)
 
-        item = {**c, **result, "processed_at": datetime.now(timezone.utc).isoformat()}
+        item = {**c, **result,
+                "llm_provider_used": llm_provider_used,
+                "processed_at": datetime.now(timezone.utc).isoformat()}
         seen_items[c["id"]] = item
         new_items.append(item)
+
+        # Eğer tüm provider'lar devre dışıysa erken çık ve kalan makaleleri ön-skorla işle
+        if runner.attempts and not runner.active_providers():
+            print(f"\n  ⚠ Tüm provider'lar devre dışı. Kalan {len(to_process)-i} makale "
+                  f"offline modda (ön-skor) işlenecek.\n", file=sys.stderr)
 
     save_json(DATA_PATH, {"items": seen_items})
     runs["runs"].append({
@@ -383,7 +423,8 @@ def main() -> int:
         "new_count": len(new_items),
         "processed_count": len(to_process),
         "candidates": len(candidates),
-        "provider": provider,
+        "provider_chain": chain,
+        "used_by": used_by,
         "llm_ok": llm_ok,
         "llm_fail": llm_fail,
     })
@@ -393,6 +434,7 @@ def main() -> int:
     save_json(DOCS_CONFIG_PATH, cfg)
     render_dashboard(seen_items, runs, cfg)
     print(f"\n✓ Tamam. {len(new_items)} yeni item | LLM: ✓{llm_ok}  ✗{llm_fail}")
+    print(f"  Kullanım: {used_by}")
     print(f"  Dashboard: {DOCS_PATH}")
     return 0
 
@@ -437,7 +479,6 @@ def render_dashboard(items: dict, runs: dict, cfg: dict) -> None:
         llm_model=cfg["llm"]["model"],
     )
     DOCS_PATH.parent.mkdir(parents=True, exist_ok=True)
-    # Lokal kullanım için config'i HTML'e inline göm (file:// CORS sorununu çözer)
     inline = '<script id="inline-config" type="application/json">' + \
              json.dumps(cfg, ensure_ascii=False) + '</script>'
     html = html.replace('</body>', inline + '\n</body>')
