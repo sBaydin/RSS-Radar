@@ -493,11 +493,17 @@ def render_dashboard(items: dict, runs: dict, cfg: dict) -> None:
 
     all_tags: dict[str, int] = {}
     sources: dict[str, int] = {}
+    categories: dict[str, int] = {}
+    providers_used: dict[str, int] = {}
     for it in processed:
         for t in (it.get("tags") or []):
             all_tags[t] = all_tags.get(t, 0) + 1
         s = it.get("source", "?")
         sources[s] = sources.get(s, 0) + 1
+        c = it.get("category", "other")
+        categories[c] = categories.get(c, 0) + 1
+        prov = it.get("llm_provider_used") or "unknown"
+        providers_used[prov] = providers_used.get(prov, 0) + 1
 
     kw_counts = {tier: len(cfg["keywords"].get(tier, []) or []) for tier in ["critical","core","related","exclude"]}
 
@@ -511,6 +517,8 @@ def render_dashboard(items: dict, runs: dict, cfg: dict) -> None:
         items=processed,
         tags=sorted(all_tags.items(), key=lambda x: -x[1]),
         sources=sorted(sources.items(), key=lambda x: -x[1]),
+        categories=sorted(categories.items(), key=lambda x: -x[1]),
+        providers_used=sorted(providers_used.items(), key=lambda x: -x[1]),
         runs=runs.get("runs", [])[-14:][::-1],
         profile=cfg["profile"],
         total_seen=len(items),

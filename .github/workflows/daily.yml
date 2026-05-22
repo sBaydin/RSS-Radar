@@ -6,14 +6,12 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: write   # needed to commit data/ and docs/
+  # NOTE: no Pages permissions — the dashboard is not publicly hosted, only local.
 
 jobs:
   scan:
     runs-on: ubuntu-latest
-    concurrency:
-      group: rss-radar-${{ github.ref }}
-      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
 
@@ -26,6 +24,7 @@ jobs:
       - name: Install deps
         run: pip install -r requirements.txt
 
+      # 🛡️ Security: scan for accidentally committed secrets
       - name: Scan for leaked secrets (gitleaks)
         uses: gitleaks/gitleaks-action@v2
         env:
@@ -42,24 +41,14 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python scripts/fetch_and_report.py
 
-      - name: Commit results (with retry on conflict)
+      - name: Commit results
         run: |
           git config user.name  "rss-radar-bot"
           git config user.email "bot@users.noreply.github.com"
-          for i in 1 2 3 4 5; do
-            git add data/ docs/
-            if git diff --staged --quiet; then
-              echo "No changes."
-              exit 0
-            fi
-            git commit -m "daily: scan results $(date -u +%Y-%m-%d-%H%M)"
-            if git push; then
-              echo "Pushed successfully on attempt $i"
-              exit 0
-            fi
-            echo "Push failed on attempt $i, pulling and retrying..."
-            git pull --rebase --strategy-option=ours
-            sleep 2
-          done
-          echo "Failed to push after 5 attempts"
-          exit 1
+          git add data/ docs/
+          if ! git diff --staged --quiet; then
+            git commit -m "daily: scan results $(date -u +%Y-%m-%d)"
+            git push
+          else
+            echo "No changes."
+          fi

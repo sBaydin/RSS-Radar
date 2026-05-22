@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RSS Radar — {{ profile.name }}</title>
+<title>RSS-Radar — {{ profile.name }}</title>
 <style>
   :root{
     --bg:#0b1020; --panel:#121933; --panel2:#1a2247; --ink:#e6ecff;
@@ -16,6 +16,7 @@
   a{color:var(--accent)}
   button{font:inherit;cursor:pointer}
 
+  /* ── Header ── */
   header{padding:22px 26px 14px;border-bottom:1px solid var(--line);
     background:linear-gradient(180deg,#11183a,#0b1020);position:relative}
   header h1{margin:0 0 4px;font-size:21px;letter-spacing:.2px}
@@ -40,30 +41,96 @@
   .btn.ghost{background:transparent}
   .btn:disabled{opacity:.5;cursor:not-allowed}
 
-  main{display:grid;grid-template-columns:280px 1fr;gap:0;min-height:80vh}
-  aside{padding:18px;border-right:1px solid var(--line);background:#0d1430;
-    position:sticky;top:0;height:100vh;overflow:auto}
-  aside h3{margin:18px 0 8px;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted)}
+  /* ── Layout ── */
+  main{display:grid;grid-template-columns:300px 1fr;gap:0;min-height:80vh}
+  aside{border-right:1px solid var(--line);background:#0d1430;
+    position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column}
+
+  /* ── Sidebar tabs ── */
+  .side-tabs{display:flex;border-bottom:1px solid var(--line);background:#0d1430;flex-shrink:0}
+  .side-tab{flex:1;padding:11px 6px;background:transparent;color:var(--muted);border:0;
+    border-bottom:2px solid transparent;font-size:12.5px;text-align:center;transition:.15s;cursor:pointer}
+  .side-tab:hover{color:var(--ink);background:rgba(124,196,255,.06)}
+  .side-tab.active{color:var(--ink);border-bottom-color:var(--accent);background:rgba(124,196,255,.08)}
+  .side-tab .b{font-size:10px;background:var(--accent);color:#001833;padding:1px 6px;border-radius:999px;margin-left:4px;font-weight:700}
+  .side-panel{display:none;padding:14px 16px;overflow-y:auto;flex:1}
+  .side-panel.active{display:block}
+  .side-section{margin-bottom:18px}
+  .side-section h3{margin:0 0 8px;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);
+    display:flex;justify-content:space-between;align-items:center}
+  .side-section h3 .clear{color:var(--accent);cursor:pointer;font-weight:normal;font-size:11px;text-transform:none;letter-spacing:0;opacity:.7}
+  .side-section h3 .clear:hover{opacity:1;text-decoration:underline}
+
+  .search{width:100%;padding:9px 11px;background:var(--panel);border:1px solid var(--line);
+    color:var(--ink);border-radius:8px;font-size:13px;outline:none;margin-bottom:12px}
+  .search:focus{border-color:var(--accent)}
+
+  /* ── Tag chips ── */
   .tag{display:inline-block;margin:3px 4px 0 0;padding:3px 9px;border-radius:999px;
     background:var(--panel2);color:var(--ink);font-size:12px;cursor:pointer;border:1px solid var(--line);user-select:none}
   .tag:hover{border-color:var(--accent)}
   .tag.active{background:var(--accent);color:#001833;border-color:var(--accent)}
   .tag .n{opacity:.6;margin-left:4px;font-size:11px}
+
+  /* ── Checkbox list (sources, types) ── */
+  .check-list{display:flex;flex-direction:column;gap:3px;max-height:240px;overflow-y:auto;
+    padding-right:4px;font-size:12.5px}
+  .check-list label{display:flex;align-items:center;gap:7px;padding:5px 7px;border-radius:6px;
+    cursor:pointer;transition:.1s;color:var(--ink)}
+  .check-list label:hover{background:var(--panel)}
+  .check-list input[type="checkbox"]{accent-color:var(--accent);width:14px;height:14px;flex-shrink:0;margin:0}
+  .check-list .lbl{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .check-list .n{color:var(--muted);font-size:11px;font-weight:700}
+
+  /* ── Range slider for score ── */
+  .score-range{display:flex;align-items:center;gap:10px;padding:8px 4px;font-size:12px}
+  .score-range input[type="range"]{flex:1;accent-color:var(--accent)}
+  .score-range .val{min-width:36px;text-align:center;background:var(--panel);
+    padding:3px 8px;border-radius:6px;color:var(--accent);font-weight:700;font-size:12px;border:1px solid var(--line)}
+
+  /* ── Date controls ── */
+  .date-presets{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px}
+  .date-presets button{padding:4px 9px;font-size:11.5px;background:var(--panel2);color:var(--ink);
+    border:1px solid var(--line);border-radius:999px;cursor:pointer}
+  .date-presets button:hover{border-color:var(--accent)}
+  .date-presets button.active{background:var(--accent);color:#001833;border-color:var(--accent);font-weight:600}
+  .date-range{display:flex;gap:6px;align-items:center;font-size:12px}
+  .date-range input{flex:1;padding:5px 7px;background:var(--panel);border:1px solid var(--line);
+    color:var(--ink);border-radius:6px;font-size:12px;font-family:inherit;outline:none;color-scheme:dark}
+  .date-range input:focus{border-color:var(--accent)}
+
+  /* ── Sort ── */
+  .sort-list{display:flex;flex-direction:column;gap:3px}
+  .sort-list label{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:6px;cursor:pointer;
+    background:var(--panel);border:1px solid var(--line);font-size:13px}
+  .sort-list label:hover{border-color:var(--accent)}
+  .sort-list input[type="radio"]{accent-color:var(--accent);margin:0}
+  .sort-list label:has(input:checked){border-color:var(--accent);background:rgba(124,196,255,.1)}
+
+  /* ── Status bar (active filter summary) ── */
+  .status-bar{display:flex;align-items:center;gap:10px;padding:10px 16px;background:#0e1535;
+    border-bottom:1px solid var(--line);font-size:12.5px;color:var(--muted);flex-wrap:wrap;position:sticky;top:0;z-index:5}
+  .status-bar b{color:var(--ink)}
+  .status-bar .clear-all{margin-left:auto;background:transparent;color:var(--bad);border:1px solid var(--bad);
+    padding:4px 10px;border-radius:6px;font-size:11.5px}
+  .status-bar .clear-all:hover{background:var(--bad);color:#330}
+  .filter-pill{background:var(--panel2);padding:2px 9px;border-radius:999px;color:var(--ink);font-size:11.5px;
+    border:1px solid var(--line);display:inline-flex;align-items:center;gap:4px}
+  .filter-pill .x{cursor:pointer;opacity:.6;font-weight:700}
+  .filter-pill .x:hover{opacity:1;color:var(--bad)}
+
+  /* ── Recent runs (in stats tab) ── */
   .runs{font-size:12px;color:var(--muted)}
   .runs .row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dashed var(--line)}
-  .search{width:100%;padding:9px 11px;background:var(--panel);border:1px solid var(--line);
-    color:var(--ink);border-radius:8px;font-size:13px;outline:none}
-  .search:focus{border-color:var(--accent)}
 
-  .content{padding:18px 26px}
+  /* ── Cards ── */
+  .content{padding:0 26px 18px}
   .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;
-    padding:15px 17px;margin:0 0 12px;transition:transform .08s,border-color .15s}
+    padding:15px 17px;margin:14px 0 0;transition:transform .08s,border-color .15s}
   .card:hover{transform:translateY(-1px);border-color:#3b4a91}
   .card.must{border-color:var(--accent2);box-shadow:0 0 0 1px rgba(255,184,107,.2)}
   .card.is-new{border-left:3px solid var(--good)}
   .new-badge{background:var(--good);color:#003322;padding:2px 8px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:.5px}
-  .toggle-new{cursor:pointer;user-select:none;display:inline-flex;align-items:center;gap:6px}
-  .toggle-new input{accent-color:var(--good);width:14px;height:14px}
   .card h2{margin:0 0 6px;font-size:15.5px;line-height:1.35}
   .card h2 a{color:var(--ink);text-decoration:none}
   .card h2 a:hover{color:var(--accent)}
@@ -81,6 +148,7 @@
   .card.show-debug .matched{display:block}
   .empty{text-align:center;padding:60px 20px;color:var(--muted)}
 
+  /* ── Settings modal (unchanged) ── */
   .modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);
     z-index:100;backdrop-filter:blur(4px)}
   .modal-bg.open{display:flex;align-items:flex-start;justify-content:center;padding:30px 16px;overflow:auto}
@@ -135,9 +203,9 @@
   .toast.success{border-color:var(--good);color:var(--good)}
   @keyframes fade{from{opacity:0;transform:translate(-50%,8px)}to{opacity:1;transform:translate(-50%,0)}}
 
-  @media (max-width:800px){
+  @media (max-width:900px){
     main{grid-template-columns:1fr}
-    aside{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}
+    aside{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line);max-height:60vh}
     .field{grid-template-columns:1fr}
     .top-actions{position:static;margin-top:12px}
   }
@@ -146,19 +214,16 @@
 <body>
 <header>
   <div class="top-actions">
-    <label class="btn ghost toggle-new" title="Highlight items added in the latest run">
-      <input type="checkbox" id="new-only-toggle" onchange="filter()">🆕 new only
-    </label>
     <button class="btn ghost" onclick="toggleDebug()" title="Show matched keywords">🔍 debug</button>
     <button class="btn scan" id="scan-btn" onclick="runScanNow()" title="Trigger a manual scan via GitHub Actions">▶️ Run Now</button>
     <button class="btn" onclick="openSettings()">⚙️ Settings</button>
   </div>
-  <h1>📡 RSS Radar — {{ profile.name }}</h1>
+  <h1>📡 RSS-Radar — {{ profile.name }}</h1>
   <p>{{ profile.description }}</p>
   <div class="meta">
     <span>Generated: <b>{{ generated_at }}</b></span>
     {% if last_run_at %}<span>Last scan: <b>{{ last_run_at[:16]|replace('T',' ') }} UTC</b></span>{% endif %}
-    <span>Showing: <b>{{ total_shown }}</b> / Total seen: <b>{{ total_seen }}</b></span>
+    <span>Total items: <b>{{ total_shown }}</b> (seen <b>{{ total_seen }}</b>)</span>
     <span>Threshold: <b>{{ threshold }}</b>/10</span>
     <span class="chip">🛰 Feed: <b>{{ feed_count }}/{{ feed_total }}</b></span>
     <span class="chip crit">⚡ critical: {{ kw_counts.critical }}</span>
@@ -172,70 +237,207 @@
 
 <main>
   <aside>
-    <input class="search" id="q" placeholder="🔍 search (title/summary/tag)..." oninput="filter()">
-
-    <h3>Tags</h3>
-    <div id="tags">
-      <span class="tag active" data-tag="*" onclick="pickTag(this)">all <span class="n">{{ items|length }}</span></span>
-      {% for t,n in tags %}
-        <span class="tag" data-tag="{{ t }}" onclick="pickTag(this)">{{ t }} <span class="n">{{ n }}</span></span>
-      {% endfor %}
+    <!-- Sidebar tabs -->
+    <div class="side-tabs">
+      <button class="side-tab active" data-side="side-filters" onclick="showSideTab(this)">🔎 Filters <span class="b" id="active-filter-count" style="display:none">0</span></button>
+      <button class="side-tab" data-side="side-sort" onclick="showSideTab(this)">↕ Sort</button>
+      <button class="side-tab" data-side="side-stats" onclick="showSideTab(this)">📊 Stats</button>
     </div>
 
-    <h3>Sources</h3>
-    <div id="sources" style="font-size:12px;color:var(--muted)">
-      {% for s,n in sources %}
-        <div class="row" style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px dashed var(--line)">
-          <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:200px">{{ s }}</span>
-          <b style="color:var(--ink)">{{ n }}</b>
+    <!-- ────────── FILTERS PANEL ────────── -->
+    <div class="side-panel active" id="side-filters">
+      <input class="search" id="q" placeholder="🔍 search title/summary/tag..." oninput="filter()">
+
+      <!-- Quick toggles -->
+      <div class="side-section">
+        <h3>Quick filters</h3>
+        <div class="check-list">
+          <label><input type="checkbox" id="ft-new" onchange="filter()"><span class="lbl">🆕 New (this scan only)</span><span class="n" id="cnt-new">0</span></label>
+          <label><input type="checkbox" id="ft-must" onchange="filter()"><span class="lbl">⭐ Must-read (score ≥ 8)</span><span class="n" id="cnt-must">0</span></label>
         </div>
-      {% endfor %}
+      </div>
+
+      <!-- Score range -->
+      <div class="side-section">
+        <h3>Score</h3>
+        <div class="score-range">
+          <span>min</span>
+          <input type="range" id="f-score" min="1" max="10" value="1" oninput="filter();document.getElementById('f-score-val').textContent=this.value">
+          <span class="val" id="f-score-val">1</span>
+        </div>
+      </div>
+
+      <!-- Date -->
+      <div class="side-section">
+        <h3>Published date</h3>
+        <div class="date-presets">
+          <button class="dp active" data-days="0" onclick="pickDate(this)">All</button>
+          <button class="dp" data-days="1" onclick="pickDate(this)">24h</button>
+          <button class="dp" data-days="7" onclick="pickDate(this)">7d</button>
+          <button class="dp" data-days="30" onclick="pickDate(this)">30d</button>
+          <button class="dp" data-days="90" onclick="pickDate(this)">90d</button>
+        </div>
+        <div class="date-range">
+          <input type="date" id="f-from" oninput="customDate()">
+          <span>→</span>
+          <input type="date" id="f-to" oninput="customDate()">
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="side-section">
+        <h3>Tags <span class="clear" onclick="clearTags()">clear</span></h3>
+        <div id="tags-cont">
+          <span class="tag active" data-tag="*" onclick="pickTag(this)">all <span class="n">{{ items|length }}</span></span>
+          {% for t,n in tags %}
+            <span class="tag" data-tag="{{ t }}" onclick="pickTag(this)">{{ t }} <span class="n">{{ n }}</span></span>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Categories (preprint, journal, etc.) -->
+      <div class="side-section">
+        <h3>Type <span class="clear" onclick="clearChecks('f-cat')">clear</span></h3>
+        <div class="check-list" id="f-cat">
+          {% for c,n in categories %}
+          <label><input type="checkbox" value="{{ c }}" checked onchange="filter()">
+            <span class="lbl">{{ c }}</span><span class="n">{{ n }}</span></label>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Sources (feeds) -->
+      <div class="side-section">
+        <h3>Source <span class="clear" onclick="clearChecks('f-src')">clear</span></h3>
+        <div class="check-list" id="f-src">
+          {% for s,n in sources %}
+          <label><input type="checkbox" value="{{ s }}" checked onchange="filter()">
+            <span class="lbl" title="{{ s }}">{{ s }}</span><span class="n">{{ n }}</span></label>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- LLM provider used -->
+      {% if providers_used %}
+      <div class="side-section">
+        <h3>Summarized by <span class="clear" onclick="clearChecks('f-prov')">clear</span></h3>
+        <div class="check-list" id="f-prov">
+          {% for p,n in providers_used %}
+          <label><input type="checkbox" value="{{ p }}" checked onchange="filter()">
+            <span class="lbl">🤖 {{ p }}</span><span class="n">{{ n }}</span></label>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- Matched keyword filter (text input) -->
+      <div class="side-section">
+        <h3>Contains keyword</h3>
+        <input class="search" id="f-kw" placeholder="e.g. crack, YOLO, transformer..."
+          oninput="filter()" style="margin:0">
+      </div>
     </div>
 
-    <h3>Recent runs</h3>
-    <div class="runs">
-      {% for r in runs %}
-        <div class="row"><span>{{ r.ran_at[:10] }}</span><span>+{{ r.new_count }} ({{ r.candidates or '?' }} aday)</span></div>
-      {% endfor %}
+    <!-- ────────── SORT PANEL ────────── -->
+    <div class="side-panel" id="side-sort">
+      <div class="side-section">
+        <h3>Sort items by</h3>
+        <div class="sort-list">
+          <label><input type="radio" name="sort" value="new-desc" checked onchange="sortAndRender()"> 🆕 Newest first (added)</label>
+          <label><input type="radio" name="sort" value="pub-desc" onchange="sortAndRender()"> 📅 Newest first (published)</label>
+          <label><input type="radio" name="sort" value="pub-asc"  onchange="sortAndRender()"> 📅 Oldest first (published)</label>
+          <label><input type="radio" name="sort" value="score-desc" onchange="sortAndRender()"> ⭐ Score: high → low</label>
+          <label><input type="radio" name="sort" value="score-asc"  onchange="sortAndRender()"> ⭐ Score: low → high</label>
+          <label><input type="radio" name="sort" value="title-asc"  onchange="sortAndRender()"> 🔤 Title A → Z</label>
+          <label><input type="radio" name="sort" value="title-desc" onchange="sortAndRender()"> 🔤 Title Z → A</label>
+          <label><input type="radio" name="sort" value="source"     onchange="sortAndRender()"> 🛰 Source A → Z</label>
+          <label><input type="radio" name="sort" value="random"     onchange="sortAndRender()"> 🎲 Random (serendipity)</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ────────── STATS PANEL ────────── -->
+    <div class="side-panel" id="side-stats">
+      <div class="side-section">
+        <h3>Recent runs</h3>
+        <div class="runs">
+          {% for r in runs %}
+            <div class="row"><span>{{ r.ran_at[:10] }}</span><span>+{{ r.new_count }} ({{ r.candidates or '?' }} cand.)</span></div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="side-section">
+        <h3>By type</h3>
+        <div class="check-list" style="max-height:none">
+          {% for c,n in categories %}<label><span class="lbl">{{ c }}</span><span class="n">{{ n }}</span></label>{% endfor %}
+        </div>
+      </div>
+      <div class="side-section">
+        <h3>By source</h3>
+        <div class="check-list" style="max-height:none">
+          {% for s,n in sources %}<label><span class="lbl" title="{{ s }}">{{ s }}</span><span class="n">{{ n }}</span></label>{% endfor %}
+        </div>
+      </div>
     </div>
   </aside>
 
-  <section class="content" id="list">
-    {% if not items %}
-      <div class="empty">No items above threshold yet. The system will scan again later.<br>
-        Or <a href="#" onclick="openSettings();return false">lower the threshold in Settings</a>.</div>
-    {% endif %}
-    {% for it in items %}
-      {% set rel = it.relevance or 0 %}
-      <article class="card {% if it.must_read %}must{% endif %} {% if it.processed_at == last_run_at_iso or (it.processed_at and last_run_at_iso and it.processed_at[:16] == last_run_at_iso[:16]) %}is-new{% endif %}"
-               data-tags="{{ (it.tags or [])|join(' ')|lower }}"
-               data-new="{% if it.processed_at and last_run_at_iso and it.processed_at[:16] == last_run_at_iso[:16] %}1{% else %}0{% endif %}"
-               data-text="{{ (it.title ~ ' ' ~ (it.summary_tr or '') ~ ' ' ~ (it.summary_en or ''))|lower }}">
-        <div class="row1">
-          {% if it.processed_at and last_run_at_iso and it.processed_at[:16] == last_run_at_iso[:16] %}<span class="new-badge">🆕 NEW</span>{% endif %}
-          <span class="badge">{{ it.source }}</span>
-          <span class="score {% if rel>=8 %}s-high{% elif rel>=5 %}s-mid{% else %}s-low{% endif %}">
-            ⭐ {{ rel }}/10
-          </span>
-          {% if it.must_read %}<span class="badge" style="background:var(--accent2);color:#3a2200;border-color:var(--accent2)">MUST READ</span>{% endif %}
-          <span>{{ it.published[:10] }}</span>
-          <span class="badge">{{ it.category }}</span>
-        </div>
-        <h2><a href="{{ it.link }}" target="_blank" rel="noopener">{{ it.title }}</a></h2>
-        {% if it.why_relevant %}<div class="why">→ {{ it.why_relevant }}</div>{% endif %}
-        <div class="summary">{{ it.summary_tr or it.summary_en[:400] }}</div>
-        <div class="footer-tags">
-          {% for t in (it.tags or []) %}<span class="tag" data-tag="{{ t }}" onclick="pickTag(this)">{{ t }}</span>{% endfor %}
-        </div>
-        {% if it.matched_keywords %}
-        <div class="matched">matched: {{ it.matched_keywords|join(' · ') }} | pre_score: {{ it.pre_score }}</div>
-        {% endif %}
-      </article>
-    {% endfor %}
+  <section class="content">
+    <!-- Status bar: active filters summary -->
+    <div class="status-bar" id="status-bar">
+      Showing <b id="visible-count">{{ items|length }}</b> of <b>{{ items|length }}</b> items
+      <div id="active-pills" style="display:flex;gap:6px;flex-wrap:wrap"></div>
+      <button class="clear-all" id="clear-all-btn" onclick="clearAllFilters()" style="display:none">✕ clear all filters</button>
+    </div>
+
+    <div id="list">
+      {% if not items %}
+        <div class="empty">No items above threshold yet. The system will scan again later.<br>
+          Or <a href="#" onclick="openSettings();return false">lower the threshold in Settings</a>.</div>
+      {% endif %}
+      {% for it in items %}
+        {% set rel = it.relevance or 0 %}
+        {% set is_new = (it.processed_at and last_run_at_iso and it.processed_at[:16] == last_run_at_iso[:16]) %}
+        <article class="card {% if it.must_read %}must{% endif %} {% if is_new %}is-new{% endif %}"
+                 data-id="{{ it.id }}"
+                 data-tags="{{ (it.tags or [])|join(' ')|lower }}"
+                 data-new="{% if is_new %}1{% else %}0{% endif %}"
+                 data-must="{% if it.must_read %}1{% else %}0{% endif %}"
+                 data-score="{{ rel }}"
+                 data-source="{{ it.source }}"
+                 data-cat="{{ it.category }}"
+                 data-provider="{{ it.llm_provider_used or 'unknown' }}"
+                 data-pub="{{ it.published[:10] }}"
+                 data-added="{{ it.processed_at[:10] }}"
+                 data-title="{{ it.title|lower }}"
+                 data-matched="{{ (it.matched_keywords or [])|join(' ')|lower }}"
+                 data-text="{{ (it.title ~ ' ' ~ (it.summary or it.summary_tr or '') ~ ' ' ~ (it.summary_en or ''))|lower }}">
+          <div class="row1">
+            {% if is_new %}<span class="new-badge">🆕 NEW</span>{% endif %}
+            <span class="badge">{{ it.source }}</span>
+            <span class="score {% if rel>=8 %}s-high{% elif rel>=5 %}s-mid{% else %}s-low{% endif %}">⭐ {{ rel }}/10</span>
+            {% if it.must_read %}<span class="badge" style="background:var(--accent2);color:#3a2200;border-color:var(--accent2)">MUST READ</span>{% endif %}
+            <span>{{ it.published[:10] }}</span>
+            <span class="badge">{{ it.category }}</span>
+            {% if it.llm_provider_used and it.llm_provider_used not in ['offline','failed','unknown'] %}
+              <span class="badge" style="opacity:.7" title="Summarized by {{ it.llm_provider_used }}">🤖 {{ it.llm_provider_used }}</span>
+            {% endif %}
+          </div>
+          <h2><a href="{{ it.link }}" target="_blank" rel="noopener">{{ it.title }}</a></h2>
+          {% if it.why_relevant %}<div class="why">→ {{ it.why_relevant }}</div>{% endif %}
+          <div class="summary">{{ it.summary or it.summary_tr or it.summary_en[:400] }}</div>
+          <div class="footer-tags">
+            {% for t in (it.tags or []) %}<span class="tag" data-tag="{{ t }}" onclick="pickTag(this)">{{ t }}</span>{% endfor %}
+          </div>
+          {% if it.matched_keywords %}
+          <div class="matched">matched: {{ it.matched_keywords|join(' · ') }} | pre_score: {{ it.pre_score }}</div>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
   </section>
 </main>
 
-<!-- ================= AYARLAR MODAL ================= -->
+<!-- ============ Settings modal (admin panel) ============ -->
 <div class="modal-bg" id="modal" onclick="if(event.target===this)closeSettings()">
   <div class="modal">
     <header>
@@ -243,7 +445,6 @@
       <button class="btn ghost" onclick="closeSettings()">✕</button>
     </header>
     <div class="body">
-
       <div class="tabs">
         <button class="tab active" onclick="showTab('tab-kw',this)">🔑 Keywords</button>
         <button class="tab" onclick="showTab('tab-feeds',this)">🛰 Feeds</button>
@@ -252,13 +453,11 @@
         <button class="tab" onclick="showTab('tab-save',this)">💾 Save</button>
       </div>
 
-      <!-- KEYWORDS TAB -->
       <div class="panel active" id="tab-kw">
         <div class="help">
           Pre-score = <b style="color:var(--critical)">critical×3</b> + <b style="color:var(--core)">core×2</b> + <b style="color:var(--related)">related×1</b> − <b style="color:var(--bad)">exclude×3</b>.
           Items with pre-score ≥ 2 go to the LLM. Add a new keyword by typing and pressing Enter.
         </div>
-
         {% for tier in ['critical','core','related','exclude'] %}
         <div class="section-title">
           <span>
@@ -278,7 +477,6 @@
         {% endfor %}
       </div>
 
-      <!-- FEEDS TAB -->
       <div class="panel" id="tab-feeds">
         <div class="help">Toggle feeds on/off or add new ones. Make sure the URL is a valid RSS/Atom feed.</div>
         <div id="feeds-list"></div>
@@ -294,12 +492,10 @@
         <button class="btn" onclick="addFeed()">+ add feed</button>
       </div>
 
-      <!-- GENERAL TAB -->
       <div class="panel" id="tab-general">
         <div class="help">Schedule, LLM and threshold settings.</div>
         <div class="field"><label>Profile name</label><input id="g-name"></div>
         <div class="field"><label>Description</label><textarea id="g-desc" rows="3"></textarea></div>
-
         <div class="section-title"><span>⏰ AUTOMATIC SCAN TIME</span></div>
         <div class="field">
           <label>Time (local)</label>
@@ -320,14 +516,11 @@
           </div>
         </div>
         <div class="field"><label>Which days</label>
-          <div class="field-row" id="g-days" style="flex-wrap:wrap;gap:6px">
-            <!-- doldurulacak -->
-          </div>
+          <div class="field-row" id="g-days" style="flex-wrap:wrap;gap:6px"></div>
         </div>
         <div class="field"><label></label>
           <div class="cron-preview" id="cron-preview">cron: 0 17 * * *</div>
         </div>
-
         <div class="section-title"><span>🤖 LLM</span></div>
         <div class="field"><label>LLM provider</label>
           <select id="g-prov">
@@ -355,45 +548,35 @@
         <div class="field"><label>Threshold score (1-10)</label><input id="g-thr" type="number" min="1" max="10"></div>
       </div>
 
-      <!-- GITHUB TAB (token + repo bilgisi tek noktada) -->
       <div class="panel" id="tab-github">
-        <div class="help">
-          Once the GitHub connection is set, the <b>"Run Now"</b> and <b>"Save to GitHub"</b> buttons become active.
-        </div>
-        <div class="field"><label>Repo (user/repo)</label><input id="gh-repo" placeholder="kullaniciadi/rss-radar"></div>
+        <div class="help">Once the GitHub connection is set, the <b>"Run Now"</b> and <b>"Save to GitHub"</b> buttons become active.</div>
+        <div class="field"><label>Repo (user/repo)</label><input id="gh-repo" placeholder="username/rss-radar"></div>
         <div class="field"><label>Branch</label><input id="gh-branch" value="main"></div>
         <div class="field"><label>Workflow file</label><input id="gh-workflow" value="daily.yml"></div>
-        <div class="field"><label>Personal Access Token</label>
-          <input id="gh-token" type="password" placeholder="github_pat_...">
-        </div>
+        <div class="field"><label>Personal Access Token</label><input id="gh-token" type="password" placeholder="github_pat_..."></div>
         <div class="help">
           <b>How to get a token?</b><br>
-          1. <a href="https://github.com/settings/personal-access-tokens/new" target="_blank">github.com/settings/personal-access-tokens/new</a> →
-             create a "Fine-grained token".<br>
+          1. <a href="https://github.com/settings/personal-access-tokens/new" target="_blank">github.com/settings/personal-access-tokens/new</a> → create a "Fine-grained token".<br>
           2. <b>Resource owner:</b> your account · <b>Repository access:</b> only this repo.<br>
-          3. <b>Permissions → Repository permissions:</b>
-             grant "Contents: Read & write" and "Actions: Read & write".<br>
-          4. Copy the token and paste here. It is stored only in your browser localStorage — never sent anywhere except directly to the GitHub API.
+          3. <b>Permissions → Repository permissions:</b> grant "Contents: Read & write" and "Actions: Read & write".<br>
+          4. Copy the token and paste here. It is stored only in your browser localStorage.
         </div>
         <button class="btn primary" onclick="saveGithub()">💾 Save GitHub settings</button>
         <button class="btn" onclick="testGithub()">🔌 Test connection</button>
       </div>
 
-      <!-- SAVE TAB -->
       <div class="panel" id="tab-save">
         <div class="help">
-          You can apply changes two ways:<br>
-          <b>1. Download YAML:</b> Save the new <code>config.yaml</code> locally and commit it yourself.<br>
+          Apply changes two ways:<br>
+          <b>1. Download YAML:</b> save the new <code>config.yaml</code> locally and commit it yourself.<br>
           <b>2. Save directly to GitHub:</b> uses credentials from the 🐙 GitHub tab.<br>
-          If you change the time, the <b>workflow file</b> is updated automatically.
+          If you change the time, the <b>workflow file</b> is also updated automatically.
         </div>
-
         <div class="section-title"><span>📄 config.yaml PREVIEW</span>
           <button class="btn ghost" onclick="copyYaml()">📋 copy</button>
         </div>
         <textarea id="yaml-preview" rows="14" style="width:100%;font-family:ui-monospace,Menlo,monospace;font-size:12px;background:var(--panel);border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:10px"></textarea>
       </div>
-
     </div>
     <footer>
       <button class="btn ghost" onclick="resetForm()">↶ reload</button>
@@ -406,41 +589,217 @@
 <div class="toast" id="toast"></div>
 
 <script>
-/* ============================================================
- * ADMIN PANEL
- * ============================================================ */
-
-let CONFIG = null;
+/* ====================================================================
+ *  STATE
+ * ==================================================================== */
 const TIERS = ['critical','core','related','exclude'];
 const DAYS = [['1','Mon'],['2','Tue'],['3','Wed'],['4','Thu'],['5','Fri'],['6','Sat'],['0','Sun']];
-
-// ---- Sayfa filtre ----
+let CONFIG = null;
 let activeTag = "*";
+let activeDatePreset = "0";
+
+/* ====================================================================
+ *  SIDEBAR TABS
+ * ==================================================================== */
+function showSideTab(btn){
+  document.querySelectorAll('.side-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.side-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById(btn.dataset.side).classList.add('active');
+}
+
+/* ====================================================================
+ *  FILTERS
+ * ==================================================================== */
 function pickTag(el){
   activeTag = el.dataset.tag;
-  document.querySelectorAll('#tags .tag').forEach(t=>t.classList.toggle('active', t.dataset.tag===activeTag));
+  document.querySelectorAll('#tags-cont .tag').forEach(t=>t.classList.toggle('active', t.dataset.tag===activeTag));
   filter();
 }
+function clearTags(){
+  activeTag = "*";
+  document.querySelectorAll('#tags-cont .tag').forEach(t=>t.classList.toggle('active', t.dataset.tag==='*'));
+  filter();
+}
+function clearChecks(contId){
+  document.querySelectorAll('#'+contId+' input[type=checkbox]').forEach(c=>c.checked=true);
+  filter();
+}
+function pickDate(btn){
+  document.querySelectorAll('.date-presets .dp').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  activeDatePreset = btn.dataset.days;
+  // Custom range alanlarını temizle
+  document.getElementById('f-from').value = '';
+  document.getElementById('f-to').value = '';
+  filter();
+}
+function customDate(){
+  // Custom kullanılınca preset'leri pasifleştir
+  if(document.getElementById('f-from').value || document.getElementById('f-to').value){
+    document.querySelectorAll('.date-presets .dp').forEach(b=>b.classList.remove('active'));
+    activeDatePreset = "custom";
+  }
+  filter();
+}
+function clearAllFilters(){
+  document.getElementById('q').value = '';
+  document.getElementById('f-kw').value = '';
+  document.getElementById('ft-new').checked = false;
+  document.getElementById('ft-must').checked = false;
+  document.getElementById('f-score').value = 1;
+  document.getElementById('f-score-val').textContent = '1';
+  document.getElementById('f-from').value = '';
+  document.getElementById('f-to').value = '';
+  activeTag = "*";
+  document.querySelectorAll('#tags-cont .tag').forEach(t=>t.classList.toggle('active', t.dataset.tag==='*'));
+  document.querySelectorAll('.date-presets .dp').forEach(b=>b.classList.toggle('active', b.dataset.days==='0'));
+  activeDatePreset = "0";
+  ['f-cat','f-src','f-prov'].forEach(id=>{
+    document.querySelectorAll('#'+id+' input[type=checkbox]').forEach(c=>c.checked=true);
+  });
+  filter();
+}
+
+function getChecked(contId){
+  const el = document.getElementById(contId);
+  if(!el) return null;
+  const all = el.querySelectorAll('input[type=checkbox]');
+  const checked = [...all].filter(c=>c.checked).map(c=>c.value);
+  // Eğer hepsi seçili → filtre etkin değil
+  return (checked.length === all.length) ? null : new Set(checked);
+}
+
 function filter(){
   const q = document.getElementById('q').value.toLowerCase().trim();
-  const newOnly = document.getElementById('new-only-toggle').checked;
+  const kwFilter = document.getElementById('f-kw').value.toLowerCase().trim();
+  const newOnly = document.getElementById('ft-new').checked;
+  const mustOnly = document.getElementById('ft-must').checked;
+  const minScore = parseInt(document.getElementById('f-score').value);
+
+  const catSet = getChecked('f-cat');
+  const srcSet = getChecked('f-src');
+  const provSet = getChecked('f-prov');
+
+  // Tarih hesabı
+  let fromTs = null, toTs = null;
+  const fromEl = document.getElementById('f-from').value;
+  const toEl   = document.getElementById('f-to').value;
+  if(fromEl) fromTs = new Date(fromEl).getTime();
+  if(toEl)   toTs   = new Date(toEl).getTime() + 86400000; // gün sonuna kadar
+  if(!fromTs && !toTs && activeDatePreset !== "0" && activeDatePreset !== "custom"){
+    const days = parseInt(activeDatePreset);
+    fromTs = Date.now() - days * 86400000;
+  }
+
+  let visible = 0;
   document.querySelectorAll('#list .card').forEach(c=>{
     const tags = c.dataset.tags;
     const text = c.dataset.text;
+    const matched = c.dataset.matched;
     const isNew = c.dataset.new === '1';
-    const tagOk = (activeTag==="*") || tags.split(/\s+/).includes(activeTag);
-    const qOk = !q || text.includes(q) || tags.includes(q);
-    const newOk = !newOnly || isNew;
-    c.style.display = (tagOk && qOk && newOk) ? "" : "none";
+    const isMust = c.dataset.must === '1';
+    const score = parseInt(c.dataset.score);
+    const src = c.dataset.source;
+    const cat = c.dataset.cat;
+    const prov = c.dataset.provider;
+    const pubTs = c.dataset.pub ? new Date(c.dataset.pub).getTime() : 0;
+
+    const tagOk   = (activeTag === "*") || tags.split(/\s+/).includes(activeTag);
+    const qOk     = !q || text.includes(q) || tags.includes(q);
+    const kwOk    = !kwFilter || matched.includes(kwFilter) || text.includes(kwFilter);
+    const newOk   = !newOnly || isNew;
+    const mustOk  = !mustOnly || isMust;
+    const scoreOk = score >= minScore;
+    const catOk   = !catSet || catSet.has(cat);
+    const srcOk   = !srcSet || srcSet.has(src);
+    const provOk  = !provSet || provSet.has(prov);
+    const dateOk  = (!fromTs || pubTs >= fromTs) && (!toTs || pubTs <= toTs);
+
+    const show = tagOk && qOk && kwOk && newOk && mustOk && scoreOk && catOk && srcOk && provOk && dateOk;
+    c.style.display = show ? "" : "none";
+    if(show) visible++;
   });
+
+  document.getElementById('visible-count').textContent = visible;
+  updateStatusBar({q, kwFilter, newOnly, mustOnly, minScore, catSet, srcSet, provSet, fromTs, toTs});
 }
+
+function updateStatusBar(s){
+  const pills = [];
+  if(activeTag !== "*") pills.push({label:`tag: ${activeTag}`, clear:clearTags});
+  if(s.q) pills.push({label:`search: "${s.q}"`, clear:()=>{document.getElementById('q').value='';filter()}});
+  if(s.kwFilter) pills.push({label:`kw: "${s.kwFilter}"`, clear:()=>{document.getElementById('f-kw').value='';filter()}});
+  if(s.newOnly) pills.push({label:'🆕 new only', clear:()=>{document.getElementById('ft-new').checked=false;filter()}});
+  if(s.mustOnly) pills.push({label:'⭐ must-read', clear:()=>{document.getElementById('ft-must').checked=false;filter()}});
+  if(s.minScore > 1) pills.push({label:`score ≥ ${s.minScore}`, clear:()=>{document.getElementById('f-score').value=1;document.getElementById('f-score-val').textContent='1';filter()}});
+  if(s.catSet) pills.push({label:`${s.catSet.size} type(s)`, clear:()=>clearChecks('f-cat')});
+  if(s.srcSet) pills.push({label:`${s.srcSet.size} source(s)`, clear:()=>clearChecks('f-src')});
+  if(s.provSet) pills.push({label:`${s.provSet.size} provider(s)`, clear:()=>clearChecks('f-prov')});
+  if(s.fromTs || s.toTs){
+    let lbl = 'date: ';
+    if(activeDatePreset !== "0" && activeDatePreset !== "custom") lbl = `last ${activeDatePreset}d`;
+    else lbl = `${document.getElementById('f-from').value || '…'} → ${document.getElementById('f-to').value || '…'}`;
+    pills.push({label:lbl, clear:()=>{document.getElementById('f-from').value='';document.getElementById('f-to').value='';document.querySelector('.date-presets .dp[data-days="0"]').click();}});
+  }
+
+  const cont = document.getElementById('active-pills');
+  cont.innerHTML = pills.map((p,i)=>`<span class="filter-pill">${p.label}<span class="x" data-i="${i}">✕</span></span>`).join('');
+  cont.querySelectorAll('.filter-pill .x').forEach((x,i)=>x.onclick=()=>pills[i].clear());
+
+  const btn = document.getElementById('clear-all-btn');
+  btn.style.display = pills.length ? '' : 'none';
+  const cnt = document.getElementById('active-filter-count');
+  if(pills.length){ cnt.textContent = pills.length; cnt.style.display=''; }
+  else cnt.style.display='none';
+}
+
 function toggleDebug(){ document.querySelectorAll('#list .card').forEach(c=>c.classList.toggle('show-debug')); }
 
-// ---- Modal ----
-function openSettings(){
-  document.getElementById('modal').classList.add('open');
-  loadConfig();
+/* ====================================================================
+ *  SORTING (re-orders DOM, then re-applies filter)
+ * ==================================================================== */
+function sortAndRender(){
+  const sort = document.querySelector('input[name="sort"]:checked').value;
+  const list = document.getElementById('list');
+  const cards = [...list.querySelectorAll('.card')];
+
+  const comp = {
+    'new-desc':   (a,b)=> (b.dataset.added||'').localeCompare(a.dataset.added||''),
+    'pub-desc':   (a,b)=> (b.dataset.pub||'').localeCompare(a.dataset.pub||''),
+    'pub-asc':    (a,b)=> (a.dataset.pub||'').localeCompare(b.dataset.pub||''),
+    'score-desc': (a,b)=> +b.dataset.score - +a.dataset.score,
+    'score-asc':  (a,b)=> +a.dataset.score - +b.dataset.score,
+    'title-asc':  (a,b)=> (a.dataset.title||'').localeCompare(b.dataset.title||''),
+    'title-desc': (a,b)=> (b.dataset.title||'').localeCompare(a.dataset.title||''),
+    'source':     (a,b)=> (a.dataset.source||'').localeCompare(b.dataset.source||''),
+    'random':     ()=> Math.random() - 0.5,
+  }[sort];
+
+  cards.sort(comp);
+  cards.forEach(c=>list.appendChild(c));
+  filter();
 }
+
+/* ====================================================================
+ *  COUNT BADGES (initial)
+ * ==================================================================== */
+function updateInitialCounts(){
+  let news = 0, musts = 0;
+  document.querySelectorAll('#list .card').forEach(c=>{
+    if(c.dataset.new === '1') news++;
+    if(c.dataset.must === '1') musts++;
+  });
+  document.getElementById('cnt-new').textContent = news;
+  document.getElementById('cnt-must').textContent = musts;
+}
+updateInitialCounts();
+filter(); // status bar'ı doldur
+
+/* ====================================================================
+ *  SETTINGS MODAL — (mostly unchanged from before)
+ * ==================================================================== */
+function openSettings(){ document.getElementById('modal').classList.add('open'); loadConfig(); }
 function closeSettings(){ document.getElementById('modal').classList.remove('open'); }
 function showTab(id, btn){
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
@@ -450,8 +809,6 @@ function showTab(id, btn){
   if(id==='tab-save') refreshYaml();
   if(id==='tab-github') loadGithub();
 }
-
-// ---- Load / render config ----
 async function loadConfig(){
   try{
     const inline = document.getElementById('inline-config');
@@ -461,22 +818,13 @@ async function loadConfig(){
     renderAll();
   }catch(e){ toast('could not load config: ' + e, 'error'); }
 }
-function renderAll(){
-  renderKw();
-  renderFeeds();
-  renderGeneral();
-}
+function renderAll(){ renderKw(); renderFeeds(); renderGeneral(); }
 function renderKw(){
   TIERS.forEach(tier=>{
     const list = CONFIG.keywords[tier] || [];
     const cont = document.getElementById('kw-'+tier);
-    document.getElementById('cnt-'+tier).textContent = list.length + ' kelime';
-    cont.innerHTML = list.map((k,i)=>`
-      <span class="kw ${tier}">
-        ${escapeHtml(k)}
-        <button class="x" onclick="rmKw('${tier}',${i})" title="delete">×</button>
-      </span>
-    `).join('') || '<span style="color:var(--muted);font-size:12px;padding:6px">empty</span>';
+    document.getElementById('cnt-'+tier).textContent = list.length + ' keywords';
+    cont.innerHTML = list.map((k,i)=>`<span class="kw ${tier}">${escapeHtml(k)}<button class="x" onclick="rmKw('${tier}',${i})" title="delete">×</button></span>`).join('') || '<span style="color:var(--muted);font-size:12px;padding:6px">empty</span>';
   });
 }
 function addKw(tier){
@@ -488,28 +836,15 @@ function addKw(tier){
   inp.value = '';
   renderKw();
 }
-function rmKw(tier, idx){
-  CONFIG.keywords[tier].splice(idx,1);
-  renderKw();
-}
+function rmKw(tier, idx){ CONFIG.keywords[tier].splice(idx,1); renderKw(); }
 function renderFeeds(){
   const cont = document.getElementById('feeds-list');
-  cont.innerHTML = CONFIG.feeds.map((f,i)=>`
-    <div class="feed-row">
-      <div class="switch ${f.enabled!==false?'on':''}" onclick="toggleFeed(${i})"></div>
-      <div>
-        <div><b>${escapeHtml(f.name)}</b> <span style="color:var(--muted);font-size:11px">[${f.category||'?'}]</span></div>
-        <div class="url">${escapeHtml(f.url)}</div>
-      </div>
-      <button class="btn danger" onclick="rmFeed(${i})" title="delete">🗑</button>
-    </div>
-  `).join('');
+  cont.innerHTML = CONFIG.feeds.map((f,i)=>`<div class="feed-row"><div class="switch ${f.enabled!==false?'on':''}" onclick="toggleFeed(${i})"></div><div><div><b>${escapeHtml(f.name)}</b> <span style="color:var(--muted);font-size:11px">[${f.category||'?'}]</span></div><div class="url">${escapeHtml(f.url)}</div></div><button class="btn danger" onclick="rmFeed(${i})" title="delete">🗑</button></div>`).join('');
 }
 function toggleFeed(i){ CONFIG.feeds[i].enabled = CONFIG.feeds[i].enabled === false ? true : false; renderFeeds(); }
 function rmFeed(i){
   if(!confirm('Delete this feed?\n' + CONFIG.feeds[i].name)) return;
-  CONFIG.feeds.splice(i,1);
-  renderFeeds();
+  CONFIG.feeds.splice(i,1); renderFeeds();
 }
 function addFeed(){
   const name = document.getElementById('nf-name').value.trim();
@@ -522,8 +857,6 @@ function addFeed(){
   renderFeeds();
   toast('Feed added', 'success');
 }
-
-// ---- Genel ayarlar (saat dahil) ----
 function renderGeneral(){
   document.getElementById('g-name').value  = CONFIG.profile.name || '';
   document.getElementById('g-desc').value  = CONFIG.profile.description || '';
@@ -533,55 +866,32 @@ function renderGeneral(){
   document.getElementById('g-fbmodel').value = CONFIG.llm.fallback_model || '';
   document.getElementById('g-max').value   = CONFIG.llm.max_items_per_run || 60;
   document.getElementById('g-thr').value   = CONFIG.llm.relevance_threshold || 4;
-
-  // Local time fields — read from schedule_local, fallback to defaults
   const sched = CONFIG.schedule_local || {hour:20, minute:0, tz_offset:3, days:'*'};
   document.getElementById('g-hh').value = sched.hour;
   document.getElementById('g-mm').value = sched.minute;
   document.getElementById('g-tz').value = String(sched.tz_offset);
-
-  // Days
   const daysContainer = document.getElementById('g-days');
   const selectedDays = sched.days === '*' ? DAYS.map(d=>d[0]) : String(sched.days).split(',');
-  daysContainer.innerHTML = DAYS.map(([n,lbl])=>`
-    <label style="display:flex;align-items:center;gap:4px;background:var(--panel);
-      padding:5px 10px;border-radius:6px;border:1px solid var(--line);cursor:pointer;font-size:12px">
-      <input type="checkbox" value="${n}" ${selectedDays.includes(n)?'checked':''} onchange="updateCron()">
-      ${lbl}
-    </label>
-  `).join('');
+  daysContainer.innerHTML = DAYS.map(([n,lbl])=>`<label style="display:flex;align-items:center;gap:4px;background:var(--panel);padding:5px 10px;border-radius:6px;border:1px solid var(--line);cursor:pointer;font-size:12px"><input type="checkbox" value="${n}" ${selectedDays.includes(n)?'checked':''} onchange="updateCron()">${lbl}</label>`).join('');
   updateCron();
 }
 function updateCron(){
   const hh = parseInt(document.getElementById('g-hh').value)||0;
   const mm = parseInt(document.getElementById('g-mm').value)||0;
   const tz = parseInt(document.getElementById('g-tz').value)||0;
-  // Convert to UTC
-  let utcH = hh - tz;
-  let dayShift = 0;
+  let utcH = hh - tz, dayShift = 0;
   while(utcH < 0){ utcH += 24; dayShift = -1; }
   while(utcH >= 24){ utcH -= 24; dayShift = 1; }
-
-  // Days
   const checked = [...document.querySelectorAll('#g-days input:checked')].map(i=>i.value);
   let daysCron = '*';
   if(checked.length>0 && checked.length<7){
-    // If day shifted across UTC boundary, shift cron days too
-    const shifted = checked.map(d=>{
-      let v = (parseInt(d) + dayShift + 7) % 7;
-      return String(v);
-    });
+    const shifted = checked.map(d=>String((parseInt(d) + dayShift + 7) % 7));
     daysCron = shifted.sort().join(',');
   }
-
   const cron = `${mm} ${utcH} * * ${daysCron}`;
-  document.getElementById('cron-preview').textContent =
-    `cron: ${cron}   →   local time ${pad(hh)}:${pad(mm)}` +
-    (checked.length===7||checked.length===0 ? '  (every day)' : `  (${checked.length} days)`);
-
+  document.getElementById('cron-preview').textContent = `cron: ${cron}   →   local time ${pad(hh)}:${pad(mm)}` + (checked.length===7||checked.length===0 ? '  (every day)' : `  (${checked.length} days)`);
   if(!CONFIG.schedule_local) CONFIG.schedule_local = {};
-  CONFIG.schedule_local.hour = hh;
-  CONFIG.schedule_local.minute = mm;
+  CONFIG.schedule_local.hour = hh; CONFIG.schedule_local.minute = mm;
   CONFIG.schedule_local.tz_offset = tz;
   CONFIG.schedule_local.days = checked.length===7 ? '*' : checked.join(',');
   CONFIG.schedule_utc = cron;
@@ -599,17 +909,9 @@ function syncGeneral(){
   updateCron();
 }
 function resetForm(){ loadConfig(); toast('Reloaded'); }
-
-// ---- YAML generator ----
 function toYaml(cfg){
-  const q = s => {
-    s = String(s);
-    if(/[:#&*!|>'"%@`{}\[\],?\-]|^\s|\s$|^(true|false|null|yes|no|on|off)$/i.test(s) || s==='')
-      return JSON.stringify(s);
-    return s;
-  };
-  let y = '';
-  y += 'profile:\n';
+  const q = s => { s = String(s); if(/[:#&*!|>'"%@`{}\[\],?\-]|^\s|\s$|^(true|false|null|yes|no|on|off)$/i.test(s) || s==='') return JSON.stringify(s); return s; };
+  let y = 'profile:\n';
   y += `  name: ${q(cfg.profile.name)}\n`;
   const desc = (cfg.profile.description||'').replace(/\n/g,'\n    ');
   y += `  description: |\n    ${desc}\n\n`;
@@ -624,10 +926,7 @@ function toYaml(cfg){
   y += '\nllm:\n';
   for(const [k,v] of Object.entries(cfg.llm)) y += `  ${k}: ${typeof v==='number'?v:q(v)}\n`;
   y += '\nkeywords:\n';
-  for(const tier of TIERS){
-    y += `  ${tier}:\n`;
-    for(const k of (cfg.keywords[tier]||[])) y += `    - ${q(k)}\n`;
-  }
+  for(const tier of TIERS){ y += `  ${tier}:\n`; for(const k of (cfg.keywords[tier]||[])) y += `    - ${q(k)}\n`; }
   y += '\nfeeds:\n';
   for(const f of cfg.feeds){
     y += `  - name: ${q(f.name)}\n`;
@@ -637,29 +936,16 @@ function toYaml(cfg){
   }
   return y;
 }
-function refreshYaml(){
-  syncGeneral();
-  document.getElementById('yaml-preview').value = toYaml(CONFIG);
-}
-function copyYaml(){
-  refreshYaml();
-  navigator.clipboard.writeText(document.getElementById('yaml-preview').value);
-  toast('Copied to clipboard', 'success');
-}
+function refreshYaml(){ syncGeneral(); document.getElementById('yaml-preview').value = toYaml(CONFIG); }
+function copyYaml(){ refreshYaml(); navigator.clipboard.writeText(document.getElementById('yaml-preview').value); toast('Copied to clipboard', 'success'); }
 function downloadYaml(){
   syncGeneral();
   const blob = new Blob([toYaml(CONFIG)], {type:'text/yaml'});
   const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'config.yaml';
-  a.click();
+  a.href = URL.createObjectURL(blob); a.download = 'config.yaml'; a.click();
   toast('config.yaml downloaded. Place it in repo root and commit.', 'success');
 }
-
-// ---- GitHub ----
-function ghCreds(){
-  try{ return JSON.parse(localStorage.getItem('rss-radar-gh')||'{}'); }catch{ return {}; }
-}
+function ghCreds(){ try{ return JSON.parse(localStorage.getItem('rss-radar-gh')||'{}'); }catch{ return {}; } }
 function loadGithub(){
   const g = ghCreds();
   if(g.repo)     document.getElementById('gh-repo').value = g.repo;
@@ -669,10 +955,10 @@ function loadGithub(){
 }
 function saveGithub(){
   const data = {
-    repo:     document.getElementById('gh-repo').value.trim(),
-    branch:   document.getElementById('gh-branch').value.trim() || 'main',
-    workflow: document.getElementById('gh-workflow').value.trim() || 'daily.yml',
-    token:    document.getElementById('gh-token').value.trim(),
+    repo:document.getElementById('gh-repo').value.trim(),
+    branch:document.getElementById('gh-branch').value.trim()||'main',
+    workflow:document.getElementById('gh-workflow').value.trim()||'daily.yml',
+    token:document.getElementById('gh-token').value.trim(),
   };
   if(!data.repo || !data.token){ toast('Repo and token required', 'error'); return; }
   localStorage.setItem('rss-radar-gh', JSON.stringify(data));
@@ -682,16 +968,12 @@ async function testGithub(){
   saveGithub();
   const g = ghCreds();
   try{
-    const r = await fetch(`https://api.github.com/repos/${g.repo}`, {
-      headers:{'Authorization':'Bearer '+g.token,'Accept':'application/vnd.github+json'}
-    });
+    const r = await fetch(`https://api.github.com/repos/${g.repo}`, {headers:{'Authorization':'Bearer '+g.token,'Accept':'application/vnd.github+json'}});
     if(!r.ok){ const e=await r.json(); throw new Error(e.message||r.statusText); }
     const j = await r.json();
     toast(`✓ Connected: ${j.full_name} (${j.default_branch})`, 'success');
   }catch(e){ toast('Error: '+e.message, 'error'); }
 }
-
-// ---- "Run Now" — workflow_dispatch trigger ----
 async function runScanNow(){
   const g = ghCreds();
   if(!g.repo || !g.token){
@@ -701,101 +983,59 @@ async function runScanNow(){
   }
   if(!confirm('Trigger a manual scan via GitHub Actions?\n\nRepo: '+g.repo+'\nWorkflow: '+(g.workflow||'daily.yml'))) return;
   const btn = document.getElementById('scan-btn');
-  btn.disabled = true;
-  btn.textContent = '⏳ Triggering...';
+  btn.disabled = true; btn.textContent = '⏳ Triggering...';
   try{
     const wf = g.workflow || 'daily.yml';
-    const url = `https://api.github.com/repos/${g.repo}/actions/workflows/${wf}/dispatches`;
-    const r = await fetch(url, {
-      method:'POST',
-      headers:{'Authorization':'Bearer '+g.token,
-               'Accept':'application/vnd.github+json',
-               'Content-Type':'application/json'},
-      body: JSON.stringify({ref: g.branch||'main'})
-    });
-    if(!r.ok){
-      const e = await r.json().catch(()=>({message:r.statusText}));
-      throw new Error(e.message || r.statusText);
-    }
+    const r = await fetch(`https://api.github.com/repos/${g.repo}/actions/workflows/${wf}/dispatches`,
+      {method:'POST', headers:{'Authorization':'Bearer '+g.token,'Accept':'application/vnd.github+json','Content-Type':'application/json'},
+       body: JSON.stringify({ref: g.branch||'main'})});
+    if(!r.ok){ const e=await r.json().catch(()=>({message:r.statusText})); throw new Error(e.message || r.statusText); }
     toast('🚀 Scan started! Refresh the page in ~2-3 min.', 'success');
-    setTimeout(()=>{
-      window.open(`https://github.com/${g.repo}/actions`, '_blank');
-    }, 1500);
-  }catch(e){
-    toast('Error: '+e.message, 'error');
-  }finally{
-    btn.disabled = false;
-    btn.textContent = '▶️ Run Now';
-  }
+    setTimeout(()=>window.open(`https://github.com/${g.repo}/actions`, '_blank'), 1500);
+  }catch(e){ toast('Error: '+e.message, 'error'); }
+  finally{ btn.disabled = false; btn.textContent = '▶️ Run Now'; }
 }
-
-// ---- Save config + workflow to GitHub ----
 async function commitToGithub(){
   syncGeneral();
   const g = ghCreds();
   if(!g.repo || !g.token){
     toast('First set up the connection in ⚙️ Settings → 🐙 GitHub', 'error');
-    showTab('tab-github', document.querySelectorAll('.tab')[3]);
-    return;
+    showTab('tab-github', document.querySelectorAll('.tab')[3]); return;
   }
-
   toast('Sending to GitHub...');
   try{
-    // 1. config.yaml
-    await putFile(g, 'config.yaml', toYaml(CONFIG),
-                  'panel: config updated');
-
-    // 2. If cron changed, update the workflow file too
+    await putFile(g, 'config.yaml', toYaml(CONFIG), 'panel: config updated');
     const wfPath = '.github/workflows/' + (g.workflow||'daily.yml');
     const wfCur  = await getFile(g, wfPath);
     if(wfCur && wfCur.content){
       const cur = decodeBase64(wfCur.content);
       const updated = cur.replace(/(-\s*cron:\s*)"[^"]*"/, `$1"${CONFIG.schedule_utc}"`);
-      if(updated !== cur){
-        await putFile(g, wfPath, updated, 'panel: cron updated → '+CONFIG.schedule_utc, wfCur.sha);
-      }
+      if(updated !== cur) await putFile(g, wfPath, updated, 'panel: cron updated → '+CONFIG.schedule_utc, wfCur.sha);
     }
-
     toast('✓ Committed! New settings take effect on the next run.', 'success');
-  }catch(e){
-    toast('Error: ' + e.message, 'error');
-  }
+  }catch(e){ toast('Error: ' + e.message, 'error'); }
 }
 async function getFile(g, path){
-  const r = await fetch(`https://api.github.com/repos/${g.repo}/contents/${path}?ref=${g.branch||'main'}`,
-    {headers:{'Authorization':'Bearer '+g.token,'Accept':'application/vnd.github+json'}});
+  const r = await fetch(`https://api.github.com/repos/${g.repo}/contents/${path}?ref=${g.branch||'main'}`, {headers:{'Authorization':'Bearer '+g.token,'Accept':'application/vnd.github+json'}});
   if(!r.ok) return null;
   return await r.json();
 }
 async function putFile(g, path, content, msg, sha=null){
-  if(!sha){
-    const cur = await getFile(g, path);
-    if(cur) sha = cur.sha;
-  }
-  const body = {
-    message: msg + ' (' + new Date().toISOString().slice(0,16) + ')',
-    content: btoa(unescape(encodeURIComponent(content))),
-    branch: g.branch||'main',
-  };
+  if(!sha){ const cur = await getFile(g, path); if(cur) sha = cur.sha; }
+  const body = { message: msg + ' (' + new Date().toISOString().slice(0,16) + ')',
+    content: btoa(unescape(encodeURIComponent(content))), branch: g.branch||'main' };
   if(sha) body.sha = sha;
   const r = await fetch(`https://api.github.com/repos/${g.repo}/contents/${path}`,
-    {method:'PUT',
-     headers:{'Authorization':'Bearer '+g.token,'Accept':'application/vnd.github+json'},
+    {method:'PUT', headers:{'Authorization':'Bearer '+g.token,'Accept':'application/vnd.github+json'},
      body: JSON.stringify(body)});
   if(!r.ok){ const e=await r.json(); throw new Error(`${path}: ${e.message||r.statusText}`); }
   return await r.json();
 }
-function decodeBase64(b64){
-  return decodeURIComponent(escape(atob(b64.replace(/\s/g,''))));
-}
-
-// ---- Helpers ----
+function decodeBase64(b64){ return decodeURIComponent(escape(atob(b64.replace(/\s/g,'')))); }
 function toast(msg, kind=''){
   const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = 'toast show ' + kind;
-  clearTimeout(window._tT);
-  window._tT = setTimeout(()=>t.classList.remove('show'), 5000);
+  t.textContent = msg; t.className = 'toast show ' + kind;
+  clearTimeout(window._tT); window._tT = setTimeout(()=>t.classList.remove('show'), 5000);
 }
 function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeSettings(); });
