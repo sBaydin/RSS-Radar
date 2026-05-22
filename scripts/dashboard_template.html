@@ -60,6 +60,10 @@
     padding:15px 17px;margin:0 0 12px;transition:transform .08s,border-color .15s}
   .card:hover{transform:translateY(-1px);border-color:#3b4a91}
   .card.must{border-color:var(--accent2);box-shadow:0 0 0 1px rgba(255,184,107,.2)}
+  .card.is-new{border-left:3px solid var(--good)}
+  .new-badge{background:var(--good);color:#003322;padding:2px 8px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:.5px}
+  .toggle-new{cursor:pointer;user-select:none;display:inline-flex;align-items:center;gap:6px}
+  .toggle-new input{accent-color:var(--good);width:14px;height:14px}
   .card h2{margin:0 0 6px;font-size:15.5px;line-height:1.35}
   .card h2 a{color:var(--ink);text-decoration:none}
   .card h2 a:hover{color:var(--accent)}
@@ -142,6 +146,9 @@
 <body>
 <header>
   <div class="top-actions">
+    <label class="btn ghost toggle-new" title="Highlight items added in the latest run">
+      <input type="checkbox" id="new-only-toggle" onchange="filter()">🆕 new only
+    </label>
     <button class="btn ghost" onclick="toggleDebug()" title="Show matched keywords">🔍 debug</button>
     <button class="btn scan" id="scan-btn" onclick="runScanNow()" title="Trigger a manual scan via GitHub Actions">▶️ Run Now</button>
     <button class="btn" onclick="openSettings()">⚙️ Settings</button>
@@ -150,6 +157,7 @@
   <p>{{ profile.description }}</p>
   <div class="meta">
     <span>Generated: <b>{{ generated_at }}</b></span>
+    {% if last_run_at %}<span>Last scan: <b>{{ last_run_at[:16]|replace('T',' ') }} UTC</b></span>{% endif %}
     <span>Showing: <b>{{ total_shown }}</b> / Total seen: <b>{{ total_seen }}</b></span>
     <span>Threshold: <b>{{ threshold }}</b>/10</span>
     <span class="chip">🛰 Feed: <b>{{ feed_count }}/{{ feed_total }}</b></span>
@@ -199,10 +207,12 @@
     {% endif %}
     {% for it in items %}
       {% set rel = it.relevance or 0 %}
-      <article class="card {% if it.must_read %}must{% endif %}"
+      <article class="card {% if it.must_read %}must{% endif %} {% if it.processed_at == last_run_at_iso or (it.processed_at and last_run_at_iso and it.processed_at[:16] == last_run_at_iso[:16]) %}is-new{% endif %}"
                data-tags="{{ (it.tags or [])|join(' ')|lower }}"
+               data-new="{% if it.processed_at and last_run_at_iso and it.processed_at[:16] == last_run_at_iso[:16] %}1{% else %}0{% endif %}"
                data-text="{{ (it.title ~ ' ' ~ (it.summary_tr or '') ~ ' ' ~ (it.summary_en or ''))|lower }}">
         <div class="row1">
+          {% if it.processed_at and last_run_at_iso and it.processed_at[:16] == last_run_at_iso[:16] %}<span class="new-badge">🆕 NEW</span>{% endif %}
           <span class="badge">{{ it.source }}</span>
           <span class="score {% if rel>=8 %}s-high{% elif rel>=5 %}s-mid{% else %}s-low{% endif %}">
             ⭐ {{ rel }}/10
@@ -413,12 +423,15 @@ function pickTag(el){
 }
 function filter(){
   const q = document.getElementById('q').value.toLowerCase().trim();
+  const newOnly = document.getElementById('new-only-toggle').checked;
   document.querySelectorAll('#list .card').forEach(c=>{
     const tags = c.dataset.tags;
     const text = c.dataset.text;
+    const isNew = c.dataset.new === '1';
     const tagOk = (activeTag==="*") || tags.split(/\s+/).includes(activeTag);
     const qOk = !q || text.includes(q) || tags.includes(q);
-    c.style.display = (tagOk && qOk) ? "" : "none";
+    const newOk = !newOnly || isNew;
+    c.style.display = (tagOk && qOk && newOk) ? "" : "none";
   });
 }
 function toggleDebug(){ document.querySelectorAll('#list .card').forEach(c=>c.classList.toggle('show-debug')); }

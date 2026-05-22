@@ -484,10 +484,11 @@ def render_dashboard(items: dict, runs: dict, cfg: dict) -> None:
         v for v in items.values()
         if not v.get("skipped") and (v.get("relevance") or 0) >= threshold
     ]
+    # Sort: newest first (by processed_at), then must_read, then relevance
     processed.sort(key=lambda x: (
+        x.get("processed_at", ""),
         x.get("must_read", False),
         x.get("relevance", 0),
-        x.get("processed_at", "")
     ), reverse=True)
 
     all_tags: dict[str, int] = {}
@@ -500,8 +501,13 @@ def render_dashboard(items: dict, runs: dict, cfg: dict) -> None:
 
     kw_counts = {tier: len(cfg["keywords"].get(tier, []) or []) for tier in ["critical","core","related","exclude"]}
 
+    last_run_at = ""
+    if runs.get("runs"):
+        last_run_at = runs["runs"][-1].get("ran_at", "")
     tpl = Template(TEMPLATE_PATH.read_text(encoding="utf-8"))
     html = tpl.render(
+        last_run_at=last_run_at,
+        last_run_at_iso=last_run_at,
         items=processed,
         tags=sorted(all_tags.items(), key=lambda x: -x[1]),
         sources=sorted(sources.items(), key=lambda x: -x[1]),
