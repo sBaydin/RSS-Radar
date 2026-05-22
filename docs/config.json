@@ -1,21 +1,21 @@
 {
   "profile": {
-    "name": "Betonarme Hasar Tespiti - Görüntü İşleme",
-    "description": "Doktora konusu: Deprem sonrası oluşan betonarme yapılardaki hasarların\ngörsel işleme/derin öğrenme metodları ile tespiti.\n"
+    "name": "Post-Earthquake RC Damage Detection — Computer Vision",
+    "description": "PhD research radar: detection of damage in reinforced concrete buildings\nafter earthquakes using computer vision and deep learning.\n"
   },
-  "schedule_utc": "0 17 * * *",
+  "schedule_utc": "0 17 * * 1",
   "schedule_local": {
     "hour": 20,
     "minute": 0,
     "tz_offset": 3,
-    "days": "*"
+    "days": "1"
   },
   "llm": {
     "provider": "groq",
     "model": "llama-3.3-70b-versatile",
     "fallback_provider": "gemini",
     "fallback_model": "gemini-2.5-flash",
-    "language": "tr",
+    "language": "en",
     "max_items_per_run": 60,
     "relevance_threshold": 4
   },
