@@ -12538,6 +12538,1345 @@
       "summary_tr": "(all providers failed) arXiv:2605.22017v1 Announce Type: new Abstract: Deepgenerative models havebecomeapromisingapproach for human motion prediction due to their ability to capture multimodal distributions and represent diverse human be haviors. However, generating predictions that are both di verse and jointly consistent among interacting agents re mains challenging. In addition, most existing approaches are primarily",
       "llm_provider_used": "failed",
       "processed_at": "2026-05-22T08:46:03.027094+00:00"
+    },
+    "d398a64b2943abde": {
+      "id": "d398a64b2943abde",
+      "title": "VISTA: Validation-Guided Integration of Spatial and Temporal Foundation Models with Anatomical Decoding for Rare-Pathology VCE Event Detection -- after competition results",
+      "summary_en": "arXiv:2605.22096v1 Announce Type: new Abstract: Capsule endoscopy event detection is challenging because clinically relevant findings are sparse, visually heterogeneous, and evaluated at the event level rather than by frame accuracy. We propose VISTA, a metric-aligned multi-backbone framework for the RAREVISION task. VISTA combines EndoFM-LV for temporal context and DINOv3 ViTL/16 for frame-level visual semantics, followed by a Diverse Head Ensemble (DHE), Validation-Guided Weighted Fusion (VGWF), and Anatomy-Aware Temporal Event Decoding (ATED). The original official submission achieved hidden-test temporal mAP@0.5 of 0.3530 and mAP@0.95 of 0.3235. After the competition, extending local threshold refinement with a global coarse search improved performance to 0.3726 mAP@0.5 and 0.3431 mAP@0.95, ranking Team ACVLab second in the post-competition evaluation.",
+      "link": "https://arxiv.org/abs/2605.22096",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:ViT",
+        "core:foundation model"
+      ],
+      "summary": "The authors propose VISTA, a multi-backbone framework for detecting rare-pathology events in capsule endoscopy videos. VISTA combines temporal context and visual semantics using EndoFM-LV and DINOv3 ViTL/16, followed by a Diverse Head Ensemble and Validation-Guided Weighted Fusion. The framework achieved a temporal mAP@0.5 of 0.3726 and mAP@0.95 of 0.3431 after post-competition refinement. The results demonstrate the effectiveness of VISTA in detecting rare-pathology events. The framework's performance was evaluated on a hidden-test set.",
+      "relevance": 2,
+      "why_relevant": "This paper is relevant to the topic of post-earthquake RC damage detection using computer vision because it demonstrates the application of deep learning techniques for detecting rare events, which could be applied to detecting damage in reinforced concrete buildings.",
+      "tags": [
+        "event-detection",
+        "deep-learning",
+        "video-analysis",
+        "medical-imaging"
+      ],
+      "must_read": false,
+      "summary_tr": "The authors propose VISTA, a multi-backbone framework for detecting rare-pathology events in capsule endoscopy videos. VISTA combines temporal context and visual semantics using EndoFM-LV and DINOv3 ViTL/16, followed by a Diverse Head Ensemble and Validation-Guided Weighted Fusion. The framework achieved a temporal mAP@0.5 of 0.3726 and mAP@0.95 of 0.3431 after post-competition refinement. The results demonstrate the effectiveness of VISTA in detecting rare-pathology events. The framework's performance was evaluated on a hidden-test set.",
+      "llm_provider_used": "groq",
+      "processed_at": "2026-05-22T09:00:47.978681+00:00"
+    },
+    "771394f0cd987d0d": {
+      "id": "771394f0cd987d0d",
+      "title": "TextTeacher: What Can Language Teach About Images?",
+      "summary_en": "arXiv:2605.22098v1 Announce Type: cross Abstract: The platonic representation hypothesis suggests that sufficiently large models converge to a shared representation geometry, even across modalities. Motivated by this, we ask: Can the semantic knowledge of a language model efficiently improve a vision model? As an answer, we introduce TextTeacher, a simple auxiliary objective that injects text embeddings as additional information into image classification training. TextTeacher uses readily available image captions, a pre-trained and frozen text encoder, and a lightweight projection to produce semantic anchors that efficiently guide representations during training while leaving the inference-time model unchanged. On ImageNet with standard ViT backbones, TextTeacher improves accuracy by up to +2.7 percentage points (p.p.) and yields consistent transfer gains (on average +1.0 p.p.) under the same recipe and compute. It outperforms vision knowledge distillation, yielding more accuracy at a constant compute budget or similar accuracy, but 33% faster. Our analysis indicates that TextTeacher acts as a feature-space preconditioner, shaping deeper layers in the first stages of training, and aiding generalization by supplying complementary semantic cues. TextTeacher adds negligible overhead, requires no costly multimodal training of the target model and preserves the simplicity and latency of pure vision models. Project page with code and captions: https://nauen-it.de/publications/text-teacher",
+      "link": "https://arxiv.org/abs/2605.22098",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:image classification",
+        "core:ViT"
+      ],
+      "summary": "(all providers failed) arXiv:2605.22098v1 Announce Type: cross Abstract: The platonic representation hypothesis suggests that sufficiently large models converge to a shared representation geometry, even across modalities. Motivated by this, we ask: Can the semantic knowledge of a language model efficiently improve a vision model? As an answer, we introduce TextTeacher, a simple auxiliary objective that injects text embe",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.22098v1 Announce Type: cross Abstract: The platonic representation hypothesis suggests that sufficiently large models converge to a shared representation geometry, even across modalities. Motivated by this, we ask: Can the semantic knowledge of a language model efficiently improve a vision model? As an answer, we introduce TextTeacher, a simple auxiliary objective that injects text embe",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403512+00:00"
+    },
+    "72b41bb7816dd5a4": {
+      "id": "72b41bb7816dd5a4",
+      "title": "OSS: Open Suturing Skills Vision-Based Assessment Challenge 2024-2025",
+      "summary_en": "arXiv:2605.22200v1 Announce Type: cross Abstract: Achieving high levels of surgical skill through effective training is essential for optimal patient outcomes. Automated, data-driven skill assessment holds significant potential to improve surgical training. While machine learning-based methods are increasingly popular for assessing skills in minimally invasive surgery, their application to open surgery remains limited. We present the results of a dedicated MICCAI challenge designed to benchmark and advance vision-based skill assessment in open surgery. The challenge dataset comprises videos of an open suturing training task recorded with a static GoPro camera in a dry-lab setting, with instrument trajectories available in addition to the primary video modality. The OSS Challenge was hosted over two consecutive years, comprising two and three independent tasks, respectively: (1) classifying skill level into four classes, (2) predicting the full Objective Structured Assessment of Technical Skills across eight categories, and (3) tracking hands and surgical tools. Participants submitted diverse solutions including deep learning-based video models, tracking-driven methods, and hybrid approaches. General-purpose spatiotemporal video models consistently achieved the strongest performance, though conceptually diverse approaches reached competitive levels when well-executed. Predicting fine-grained OSATS scores remains challenging but benefits substantially from increased training data. Keypoint tracking proves difficult given frequent occlusions and out-of-frame instances, limiting current applicability for motion-based skill analysis. This work benchmarks innovative and diverse solutions for surgical skill assessment, highlighting both the promise and current limitations of video-based evaluation in open surgery and identifying critical directions for advancing automated skill assessment toward clinical impact.",
+      "link": "https://arxiv.org/abs/2605.22200",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:deep learning",
+        "related:dataset",
+        "related:benchmark"
+      ],
+      "summary": "(all providers failed) arXiv:2605.22200v1 Announce Type: cross Abstract: Achieving high levels of surgical skill through effective training is essential for optimal patient outcomes. Automated, data-driven skill assessment holds significant potential to improve surgical training. While machine learning-based methods are increasingly popular for assessing skills in minimally invasive surgery, their application to open su",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.22200v1 Announce Type: cross Abstract: Achieving high levels of surgical skill through effective training is essential for optimal patient outcomes. Automated, data-driven skill assessment holds significant potential to improve surgical training. While machine learning-based methods are increasingly popular for assessing skills in minimally invasive surgery, their application to open su",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403533+00:00"
+    },
+    "6f15c8932c5550f4": {
+      "id": "6f15c8932c5550f4",
+      "title": "Bernini: Latent Semantic Planning for Video Diffusion",
+      "summary_en": "arXiv:2605.22344v1 Announce Type: new Abstract: Multimodal large language models (MLLMs) and diffusion models have each reached remarkable maturity: MLLMs excel at reasoning over heterogeneous multimodal inputs with strong semantic grounding, while diffusion models synthesize images and videos with photorealistic fidelity. We argue that these two families can be unified through a simple division of labor: MLLMs perform semantic planning, while diffusion models render pixels from high-level semantic guidance and low-level visual features. Building on this idea, we propose Bernini, a unified framework for video generation and editing. An MLLM-based planner predicts the target semantic representation directly in the ViT embedding space, and a DiT-based renderer synthesizes pixels conditioned on this plan, augmented by text features and, for editing, source VAE features for detail preservation. Because semantics serve as the interface, the planner and renderer can be trained separately and only lightly co-trained, preserving the pretrained strengths of both components while keeping training efficient. To better handle multiple visual inputs, we introduce Segment-Aware 3D Rotary Positional Embedding (SA-3D RoPE), and further incorporate chain-of-thought reasoning in the planner to better transfer understanding into generation. Bernini achieves state-of-the-art performance across a wide range of video generation and editing benchmarks, with the MLLM's pretrained understanding translating into strong generalization on challenging editing tasks.",
+      "link": "https://arxiv.org/abs/2605.22344",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:ViT",
+        "related:benchmark",
+        "related:diffusion"
+      ],
+      "summary": "(all providers failed) arXiv:2605.22344v1 Announce Type: new Abstract: Multimodal large language models (MLLMs) and diffusion models have each reached remarkable maturity: MLLMs excel at reasoning over heterogeneous multimodal inputs with strong semantic grounding, while diffusion models synthesize images and videos with photorealistic fidelity. We argue that these two families can be unified through a simple division o",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.22344v1 Announce Type: new Abstract: Multimodal large language models (MLLMs) and diffusion models have each reached remarkable maturity: MLLMs excel at reasoning over heterogeneous multimodal inputs with strong semantic grounding, while diffusion models synthesize images and videos with photorealistic fidelity. We argue that these two families can be unified through a simple division o",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:06.261064+00:00"
+    },
+    "767de7ed8a20f278": {
+      "id": "767de7ed8a20f278",
+      "title": "VEELA: A Clinically-Constrained Benchmark for Liver Vessel Segmentation in Computed Tomography Angiography",
+      "summary_en": "arXiv:2605.22357v1 Announce Type: new Abstract: Accurate segmentation of hepatic and portal vessels in contrast-enhanced computed tomography angiography (CTA) remains challenging due to complex vascular topology, peripheral visibility limitations, and acquisition-induced ambiguities. While existing public datasets offer valuable benchmarks, few include clinically realistic annotation constraints. We introduce VEELA (Vessel Extraction and Extrication for Liver Analysis), a rigorously curated liver vessel dataset derived from 40 CTA scans inherited from the CHAOS grand-challenge cohort. All vessels were manually delineated slice-by-slice under multi-expert consensus, using a strict visibility-driven annotation policy and avoiding anatomically inferred interpolation. This design explicitly captures anatomical variability and imaging-related uncertainty. As a continuation of the CHAOS challenge, VEELA enables reproducible cross-benchmark evaluation while extending the scope to fine-grained hepatic and portal vessel segmentation. We further establish a standardized benchmarking framework and analyze complementary evaluation metrics, including topology-aware (clDice), overlap-based (IoU), boundary-sensitive (NSD), and geometry-aware (area, length) measures. Our results demonstrate that different metrics capture distinct aspects of vascular integrity, underscoring the necessity of multi-perspective evaluation for clinically meaningful vessel segmentation. VEELA is publicly released to facilitate reproducible research and support the development of robust vascular segmentation methods. Researchers can access the evaluation metrics, dataset, and submission platform at https://www.synapse.org/Synapse:syn65471967.",
+      "link": "https://arxiv.org/abs/2605.22357",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "related:dataset",
+        "related:benchmark",
+        "related:annotation",
+        "related:uncertainty"
+      ],
+      "summary": "(all providers failed) arXiv:2605.22357v1 Announce Type: new Abstract: Accurate segmentation of hepatic and portal vessels in contrast-enhanced computed tomography angiography (CTA) remains challenging due to complex vascular topology, peripheral visibility limitations, and acquisition-induced ambiguities. While existing public datasets offer valuable benchmarks, few include clinically realistic annotation constraints. ",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.22357v1 Announce Type: new Abstract: Accurate segmentation of hepatic and portal vessels in contrast-enhanced computed tomography angiography (CTA) remains challenging due to complex vascular topology, peripheral visibility limitations, and acquisition-induced ambiguities. While existing public datasets offer valuable benchmarks, few include clinically realistic annotation constraints. ",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.402630+00:00"
+    },
+    "9fc55154bb15c9e5": {
+      "id": "9fc55154bb15c9e5",
+      "title": "MaSC: A Masked Similarity Metric for Evaluating Concept-Driven Generation",
+      "summary_en": "arXiv:2605.22469v1 Announce Type: new Abstract: Evaluating single-concept personalization in text-to-image diffusion requires measuring both concept preservation, which captures identity fidelity to a reference, and prompt following, which captures whether the generated scene matches the prompt. Existing metrics commonly compute these signals using global image or text-image embeddings, such as CLIP-I, DINO, and CLIP-T. We show that such metrics correlate poorly with human perception because they attend to the image as a whole instead of separating the concept subject from the background. We introduce MaSC, a masked similarity metric that uses externally provided foreground concept masks to decompose evaluation into subject-specific concept preservation and background-based prompt following. MaSC computes both scores from frozen SigLIP2 SO400M-NaFlex features: concept preservation is measured by masked max-cosine matching between foreground reference patches and generated-image patches, while prompt following is measured by comparing a background-only pooled image embedding to a subject-stripped prompt embedding. On DreamBench++ human ratings, MaSC achieves Krippendorff alpha = 0.471 for concept preservation, outperforming all tested non-LLM baselines and GPT-4V, and approaching GPT-4o. On ORIDa, a real-photo identity-preservation benchmark across physical environments, MaSC achieves AUC = 0.992, nearly perfectly distinguishing same-subject from cross-subject pairs. Its prompt-following score also outperforms the CLIP-T baseline shipped with DreamBench++. These results show that spatially decomposed aggregation is a strong design principle for evaluating concept-driven generation.",
+      "link": "https://arxiv.org/abs/2605.22469",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:CLIP",
+        "related:benchmark",
+        "related:diffusion"
+      ],
+      "summary": "(all providers failed) arXiv:2605.22469v1 Announce Type: new Abstract: Evaluating single-concept personalization in text-to-image diffusion requires measuring both concept preservation, which captures identity fidelity to a reference, and prompt following, which captures whether the generated scene matches the prompt. Existing metrics commonly compute these signals using global image or text-image embeddings, such as CL",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.22469v1 Announce Type: new Abstract: Evaluating single-concept personalization in text-to-image diffusion requires measuring both concept preservation, which captures identity fidelity to a reference, and prompt following, which captures whether the generated scene matches the prompt. Existing metrics commonly compute these signals using global image or text-image embeddings, such as CL",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.402936+00:00"
+    },
+    "e2f5db3b392c2e03": {
+      "id": "e2f5db3b392c2e03",
+      "title": "SceneAligner: 3D-Grounded Floorplan Localization in the Wild",
+      "summary_en": "arXiv:2605.22581v1 Announce Type: cross Abstract: Many public buildings provide floorplans with a \"you are here\" indicator to help visitors orient themselves. Floorplan localization seeks to computationally replicate this capability by determining where visual observations were captured within a floorplan. However, existing methods typically assume controlled small-scale environments and precise vectorized floorplans, limiting their ability to operate in large-scale buildings and rasterized floorplans. In this work, we present an approach for performing floorplan localization in the wild by grounding the task in a reconstructed 3D representation of the scene. Given an unconstrained image collection, our method reconstructs a gravity-aligned 3D scene and projects it into a 2D density map that serves as a floorplan proxy. Floorplan localization is then formulated as aligning this proxy with the input floorplan via a 2D similarity transform. To bridge the appearance gap between density maps and architectural floorplans, we adapt a 2D foundation model to learn cross-modal correspondences, introducing a fine-tuning scheme that encourages semantically aligned matches while preserving structural consistency. Extensive experiments demonstrate substantial improvements over prior methods, including in extremely sparse settings with as little as a single input image. Our code and data will be publicly available.",
+      "link": "https://arxiv.org/abs/2605.22581",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:ViT",
+        "core:foundation model"
+      ],
+      "summary": "(all providers failed) arXiv:2605.22581v1 Announce Type: cross Abstract: Many public buildings provide floorplans with a \"you are here\" indicator to help visitors orient themselves. Floorplan localization seeks to computationally replicate this capability by determining where visual observations were captured within a floorplan. However, existing methods typically assume controlled small-scale environments and precise v",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.22581v1 Announce Type: cross Abstract: Many public buildings provide floorplans with a \"you are here\" indicator to help visitors orient themselves. Floorplan localization seeks to computationally replicate this capability by determining where visual observations were captured within a floorplan. However, existing methods typically assume controlled small-scale environments and precise v",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403551+00:00"
+    },
+    "1d2e5ba8d0c27003": {
+      "id": "1d2e5ba8d0c27003",
+      "title": "What Does the Caption Really Say? Counterfactual Phrase Intervention for Compositional Data Selection in Vision-Language Pretraining",
+      "summary_en": "arXiv:2605.22651v1 Announce Type: new Abstract: CLIP-style contrastive pretraining typically curates web-scale image-text pairs using sample-level filtering signals, often based on pair-level alignment. We show that this signal saturates: once coarse mismatches are removed, stricter global filtering no longer tracks the compositional supervision provided by the retained captions. The reason is structural - a global score conflates whether a pair is broadly plausible with whether the individual object, attribute, and relation phrases inside the caption materially support the image-text match. The latter is what compositional generalization demands, yet pair-level filters are blind to it. We address this with Counterfactual Phrase Intervention (CPI), a phrase-level curation framework that converts controlled nonce-token substitutions into image-conditioned phrase-sensitivity scores. CPI uses global alignment only for coarse mismatch removal, then ranks the surviving pool by whether caption phrases measurably affect the image-text score under controlled substitution. We frame CPI as a first-order phrase-sensitivity signal rather than a grounding or identification result, and evaluate it at CC3M scale. Ranking by this signal yields a 50%-data subset that improves VL-CheckList-VG Relation by +1.91 over the full-data baseline and +1.00 over alignment-only filtering at matched budget, while improving SugarCrepe overall and preserving general transfer. CPI is loss-orthogonal: applied unchanged to NegCLIP, it further improves VL-CheckList-VG Relation by +3.84, with additional CE-CLIP gains in the main text.",
+      "link": "https://arxiv.org/abs/2605.22651",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:ViT",
+        "core:CLIP"
+      ],
+      "summary": "(all providers failed) arXiv:2605.22651v1 Announce Type: new Abstract: CLIP-style contrastive pretraining typically curates web-scale image-text pairs using sample-level filtering signals, often based on pair-level alignment. We show that this signal saturates: once coarse mismatches are removed, stricter global filtering no longer tracks the compositional supervision provided by the retained captions. The reason is str",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.22651v1 Announce Type: new Abstract: CLIP-style contrastive pretraining typically curates web-scale image-text pairs using sample-level filtering signals, often based on pair-level alignment. We show that this signal saturates: once coarse mismatches are removed, stricter global filtering no longer tracks the compositional supervision provided by the retained captions. The reason is str",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.402993+00:00"
+    },
+    "df42a64fd8f2c00c": {
+      "id": "df42a64fd8f2c00c",
+      "title": "Slimmable ConvNeXt: Width-Adaptive Inference for Efficient Multi-Device Deployment",
+      "summary_en": "arXiv:2605.22677v1 Announce Type: new Abstract: Deploying vision models across devices with varying resource constraints, or even on a single device where available compute fluctuates due to battery state, thermal throttling, or latency deadlines, typically requires training and maintaining separate models. Width-adaptive inference addresses this by training a single set of shared weights containing multiple nested subnetworks of increasing capacity, but prior CNN-based approaches required switchable batch normalization, while recent scalable methods have focused on Vision Transformers. We present Slimmable ConvNeXt, which shows that ConvNeXt's modern design, specifically LayerNorm and inverted bottlenecks, makes it particularly suited for channel-width slimming, eliminating the normalization overhead of classical slimmable networks and producing a simpler training pipeline than both prior CNN and ViT approaches. On ImageNet-1k, Slimmable ConvNeXt-T with 3 subnetworks achieves 80.8% top-1 accuracy at 4.5 GMACs and 77.4% at 1.2 GMACs, trained from scratch for 600 epochs. At comparable compute, this exceeds HydraViT's 6-head subnetwork (78.4% at 4.6 GMACs) by 2.4 percentage points and its 3-head configuration (73.0% at 1.3 GMACs) by 4.4 percentage points, while also outperforming MatFormer-S (78.6%) and SortedNet-S (78.2%) at the same GMACs. Scaling to Slimmable ConvNeXt-B further improves maximum accuracy to 82.8% at 15.35 GMACs.",
+      "link": "https://arxiv.org/abs/2605.22677",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:vision transformer",
+        "core:ViT"
+      ],
+      "summary": "(all providers failed) arXiv:2605.22677v1 Announce Type: new Abstract: Deploying vision models across devices with varying resource constraints, or even on a single device where available compute fluctuates due to battery state, thermal throttling, or latency deadlines, typically requires training and maintaining separate models. Width-adaptive inference addresses this by training a single set of shared weights containi",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.22677v1 Announce Type: new Abstract: Deploying vision models across devices with varying resource constraints, or even on a single device where available compute fluctuates due to battery state, thermal throttling, or latency deadlines, typically requires training and maintaining separate models. Width-adaptive inference addresses this by training a single set of shared weights containi",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403012+00:00"
+    },
+    "ed52555d679e1b75": {
+      "id": "ed52555d679e1b75",
+      "title": "Synthetic Data Alone is Enough? Rethinking Data Scarcity in Pediatric Rare Disease Recognition",
+      "summary_en": "arXiv:2605.22767v1 Announce Type: new Abstract: Children with rare genetic diseases often exhibit distinctive facial phenotypes, yet developing computer vision systems for early diagnosis remains challenging due to extreme data scarcity, privacy constraints, and limited data sharing in pediatric settings. These challenges not only hinder automated diagnosis but also restrict the availability of visual resources for clinical genetic counseling. While prior work has shown that synthetic data can augment real datasets and preserve phenotype-level semantics, it remains unclear whether synthetic data alone is sufficient for learning in ultra-low-resource pediatric settings. In this work, we study the synthetic-only regime for pediatric rare disease recognition. Under a controlled experimental setup, models are trained exclusively on phenotype-aware synthetic facial images at increasing scales. We find that synthetic-only training achieves performance comparable to real-data-only baselines at sufficient scale across multiple backbones, suggesting that high-fidelity synthetic data can approximate clinically meaningful distributions. These findings together further enable the use of synthetic pediatric facial images as privacy-preserving resources for genetic education and counseling, supporting clinician training and patient communication. Our results highlight the potential of computer vision to improve data efficiency and expand accessible visual tools in children's healthcare.",
+      "link": "https://arxiv.org/abs/2605.22767",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:computer vision",
+        "related:dataset",
+        "related:synthetic data"
+      ],
+      "summary": "(all providers failed) arXiv:2605.22767v1 Announce Type: new Abstract: Children with rare genetic diseases often exhibit distinctive facial phenotypes, yet developing computer vision systems for early diagnosis remains challenging due to extreme data scarcity, privacy constraints, and limited data sharing in pediatric settings. These challenges not only hinder automated diagnosis but also restrict the availability of vi",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.22767v1 Announce Type: new Abstract: Children with rare genetic diseases often exhibit distinctive facial phenotypes, yet developing computer vision systems for early diagnosis remains challenging due to extreme data scarcity, privacy constraints, and limited data sharing in pediatric settings. These challenges not only hinder automated diagnosis but also restrict the availability of vi",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403050+00:00"
+    },
+    "f878d4500e2730d5": {
+      "id": "f878d4500e2730d5",
+      "title": "DecQ: Detail-Condensing Queries for Enhanced Reconstruction and Generation in Representation Autoencoders",
+      "summary_en": "arXiv:2605.22777v1 Announce Type: new Abstract: Representation Autoencoders (RAEs) leverage frozen vision foundation models (VFMs) as tokenizer encoders, providing robust high-level representations that facilitate fast convergence and high-quality generation in latent diffusion models. However, freezing the VFM inherently constrains its spatial reconstruction capacity, limiting fine-grained generation and image editing; in contrast, incorporating reconstruction-oriented signals via fine-tuning disrupts the pretrained semantic space and degrades generative fidelity. To address this trade-off, we propose DecQ, a simple yet effective framework for RAEs. Specifically, DecQ introduces lightweight detail-condensing queries that extract fine-grained information from intermediate VFM features through condenser modules. These queries are incorporated into the decoder to support reconstruction and are jointly generated with patch tokens during generative modeling. By aggregating information from both shallow and deep layers, DecQ effectively mitigates the reconstruction--generation trade-off, improving both reconstruction quality and generative performance. Our experiments demonstrate that: (1) with only 8 additional queries and 3.9% extra computation, DecQ improves reconstruction over the frozen DINOv2-based RAE, increasing PSNR from 19.13 dB to 22.76 dB; and (2) for generative modeling, DecQ achieves 3.3$\\times$ faster convergence than RAE, attaining an FID of 1.41 without guidance and 1.05 with guidance.",
+      "link": "https://arxiv.org/abs/2605.22777",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:foundation model",
+        "related:generative model",
+        "related:diffusion"
+      ],
+      "summary": "(all providers failed) arXiv:2605.22777v1 Announce Type: new Abstract: Representation Autoencoders (RAEs) leverage frozen vision foundation models (VFMs) as tokenizer encoders, providing robust high-level representations that facilitate fast convergence and high-quality generation in latent diffusion models. However, freezing the VFM inherently constrains its spatial reconstruction capacity, limiting fine-grained genera",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.22777v1 Announce Type: new Abstract: Representation Autoencoders (RAEs) leverage frozen vision foundation models (VFMs) as tokenizer encoders, providing robust high-level representations that facilitate fast convergence and high-quality generation in latent diffusion models. However, freezing the VFM inherently constrains its spatial reconstruction capacity, limiting fine-grained genera",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403067+00:00"
+    },
+    "57f51049bec9ad22": {
+      "id": "57f51049bec9ad22",
+      "title": "4D Radar Semantic Segmentation of People in Field Conditions Using Temporal Multi-View Networks",
+      "summary_en": "arXiv:2404.05307v2 Announce Type: replace Abstract: Reliable people detection is crucial for the safe autonomy of mobile robots and heavy vehicles, both on roads and in industrial settings like mining and construction. However, common sensors like cameras or lidars are prone to failure in adverse conditions such as dust, fog, or smoke, which limits their use in real-world robotic systems. Radar, on the other hand, delivers robust measurements in a wide range of environmental conditions. In particular, modern high-resolution 4D imaging radars provide 4D point clouds across range, azimuth, and elevation, as well as per-point Doppler velocity data, well suited for robot perception. We propose TMVA4D, a family of artificial neural network architectures based on CNN and ConvLSTM encoders that leverage the 4D radar modality for semantic segmentation. The architectures are trained to distinguish between background and person classes using a series of 2D projections of the 4D radar data, encompassing elevation, azimuth, range, and Doppler velocity dimensions. Evaluated across several operational sites, our models achieve promising performance (Dice 75.9%, IoU 61.2% for class person) even in low-visibility conditions. The data and code will be made publicly available upon publication.",
+      "link": "https://arxiv.org/abs/2404.05307",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:semantic segmentation",
+        "related:point cloud",
+        "related:LiDAR"
+      ],
+      "summary": "(all providers failed) arXiv:2404.05307v2 Announce Type: replace Abstract: Reliable people detection is crucial for the safe autonomy of mobile robots and heavy vehicles, both on roads and in industrial settings like mining and construction. However, common sensors like cameras or lidars are prone to failure in adverse conditions such as dust, fog, or smoke, which limits their use in real-world robotic systems. Radar, o",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2404.05307v2 Announce Type: replace Abstract: Reliable people detection is crucial for the safe autonomy of mobile robots and heavy vehicles, both on roads and in industrial settings like mining and construction. However, common sensors like cameras or lidars are prone to failure in adverse conditions such as dust, fog, or smoke, which limits their use in real-world robotic systems. Radar, o",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403084+00:00"
+    },
+    "89ec2d6bb286373d": {
+      "id": "89ec2d6bb286373d",
+      "title": "Causal Forcing: Autoregressive Diffusion Distillation Done Right for High-Quality Real-Time Interactive Video Generation",
+      "summary_en": "arXiv:2602.02214v3 Announce Type: replace Abstract: To achieve real-time interactive video generation, current methods distill pretrained bidirectional video diffusion models into few-step autoregressive (AR) models, facing an architectural gap when full attention is replaced by causal attention. However, existing approaches do not bridge this gap theoretically. They initialize the AR student via ODE distillation, which requires frame-level injectivity, where each noisy frame must map to a unique clean frame under the PF-ODE of an AR teacher. Distilling an AR student from a bidirectional teacher violates this condition, preventing recovery of the teacher's flow map and instead inducing a conditional-expectation solution, which degrades performance. To address this issue, we propose Causal Forcing, which uses an autoregressive teacher for ODE initialization to bridge the architectural gap, and then applies the same DMD procedure as in Self Forcing. Empirical results show that our method outperforms all baselines across all metrics, surpassing the SOTA Self Forcing by 19.3\\% in Dynamic Degree, 8.7\\% in VisionReward, and 16.7\\% in Instruction Following. Project page: \\href{https://thu-ml.github.io/CausalForcing.github.io/}{https://thu-ml.github.io/CausalForcing.github.io/}; the code: \\href{https://github.com/thu-ml/Causal-Forcing}{https://github.com/thu-ml/Causal-Forcing}.",
+      "link": "https://arxiv.org/abs/2602.02214",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:ViT",
+        "related:real-time",
+        "related:diffusion"
+      ],
+      "summary": "(all providers failed) arXiv:2602.02214v3 Announce Type: replace Abstract: To achieve real-time interactive video generation, current methods distill pretrained bidirectional video diffusion models into few-step autoregressive (AR) models, facing an architectural gap when full attention is replaced by causal attention. However, existing approaches do not bridge this gap theoretically. They initialize the AR student via ",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2602.02214v3 Announce Type: replace Abstract: To achieve real-time interactive video generation, current methods distill pretrained bidirectional video diffusion models into few-step autoregressive (AR) models, facing an architectural gap when full attention is replaced by causal attention. However, existing approaches do not bridge this gap theoretically. They initialize the AR student via ",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403101+00:00"
+    },
+    "d4f93c0bc980a169": {
+      "id": "d4f93c0bc980a169",
+      "title": "Weakly Supervised Cross-Modal Learning for 4D Radar Scene Flow Estimation",
+      "summary_en": "arXiv:2605.18507v3 Announce Type: replace Abstract: Due to the difficulty of obtaining ground-truth data for 4D radar scene flow estimation, previous methods typically rely on either self-supervised losses or cross-modal supervision using 3D LiDAR data, 2D images, and odometry. However, self-supervised approaches often yield suboptimal results due to radar's inherently low-fidelity measurements, while existing cross-modal supervised methods introduce complex multi-task architecture and require costly LiDAR sensors to generate pseudo radar scene flow labels from pretrained 3D tracking models. To overcome these limitations, we propose a task-specific iterative framework for weakly supervised radar scene flow learning, using only images and odometry for auxiliary supervision during training. Specially, we establish two novel instance-aware self-supervised losses by exploiting off-the-shelf 2D tracking and segmentation algorithms to obtain tracked instance masks, which are back-projected into 3D space to provide instance-level semantic guidance; for static regions, we integrate vehicle odometry with radar's intrinsic motion cues to construct a rigid static loss. Extensive experiments on the real-world View-of-Delft (VoD) dataset demonstrate that our method not only surpasses state-of-the-art cross-modal supervised approaches that rely on 3D multi-object tracking on dense LiDAR point clouds but also outperforms existing fully supervised scene flow estimation methods. The code is open-sourced at \\href{https://github.com/FuJingyun/IterFlow}{https://github.com/FuJingyun/IterFlow}.",
+      "link": "https://arxiv.org/abs/2605.18507",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "related:dataset",
+        "related:self-supervised",
+        "related:point cloud",
+        "related:LiDAR"
+      ],
+      "summary": "(all providers failed) arXiv:2605.18507v3 Announce Type: replace Abstract: Due to the difficulty of obtaining ground-truth data for 4D radar scene flow estimation, previous methods typically rely on either self-supervised losses or cross-modal supervision using 3D LiDAR data, 2D images, and odometry. However, self-supervised approaches often yield suboptimal results due to radar's inherently low-fidelity measurements, w",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.18507v3 Announce Type: replace Abstract: Due to the difficulty of obtaining ground-truth data for 4D radar scene flow estimation, previous methods typically rely on either self-supervised losses or cross-modal supervision using 3D LiDAR data, 2D images, and odometry. However, self-supervised approaches often yield suboptimal results due to radar's inherently low-fidelity measurements, w",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403126+00:00"
+    },
+    "056f6c376fc64f86": {
+      "id": "056f6c376fc64f86",
+      "title": "RE-VLM: Event-Augmented Vision-Language Model for Scene Understanding",
+      "summary_en": "arXiv:2605.19329v2 Announce Type: replace Abstract: Conventional vision-language models (VLMs) struggle to interpret scenes captured under adverse conditions (e.g., low light, high dynamic range, or fast motion) because standard RGB images degrade in such environments. Event cameras provide a complementary modality: they asynchronously record per-pixel brightness changes with high temporal resolution and wide dynamic range, preserving motion cues where frames fail. We propose RE-VLM, the first dual-stream vision-language model that jointly leverages RGB images and event streams for robust scene understanding across both normal and challenging conditions. RE-VLM employs parallel RGB and event encoders together with a progressive training strategy that aligns heterogeneous visual features with language. To address the scarcity of RGB-Event-Text supervision, we further propose a graph-driven pipeline that converts synchronized RGB-Event streams into verifiable scene graphs, from which we synthesize captions and question-answer (QA) pairs. To develop and evaluate RE-VLM, we construct two datasets: PEOD-Chat, targeting illumination-challenged scenes, and RGBE-Chat, covering diverse scenarios. On captioning and VQA benchmarks, RE-VLM consistently outperforms state-of-the-art RGB-only and event-only models with comparable parameter counts, with particularly large gains under challenging conditions. These results demonstrate the effectiveness of event-augmented VLMs in achieving robust vision-language understanding across a wide range of real-world environments.",
+      "link": "https://arxiv.org/abs/2605.19329",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:VLM",
+        "related:dataset",
+        "related:benchmark"
+      ],
+      "summary": "(all providers failed) arXiv:2605.19329v2 Announce Type: replace Abstract: Conventional vision-language models (VLMs) struggle to interpret scenes captured under adverse conditions (e.g., low light, high dynamic range, or fast motion) because standard RGB images degrade in such environments. Event cameras provide a complementary modality: they asynchronously record per-pixel brightness changes with high temporal resolut",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.19329v2 Announce Type: replace Abstract: Conventional vision-language models (VLMs) struggle to interpret scenes captured under adverse conditions (e.g., low light, high dynamic range, or fast motion) because standard RGB images degrade in such environments. Event cameras provide a complementary modality: they asynchronously record per-pixel brightness changes with high temporal resolut",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403143+00:00"
+    },
+    "8d1a1a2aa9060659": {
+      "id": "8d1a1a2aa9060659",
+      "title": "SONIC: Supersizing Motion Tracking for Natural Humanoid Whole-Body Control",
+      "summary_en": "arXiv:2511.07820v3 Announce Type: replace-cross Abstract: Despite the rise of billion-parameter foundation models trained across thousands of GPUs, similar scaling gains have not been shown for humanoid control. Current neural controllers for humanoids remain modest in size, target a limited set of behaviors, and are trained on a handful of GPUs. We show that scaling model capacity, data, and compute yields a generalist humanoid controller capable of natural, robust whole-body movements. We position motion tracking as a scalable task for humanoid control, leveraging dense supervision from diverse motion-capture data to acquire human motion priors without manual reward engineering. We build a foundation model for motion tracking by scaling along three axes: network size (1.2M to 42M parameters), dataset volume (100M+ frames from 700 hours of motion capture), and compute (21k GPU hours). Beyond demonstrating the benefits of scale, we further show downstream utility through: (1) a real-time kinematic planner bridging motion tracking to tasks such as navigation, enabling natural and interactive control, and (2) a unified token space supporting VR teleoperation and vision-language-action (VLA) models with a single policy. Through this interface, we demonstrate autonomous VLA-driven whole-body loco-manipulation requiring coordinated hand and foot placement. Scaling motion tracking exhibits favorable properties: performance improves steadily with compute and data diversity, and learned policies generalize to unseen motions, establishing motion tracking at scale as a practical foundation for humanoid control.",
+      "link": "https://arxiv.org/abs/2511.07820",
+      "source": "arXiv cs.CV",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:foundation model",
+        "related:dataset",
+        "related:real-time"
+      ],
+      "summary": "(all providers failed) arXiv:2511.07820v3 Announce Type: replace-cross Abstract: Despite the rise of billion-parameter foundation models trained across thousands of GPUs, similar scaling gains have not been shown for humanoid control. Current neural controllers for humanoids remain modest in size, target a limited set of behaviors, and are trained on a handful of GPUs. We show that scaling model capacity, data, and comp",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2511.07820v3 Announce Type: replace-cross Abstract: Despite the rise of billion-parameter foundation models trained across thousands of GPUs, similar scaling gains have not been shown for humanoid control. Current neural controllers for humanoids remain modest in size, target a limited set of behaviors, and are trained on a handful of GPUs. We show that scaling model capacity, data, and comp",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403160+00:00"
+    },
+    "3a550efc0bdfc313": {
+      "id": "3a550efc0bdfc313",
+      "title": "Vendi Novelty Scores for Out-of-Distribution Detection",
+      "summary_en": "arXiv:2602.10062v2 Announce Type: replace Abstract: Out-of-distribution (OOD) detection is critical for the safe deployment of machine learning systems. Existing post-hoc detectors typically rely on model confidence scores or likelihood estimates in feature space, often under restrictive distributional assumptions. In this work, we introduce a third paradigm and formulate OOD detection from a diversity perspective. We propose the Vendi Novelty Score (VNS), an OOD detector based on the Vendi Scores (VS), a family of similarity-based diversity metrics. VNS quantifies how much a test sample increases the VS of the in-distribution feature set, providing a principled notion of novelty that does not require density modeling. VNS is linear-time, non-parametric, and naturally combines class-conditional (local) and dataset-level (global) novelty signals. Across multiple image classification benchmarks and network architectures, VNS achieves state-of-the-art OOD detection performance. Remarkably, VNS retains this performance when computed using only 1% of the training data, enabling deployment in memory- or access-constrained settings.",
+      "link": "https://arxiv.org/abs/2602.10062",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:image classification",
+        "related:dataset",
+        "related:benchmark"
+      ],
+      "summary": "(all providers failed) arXiv:2602.10062v2 Announce Type: replace Abstract: Out-of-distribution (OOD) detection is critical for the safe deployment of machine learning systems. Existing post-hoc detectors typically rely on model confidence scores or likelihood estimates in feature space, often under restrictive distributional assumptions. In this work, we introduce a third paradigm and formulate OOD detection from a dive",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2602.10062v2 Announce Type: replace Abstract: Out-of-distribution (OOD) detection is critical for the safe deployment of machine learning systems. Existing post-hoc detectors typically rely on model confidence scores or likelihood estimates in feature space, often under restrictive distributional assumptions. In this work, we introduce a third paradigm and formulate OOD detection from a dive",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403642+00:00"
+    },
+    "7e5a280b5a31ccef": {
+      "id": "7e5a280b5a31ccef",
+      "title": "AutoRubric-T2I: Robust Rule-Based Reward Model for Text-to-Image Alignment",
+      "summary_en": "arXiv:2605.17602v2 Announce Type: replace-cross Abstract: Aligning Text-to-Image (T2I) generation models with human preferences increasingly relies on image reward models that score or rank generated images according to prompt alignment and perceptual quality. Existing reward models are commonly trained as Bradley-Terry (BT) preference models on large-scale human preference corpora, making them costly to train, difficult to adapt, and opaque in their evaluation criteria. Meanwhile, Vision-Language Model (VLM) judges can provide more fine-grained assessments through textual rubrics, but their manually designed or heuristically generated scoring rules may fail to reliably reflect human preferences. In this paper, we propose AutoRubric-T2I, the first rubric learning framework in T2I that automatically synthesizes and selects explicit rubrics for guiding VLM judges. AutoRubric-T2I first synthesizes reasoning traces from preference pairs into candidate rubrics, then uses a VLM judge to score paired images under each rubric, producing pairwise rubric-score differences for preference learning. To remove noisy and redundant rules, we further employ a $\\ell_1$-Regularized Logistic Regression Refiner, which selects the Top-$N$ most discriminative rubrics. Extensive evaluations show that AutoRubric-T2I produces high-quality, interpretable reward signals using less than 0.01% of the annotated preference data, substantially reducing the need for large-scale reward-model training. On image reward benchmarks such as MMRB2, AutoRubric-T2I outperforms strong reward model baselines. We further validate AutoRubric-T2I as an RL reward on downstream T2I tasks, including TIIF and UniGenBench++, where it improves generation quality over scalar reward models using the Flow-GRPO pipeline on diffusion models.",
+      "link": "https://arxiv.org/abs/2605.17602",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:VLM",
+        "related:benchmark",
+        "related:diffusion"
+      ],
+      "summary": "(all providers failed) arXiv:2605.17602v2 Announce Type: replace-cross Abstract: Aligning Text-to-Image (T2I) generation models with human preferences increasingly relies on image reward models that score or rank generated images according to prompt alignment and perceptual quality. Existing reward models are commonly trained as Bradley-Terry (BT) preference models on large-scale human preference corpora, making them co",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.17602v2 Announce Type: replace-cross Abstract: Aligning Text-to-Image (T2I) generation models with human preferences increasingly relies on image reward models that score or rank generated images according to prompt alignment and perceptual quality. Existing reward models are commonly trained as Bradley-Terry (BT) preference models on large-scale human preference corpora, making them co",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403689+00:00"
+    },
+    "ea18366f80826db5": {
+      "id": "ea18366f80826db5",
+      "title": "TONIC: Token-Centric Semantic Communication for Task-Oriented Wireless Systems",
+      "summary_en": "arXiv:2605.21553v1 Announce Type: new Abstract: Tokens are becoming the basic units through which foundation models represent and process information for understanding and inference. However, traditional wireless communication, centered on bit-level fidelity, faces a mismatch between what is transmitted reliably and what downstream models actually consume. This mismatch calls for a communication design that directly accounts for token-level task relevance and downstream model requirements, rather than treating all transmitted bits as equally important. In this paper, we propose TONIC, a token-centric semantic communication framework for task-oriented wireless systems. The transmitter converts each source sample into a sequence of tokens, estimates token-level task relevance, and allocates protection through utility-aware unequal error protection under a fixed channel-use budget. At the receiver, token-level confidence is used to gate unreliable decisions, turning harmful substitutions into recoverable erasures before a Transformer-based completion model restores the masked tokens for final task inference. Our framework combines transmitter-side semantic-aware protection with receiver-side confidence-aware gating in a modular and interpretable architecture, rather than relying solely on fully black-box end-to-end learning. We further establish a utility-aware Bayes-risk interpretation for the receiver-side gating rule and study its interaction with unequal protection and completion. Experimental results on image classification show that TONIC consistently outperforms separation-based schemes, the pixel-domain DeepJSCC baseline, and token-domain baselines under matched communication budgets over AWGN, Rayleigh, and Rician channels.",
+      "link": "https://arxiv.org/abs/2605.21553",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:image classification",
+        "core:foundation model"
+      ],
+      "summary": "(all providers failed) arXiv:2605.21553v1 Announce Type: new Abstract: Tokens are becoming the basic units through which foundation models represent and process information for understanding and inference. However, traditional wireless communication, centered on bit-level fidelity, faces a mismatch between what is transmitted reliably and what downstream models actually consume. This mismatch calls for a communication d",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.21553v1 Announce Type: new Abstract: Tokens are becoming the basic units through which foundation models represent and process information for understanding and inference. However, traditional wireless communication, centered on bit-level fidelity, faces a mismatch between what is transmitted reliably and what downstream models actually consume. This mismatch calls for a communication d",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403276+00:00"
+    },
+    "3c89f02eaa6aa2ad": {
+      "id": "3c89f02eaa6aa2ad",
+      "title": "Expectation Consistency Loss: Rethink Confidence Calibration under Covariate Shift",
+      "summary_en": "arXiv:2605.21552v1 Announce Type: new Abstract: Confidence calibration for classification models is vital in safety-critical decision-making scenarios and has received extensive attention. General confidence calibration methods assume training and test data are independent and identically distributed, limiting their effectiveness under covariate shifts. Previous calibration methods under covariate shift struggle with class-wise or canonical calibrations and often rely on unstable importance weighting when density ratios are large or unbounded. Given the above limitations, this paper rethinks confidence calibration under covariate shifts. First, we derive a necessary and sufficient condition for confidence calibration under covariate shifts, named Expectation consistency condition, which reveals covariate shifts do not necessarily lead to uncalibrated confidence and provides a weaker condition for confidence calibration than global covariate distribution alignment. Then, utilizing Expectation consistency condition, this paper proposes an unsupervised domain adaptation loss to calibrate confidence of the target domain, named Expectation consistency loss (ECL), which is compatible with canonical calibration, class-wise calibration, and top-label calibration. Third, we prove that computing ECL loss has the same sample complexity as Expected Calibration Error (ECE) and provide a theoretically grounded mini-batch trainable scheme for ECL loss. Finally, we validate the effectiveness of our method on both simulated and real-world covariate shift datasets.",
+      "link": "https://arxiv.org/abs/2605.21552",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:ViT",
+        "related:dataset",
+        "related:domain adaptation"
+      ],
+      "summary": "(all providers failed) arXiv:2605.21552v1 Announce Type: new Abstract: Confidence calibration for classification models is vital in safety-critical decision-making scenarios and has received extensive attention. General confidence calibration methods assume training and test data are independent and identically distributed, limiting their effectiveness under covariate shifts. Previous calibration methods under covariate",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.21552v1 Announce Type: new Abstract: Confidence calibration for classification models is vital in safety-critical decision-making scenarios and has received extensive attention. General confidence calibration methods assume training and test data are independent and identically distributed, limiting their effectiveness under covariate shifts. Previous calibration methods under covariate",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403253+00:00"
+    },
+    "de8188c9576aece7": {
+      "id": "de8188c9576aece7",
+      "title": "An Improved Adaptive PID Optimizer with Enhanced Convergence and Stability for Deep Learning",
+      "summary_en": "arXiv:2605.21968v1 Announce Type: new Abstract: Optimization is essential in deep learning. The foundational method upon which most optimizers are built is momentum-based stochastic gradient descent. However, it suffers from two key drawbacks. First, it has noisy and varying gradients, and second, it has an overshoot phenomenon. To address noisy gradients, Adam was proposed, which remains the most widely used adaptive optimizer. To address the overshoot phenomenon, a control-theory-based PID optimizer was proposed. To tackle both the limitations within a single framework, several variants of Adaptive PID (AdaPID) have recently been proposed. Although AdaPID performs well, it still inherits two critical drawbacks from Adam, namely convergence and stability issues. In this work, we address both these limitations. To fix the convergence issue, we uniquely integrate the idea of using a non-increasing effective learning rate into AdaPID (originally proposed in AMSGrad, an extension of Adam). To fix the stability issue, we innovatively integrate a gradient difference based modulation factor into AdaPID (originally proposed in DiffGrad, another extension of Adam). Combining both these ideas in AdaPID, results in our novel IAdaPID-ADG optimizer. We evaluate our proposed optimizer on multiple datasets, including benchmark datasets (MNIST and CIFAR10) and real-world datasets (IARC and AnnoCerv). The IAdaPID-ADG substantially outperforms all competing optimizers. Additionally, we perform an ablation study on the MNIST dataset to demonstrate the contribution of each added component.",
+      "link": "https://arxiv.org/abs/2605.21968",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:deep learning",
+        "related:dataset",
+        "related:benchmark"
+      ],
+      "summary": "(all providers failed) arXiv:2605.21968v1 Announce Type: new Abstract: Optimization is essential in deep learning. The foundational method upon which most optimizers are built is momentum-based stochastic gradient descent. However, it suffers from two key drawbacks. First, it has noisy and varying gradients, and second, it has an overshoot phenomenon. To address noisy gradients, Adam was proposed, which remains the most",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.21968v1 Announce Type: new Abstract: Optimization is essential in deep learning. The foundational method upon which most optimizers are built is momentum-based stochastic gradient descent. However, it suffers from two key drawbacks. First, it has noisy and varying gradients, and second, it has an overshoot phenomenon. To address noisy gradients, Adam was proposed, which remains the most",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403302+00:00"
+    },
+    "7d054fa6880ba61f": {
+      "id": "7d054fa6880ba61f",
+      "title": "Toward Understanding Adversarial Distillation: Why Robust Teachers Fail",
+      "summary_en": "arXiv:2605.21999v1 Announce Type: new Abstract: Adversarial Distillation aims to enhance student robustness by guiding the student with a robust teacher's soft labels within the min-max adversarial training framework, yet its success is notoriously inconsistent: a more robust teacher often fails to improve, or even harms, the student's robust generalization. In this paper, we identify a key mechanism of this teacher dependency: the misalignment between the teacher's supervisory confidence and the student's representational limitations on a consistent subset of training data -- the Robustly Unlearnable Set. We present a theoretical framework analyzing the feature learning dynamics of a two-layer neural network, demonstrating that this mismatch creates a dichotomy in distillation outcomes. We prove that when a teacher provides confident supervision on unlearnable samples, it compels the student to memorize spurious noise patterns that eventually overpower the learned robust signal, thereby driving robust overfitting. Conversely, a teacher that exhibits high uncertainty on these samples effectively suppresses noise memorization, allowing the student to rely solely on the learnable signal for robust generalization. We empirically validate our theory across both synthetic simulations and real-image classification datasets, confirming that robust overfitting is driven by the teacher's interaction with unlearnable samples. Finally, we demonstrate that a teacher's predictive entropy on unlearnable samples serves as a strong indicator of student robustness, validating our theoretical framework and offering a principled guideline for robust teacher selection.",
+      "link": "https://arxiv.org/abs/2605.21999",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:image classification",
+        "related:dataset",
+        "related:uncertainty"
+      ],
+      "summary": "(all providers failed) arXiv:2605.21999v1 Announce Type: new Abstract: Adversarial Distillation aims to enhance student robustness by guiding the student with a robust teacher's soft labels within the min-max adversarial training framework, yet its success is notoriously inconsistent: a more robust teacher often fails to improve, or even harms, the student's robust generalization. In this paper, we identify a key mechan",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.21999v1 Announce Type: new Abstract: Adversarial Distillation aims to enhance student robustness by guiding the student with a robust teacher's soft labels within the min-max adversarial training framework, yet its success is notoriously inconsistent: a more robust teacher often fails to improve, or even harms, the student's robust generalization. In this paper, we identify a key mechan",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403318+00:00"
+    },
+    "bcb6b179c3aa489b": {
+      "id": "bcb6b179c3aa489b",
+      "title": "Prototype-Guided Classification Sub-Task Decoupling Framework: Enhancing Generalization and Interpretability for Multivariate Time Series",
+      "summary_en": "arXiv:2605.22055v1 Announce Type: new Abstract: Time Series Classification (TSC) is a long-standing research problem that has gained increasing attention in recent years with the rapid growth of large-scale temporal data. Despite substantial progress enabled by deep learning, designing TSC models that are both accurate and interpretable remains a challenging task. Many existing approaches adopt a direct feature-to-label classification paradigm, by collapsing high-dimensional temporal embeddings into class logits via a single linear projection (often after global pooling), the paradigm conflates feature extraction and decision logic into an inseparable mapping. To address these limitations, we propose PDFTime, a prototype-guided framework that reformulates time series classification as a multi-stage decision process. Instead of direct feature-to-label mapping, PDFTime leverages learned prototypes to approximate class-conditional feature distributions in the latent space, enabling progressive discrimination through classification sub-tasks of varying granularity. To our knowledge, PDFTime is the first framework to reformulate time series classification as a decoupled, multi-stage similarity-based reasoning process, breaking the long-standing paradigm of direct, black-box feature-to-label mapping. Extensive evaluations demonstrate that PDFTime achieves state-of-the-art (SOTA) performance across UEA and UCR benchmarks. Notably, it secures the top-$1$ accuracy on 80 out of 128 datasets in the UCR archive, significantly outperforming recent strong baselines in both consistency and generalization.",
+      "link": "https://arxiv.org/abs/2605.22055",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:deep learning",
+        "related:dataset",
+        "related:benchmark"
+      ],
+      "summary": "(all providers failed) arXiv:2605.22055v1 Announce Type: new Abstract: Time Series Classification (TSC) is a long-standing research problem that has gained increasing attention in recent years with the rapid growth of large-scale temporal data. Despite substantial progress enabled by deep learning, designing TSC models that are both accurate and interpretable remains a challenging task. Many existing approaches adopt a ",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.22055v1 Announce Type: new Abstract: Time Series Classification (TSC) is a long-standing research problem that has gained increasing attention in recent years with the rapid growth of large-scale temporal data. Despite substantial progress enabled by deep learning, designing TSC models that are both accurate and interpretable remains a challenging task. Many existing approaches adopt a ",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403343+00:00"
+    },
+    "f9e3860da66c2057": {
+      "id": "f9e3860da66c2057",
+      "title": "Adaptive Measurement Allocation for Learning Kernelized SVMs Under Noisy Observations",
+      "summary_en": "arXiv:2605.22275v1 Announce Type: new Abstract: Kernel methods are typically formulated under the assumption of exact, noise-free access to the Gram matrix. However, in emerging settings such as quantum machine learning, each kernel entry must be inferred from noisy observations, and its accuracy depends on how a limited measurement budget is allocated. Despite this, existing approaches overwhelmingly rely on uniform allocation, which equalizes estimator variance but ignores the highly non-uniform dependence of kernelized classifiers on the Gram matrix. In this work, we introduce an adaptive measurement-allocation strategy for learning kernelized Support Vector Machines (SVMs) from noisy Bernoulli observations. Our approach combines two complementary principles: (i) geometric sensitivity, capturing how perturbations of individual kernel entries affect the classifier margin, and (ii) active-set instability, quantifying the probability of discrete changes in support-vector membership induced by measurement noise. These signals define a task-aware allocation scheme that concentrates measurements on the most decision-critical regions of the kernel matrix. We provide a theoretical analysis showing that the benefit of adaptive allocation is governed by the heterogeneity of the induced kernel importance structure, leading to distinct regimes in which adaptive or uniform strategies are preferable. Empirical evaluations on synthetic datasets demonstrate that adaptive allocation significantly improves support-vector recovery, margin estimation, and decision-function accuracy under fixed measurement budgets. A dual-coefficient stability criterion further enables early stopping, achieving near-optimal performance while using only a fraction of the measurement cost. Additional experiments on quantum kernels derived from real-world data reveal a regime-dependent behavior aligned with known phenomena such as kernel concentration. Together...",
+      "link": "https://arxiv.org/abs/2605.22275",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:ViT",
+        "related:dataset",
+        "related:synthetic data"
+      ],
+      "summary": "(all providers failed) arXiv:2605.22275v1 Announce Type: new Abstract: Kernel methods are typically formulated under the assumption of exact, noise-free access to the Gram matrix. However, in emerging settings such as quantum machine learning, each kernel entry must be inferred from noisy observations, and its accuracy depends on how a limited measurement budget is allocated. Despite this, existing approaches overwhelmi",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.22275v1 Announce Type: new Abstract: Kernel methods are typically formulated under the assumption of exact, noise-free access to the Gram matrix. However, in emerging settings such as quantum machine learning, each kernel entry must be inferred from noisy observations, and its accuracy depends on how a limited measurement budget is allocated. Despite this, existing approaches overwhelmi",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403369+00:00"
+    },
+    "57204fce6e95961c": {
+      "id": "57204fce6e95961c",
+      "title": "Minimum Description Length based Granular-Ball Tree Regularization for Spectral Clustering",
+      "summary_en": "arXiv:2605.22410v1 Announce Type: new Abstract: Spectral clustering largely depends on the affinity graph, yet constructing a graph that preserves reliable local connectivity while adapting to heterogeneous data structures remains challenging. Existing granular-ball-based spectral clustering methods usually reduce graph complexity by using coarse-grained representatives. However, the learned local regions are often treated as graph nodes or anchors, and their structural information is not sufficiently used to regularize the original sample-level graph. To address this issue, this paper proposes a Minimum Description Length based Granular-Ball Tree-Regularized Spectral Clustering method, termed MDL-GBTRSC. The proposed method constructs a granular-ball tree through local MDL model selection, with reciprocal neighborhood continuity used to discourage splits that break reliable local connections. The stable leaf balls obtained from the tree provide coding-scale information for regularizing the sample-level affinity graph. In addition, a shared-neighbor bridge code is introduced to adjust weak local bridge relations without requiring an additional user-specified threshold. In this way, MDL-GBTRSC connects interpretable local representation learning with affinity graph construction in a unified spectral clustering framework. Experiments on real and synthetic datasets show that MDL-GBTRSC achieves the best average ARI and NMI under the adopted fixed-configuration protocol compared with classical spectral clustering baselines and representative granular-ball, micro-cluster, and anchor-based methods.",
+      "link": "https://arxiv.org/abs/2605.22410",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:ViT",
+        "related:dataset",
+        "related:synthetic data"
+      ],
+      "summary": "(all providers failed) arXiv:2605.22410v1 Announce Type: new Abstract: Spectral clustering largely depends on the affinity graph, yet constructing a graph that preserves reliable local connectivity while adapting to heterogeneous data structures remains challenging. Existing granular-ball-based spectral clustering methods usually reduce graph complexity by using coarse-grained representatives. However, the learned local",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.22410v1 Announce Type: new Abstract: Spectral clustering largely depends on the affinity graph, yet constructing a graph that preserves reliable local connectivity while adapting to heterogeneous data structures remains challenging. Existing granular-ball-based spectral clustering methods usually reduce graph complexity by using coarse-grained representatives. However, the learned local",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403387+00:00"
+    },
+    "9df85aef1adbc9ff": {
+      "id": "9df85aef1adbc9ff",
+      "title": "Winner-Take-All bottlenecks enforce disentangled symbolic representations in multi-task learning",
+      "summary_en": "arXiv:2605.22472v1 Announce Type: new Abstract: Winner-take-all (WTA) networks constitute a central circuit motif in cortical networks of the brain. In addition, WTA-like activations are abundant in modern deep learning models in the form of the softmax activation for example in attention layers of transformers. While their role in the extraction of latent factors has been studied for relatively simple generative models, their role in the context of highly non-linearly entangled latent factors has remained elusive. In this article, we show that a WTA bottleneck within a deep neural network can enforce under certain well-defined conditions the extraction of categorical latent factors of the data in a multi-task learning setup. In particular, we prove that the representation that emerges in the WTA bottleneck is highly symbolic, where a single neuron or a population of neurons encodes the presence of a single abstract feature such as a specific object, color, or position. We furthermore show empirically on two datasets, that this also holds for architectures and setups that do not fully comply with the assumptions of our theorem and demonstrate the advantages of the acquired symbolic representation for generalization. Our proposed model provides insights into the generalization capabilities of deep neural networks with WTA-like components and may serve as an interface between symbolic and subsymbolic AI systems.",
+      "link": "https://arxiv.org/abs/2605.22472",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:deep learning",
+        "related:dataset",
+        "related:generative model"
+      ],
+      "summary": "(all providers failed) arXiv:2605.22472v1 Announce Type: new Abstract: Winner-take-all (WTA) networks constitute a central circuit motif in cortical networks of the brain. In addition, WTA-like activations are abundant in modern deep learning models in the form of the softmax activation for example in attention layers of transformers. While their role in the extraction of latent factors has been studied for relatively s",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.22472v1 Announce Type: new Abstract: Winner-take-all (WTA) networks constitute a central circuit motif in cortical networks of the brain. In addition, WTA-like activations are abundant in modern deep learning models in the form of the softmax activation for example in attention layers of transformers. While their role in the extraction of latent factors has been studied for relatively s",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403405+00:00"
+    },
+    "de7f61dbf0ab1069": {
+      "id": "de7f61dbf0ab1069",
+      "title": "Stabilising Explainability Fragility in Cybersecurity AI: The Impact and Mitigation of Multicollinearity in Public Benchmark Datasets",
+      "summary_en": "arXiv:2605.22529v1 Announce Type: new Abstract: This paper investigates a unexplored yet impactful vulnerability in AI explainability used in intrusion detection (IDS): multicollinearity-induced instability. Despite extensive reliance on post-hoc explainability tools such as SHAP or LIME, the impact of correlated features on explanation robustness is not evaluated. We introduce a formal theorem stating that multicollinearity inflates attribution variance. This demonstrates that explanations and feature importances are non-identifiable under multicollinearity. A suite of comprehensive experiments validates the theorem on a representative benchmark dataset, UNSW-NB15. Four widely used families of models are evaluated, including linear, tree-based, kernel, and neural, across full and pruned feature sets based on VIF and correlation thresholding. We propose the novel metric of Explanability Fragility Score and two novel methods to mitigate it with variable integration complexity. CAA-Filtering focuses on stabilising explanations by grouping attributions of trained models. SHARP is a novel training-time regularisation framework that penalises attribution instability, enabling controllable and monotonic improvement of explainability stability. The findings support stable predictive performance, using Kendall's {\\tau} to quantify instability across bootstrapped explanations. This work has direct implications for the trustworthiness and reproducibility of XAI in security-critical contexts, and motivates incorporating multicollinearity mitigations into the IDS pipelines, providing a set of guidelines for practitioners.",
+      "link": "https://arxiv.org/abs/2605.22529",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "related:dataset",
+        "related:benchmark",
+        "related:XAI",
+        "related:fragility"
+      ],
+      "summary": "(all providers failed) arXiv:2605.22529v1 Announce Type: new Abstract: This paper investigates a unexplored yet impactful vulnerability in AI explainability used in intrusion detection (IDS): multicollinearity-induced instability. Despite extensive reliance on post-hoc explainability tools such as SHAP or LIME, the impact of correlated features on explanation robustness is not evaluated. We introduce a formal theorem st",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.22529v1 Announce Type: new Abstract: This paper investigates a unexplored yet impactful vulnerability in AI explainability used in intrusion detection (IDS): multicollinearity-induced instability. Despite extensive reliance on post-hoc explainability tools such as SHAP or LIME, the impact of correlated features on explanation robustness is not evaluated. We introduce a formal theorem st",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403422+00:00"
+    },
+    "6527bf718b42737e": {
+      "id": "6527bf718b42737e",
+      "title": "CogAdapt: Transferring Clinical ECG Foundation Models to Wearable Cognitive Load Assessment via Lead Adaptation",
+      "summary_en": "arXiv:2605.22774v1 Announce Type: new Abstract: Real-time cognitive load assessment is essential for adaptive human-computer interaction but remains challenging due to limited labeled data and poor cross-subject generalization. Recent ECG foundation models pre-trained on millions of clinical recordings offer rich representations, but cannot be directly applied to wearable devices due to sensor configuration mismatch and task differences. In this paper, we propose CogAdapt, a framework that adapts clinical ECG foundation models to wearable cognitive load assessment. CogAdapt introduces LeadBridge, a learnable adapter that transforms 3-lead wearable signals into anatomically consistent 12-lead representations, and ProFine, a progressive fine-tuning strategy that gradually unfreezes encoder layers while preventing catastrophic forgetting. Evaluations on two public datasets (CLARE and CL-Drive) under leave-one-subject-out cross-validation show that CogAdapt substantially outperforms baselines trained from scratch, achieving macro-F1 scores of 0.626 and 0.768. These results demonstrate the promise of foundation model adaptation for subject-independent cognitive load assessment from wearable sensors.",
+      "link": "https://arxiv.org/abs/2605.22774",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:foundation model",
+        "related:dataset",
+        "related:real-time"
+      ],
+      "summary": "(all providers failed) arXiv:2605.22774v1 Announce Type: new Abstract: Real-time cognitive load assessment is essential for adaptive human-computer interaction but remains challenging due to limited labeled data and poor cross-subject generalization. Recent ECG foundation models pre-trained on millions of clinical recordings offer rich representations, but cannot be directly applied to wearable devices due to sensor con",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.22774v1 Announce Type: new Abstract: Real-time cognitive load assessment is essential for adaptive human-computer interaction but remains challenging due to limited labeled data and poor cross-subject generalization. Recent ECG foundation models pre-trained on millions of clinical recordings offer rich representations, but cannot be directly applied to wearable devices due to sensor con",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403438+00:00"
+    },
+    "8b8645bf07df2ee4": {
+      "id": "8b8645bf07df2ee4",
+      "title": "MambaGaze: Bidirectional Mamba with Explicit Missing Data Modeling for Cognitive Load Assessment from Eye-Gaze Tracking Data",
+      "summary_en": "arXiv:2605.22775v1 Announce Type: new Abstract: Real-time cognitive load assessment from eye-tracking signals could potentially enable adaptive human-centered-AI such as safety-critical applications such as driver vigilance monitoring or automated flight deck assistance, yet two challenges persist: handling frequent data missingness from blinks and tracking failures, and efficiently modeling long-range temporal dependencies. We propose MambaGaze, a framework that addresses these challenges through 1) XMD encoding, which augments raw features with observation masks and time-deltas to explicitly model data uncertainty, and 2) bidirectional Mamba-2, which captures temporal dependencies with linear computational complexity. Experiments on CLARE and CL-Drive datasets under leave-one-subject-out evaluation show that MambaGaze achieves 76.8% and 73.1% accuracy, respectively, outperforming CNN, Transformer, ResNet, and VGG baselines by 4-12 percentage points. Edge deployment benchmarks on NVIDIA Jetson platforms demonstrate real-time inference at 43-68 FPS with power consumption below 7.5W, confirming feasibility for wearable cognitive load monitoring.",
+      "link": "https://arxiv.org/abs/2605.22775",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "related:dataset",
+        "related:benchmark",
+        "related:real-time",
+        "related:uncertainty"
+      ],
+      "summary": "(all providers failed) arXiv:2605.22775v1 Announce Type: new Abstract: Real-time cognitive load assessment from eye-tracking signals could potentially enable adaptive human-centered-AI such as safety-critical applications such as driver vigilance monitoring or automated flight deck assistance, yet two challenges persist: handling frequent data missingness from blinks and tracking failures, and efficiently modeling long-",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.22775v1 Announce Type: new Abstract: Real-time cognitive load assessment from eye-tracking signals could potentially enable adaptive human-centered-AI such as safety-critical applications such as driver vigilance monitoring or automated flight deck assistance, yet two challenges persist: handling frequent data missingness from blinks and tracking failures, and efficiently modeling long-",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403455+00:00"
+    },
+    "bc838700c14b0932": {
+      "id": "bc838700c14b0932",
+      "title": "HIDBench: Benchmarking Large Language Models for Host-Based Intrusion Detection",
+      "summary_en": "arXiv:2605.21773v1 Announce Type: cross Abstract: Recent benchmark efforts have advanced the evaluation of large language models (LLMs) in cybersecurity, including tasks such as penetration testing and vulnerability identification. However, a critical cybersecurity task, namely intrusion detection from system logs, remains unexplored. In this work, we present a new benchmark to assess LLMs' capabilities in supporting host-based intrusion detection systems (HIDS). This task requires fine-grained reasoning over large-scale, noisy, and highly imbalanced system logs, where complex interactions between benign and malicious activities make reliable detection challenging. Our benchmark unifies three public system log datasets, DARPA-E3, DARPA-E5, and NodLink, and introduces a data construction pipeline that transforms raw host telemetry into LLM-compatible inputs, enabling systematic evaluation under realistic intrusion detection settings. Our evaluation of frontier LLMs reveals substantial performance gaps across datasets. While many models achieve high precision (often above 0.8) on simpler datasets, their performance degrades significantly as system logs become noisier and more complex, with MCC frequently dropping below 0.5 and false positive rates increasing sharply. We further analyze model behavior and identify distinct regimes, including conservative detectors with low false positive rates and over-sensitive models that generate excessive alerts. Overall, our results highlight that while LLMs show strong potential for HIDS, their effectiveness is highly sensitive to data complexity, and robust system design is essential for reliable deployment.",
+      "link": "https://arxiv.org/abs/2605.21773",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:ViT",
+        "related:dataset",
+        "related:benchmark"
+      ],
+      "summary": "(all providers failed) arXiv:2605.21773v1 Announce Type: cross Abstract: Recent benchmark efforts have advanced the evaluation of large language models (LLMs) in cybersecurity, including tasks such as penetration testing and vulnerability identification. However, a critical cybersecurity task, namely intrusion detection from system logs, remains unexplored. In this work, we present a new benchmark to assess LLMs' capabi",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.21773v1 Announce Type: cross Abstract: Recent benchmark efforts have advanced the evaluation of large language models (LLMs) in cybersecurity, including tasks such as penetration testing and vulnerability identification. However, a critical cybersecurity task, namely intrusion detection from system logs, remains unexplored. In this work, we present a new benchmark to assess LLMs' capabi",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403478+00:00"
+    },
+    "fd7e8442e9b296de": {
+      "id": "fd7e8442e9b296de",
+      "title": "A2QTGN: Adaptive Amplitude Quantum-Integrated Temporal Graph Network for Dynamic Link Prediction",
+      "summary_en": "arXiv:2605.21916v1 Announce Type: cross Abstract: Dynamic link prediction is important for modeling evolving interactions in complex systems, including social, communication, financial, and transportation networks. Classical temporal graph models capture sequential dependencies, but they may struggle to represent concurrent and rapidly changing node-edge interactions in large dynamic graphs. We propose A2QTGN (Adaptive Amplitude Quantum-Integrated Temporal Graph Network), a hybrid quantum-classical framework that combines adaptive amplitude encoding with a Temporal Graph Network backbone. The proposed mechanism represents node interaction features as quantum states and selectively refreshes amplitude embeddings based on temporal activity, preserving stable node states while emphasizing meaningful structural changes. This design reduces unnecessary quantum re-encoding and improves temporal representation for link prediction. Experiments on five Temporal Graph Benchmark datasets show that A2QTGN achieves strong predictive and ranking performance across diverse dynamic graphs. Ablation studies confirm the importance of both the quantum embedding module and the adaptive update strategy, while hardware-aware inference using a noisy backend and limited real-device execution supports the feasibility of near-term quantum-assisted temporal graph learning.",
+      "link": "https://arxiv.org/abs/2605.21916",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:ViT",
+        "related:dataset",
+        "related:benchmark"
+      ],
+      "summary": "(all providers failed) arXiv:2605.21916v1 Announce Type: cross Abstract: Dynamic link prediction is important for modeling evolving interactions in complex systems, including social, communication, financial, and transportation networks. Classical temporal graph models capture sequential dependencies, but they may struggle to represent concurrent and rapidly changing node-edge interactions in large dynamic graphs. We pr",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.21916v1 Announce Type: cross Abstract: Dynamic link prediction is important for modeling evolving interactions in complex systems, including social, communication, financial, and transportation networks. Classical temporal graph models capture sequential dependencies, but they may struggle to represent concurrent and rapidly changing node-edge interactions in large dynamic graphs. We pr",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403495+00:00"
+    },
+    "97f0e3bbe8e9f8d8": {
+      "id": "97f0e3bbe8e9f8d8",
+      "title": "A Mechanistic Explanatory Strategy for XAI",
+      "summary_en": "arXiv:2411.01332v5 Announce Type: replace Abstract: Despite significant advancements in XAI, scholars note a persistent lack of solid conceptual foundations and integration with broader scientific discourse on explanation. In response, emerging research draws on explanatory strategies from various sciences and the philosophy of science literature to fill these gaps. This paper outlines a mechanistic strategy for explaining the functional organization of deep learning systems, situating recent developments in explainable AI within a broader philosophical context. According to the mechanistic approach, the explanation of opaque AI systems involves identifying mechanisms that drive decision making. For deep neural networks, this means discerning functionally relevant components, such as neurons, layers, circuits, or activation patterns, and understanding their roles through decomposition, localization, and recomposition. Proof-of-principle case studies from image recognition and language modeling align these theoretical approaches with mechanistic interpretability research from OpenAI and Anthropic. The findings suggest that pursuing mechanistic explanations can uncover elements that traditional explainability techniques may overlook, ultimately contributing to more thoroughly explainable AI",
+      "link": "https://arxiv.org/abs/2411.01332",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:deep learning",
+        "related:explainable AI",
+        "related:XAI"
+      ],
+      "summary": "(all providers failed) arXiv:2411.01332v5 Announce Type: replace Abstract: Despite significant advancements in XAI, scholars note a persistent lack of solid conceptual foundations and integration with broader scientific discourse on explanation. In response, emerging research draws on explanatory strategies from various sciences and the philosophy of science literature to fill these gaps. This paper outlines a mechanist",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2411.01332v5 Announce Type: replace Abstract: Despite significant advancements in XAI, scholars note a persistent lack of solid conceptual foundations and integration with broader scientific discourse on explanation. In response, emerging research draws on explanatory strategies from various sciences and the philosophy of science literature to fill these gaps. This paper outlines a mechanist",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403569+00:00"
+    },
+    "e14c416d5bdf517a": {
+      "id": "e14c416d5bdf517a",
+      "title": "Algorithm Design and Stronger Guarantees for the Improving Multi-Armed Bandits Problem",
+      "summary_en": "arXiv:2511.10619v2 Announce Type: replace Abstract: The improving multi-armed bandits problem is a formal model for allocating effort under uncertainty, motivated by scenarios such as investing research effort into new technologies, performing clinical trials, and hyperparameter selection from learning curves. Each pull of an arm provides reward that increases monotonically with diminishing returns. A growing line of work has designed algorithms for improving bandits, albeit with somewhat pessimistic worst-case guarantees. Indeed, strong lower bounds of $\\Omega(k)$ and $\\Omega(\\sqrt{k})$ multiplicative approximation factors are known for both deterministic and randomized algorithms (respectively) relative to the optimal arm, where $k$ is the number of bandit arms. In this work, we propose two new parameterized families of bandit algorithms and bound the sample complexity of learning the near-optimal algorithm from each family using offline data. We also perform empirical evaluations on standard hyperparameter tuning benchmarks. The first family we define includes the optimal randomized algorithm from prior work. We show that an appropriately chosen algorithm from this family can achieve stronger guarantees, with optimal dependence on $k$, when the arm reward curves satisfy additional properties related to the strength of concavity. Our second family contains algorithms that both guarantee best-arm identification on well-behaved instances and revert to worst-case guarantees on poorly-behaved instances.",
+      "link": "https://arxiv.org/abs/2511.10619",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:ViT",
+        "related:benchmark",
+        "related:uncertainty"
+      ],
+      "summary": "(all providers failed) arXiv:2511.10619v2 Announce Type: replace Abstract: The improving multi-armed bandits problem is a formal model for allocating effort under uncertainty, motivated by scenarios such as investing research effort into new technologies, performing clinical trials, and hyperparameter selection from learning curves. Each pull of an arm provides reward that increases monotonically with diminishing return",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2511.10619v2 Announce Type: replace Abstract: The improving multi-armed bandits problem is a formal model for allocating effort under uncertainty, motivated by scenarios such as investing research effort into new technologies, performing clinical trials, and hyperparameter selection from learning curves. Each pull of an arm provides reward that increases monotonically with diminishing return",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403586+00:00"
+    },
+    "592a77a5bf6dbcd3": {
+      "id": "592a77a5bf6dbcd3",
+      "title": "Richer Bayesian Last Layers with Subsampled NTK Features",
+      "summary_en": "arXiv:2602.01279v2 Announce Type: replace Abstract: Bayesian Last Layers (BLLs) provide a convenient and computationally efficient way to estimate uncertainty in neural networks. However, they underestimate epistemic uncertainty because they apply a Bayesian treatment only to the final layer, ignoring uncertainty induced by earlier layers. We propose a method that improves BLLs by leveraging a projection of Neural Tangent Kernel (NTK) features onto the space spanned by the last-layer features. This enables posterior inference that accounts for variability of the full network while retaining the low computational cost of inference of a standard BLL. We show that our method yields posterior variances that are provably greater or equal to those of a standard BLL, correcting its tendency to underestimate epistemic uncertainty. To further reduce computational cost, we introduce a uniform subsampling scheme for estimating the projection matrix and for posterior inference. We derive approximation bounds for both types of subsampling. Empirical evaluations on UCI regression, contextual bandits, image classification, and out-of-distribution detection tasks in image and tabular datasets, demonstrate improved calibration and uncertainty estimates compared to standard BLLs and competitive baselines, while reducing computational cost.",
+      "link": "https://arxiv.org/abs/2602.01279",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:image classification",
+        "related:dataset",
+        "related:uncertainty"
+      ],
+      "summary": "(all providers failed) arXiv:2602.01279v2 Announce Type: replace Abstract: Bayesian Last Layers (BLLs) provide a convenient and computationally efficient way to estimate uncertainty in neural networks. However, they underestimate epistemic uncertainty because they apply a Bayesian treatment only to the final layer, ignoring uncertainty induced by earlier layers. We propose a method that improves BLLs by leveraging a pro",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2602.01279v2 Announce Type: replace Abstract: Bayesian Last Layers (BLLs) provide a convenient and computationally efficient way to estimate uncertainty in neural networks. However, they underestimate epistemic uncertainty because they apply a Bayesian treatment only to the final layer, ignoring uncertainty induced by earlier layers. We propose a method that improves BLLs by leveraging a pro",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403603+00:00"
+    },
+    "2830880f42bfdda6": {
+      "id": "2830880f42bfdda6",
+      "title": "Billion-Scale Graph Foundation Models",
+      "summary_en": "arXiv:2602.04768v2 Announce Type: replace Abstract: Graph-structured data underpins many critical applications. While foundation models have transformed language and vision via large-scale pretraining and lightweight adaptation, extending this paradigm to general, real-world graphs is challenging. In this work, we present Graph Billion-Foundation-Fusion (GraphBFF): an end-to-end recipe for building billion-parameter Graph Foundation Models (GFMs) for large-scale heterogeneous graphs. Central to the recipe is the GraphBFF Transformer, a flexible and scalable architecture designed for practical billion-scale GFMs. Using the GraphBFF, we present neural scaling laws for heterogeneous graphs and show that loss decreases predictably as either model capacity or training data scales, depending on which factor is the bottleneck. The GraphBFF framework provides concrete methodologies for data batching, pretraining, and fine-tuning for building GFMs at scale. We demonstrate the effectiveness of the framework over a real-world billion-scale graph, with an evaluation of a billion-parameter GraphBFF Transformer following the proposed recipe. Across ten diverse, real-world downstream tasks on graphs unseen during training, spanning node- and link-level classification and regression, GraphBFF consistently outperforms baselines, with large margins of up to 31 PRAUC points, including in few-shot settings. Finally, we discuss key challenges and open opportunities for making GFMs a practical and principled foundation for graph learning at industrial scale.",
+      "link": "https://arxiv.org/abs/2602.04768",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:foundation model",
+        "related:concrete",
+        "related:few-shot"
+      ],
+      "summary": "(all providers failed) arXiv:2602.04768v2 Announce Type: replace Abstract: Graph-structured data underpins many critical applications. While foundation models have transformed language and vision via large-scale pretraining and lightweight adaptation, extending this paradigm to general, real-world graphs is challenging. In this work, we present Graph Billion-Foundation-Fusion (GraphBFF): an end-to-end recipe for buildin",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2602.04768v2 Announce Type: replace Abstract: Graph-structured data underpins many critical applications. While foundation models have transformed language and vision via large-scale pretraining and lightweight adaptation, extending this paradigm to general, real-world graphs is challenging. In this work, we present Graph Billion-Foundation-Fusion (GraphBFF): an end-to-end recipe for buildin",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403620+00:00"
+    },
+    "d448578b57a6bc02": {
+      "id": "d448578b57a6bc02",
+      "title": "Bug or Feature$^2$: Weight Drift, Activation Sparsity and Spikes",
+      "summary_en": "arXiv:2605.17659v2 Announce Type: replace Abstract: The design of modern neural architectures has converged through incremental empirical choices, yet the mechanisms governing their training dynamics remain only partially understood. We identify and analyze a negative weight drift induced by the interaction between standard losses and positively biased activation functions. We prove that under MSE or cross-entropy loss, the gradient with respect to positive pre-activations is non-negative in expectation at initialization, driving downstream weights toward negative values during early training. The drift is intrinsic to optimization rather than data, and persists across architectures (MLP, ResNet, ViT, GPT-nano, MP-SENe) and asymmetric activation functions (ReLU, GELU, SiLU). Coupled with ReLU, weight drift produces activation sparsity reaching up to 90\\% in GPT-nano. We characterize the sparsity-accuracy tradeoff across 79 configurations and identify a sharp accuracy cliff above $\\sim$70\\% activation sparsity. While ReLU$^2$ achieves a good sparsity--accuracy ratio in GPT-nano, it pathologically amplifies identified activation spikes in intermediate transformer layers. Clipping resolves this while preserving the representational benefits of squaring: clipped ReLU$^2$ outperforms its unclipped version, and GELU$^2$ achieves the lowest validation loss on GPT-nano. Code is available at https://github.com/On-Point-RND/BugOrFeature.",
+      "link": "https://arxiv.org/abs/2605.17659",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:ViT",
+        "core:CLIP"
+      ],
+      "summary": "(all providers failed) arXiv:2605.17659v2 Announce Type: replace Abstract: The design of modern neural architectures has converged through incremental empirical choices, yet the mechanisms governing their training dynamics remain only partially understood. We identify and analyze a negative weight drift induced by the interaction between standard losses and positively biased activation functions. We prove that under MSE",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2605.17659v2 Announce Type: replace Abstract: The design of modern neural architectures has converged through incremental empirical choices, yet the mechanisms governing their training dynamics remain only partially understood. We identify and analyze a negative weight drift induced by the interaction between standard losses and positively biased activation functions. We prove that under MSE",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403654+00:00"
+    },
+    "32e16e468d41572b": {
+      "id": "32e16e468d41572b",
+      "title": "TingIS: Real-time Risk Event Discovery from Noisy Customer Incidents at Enterprise Scale",
+      "summary_en": "arXiv:2604.21889v2 Announce Type: replace-cross Abstract: Real-time detection and mitigation of technical anomalies are critical for large-scale cloud-native services, where even minutes of downtime can result in massive financial losses and diminished user trust. While customer incidents serve as a vital signal for discovering risks missed by monitoring, extracting actionable intelligence from this data remains challenging due to extreme noise, high throughput, and semantic complexity of diverse business lines. In this paper, we present TingIS, an end-to-end system designed for enterprise-grade incident discovery. At the core of TingIS is a multi-stage event linking engine that synergizes efficient indexing techniques with Large Language Models (LLMs) to make informed decisions on event merging, enabling the stable extraction of actionable incidents from just a handful of diverse user descriptions. This engine is complemented by a cascaded routing mechanism for precise business attribution and a multi-dimensional noise reduction pipeline that integrates domain knowledge, statistical patterns, and behavioral filtering. Deployed in a production environment handling a peak throughput of over 2,000 messages per minute and 300,000 messages per day, TingIS achieves a P90 alert latency of 3.5 minutes and a 95\\% discovery rate for high-priority incidents. Benchmarks constructed from real-world data demonstrate that TingIS significantly outperforms baseline methods in routing accuracy, clustering quality, and Signal-to-Noise Ratio.",
+      "link": "https://arxiv.org/abs/2604.21889",
+      "source": "arXiv cs.LG",
+      "category": "preprint",
+      "published": "2026-05-22T04:00:00+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:ViT",
+        "related:benchmark",
+        "related:real-time"
+      ],
+      "summary": "(all providers failed) arXiv:2604.21889v2 Announce Type: replace-cross Abstract: Real-time detection and mitigation of technical anomalies are critical for large-scale cloud-native services, where even minutes of downtime can result in massive financial losses and diminished user trust. While customer incidents serve as a vital signal for discovering risks missed by monitoring, extracting actionable intelligence from th",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) arXiv:2604.21889v2 Announce Type: replace-cross Abstract: Real-time detection and mitigation of technical anomalies are critical for large-scale cloud-native services, where even minutes of downtime can result in massive financial losses and diminished user trust. While customer incidents serve as a vital signal for discovering risks missed by monitoring, extracting actionable intelligence from th",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403671+00:00"
+    },
+    "328bb53373265af0": {
+      "id": "328bb53373265af0",
+      "title": "An Immersive Virtual Reality Serious Game to Enhance Earthquake Behavioral Responses and Post-earthquake Evacuation Preparedness in Buildings",
+      "summary_en": "Enhancing the earthquake behavioral responses and post-earthquake evacuation preparedness of building occupants is beneficial to increasing their chances of survival and reducing casualties after the main shock of an earthquake. Traditionally, training approaches such as seminars, posters, videos or drills are applied to enhance preparedness. However, they are not highly engaging and have limited sensory capabilities to mimic life-threatening scenarios for the purpose of training potential participants. Immersive Virtual Reality (IVR) and Serious Games (SG) as innovative digital technologies can be used to create training tools to overcome these limitations. In this study, we propose an IVR SG-based training system to improve earthquake behavioral responses and post-earthquake evacuation preparedness. Auckland City Hospital was chosen as a case study to test our IVR SG training system. A set of learning outcomes based on best evacuation practice has been identified and embedded into several training scenarios of the IVR SG. Hospital staff (healthcare and administrative professionals) and visitors were recruited as participants to be exposed to these training scenarios. Participants' preparedness has been measured along two dimensions: 1) Knowledge about best evacuation practice; 2) Self-efficacy in dealing with earthquake emergencies. Assessment results showed that there was a significant knowledge and self-efficacy increase after the training. And participants acknowledged that it was easy and engaging to learn best evacuation practice knowledge through the IVR SG training system.",
+      "link": "https://arxiv.org/abs/1905.11082v1",
+      "source": "arXiv: post-earthquake building",
+      "category": "preprint-query",
+      "published": "2019-05-27T09:44:44+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "critical:post-earthquake",
+        "related:earthquake"
+      ],
+      "summary": "(all providers failed) Enhancing the earthquake behavioral responses and post-earthquake evacuation preparedness of building occupants is beneficial to increasing their chances of survival and reducing casualties after the main shock of an earthquake. Traditionally, training approaches such as seminars, posters, videos or drills are applied to enhance preparedness. However, they are not highly engaging and have limited ",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) Enhancing the earthquake behavioral responses and post-earthquake evacuation preparedness of building occupants is beneficial to increasing their chances of survival and reducing casualties after the main shock of an earthquake. Traditionally, training approaches such as seminars, posters, videos or drills are applied to enhance preparedness. However, they are not highly engaging and have limited ",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403709+00:00"
+    },
+    "6621afc60887f72b": {
+      "id": "6621afc60887f72b",
+      "title": "Research on the post-earthquake dynamic response of CRTS III slab ballastless track-bridge system in settlement risk area",
+      "summary_en": "Publication date: 1 September 2026 Source: Engineering Structures, Volume 362 Author(s): Yu Hou, Wangbao Zhou, Lizhong Jiang, Yulin Feng, Lingxu Wu, Kang Peng",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0141029626008370?dgcid=rss_sd_all",
+      "source": "Engineering Structures",
+      "category": "journal",
+      "published": "2026-05-22T09:00:44.538786+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "critical:post-earthquake",
+        "related:earthquake"
+      ],
+      "summary": "(all providers failed) Publication date: 1 September 2026 Source: Engineering Structures, Volume 362 Author(s): Yu Hou, Wangbao Zhou, Lizhong Jiang, Yulin Feng, Lingxu Wu, Kang Peng",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) Publication date: 1 September 2026 Source: Engineering Structures, Volume 362 Author(s): Yu Hou, Wangbao Zhou, Lizhong Jiang, Yulin Feng, Lingxu Wu, Kang Peng",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403729+00:00"
+    },
+    "d14405815b38b933": {
+      "id": "d14405815b38b933",
+      "title": "Deep learning compressive sensing with data loss and corruption: An application for recovering SHM videos",
+      "summary_en": "Publication date: 1 September 2026 Source: Engineering Structures, Volume 362 Author(s): Enjian Cai, Yi Zhang, Min Luo, Jing Guo, Tong Guo",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0141029626008060?dgcid=rss_sd_all",
+      "source": "Engineering Structures",
+      "category": "journal",
+      "published": "2026-05-22T09:00:44.538930+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:SHM",
+        "core:deep learning"
+      ],
+      "summary": "(all providers failed) Publication date: 1 September 2026 Source: Engineering Structures, Volume 362 Author(s): Enjian Cai, Yi Zhang, Min Luo, Jing Guo, Tong Guo",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) Publication date: 1 September 2026 Source: Engineering Structures, Volume 362 Author(s): Enjian Cai, Yi Zhang, Min Luo, Jing Guo, Tong Guo",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403771+00:00"
+    },
+    "c5781328d5e07640": {
+      "id": "c5781328d5e07640",
+      "title": "A probabilistic framework for life-cycle disaster-resistance assessment of high-rise reinforced concrete structures under earthquake–typhoon sequences",
+      "summary_en": "Publication date: 1 September 2026 Source: Engineering Structures, Volume 362 Author(s): Jin Zhou, Chaolie Ning, Jie Li",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0141029626008448?dgcid=rss_sd_all",
+      "source": "Engineering Structures",
+      "category": "journal",
+      "published": "2026-05-22T09:00:44.539017+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:reinforced concrete",
+        "related:concrete",
+        "related:earthquake"
+      ],
+      "summary": "(all providers failed) Publication date: 1 September 2026 Source: Engineering Structures, Volume 362 Author(s): Jin Zhou, Chaolie Ning, Jie Li",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) Publication date: 1 September 2026 Source: Engineering Structures, Volume 362 Author(s): Jin Zhou, Chaolie Ning, Jie Li",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403797+00:00"
+    },
+    "94ccfc9b6b6c3f57": {
+      "id": "94ccfc9b6b6c3f57",
+      "title": "Fatigue crack detection and localization in steel box girder using point cloud and image fusion machine vision",
+      "summary_en": "Publication date: 15 August 2026 Source: Engineering Structures, Volume 361 Author(s): Yan Yue, Wei-Le Chen, Yu-Fei Liu, Yi Li, Chu-Qiao Feng",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0141029626008710?dgcid=rss_sd_all",
+      "source": "Engineering Structures",
+      "category": "journal",
+      "published": "2026-05-22T09:00:44.539298+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "critical:crack detection",
+        "related:point cloud"
+      ],
+      "summary": "(all providers failed) Publication date: 15 August 2026 Source: Engineering Structures, Volume 361 Author(s): Yan Yue, Wei-Le Chen, Yu-Fei Liu, Yi Li, Chu-Qiao Feng",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) Publication date: 15 August 2026 Source: Engineering Structures, Volume 361 Author(s): Yan Yue, Wei-Le Chen, Yu-Fei Liu, Yi Li, Chu-Qiao Feng",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403815+00:00"
+    },
+    "55fd7479072cb124": {
+      "id": "55fd7479072cb124",
+      "title": "Vision foundation model with connectivity-based inferencing for zero-shot bridge element segmentation and geometric reconstruction",
+      "summary_en": "Publication date: August 2026 Source: Automation in Construction, Volume 188 Author(s): Mingkai Li, Vincent J.L. Gan, Kexin Li",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0926580526002360?dgcid=rss_sd_all",
+      "source": "Automation in Construction",
+      "category": "journal",
+      "published": "2026-05-22T09:00:44.616570+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:ViT",
+        "core:foundation model"
+      ],
+      "summary": "(all providers failed) Publication date: August 2026 Source: Automation in Construction, Volume 188 Author(s): Mingkai Li, Vincent J.L. Gan, Kexin Li",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) Publication date: August 2026 Source: Automation in Construction, Volume 188 Author(s): Mingkai Li, Vincent J.L. Gan, Kexin Li",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403832+00:00"
+    },
+    "b81386486b97e313": {
+      "id": "b81386486b97e313",
+      "title": "Semi-automated high-accuracy 3D mapping of concrete arch bridges using UAV photogrammetry and intelligently optimized ground control point layouts",
+      "summary_en": "Publication date: August 2026 Source: Automation in Construction, Volume 188 Author(s): Lian-Heng Cai, You-Lin Xu, Kai-Wen Zhang, Di Wu",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0926580526002463?dgcid=rss_sd_all",
+      "source": "Automation in Construction",
+      "category": "journal",
+      "published": "2026-05-22T09:00:44.616646+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:UAV",
+        "related:concrete",
+        "related:photogrammetry"
+      ],
+      "summary": "(all providers failed) Publication date: August 2026 Source: Automation in Construction, Volume 188 Author(s): Lian-Heng Cai, You-Lin Xu, Kai-Wen Zhang, Di Wu",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) Publication date: August 2026 Source: Automation in Construction, Volume 188 Author(s): Lian-Heng Cai, You-Lin Xu, Kai-Wen Zhang, Di Wu",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403854+00:00"
+    },
+    "8a436092ce9afab0": {
+      "id": "8a436092ce9afab0",
+      "title": "Controllable flow matching synthesis for generalizable crack segmentation with a 50k image–mask benchmark",
+      "summary_en": "Publication date: July 2026 Source: Automation in Construction, Volume 187 Author(s): Babak Asadi, Peiyang Wu, Mani Golparvar-Fard, Ramez Hajj",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0926580526001792?dgcid=rss_sd_all",
+      "source": "Automation in Construction",
+      "category": "journal",
+      "published": "2026-05-22T09:00:44.617393+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "critical:crack segmentation",
+        "related:benchmark"
+      ],
+      "summary": "(all providers failed) Publication date: July 2026 Source: Automation in Construction, Volume 187 Author(s): Babak Asadi, Peiyang Wu, Mani Golparvar-Fard, Ramez Hajj",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) Publication date: July 2026 Source: Automation in Construction, Volume 187 Author(s): Babak Asadi, Peiyang Wu, Mani Golparvar-Fard, Ramez Hajj",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403872+00:00"
+    },
+    "010f382c1dfc2e9d": {
+      "id": "010f382c1dfc2e9d",
+      "title": "Dynamic shear behavior of RC beam-column joints under impact load: Role of stirrup ratio in core area",
+      "summary_en": "Publication date: July 2026 Source: Structures, Volume 89 Author(s): Liu Jin, Xinger Li, Renbo Zhang, Liyue Miao, Xiuli Du",
+      "link": "https://www.sciencedirect.com/science/article/pii/S2352012426010611?dgcid=rss_sd_all",
+      "source": "Structures",
+      "category": "journal",
+      "published": "2026-05-22T09:00:44.738934+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:RC beam",
+        "core:beam-column joint"
+      ],
+      "summary": "(all providers failed) Publication date: July 2026 Source: Structures, Volume 89 Author(s): Liu Jin, Xinger Li, Renbo Zhang, Liyue Miao, Xiuli Du",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) Publication date: July 2026 Source: Structures, Volume 89 Author(s): Liu Jin, Xinger Li, Renbo Zhang, Liyue Miao, Xiuli Du",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403890+00:00"
+    },
+    "cf7e487de22fae0d": {
+      "id": "cf7e487de22fae0d",
+      "title": "FCS-Net: A frequency-aware dual-path transformer for pixel-level crack detection and quantitative width measurement in Shihe Bridge inspection",
+      "summary_en": "Publication date: July 2026 Source: Structures, Volume 89 Author(s): Yuxin Zhao, Chengzhong Gui, Zuwei Huang, Lihao Chen, Quanhao Dong",
+      "link": "https://www.sciencedirect.com/science/article/pii/S2352012426010180?dgcid=rss_sd_all",
+      "source": "Structures",
+      "category": "journal",
+      "published": "2026-05-22T09:00:44.739000+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "critical:crack detection",
+        "related:bridge inspection"
+      ],
+      "summary": "(all providers failed) Publication date: July 2026 Source: Structures, Volume 89 Author(s): Yuxin Zhao, Chengzhong Gui, Zuwei Huang, Lihao Chen, Quanhao Dong",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) Publication date: July 2026 Source: Structures, Volume 89 Author(s): Yuxin Zhao, Chengzhong Gui, Zuwei Huang, Lihao Chen, Quanhao Dong",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403907+00:00"
+    },
+    "112aed2e28d63269": {
+      "id": "112aed2e28d63269",
+      "title": "Prediction of post-earthquake node damage using two-step intelligent method for prefabricated steel structures",
+      "summary_en": "Publication date: July 2026 Source: Structures, Volume 89 Author(s): Xinyu Wan, Chunpeng Liu, Yue Song, Tze Liang Lau",
+      "link": "https://www.sciencedirect.com/science/article/pii/S235201242601074X?dgcid=rss_sd_all",
+      "source": "Structures",
+      "category": "journal",
+      "published": "2026-05-22T09:00:44.739059+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "critical:post-earthquake",
+        "related:earthquake"
+      ],
+      "summary": "(all providers failed) Publication date: July 2026 Source: Structures, Volume 89 Author(s): Xinyu Wan, Chunpeng Liu, Yue Song, Tze Liang Lau",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) Publication date: July 2026 Source: Structures, Volume 89 Author(s): Xinyu Wan, Chunpeng Liu, Yue Song, Tze Liang Lau",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403927+00:00"
+    },
+    "97548cc102134a7f": {
+      "id": "97548cc102134a7f",
+      "title": "Low-carbon natural fiber-reinforced bio-based polymer composites for shear strengthening of damaged reinforced concrete beams",
+      "summary_en": "Publication date: 18 July 2026 Source: Construction and Building Materials, Volume 532 Author(s): Chanakan Klippathum, Atichon Kunawisarut, Tidarut Jirawattanasomkul, Suched Likitlersuang, Pitcha Jongvivatsakul",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0950061826016090?dgcid=rss_sd_all",
+      "source": "Construction and Building Materials",
+      "category": "journal",
+      "published": "2026-05-22T09:00:44.845843+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:reinforced concrete",
+        "related:concrete",
+        "related:strengthening"
+      ],
+      "summary": "(all providers failed) Publication date: 18 July 2026 Source: Construction and Building Materials, Volume 532 Author(s): Chanakan Klippathum, Atichon Kunawisarut, Tidarut Jirawattanasomkul, Suched Likitlersuang, Pitcha Jongvivatsakul",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) Publication date: 18 July 2026 Source: Construction and Building Materials, Volume 532 Author(s): Chanakan Klippathum, Atichon Kunawisarut, Tidarut Jirawattanasomkul, Suched Likitlersuang, Pitcha Jongvivatsakul",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403943+00:00"
+    },
+    "f2b46b92f6a977d1": {
+      "id": "f2b46b92f6a977d1",
+      "title": "Parametric analyses for the calculation of vulnerability scores used in rapid visual screening of 3D RC frame structures with an energy-based method",
+      "summary_en": "Publication date: September 2026 Source: Soil Dynamics and Earthquake Engineering, Volume 208 Author(s): Nurbanu Demirbas, Humeyra Sahin, Cengizhan Durucan",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0267726126003015?dgcid=rss_sd_all",
+      "source": "Soil Dynamics and Earthquake Engineering",
+      "category": "journal",
+      "published": "2026-05-22T09:00:44.922318+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "critical:rapid visual screening",
+        "related:earthquake"
+      ],
+      "summary": "(all providers failed) Publication date: September 2026 Source: Soil Dynamics and Earthquake Engineering, Volume 208 Author(s): Nurbanu Demirbas, Humeyra Sahin, Cengizhan Durucan",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) Publication date: September 2026 Source: Soil Dynamics and Earthquake Engineering, Volume 208 Author(s): Nurbanu Demirbas, Humeyra Sahin, Cengizhan Durucan",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403959+00:00"
+    },
+    "4ba0f421cff1e618": {
+      "id": "4ba0f421cff1e618",
+      "title": "Development of a gravity-driven self-centering rubber bearing for seismic isolation",
+      "summary_en": "Publication date: September 2026 Source: Soil Dynamics and Earthquake Engineering, Volume 208 Author(s): Hong-Tai Zhang, Bing Zhao, Ping Xiang, Xue-Bin Ren, Yang Li, Li-Sheng Luo, Liang-Jiu Jia",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0267726126003040?dgcid=rss_sd_all",
+      "source": "Soil Dynamics and Earthquake Engineering",
+      "category": "journal",
+      "published": "2026-05-22T09:00:44.922504+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "core:ViT",
+        "related:earthquake",
+        "related:seismic"
+      ],
+      "summary": "(all providers failed) Publication date: September 2026 Source: Soil Dynamics and Earthquake Engineering, Volume 208 Author(s): Hong-Tai Zhang, Bing Zhao, Ping Xiang, Xue-Bin Ren, Yang Li, Li-Sheng Luo, Liang-Jiu Jia",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) Publication date: September 2026 Source: Soil Dynamics and Earthquake Engineering, Volume 208 Author(s): Hong-Tai Zhang, Bing Zhao, Ping Xiang, Xue-Bin Ren, Yang Li, Li-Sheng Luo, Liang-Jiu Jia",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403976+00:00"
+    },
+    "0de4db1e8280a1c4": {
+      "id": "0de4db1e8280a1c4",
+      "title": "Probabilistic assessment of post-earthquake running safety threshold for high-speed railway bridge based on nonparametric copula method",
+      "summary_en": "Publication date: September 2026 Source: Soil Dynamics and Earthquake Engineering, Volume 208 Author(s): Yan Zhang, Guangsong Song, Hui Jiang, Junjun Guo, Qikai Sun, Yun Shan",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0267726126002708?dgcid=rss_sd_all",
+      "source": "Soil Dynamics and Earthquake Engineering",
+      "category": "journal",
+      "published": "2026-05-22T09:00:44.922811+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "critical:post-earthquake",
+        "related:earthquake"
+      ],
+      "summary": "(all providers failed) Publication date: September 2026 Source: Soil Dynamics and Earthquake Engineering, Volume 208 Author(s): Yan Zhang, Guangsong Song, Hui Jiang, Junjun Guo, Qikai Sun, Yun Shan",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) Publication date: September 2026 Source: Soil Dynamics and Earthquake Engineering, Volume 208 Author(s): Yan Zhang, Guangsong Song, Hui Jiang, Junjun Guo, Qikai Sun, Yun Shan",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.403992+00:00"
+    },
+    "450a2c82fca56c57": {
+      "id": "450a2c82fca56c57",
+      "title": "Seismic strengthening of low-strength masonry walls using internal steel strips and polymer mortar: experimental and parametric numerical investigations",
+      "summary_en": "Publication date: August 2026 Source: Soil Dynamics and Earthquake Engineering, Volume 207 Author(s): Zaixian Chen, Chao Wang, Zicong Yu, Kailin Sun, Xubo Yang",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0267726126002575?dgcid=rss_sd_all",
+      "source": "Soil Dynamics and Earthquake Engineering",
+      "category": "journal",
+      "published": "2026-05-22T09:00:44.923308+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "related:earthquake",
+        "related:seismic",
+        "related:strengthening",
+        "related:masonry"
+      ],
+      "summary": "(all providers failed) Publication date: August 2026 Source: Soil Dynamics and Earthquake Engineering, Volume 207 Author(s): Zaixian Chen, Chao Wang, Zicong Yu, Kailin Sun, Xubo Yang",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) Publication date: August 2026 Source: Soil Dynamics and Earthquake Engineering, Volume 207 Author(s): Zaixian Chen, Chao Wang, Zicong Yu, Kailin Sun, Xubo Yang",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.404008+00:00"
+    },
+    "1a7fd3704f5f551d": {
+      "id": "1a7fd3704f5f551d",
+      "title": "Evaluation of post-earthquake functionality of water supply network based on dual indices",
+      "summary_en": "Publication date: August 2026 Source: Soil Dynamics and Earthquake Engineering, Volume 207 Author(s): Shiyuan Qian, Huanjun Jiang, Haozuo Wang, Jiafeng Li, Yasir Siraj",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0267726126002587?dgcid=rss_sd_all",
+      "source": "Soil Dynamics and Earthquake Engineering",
+      "category": "journal",
+      "published": "2026-05-22T09:00:44.923663+00:00",
+      "pre_score": 4,
+      "matched_keywords": [
+        "critical:post-earthquake",
+        "related:earthquake"
+      ],
+      "summary": "(all providers failed) Publication date: August 2026 Source: Soil Dynamics and Earthquake Engineering, Volume 207 Author(s): Shiyuan Qian, Huanjun Jiang, Haozuo Wang, Jiafeng Li, Yasir Siraj",
+      "relevance": 4,
+      "why_relevant": "All LLM providers failed; falling back to pre-score.",
+      "tags": [
+        "llm-failed"
+      ],
+      "must_read": false,
+      "summary_tr": "(all providers failed) Publication date: August 2026 Source: Soil Dynamics and Earthquake Engineering, Volume 207 Author(s): Shiyuan Qian, Huanjun Jiang, Haozuo Wang, Jiafeng Li, Yasir Siraj",
+      "llm_provider_used": "failed",
+      "processed_at": "2026-05-22T09:01:19.404025+00:00"
     }
   }
 }
