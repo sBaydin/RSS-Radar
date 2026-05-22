@@ -1,8 +1,9 @@
-# Her 'git commit' öncesi otomatik secret tarama
-# Kurulum:
+# Runs gitleaks automatically before every `git commit`.
+# Installation:
 #   pip install pre-commit
 #   pre-commit install
-# Bundan sonra her commit'te gitleaks çalışır, key bulursa commit'i durdurur.
+# From then on, if you ever accidentally write an API key into a file,
+# the commit is rejected and you have to fix it before pushing.
 
 repos:
   - repo: https://github.com/gitleaks/gitleaks

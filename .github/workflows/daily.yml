@@ -1,4 +1,4 @@
-name: Daily RSS Radar
+name: Daily RSS-Radar
 
 on:
   schedule:
@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write   # data/ ve docs/ commit'lemek için
-  # NOT: Pages izinleri YOK — dashboard public'e açılmıyor, sadece lokalde görüntülenir.
+  contents: write   # needed to commit data/ and docs/
+  # NOTE: no Pages permissions — the dashboard is not publicly hosted, only local.
 
 jobs:
   scan:
@@ -24,7 +24,7 @@ jobs:
       - name: Install deps
         run: pip install -r requirements.txt
 
-      # ── 🛡️ Güvenlik: kazara push'lanan secret'ları tara ──
+      # 🛡️ Security: scan for accidentally committed secrets
       - name: Scan for leaked secrets (gitleaks)
         uses: gitleaks/gitleaks-action@v2
         env:
@@ -33,7 +33,7 @@ jobs:
           config: .gitleaks.toml
         continue-on-error: false
 
-      - name: Run RSS Radar
+      - name: Run RSS-Radar
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROQ_API_KEY:   ${{ secrets.GROQ_API_KEY }}
@@ -47,8 +47,8 @@ jobs:
           git config user.email "bot@users.noreply.github.com"
           git add data/ docs/
           if ! git diff --staged --quiet; then
-            git commit -m "daily: $(date -u +%Y-%m-%d) tarama sonuçları"
+            git commit -m "daily: scan results $(date -u +%Y-%m-%d)"
             git push
           else
-            echo "Değişiklik yok."
+            echo "No changes."
           fi

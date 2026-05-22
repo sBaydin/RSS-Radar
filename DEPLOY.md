@@ -1,135 +1,147 @@
-# 🚀 RSS Radar — Güvenli Deploy Rehberi (TAMAMEN ÜCRETSİZ)
+# 🚀 RSS-Radar — Deploy Guide (Completely Free, Privacy-First)
 
-Bu kurulum **gizlilik öncelikli**:
+This setup is privacy-conscious:
 
-| Bileşen | Nerede | Görünürlük |
+| Component | Where | Visibility |
 |---|---|---|
-| Repo (kod) | GitHub Public | 🌍 herkese açık (ama Secrets gizli) |
-| API key'ler | GitHub Secrets | 🔒 sadece sen + Actions |
-| Tarama (cron) | GitHub Actions | 🔒 sadece sen yönetirsin |
-| Sonuçlar (data + dashboard HTML) | Repo'daki `data/` ve `docs/` | 🌍 dosyalar public, ama URL'i kimse bilmiyor |
-| Dashboard | **Sadece senin bilgisayarın** | 🔒 lokal `file://` |
+| Code (repo) | GitHub Public | 🌍 public (Secrets stay private) |
+| API keys | GitHub Secrets | 🔒 only you + Actions |
+| Scanning (cron) | GitHub Actions | 🔒 only you control it |
+| Results (`data/` + `docs/`) | The same public repo | 🌍 files public, but no one knows the URL |
+| Dashboard | **Your machine only** | 🔒 local `file://` |
 
-Sonuç: Public repo'nun avantajlarını (ücretsiz Actions) kullanırız ama
-dashboard'a kimse browser ile erişemez. Dashboard'u sen `scripts/open_dashboard.sh`
-ile lokal aç, repo'dan son `docs/index.html` çekilip tarayıcında açılır.
+You get the benefits of a public repo (free Actions, free hosting) **without**
+exposing a dashboard URL anyone can find. You pull the latest `docs/index.html`
+locally and open it in your browser.
 
 ---
 
-## ADIM 1 — Ücretsiz API key'leri al (~3 dk)
+## STEP 1 — Get free API keys (~3 min)
 
-### 1A. Google Gemini (birincil)
+### 1A. Google Gemini (primary)
 1. <https://aistudio.google.com/apikey>
-2. **"Create API Key"** → projeyle birlikte
-3. `AIzaSy...` ile başlayan anahtarı kopyala
+2. Sign in with your Google account
+3. Click **"Create API Key"** → create in a new project
+4. Copy the `AIzaSy...` key
 
-✅ Kredi kartı YOK · 500 istek/gün · biz 60 kullanıyoruz
+✅ No credit card · ~250 requests/day · we use ~60
 
-### 1B. Groq (yedek — önerilir)
+### 1B. Groq (backup, highly recommended)
 1. <https://console.groq.com/keys>
-2. **"Create API Key"** → ad ver → `gsk_...` kopyala
+2. Sign in with Google or GitHub
+3. **"Create API Key"** → name it → copy the `gsk_...` key
 
-✅ Kredi kartı YOK · 1000 istek/gün
+✅ No credit card · ~1000 requests/day · ultra fast
 
 ---
 
-## ADIM 2 — GitHub repo oluştur
+## STEP 2 — Create your GitHub repo
 
+### Option A: Fork
+1. Go to <https://github.com/sBaydin/RSS-Radar>
+2. Click **Fork** (top right)
+3. Done
+
+### Option B: Use as template / clone
 1. <https://github.com/new>
-2. Name: `rss-radar` · **Public** seç (ücretsiz Actions için)
-3. README ekleme, boş bırak → Create
+2. Name: `rss-radar` · **Public** (required for free Actions)
+3. Don't add README · Create
 
-> **Public ama güvenli mi?** Evet. Kod açık, **Secrets şifreli**. Kimse
-> key'lerini göremez, fork edenler bile. Pages açmadığımız için
-> dashboard URL'i de yok.
-
----
-
-## ADIM 3 — Yerel klasörü push'la
-
+Then clone:
 ```bash
+git clone https://github.com/sBaydin/RSS-Radar.git rss-radar
 cd rss-radar
-git init
-git add .
-git commit -m "init: RSS Radar"
-git branch -M main
-git remote add origin https://github.com/<KULLANICI_ADIN>/rss-radar.git
+git remote set-url origin https://github.com/<your-username>/rss-radar.git
 git push -u origin main
 ```
 
+> **Public but safe?** Yes. Code is open, **Secrets are encrypted**.
+> Nobody can read your API keys — not even forkers.
+
 ---
 
-## ADIM 4 — Secrets ekle
+## STEP 3 — Add Secrets
 
-Repo → **Settings → Secrets and variables → Actions → New repository secret**
+In your repo → **Settings → Secrets and variables → Actions → New repository secret**
 
 | Name | Value |
 |---|---|
-| `GEMINI_API_KEY` | `AIzaSy...` (1A'dan) |
-| `GROQ_API_KEY` | `gsk_...` (1B'den, opsiyonel ama önerilir) |
+| `GEMINI_API_KEY` | `AIzaSy...` (from 1A) |
+| `GROQ_API_KEY` | `gsk_...` (from 1B, optional but recommended) |
 
-> Secret bir kez girilince **geri okuyamazsın** (sadece üstüne yazabilirsin).
-> Actions log'ları otomatik `***` ile maskeler.
-
----
-
-## ADIM 5 — GitHub Pages'i AÇMA (önemli!)
-
-Settings → Pages → Source: **None** olarak kalsın.
-
-Dashboard URL'i public'te olmayacak, sadece senin lokalinde açılacak.
+> Once you save a secret, you can **never read it back** — only overwrite.
+> Actions logs auto-mask them as `***`.
 
 ---
 
-## ADIM 6 — Pre-commit hook'u kur (kazara key push'lamayı engeller)
+## STEP 4 — DO NOT enable GitHub Pages
+
+In **Settings → Pages**, leave Source as **None**.
+
+This is intentional: the dashboard is local-only, no public URL.
+
+---
+
+## STEP 5 — Install the pre-commit hook (prevents accidental key commits)
 
 ```bash
 pip install pre-commit
 pre-commit install
 ```
 
-Bundan sonra her `git commit`'te **gitleaks** otomatik çalışır. Eğer kazara
-bir API key'i bir dosyaya yazıp commit'lersen, **commit reddedilir** ve
-sen düzeltmeden push edemezsin. Aynı tarama GitHub Actions'da da çalışıyor —
-yani iki katmanlı koruma.
+From now on, every `git commit` runs **gitleaks** automatically. If you ever
+accidentally write an API key into a file and try to commit it, the commit is
+**rejected** before it reaches GitHub. The same scan also runs inside Actions
+as a second layer.
 
 ---
 
-## ADIM 7 — Lokal `.env` dosyasını oluştur (lokal koşturma için)
+## STEP 6 — Create your local `.env` file
 
 ```bash
 cp .env.example .env
-nano .env   # veya: code .env / notepad .env
+nano .env       # or: code .env / notepad .env
 ```
 
-`.env` dosyası `.gitignore`'da olduğu için **asla push'lanmaz**, sadece
-senin makinende kalır.
+`.env` is in `.gitignore`, so it **never gets pushed**. It's only used for
+local runs.
 
 ---
 
-## ADIM 8 — İlk koşuyu tetikle
+## STEP 7 — Customize `config.yaml`
 
-### A. Lokal'den (önerilen, hızlı)
+Open `config.yaml` and replace the example **keywords** and **feeds** with
+your own field's terms. The repo ships with a config for "post-earthquake
+RC damage detection" — use it as inspiration, but you'll get much better
+results with your own keywords.
+
+You can also edit through the dashboard UI later (Settings → Keywords).
+
+---
+
+## STEP 8 — First run
+
+### A. Local first (faster, easier to debug)
 ```bash
 bash scripts/run_local.sh
 ```
-Dashboard otomatik tarayıcıda açılır.
+The dashboard opens in your browser automatically.
 
-### B. GitHub Actions'dan
-1. Repo'da **Actions** sekmesi
-2. **"Daily RSS Radar"** → **Run workflow**
-3. ~2-3 dakika bekle (yeşil ✓)
-4. Lokal'de:
+### B. Or via GitHub Actions
+1. In your repo → **Actions** tab
+2. **"Daily RSS Radar"** → **"Run workflow"** → **"Run workflow"**
+3. Wait ~3-4 min (green ✓)
+4. Locally:
    ```bash
    bash scripts/open_dashboard.sh
    ```
-   (Repo'dan son halini çekip dashboard'u açar.)
+   Pulls the latest `docs/` and opens the dashboard.
 
 ---
 
-## 🔁 Günlük kullanım
+## 🔁 Daily usage
 
-### Senin yapacağın tek şey: her akşam bir komut
+### The only thing you do day-to-day:
 
 **Linux / macOS:**
 ```bash
@@ -143,90 +155,102 @@ cd rss-radar
 scripts\open_dashboard.bat
 ```
 
-Bu komut:
-1. GitHub'dan son `data/items.json` + `docs/index.html`'i çeker (Actions her gece koşmuş)
-2. Dashboard'u tarayıcında açar
-3. Kimse internetten URL'ine erişemez
+This script:
+1. Pulls the latest `data/items.json` + `docs/index.html` (Actions ran overnight)
+2. Opens the dashboard in your browser
 
-İstersen alias yap:
+Optional shell alias:
 ```bash
-# ~/.bashrc veya ~/.zshrc'e ekle
+# add to ~/.bashrc or ~/.zshrc
 alias rss='cd ~/projects/rss-radar && ./scripts/open_dashboard.sh'
 ```
 
-Sonra her akşam sadece `rss` yazman yeter.
+Then just type `rss` from anywhere.
 
 ---
 
-## 🛠️ Yönetim paneli (lokal dashboard'da)
+## 🛠️ Admin panel (in the local dashboard)
 
-Dashboard'u açtıktan sonra:
-- ⚙️ **Ayarlar** ile anahtar kelime, feed, saat değiştir
-- ▶️ **Şimdi Tara** ile Actions'ı tetikle (PAT gerekiyor)
+After opening the dashboard:
+- ⚙️ **Settings** modal — edit keywords, feeds, schedule, threshold
+- ▶️ **Run now** button — trigger an Actions run (requires a PAT, see below)
 
-### Personal Access Token (sadece panel için, opsiyonel)
-Panel commit / Şimdi Tara için PAT gerekiyor. **Sadece kendi cihazından**
-kullanırsan localStorage'da güvenli kalır:
+### Personal Access Token (only needed for panel commit / "Run now")
+
+If you want the panel to commit changes back to GitHub or trigger workflows:
 
 1. <https://github.com/settings/personal-access-tokens/new>
-2. Repository access: `rss-radar` seç
+2. Repository access: only your `rss-radar` repo
 3. Permissions:
    - Contents: Read & write
    - Actions: Read & write
-4. Generate token → dashboard ⚙️ → 🐙 GitHub sekmesi → yapıştır
+4. Generate → paste into dashboard ⚙️ → 🐙 GitHub tab → Save
 
-> **Başka cihazda asla yapma** — sadece kendi laptop/desktop'unda.
+> **Only use this on your own device.** The token is stored only in your
+> browser's `localStorage`, never sent anywhere except GitHub directly.
 
-> Panel commit özelliğini kullanmak istemiyorsan: `config.yaml`'ı elle
-> düzenle, `git commit && git push`. Aynı sonuç, PAT gerekmez.
+> Don't want to use the panel commit? Just edit `config.yaml` by hand,
+> `git commit && git push`. Same result, no PAT needed.
 
 ---
 
-## 💰 Maliyet
+## 💰 Cost
 
-| Bileşen | Aylık |
+| Component | Monthly |
 |---|---|
 | GitHub Actions (public repo) | $0 |
 | Gemini API (free tier) | $0 |
 | Groq API (free tier) | $0 |
-| **TOPLAM** | **$0** 🎉 |
+| **TOTAL** | **$0** 🎉 |
 
 ---
 
-## 🔒 Güvenlik özeti — ne yapılmış?
+## 🆘 Troubleshooting
 
-| Risk | Çözüm |
-|---|---|
-| Key'ler kod içinde | ✅ GitHub Secrets + `.env` (gitignore'da) |
-| Pages public, dashboard URL'i sızar | ✅ Pages kapalı, sadece lokal `file://` |
-| Kazara key commit'lemek | ✅ `gitleaks` pre-commit hook + Actions kontrolü |
-| PAT'in başkasının cihazına geçmesi | ✅ Sadece kendi tarayıcı localStorage'ında |
-| Free tier kötüye kullanımı | ✅ `max_items_per_run` + RPM rate limiter |
-| API key sızsa ne olur? | Gemini/Groq free tier, yenisini al, eskisini sil |
+### "rate-limit (429)" repeatedly
+The primary provider's rate limit was hit. After 3 consecutive errors the
+script auto-disables it for that run and the fallback takes over.
+If it's a recurring problem, lower `max_items_per_run` in `config.yaml`.
 
----
+### Local dashboard says "config could not be loaded"
+The dashboard now embeds the config inline at build time. If you see this
+error, your `docs/index.html` is from an old build. Run
+`bash scripts/run_local.sh` once to regenerate.
 
-## 🆘 Sorun giderme
+### "Workflow not triggering on schedule"
+GitHub disables scheduled workflows if a repo has no activity for 60 days.
+Just run it manually once from the Actions tab — schedules become active again.
 
-### "gitleaks not found" pre-commit hatası
-```bash
-pre-commit install --install-hooks
-```
-gitleaks binary'sini otomatik indirir.
-
-### Lokal dashboard "config yüklenemedi" hatası
-`docs/index.html` doğrudan tarayıcıda açılıyor olabilir. `inline-config`
-otomatik gömülüyor — eğer eski bir dashboard varsa `scripts/run_local.sh`
-ile yeniden üret.
-
-### Pages 404
-Beklenen davranış — Pages bilerek kapalı.
-
-### "Rate-limit (429)"
-Gemini saatlik limit doldu, Groq devraldı. Bir sonraki koşuda Gemini geri gelir.
-
-### `git pull` "conflict" diyor
-Sen lokal `config.yaml` değiştirdin, Actions başka değişiklik commit'ledi:
+### `git pull` "conflict"
+You edited `config.yaml` locally, Actions committed a different change:
 ```bash
 git pull --rebase
 ```
+
+### "gitleaks not found" during commit
+```bash
+pre-commit install --install-hooks
+```
+This downloads the gitleaks binary automatically.
+
+### Pages 404
+Expected — Pages is intentionally disabled.
+
+---
+
+## 🔒 Security summary
+
+| Risk | Mitigation |
+|---|---|
+| Keys in code | ✅ GitHub Secrets + `.env` (gitignored) |
+| Dashboard URL leak | ✅ Pages off, local `file://` only |
+| Accidental key commit | ✅ `gitleaks` pre-commit + Actions check |
+| PAT on another device | ✅ stored only in your browser `localStorage` |
+| Free-tier abuse | ✅ `max_items_per_run` + per-provider RPM limiter |
+| If a key leaks anyway | Free-tier keys, rotate in 30 sec at provider |
+
+---
+
+## 🤝 Contributing
+
+PRs welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).

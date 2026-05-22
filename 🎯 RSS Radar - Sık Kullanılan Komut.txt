@@ -1,0 +1,114 @@
+🎯 RSS Radar - Sık Kullanılan Komutlar
+
+
+═══════════════════════════════════════════════════════════
+ÖNEMLİ: Tüm komutlar Git Bash'te, şu klasörde çalıştırılır:
+C:\Users\sBa\Desktop\PhDr\Codding\AI Research Assistants\rss-radar
+
+*** 
+sBa@sBa MINGW64 /c/users/sba/desktop/phdr/codding/AI\ Research\ Assistants/rss-radar 
+***
+═══════════════════════════════════════════════════════════
+
+
+
+╔════════════════════════════════════════════════════════╗
+║ 1. GÜNLÜK KULLANIM — Dashboard'u aç ║
+╚════════════════════════════════════════════════════════╝
+
+git pull
+start docs/index.html
+
+→ Bu iki komut: GitHub'dan son tarama sonuçlarını çeker
+ve dashboard'u tarayıcında açar.
+→ Pazartesi akşamından sonra her zaman yap.
+
+╔════════════════════════════════════════════════════════╗
+║ 2. ELLE TARAMA TETİKLEME (acele lazımsa) ║
+╚════════════════════════════════════════════════════════╝
+
+Tarayıcıda aç:
+https://github.com/sBaydin/RSS-Radar/actions
+
+→ "Daily RSS Radar" tıkla
+→ Sağ üst "Run workflow" → "Run workflow"
+→ 3-4 dakika bekle, yeşil ✓ olsun
+→ Sonra Git Bash'te:
+git pull
+start docs/index.html
+
+╔════════════════════════════════════════════════════════╗
+║ 3. AYARLARI DEĞİŞTİR ║
+╚════════════════════════════════════════════════════════╝
+
+A) Anahtar kelime ekle/sil, feed aç/kapat:
+→ Dashboard'u aç (komut 1)
+→ Sağ üst "⚙️ Ayarlar"
+→ Düzenle → "🚀 GitHub'a Kaydet"
+→ Sonraki pazartesi yeni ayarlarla tarar
+
+B) Tarama gününü/saatini değiştir:
+→ Notepad ile aç: .github/workflows/daily.yml
+→ "cron:" satırını değiştir:
+
+text
+
+     "0 17 * * 1"   = Pazartesi 20:00 (şu anki)
+     "0 17 * * 1,4" = Pazartesi + Perşembe 20:00
+     "0 17 * * *"   = Her gün 20:00
+     "0 6 * * 2"    = Salı 09:00
+
+  → Sonra Git Bash'te:
+      git add .github/workflows/daily.yml
+      git commit -m "schedule degisti"
+      git push
+╔════════════════════════════════════════════════════════╗
+║ 4. SORUN GİDERME ║
+╚════════════════════════════════════════════════════════╝
+
+"Dashboard güncel değil" → Önce git pull yap.
+
+"git pull conflict diyor" →
+git stash
+git pull
+git stash pop
+
+"Tarama çalıştı mı?" kontrolü →
+https://github.com/sBaydin/RSS-Radar/actions
+→ Son koşunun yanında ✓ (yeşil) varsa ok.
+→ Kırmızı X varsa logları aç, ne diyor bak.
+
+"Tarama 7 günden uzun süre yapmadıysa" GitHub
+Actions otomatik kapanır. Bir kez elle tetikle (komut 2),
+tekrar aktive olur.
+
+╔════════════════════════════════════════════════════════╗
+║ 5. API KEY DEĞİŞTİRMEK GEREKİRSE ║
+╚════════════════════════════════════════════════════════╝
+
+GitHub'da:
+https://github.com/sBaydin/RSS-Radar/settings/secrets/actions
+
+→ GEMINI_API_KEY veya GROQ_API_KEY üzerine tıkla
+→ "Update" → yeni key'i yapıştır → "Update secret"
+→ Bir sonraki koşuda otomatik kullanır.
+
+Yeni Gemini key: https://aistudio.google.com/apikey
+Yeni Groq key: https://console.groq.com/keys
+
+╔════════════════════════════════════════════════════════╗
+║ 6. ÖNEMLİ LİNKLER ║
+╚════════════════════════════════════════════════════════╝
+
+Repo: https://github.com/sBaydin/RSS-Radar
+Actions: https://github.com/sBaydin/RSS-Radar/actions
+Secrets: https://github.com/sBaydin/RSS-Radar/settings/secrets/actions
+Cron sözlük: https://crontab.guru/
+
+═══════════════════════════════════════════════════════════
+ÖZET: Hayatın boyunca sadece bu iki komutu hatırla.
+
+git pull
+start docs/index.html
+
+═══════════════════════════════════════════════════════════

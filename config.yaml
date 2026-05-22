@@ -1,283 +1,394 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# RSS-Radar Configuration
+# ═══════════════════════════════════════════════════════════════════════════
+# Edit this file directly, or use the in-dashboard admin panel
+# (Open docs/index.html → ⚙️ Settings → 🚀 Save to GitHub)
+#
+# This example config is set up for:
+#   "Post-earthquake damage detection in reinforced concrete buildings
+#    using computer vision"
+#
+# To adapt it to YOUR field, change:
+#   1. `profile` — description shown in the dashboard
+#   2. `llm.language` — language of LLM summaries (en, tr, es, fr, de, …)
+#   3. `keywords` — critical/core/related/exclude terms for your topic
+#   4. `feeds`    — RSS/Atom URLs of relevant journals & preprint servers
+# ═══════════════════════════════════════════════════════════════════════════
+
 profile:
-  name: Betonarme Hasar Tespiti - Görüntü İşleme
-  description: 'Doktora konusu: Deprem sonrası oluşan betonarme yapılardaki hasarların
+  name: "Post-Earthquake RC Damage Detection — Computer Vision"
+  description: |
+    PhD research radar: detection of damage in reinforced concrete buildings
+    after earthquakes using computer vision and deep learning.
 
-    görsel işleme/derin öğrenme metodları ile tespiti.
+# ──────────────────────────────────────────────────────────────────────────
+# Schedule
+# ──────────────────────────────────────────────────────────────────────────
+# UTC cron expression. Used by .github/workflows/daily.yml.
+# Examples:
+#   "0 17 * * *"   = every day at 17:00 UTC (20:00 Europe/Istanbul)
+#   "0 17 * * 1"   = every Monday at 17:00 UTC
+#   "0 17 * * 1,4" = every Monday & Thursday
+#   "0 6 * * *"    = every day at 06:00 UTC
+schedule_utc: "0 17 * * 1"
 
-    '
-schedule_utc: 0 17 * * *
+# Convenience block - the dashboard admin panel reads/writes this and
+# auto-converts to the UTC cron above.
 schedule_local:
-  hour: 20
-  minute: 0
-  tz_offset: 3
-  days: '1'
+  hour: 20         # 0-23
+  minute: 0        # 0-59
+  tz_offset: 3     # UTC offset of your timezone (Istanbul = +3, London = 0)
+  days: "1"        # "*" = every day | "1" = Monday | "1,4" = Mon+Thu | "1-5" = weekdays
+
+# ──────────────────────────────────────────────────────────────────────────
+# LLM provider chain (all FREE tiers, no credit card required)
+# ──────────────────────────────────────────────────────────────────────────
+# Primary is tried first. If it fails 3 times in a row (rate limit / error),
+# it's disabled for the rest of THIS run and the fallback takes over.
+#
+# Recommended setup: Groq primary (fast, 1000 req/day), Gemini fallback.
+# Switch them if you prefer Gemini's summaries.
 llm:
-  provider: groq
-  model: llama-3.3-70b-versatile
-  fallback_provider: gemini
-  fallback_model: gemini-2.5-flash
-  language: tr
-  max_items_per_run: 60
-  relevance_threshold: 4
+  provider: "groq"
+  model: "llama-3.3-70b-versatile"
+  fallback_provider: "gemini"
+  fallback_model: "gemini-2.5-flash"
+  language: "en"               # summary language: en, tr, es, fr, de, ...
+  max_items_per_run: 60        # cap to protect free-tier quota
+  relevance_threshold: 4       # only show items scoring >= this in dashboard
+
+# ──────────────────────────────────────────────────────────────────────────
+# Keywords — the pre-filter that decides which papers reach the LLM
+# ──────────────────────────────────────────────────────────────────────────
+# Pre-score = (#critical matches × 3) + (#core × 2) + (#related × 1)
+#             − (#exclude × 3)
+# Only items with pre-score ≥ 2 are sent to the LLM (saves quota).
+#
+# REPLACE THE TERMS BELOW WITH YOUR OWN FIELD'S VOCABULARY.
+# Use lowercase by default — matching is case-insensitive.
 keywords:
+
+  # ───── CRITICAL (×3) — the heart of your topic
   critical:
-  - post-earthquake
-  - post earthquake
-  - earthquake damage
-  - seismic damage
-  - reinforced concrete damage
-  - RC building damage
-  - rapid visual screening
-  - rapid post-earthquake assessment
-  - building damage assessment
-  - damage classification
-  - damage detection
-  - crack detection
-  - crack segmentation
-  - crack quantification
-  - crack width measurement
-  - spalling detection
-  - rebar exposure
-  - concrete spalling
+    - "post-earthquake"
+    - "post earthquake"
+    - "earthquake damage"
+    - "seismic damage"
+    - "reinforced concrete damage"
+    - "RC building damage"
+    - "rapid visual screening"
+    - "rapid post-earthquake assessment"
+    - "building damage assessment"
+    - "damage classification"
+    - "damage detection"
+    - "crack detection"
+    - "crack segmentation"
+    - "crack quantification"
+    - "crack width measurement"
+    - "spalling detection"
+    - "rebar exposure"
+    - "concrete spalling"
+
+  # ───── CORE (×2) — the backbone of your field
   core:
-  - reinforced concrete
-  - RC column
-  - RC beam
-  - beam-column joint
-  - shear wall
-  - structural damage
-  - structural health monitoring
-  - SHM
-  - damage state
-  - damage index
-  - damage level
-  - EMS-98
-  - FEMA
-  - computer vision
-  - deep learning
-  - convolutional neural network
-  - semantic segmentation
-  - instance segmentation
-  - object detection
-  - image classification
-  - image processing
-  - YOLO
-  - Mask R-CNN
-  - U-Net
-  - vision transformer
-  - ViT
-  - Segment Anything
-  - SAM model
-  - CLIP
-  - foundation model
-  - vision language model
-  - VLM
-  - UAV
-  - drone inspection
-  - aerial imagery
-  - smartphone inspection
+    - "reinforced concrete"
+    - "RC column"
+    - "RC beam"
+    - "beam-column joint"
+    - "shear wall"
+    - "structural damage"
+    - "structural health monitoring"
+    - "SHM"
+    - "damage state"
+    - "damage index"
+    - "damage level"
+    - "EMS-98"
+    - "FEMA"
+    - "computer vision"
+    - "deep learning"
+    - "convolutional neural network"
+    - "semantic segmentation"
+    - "instance segmentation"
+    - "object detection"
+    - "image classification"
+    - "image processing"
+    - "YOLO"
+    - "Mask R-CNN"
+    - "U-Net"
+    - "vision transformer"
+    - "ViT"
+    - "Segment Anything"
+    - "SAM model"
+    - "CLIP"
+    - "foundation model"
+    - "vision language model"
+    - "VLM"
+    - "UAV"
+    - "drone inspection"
+    - "aerial imagery"
+    - "smartphone inspection"
+
+  # ───── RELATED (×1) — contextual / supporting terms
   related:
-  - concrete
-  - earthquake
-  - seismic
-  - infrastructure
-  - bridge inspection
-  - tunnel inspection
-  - non-destructive
-  - NDT
-  - transfer learning
-  - data augmentation
-  - dataset
-  - benchmark
-  - annotation
-  - edge computing
-  - real-time
-  - explainable AI
-  - XAI
-  - uncertainty
-  - domain adaptation
-  - synthetic data
-  - generative model
-  - diffusion
-  - self-supervised
-  - few-shot
-  - anomaly detection
-  - drift estimation
-  - displacement measurement
-  - fragility
-  - vulnerability assessment
-  - retrofit
-  - strengthening
-  - masonry
-  - BIM
-  - point cloud
-  - LiDAR
-  - photogrammetry
+    - "concrete"
+    - "earthquake"
+    - "seismic"
+    - "infrastructure"
+    - "bridge inspection"
+    - "tunnel inspection"
+    - "non-destructive"
+    - "NDT"
+    - "transfer learning"
+    - "data augmentation"
+    - "dataset"
+    - "benchmark"
+    - "annotation"
+    - "edge computing"
+    - "real-time"
+    - "explainable AI"
+    - "XAI"
+    - "uncertainty"
+    - "domain adaptation"
+    - "synthetic data"
+    - "generative model"
+    - "diffusion"
+    - "self-supervised"
+    - "few-shot"
+    - "anomaly detection"
+    - "drift estimation"
+    - "displacement measurement"
+    - "fragility"
+    - "vulnerability assessment"
+    - "retrofit"
+    - "strengthening"
+    - "masonry"
+    - "BIM"
+    - "point cloud"
+    - "LiDAR"
+    - "photogrammetry"
+
+  # ───── EXCLUDE (−×3) — off-topic fields that share vocabulary
+  # Useful when your keywords overlap with very different domains.
+  # E.g. "segmentation" appears in both medical imaging and crack detection.
   exclude:
-  - medical imaging
-  - chest x-ray
-  - MRI
-  - CT scan
-  - tumor
-  - cancer
-  - lesion
-  - histopathology
-  - ultrasound
-  - retinal
-  - skin
-  - lung nodule
-  - white blood cell
-  - wound tissue
-  - fetal
-  - BI-RADS
-  - mammography
-  - plant trait
-  - leaf disease
-  - crop
-  - agriculture
-  - weed detection
-  - fruit detection
-  - satellite weather
-  - cloud detection
-  - land cover
-  - vegetation index
-  - ocean
-  - atmospheric
-  - autonomous driving
-  - self-driving
-  - lane detection
-  - pedestrian detection
-  - traffic sign
-  - dashcam
-  - face recognition
-  - facial expression
-  - pose estimation
-  - gesture
-  - person re-identification
-  - human action
-  - deepfake
-  - wind turbine
-  - aerospace
-  - x-ray tomography
-  - PCB
-  - additive manufacturing
-  - 3D printing
-  - weld defect
-  - fabric defect
-  - textile
-  - military
-  - weapon
-  - surveillance
-  - anti-spoofing
-  - robot manipulation
-  - grasping
-  - SLAM mapping
-  - speech
-  - audio
-  - music
-  - NLP
-  - language model evaluation
-  - recommendation
-  - molecular
-  - protein
-  - drug
-  - particle physics
-  - jet tagging
-  - high energy physics
+    # Medical imaging
+    - "medical imaging"
+    - "chest x-ray"
+    - "MRI"
+    - "CT scan"
+    - "tumor"
+    - "cancer"
+    - "lesion"
+    - "histopathology"
+    - "ultrasound"
+    - "retinal"
+    - "skin"
+    - "lung nodule"
+    - "white blood cell"
+    - "wound tissue"
+    - "fetal"
+    - "BI-RADS"
+    - "mammography"
+    # Biology / agriculture
+    - "plant trait"
+    - "leaf disease"
+    - "crop"
+    - "agriculture"
+    - "weed detection"
+    - "fruit detection"
+    # Remote sensing (non-disaster)
+    - "satellite weather"
+    - "cloud detection"
+    - "land cover"
+    - "vegetation index"
+    - "ocean"
+    - "atmospheric"
+    # Autonomous driving
+    - "autonomous driving"
+    - "self-driving"
+    - "lane detection"
+    - "pedestrian detection"
+    - "traffic sign"
+    - "dashcam"
+    # Faces / humans
+    - "face recognition"
+    - "facial expression"
+    - "pose estimation"
+    - "gesture"
+    - "person re-identification"
+    - "human action"
+    - "deepfake"
+    # Other industrial
+    - "wind turbine"
+    - "aerospace"
+    - "x-ray tomography"
+    - "PCB"
+    - "additive manufacturing"
+    - "3D printing"
+    - "weld defect"
+    - "fabric defect"
+    - "textile"
+    # Security / defense
+    - "military"
+    - "weapon"
+    - "surveillance"
+    - "anti-spoofing"
+    # Robotics
+    - "robot manipulation"
+    - "grasping"
+    - "SLAM mapping"
+    # Other modalities
+    - "speech"
+    - "audio"
+    - "music"
+    - "NLP"
+    - "language model evaluation"
+    - "recommendation"
+    - "molecular"
+    - "protein"
+    - "drug"
+    - "particle physics"
+    - "jet tagging"
+    - "high energy physics"
+
+# ──────────────────────────────────────────────────────────────────────────
+# Feeds — RSS/Atom URLs
+# ──────────────────────────────────────────────────────────────────────────
+# Replace these with feeds relevant to YOUR field.
+# Most academic publishers offer per-journal RSS — search "<journal> RSS feed".
+#
+# Tips for finding good feeds:
+#   - arXiv: http://export.arxiv.org/rss/<category>   (cs.CV, cs.LG, q-bio, ...)
+#   - arXiv keyword query API: see examples below
+#   - MDPI: https://www.mdpi.com/rss/journal/<journal-slug>
+#   - Elsevier ScienceDirect: https://rss.sciencedirect.com/publication/science/<ISSN-no-dash>
+#   - Wiley: https://onlinelibrary.wiley.com/feed/<eISSN>/most-recent
+#   - Springer journal search: https://link.springer.com/search.rss?...
+#   - ASCE: https://ascelibrary.org/action/showFeed?type=etoc&feed=rss&jc=<journal-code>
 feeds:
-- name: arXiv cs.CV
-  url: http://export.arxiv.org/rss/cs.CV
-  category: preprint
-  enabled: true
-- name: arXiv eess.IV
-  url: http://export.arxiv.org/rss/eess.IV
-  category: preprint
-  enabled: true
-- name: arXiv cs.LG
-  url: http://export.arxiv.org/rss/cs.LG
-  category: preprint
-  enabled: true
-- name: 'arXiv: concrete damage detection'
-  url: http://export.arxiv.org/api/query?search_query=all:%22concrete+damage%22+AND+all:%22deep+learning%22&sortBy=submittedDate&sortOrder=descending&max_results=20
-  category: preprint-query
-  enabled: true
-- name: 'arXiv: post-earthquake building'
-  url: http://export.arxiv.org/api/query?search_query=all:%22post-earthquake%22+AND+all:%22building%22&sortBy=submittedDate&sortOrder=descending&max_results=20
-  category: preprint-query
-  enabled: true
-- name: 'arXiv: crack segmentation'
-  url: http://export.arxiv.org/api/query?search_query=all:%22crack+segmentation%22&sortBy=submittedDate&sortOrder=descending&max_results=20
-  category: preprint-query
-  enabled: true
-- name: 'arXiv: RC column damage'
-  url: http://export.arxiv.org/api/query?search_query=all:%22reinforced+concrete%22+AND+all:%22damage+detection%22&sortBy=submittedDate&sortOrder=descending&max_results=20
-  category: preprint-query
-  enabled: true
-- name: MDPI Sensors
-  url: https://www.mdpi.com/rss/journal/sensors
-  category: journal
-  enabled: true
-- name: MDPI Buildings
-  url: https://www.mdpi.com/rss/journal/buildings
-  category: journal
-  enabled: true
-- name: MDPI Applied Sciences
-  url: https://www.mdpi.com/rss/journal/applsci
-  category: journal
-  enabled: true
-- name: MDPI Remote Sensing
-  url: https://www.mdpi.com/rss/journal/remotesensing
-  category: journal
-  enabled: true
-- name: MDPI Infrastructures
-  url: https://www.mdpi.com/rss/journal/infrastructures
-  category: journal
-  enabled: true
-- name: Engineering Structures
-  url: https://rss.sciencedirect.com/publication/science/01410296
-  category: journal
-  enabled: true
-- name: Automation in Construction
-  url: https://rss.sciencedirect.com/publication/science/09265805
-  category: journal
-  enabled: true
-- name: Structures
-  url: https://rss.sciencedirect.com/publication/science/23520124
-  category: journal
-  enabled: true
-- name: Construction and Building Materials
-  url: https://rss.sciencedirect.com/publication/science/09500618
-  category: journal
-  enabled: true
-- name: Soil Dynamics and Earthquake Engineering
-  url: https://rss.sciencedirect.com/publication/science/02677261
-  category: journal
-  enabled: true
-- name: Mechanical Systems and Signal Processing
-  url: https://rss.sciencedirect.com/publication/science/08883270
-  category: journal
-  enabled: true
-- name: Structural Control and Health Monitoring
-  url: https://onlinelibrary.wiley.com/feed/15452263/most-recent
-  category: journal
-  enabled: true
-- name: Earthquake Engineering & Structural Dynamics
-  url: https://onlinelibrary.wiley.com/feed/10969845/most-recent
-  category: journal
-  enabled: true
-- name: Computer-Aided Civil and Infrastructure Engineering
-  url: https://onlinelibrary.wiley.com/feed/14678667/most-recent
-  category: journal
-  enabled: true
-- name: Bulletin of Earthquake Engineering
-  url: https://link.springer.com/search.rss?facet-content-type=Article&facet-journal-id=10518
-  category: journal
-  enabled: true
-- name: Journal of Structural Engineering (ASCE)
-  url: https://ascelibrary.org/action/showFeed?type=etoc&feed=rss&jc=jsendh
-  category: journal
-  enabled: true
-- name: Journal of Computing in Civil Engineering (ASCE)
-  url: https://ascelibrary.org/action/showFeed?type=etoc&feed=rss&jc=jccee5
-  category: journal
-  enabled: true
+  # ── arXiv (preprints) ──
+  - name: "arXiv cs.CV"
+    url: "http://export.arxiv.org/rss/cs.CV"
+    category: "preprint"
+    enabled: true
+
+  - name: "arXiv eess.IV"
+    url: "http://export.arxiv.org/rss/eess.IV"
+    category: "preprint"
+    enabled: true
+
+  - name: "arXiv cs.LG"
+    url: "http://export.arxiv.org/rss/cs.LG"
+    category: "preprint"
+    enabled: true
+
+  # arXiv custom search — much higher precision than category feeds
+  - name: "arXiv: concrete damage detection"
+    url: "http://export.arxiv.org/api/query?search_query=all:%22concrete+damage%22+AND+all:%22deep+learning%22&sortBy=submittedDate&sortOrder=descending&max_results=20"
+    category: "preprint-query"
+    enabled: true
+
+  - name: "arXiv: post-earthquake building"
+    url: "http://export.arxiv.org/api/query?search_query=all:%22post-earthquake%22+AND+all:%22building%22&sortBy=submittedDate&sortOrder=descending&max_results=20"
+    category: "preprint-query"
+    enabled: true
+
+  - name: "arXiv: crack segmentation"
+    url: "http://export.arxiv.org/api/query?search_query=all:%22crack+segmentation%22&sortBy=submittedDate&sortOrder=descending&max_results=20"
+    category: "preprint-query"
+    enabled: true
+
+  - name: "arXiv: RC column damage"
+    url: "http://export.arxiv.org/api/query?search_query=all:%22reinforced+concrete%22+AND+all:%22damage+detection%22&sortBy=submittedDate&sortOrder=descending&max_results=20"
+    category: "preprint-query"
+    enabled: true
+
+  # ── MDPI (open access) ──
+  - name: "MDPI Sensors"
+    url: "https://www.mdpi.com/rss/journal/sensors"
+    category: "journal"
+    enabled: true
+
+  - name: "MDPI Buildings"
+    url: "https://www.mdpi.com/rss/journal/buildings"
+    category: "journal"
+    enabled: true
+
+  - name: "MDPI Applied Sciences"
+    url: "https://www.mdpi.com/rss/journal/applsci"
+    category: "journal"
+    enabled: true
+
+  - name: "MDPI Remote Sensing"
+    url: "https://www.mdpi.com/rss/journal/remotesensing"
+    category: "journal"
+    enabled: true
+
+  - name: "MDPI Infrastructures"
+    url: "https://www.mdpi.com/rss/journal/infrastructures"
+    category: "journal"
+    enabled: true
+
+  # ── Elsevier / ScienceDirect ──
+  - name: "Engineering Structures"
+    url: "https://rss.sciencedirect.com/publication/science/01410296"
+    category: "journal"
+    enabled: true
+
+  - name: "Automation in Construction"
+    url: "https://rss.sciencedirect.com/publication/science/09265805"
+    category: "journal"
+    enabled: true
+
+  - name: "Structures"
+    url: "https://rss.sciencedirect.com/publication/science/23520124"
+    category: "journal"
+    enabled: true
+
+  - name: "Construction and Building Materials"
+    url: "https://rss.sciencedirect.com/publication/science/09500618"
+    category: "journal"
+    enabled: true
+
+  - name: "Soil Dynamics and Earthquake Engineering"
+    url: "https://rss.sciencedirect.com/publication/science/02677261"
+    category: "journal"
+    enabled: true
+
+  - name: "Mechanical Systems and Signal Processing"
+    url: "https://rss.sciencedirect.com/publication/science/08883270"
+    category: "journal"
+    enabled: true
+
+  # ── Wiley ──
+  - name: "Structural Control and Health Monitoring"
+    url: "https://onlinelibrary.wiley.com/feed/15452263/most-recent"
+    category: "journal"
+    enabled: true
+
+  - name: "Earthquake Engineering & Structural Dynamics"
+    url: "https://onlinelibrary.wiley.com/feed/10969845/most-recent"
+    category: "journal"
+    enabled: true
+
+  - name: "Computer-Aided Civil and Infrastructure Engineering"
+    url: "https://onlinelibrary.wiley.com/feed/14678667/most-recent"
+    category: "journal"
+    enabled: true
+
+  # ── Springer ──
+  - name: "Bulletin of Earthquake Engineering"
+    url: "https://link.springer.com/search.rss?facet-content-type=Article&facet-journal-id=10518"
+    category: "journal"
+    enabled: true
+
+  # ── ASCE ──
+  - name: "Journal of Structural Engineering (ASCE)"
+    url: "https://ascelibrary.org/action/showFeed?type=etoc&feed=rss&jc=jsendh"
+    category: "journal"
+    enabled: true
+
+  - name: "Journal of Computing in Civil Engineering (ASCE)"
+    url: "https://ascelibrary.org/action/showFeed?type=etoc&feed=rss&jc=jccee5"
+    category: "journal"
+    enabled: true

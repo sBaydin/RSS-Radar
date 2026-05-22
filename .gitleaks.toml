@@ -1,13 +1,13 @@
-# gitleaks konfigürasyonu - kazara API key push'lanmasını engeller
-# Hem pre-commit hook'unda hem GitHub Actions'da kullanılır
+# gitleaks configuration — prevents accidental API key commits.
+# Used both by the pre-commit hook and the GitHub Actions check.
 
-title = "RSS Radar gitleaks config"
+title = "RSS-Radar gitleaks config"
 
-# Built-in kuralları kullan (OpenAI, GitHub, AWS, Google, Slack vs. yüzlerce pattern)
+# Use the built-in rules (OpenAI, GitHub, AWS, Google, Slack, ... hundreds of patterns)
 [extend]
 useDefault = true
 
-# Extra özel kurallar - bizim kullandığımız servisler
+# Extra custom rules for the services we use
 [[rules]]
 id = "gemini-api-key"
 description = "Google Gemini / Generative AI API Key"
@@ -26,17 +26,17 @@ description = "GitHub Fine-grained Personal Access Token"
 regex = '''github_pat_[A-Za-z0-9_]{82,}'''
 keywords = ["github_pat_"]
 
-# False positive'leri sustur (RSS feed'lerde geçen URL'ler vs.)
+# Allowlist (false positives in RSS feed URLs, docs placeholders, etc.)
 [allowlist]
 description = "Allowed paths and patterns"
 paths = [
-  '''docs/index\.html$''',     # Dashboard inline-config içerir, kendi config'imiz zaten
-  '''data/items\.json$''',     # Dış makale içerikleri (kendi key'lerimiz değil)
+  '''docs/index\.html$''',     # Dashboard contains inline-config — only our own config
+  '''data/items\.json$''',     # External paper contents, not our keys
   '''data/runs\.json$''',
 ]
 regexes = [
   '''dummy-key-for-testing''',
-  '''sk-...''',                # dokümantasyon placeholder'ları
+  '''sk-...''',                # docs placeholders
   '''AIzaSy\.\.\.''',
   '''gsk_\.\.\.''',
   '''github_pat_\.\.\.''',
