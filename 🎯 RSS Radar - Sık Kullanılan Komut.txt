@@ -1,17 +1,5 @@
 🎯 RSS Radar - Sık Kullanılan Komutlar
 
-
-═══════════════════════════════════════════════════════════
-ÖNEMLİ: Tüm komutlar Git Bash'te, şu klasörde çalıştırılır:
-C:\Users\sBa\Desktop\PhDr\Codding\AI Research Assistants\rss-radar
-
-*** 
-sBa@sBa MINGW64 /c/users/sba/desktop/phdr/codding/AI\ Research\ Assistants/rss-radar 
-***
-═══════════════════════════════════════════════════════════
-
-
-
 ╔════════════════════════════════════════════════════════╗
 ║ 1. GÜNLÜK KULLANIM — Dashboard'u aç ║
 ╚════════════════════════════════════════════════════════╝
