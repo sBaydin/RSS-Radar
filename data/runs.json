@@ -71,6 +71,21 @@
       },
       "llm_ok": 60,
       "llm_fail": 0
+    },
+    {
+      "ran_at": "2026-06-01T21:02:48.054494+00:00",
+      "new_count": 60,
+      "processed_count": 60,
+      "candidates": 430,
+      "provider_chain": [
+        "groq/llama-3.3-70b-versatile",
+        "gemini/gemini-2.5-flash"
+      ],
+      "used_by": {
+        "groq": 60
+      },
+      "llm_ok": 60,
+      "llm_fail": 0
     }
   ]
 }
