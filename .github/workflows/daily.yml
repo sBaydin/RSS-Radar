@@ -1,54 +1,54 @@
-name: Daily RSS-Radar
+# name: Daily RSS-Radar
 
-on:
-  schedule:
-    - cron: "0 17 * * 1"
-  workflow_dispatch:
+# on:
+#   schedule:
+#     - cron: "0 17 * * 1"
+#   workflow_dispatch:
 
-permissions:
-  contents: write   # needed to commit data/ and docs/
+# permissions:
+#   contents: write   # needed to commit data/ and docs/
   # NOTE: no Pages permissions — the dashboard is not publicly hosted, only local.
 
-jobs:
-  scan:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+# jobs:
+#   scan:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-          cache: "pip"
+#       - name: Setup Python
+#         uses: actions/setup-python@v5
+#         with:
+#           python-version: "3.11"
+#           cache: "pip"
 
-      - name: Install deps
-        run: pip install -r requirements.txt
+#       - name: Install deps
+#         run: pip install -r requirements.txt
 
-      # 🛡️ Security: scan for accidentally committed secrets
-      - name: Scan for leaked secrets (gitleaks)
-        uses: gitleaks/gitleaks-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          config: .gitleaks.toml
-        continue-on-error: false
+#       # 🛡️ Security: scan for accidentally committed secrets
+#       - name: Scan for leaked secrets (gitleaks)
+#         uses: gitleaks/gitleaks-action@v2
+#         env:
+ #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         with:
+ #          config: .gitleaks.toml
+#         continue-on-error: false
 
-      - name: Run RSS-Radar
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GROQ_API_KEY:   ${{ secrets.GROQ_API_KEY }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python scripts/fetch_and_report.py
+#       - name: Run RSS-Radar
+#         env:
+#           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+ #          GROQ_API_KEY:   ${{ secrets.GROQ_API_KEY }}
+ #          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+#           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+#         run: python scripts/fetch_and_report.py
 
-      - name: Commit results
-        run: |
-          git config user.name  "rss-radar-bot"
-          git config user.email "bot@users.noreply.github.com"
-          git add data/ docs/
-          if ! git diff --staged --quiet; then
-            git commit -m "daily: scan results $(date -u +%Y-%m-%d)"
-            git push
-          else
-            echo "No changes."
-          fi
+#       - name: Commit results
+#         run: |
+#           git config user.name  "rss-radar-bot"
+#           git config user.email "bot@users.noreply.github.com"
+#           git add data/ docs/
+#           if ! git diff --staged --quiet; then
+#             git commit -m "daily: scan results $(date -u +%Y-%m-%d)"
+#             git push
+#           else
+#             echo "No changes."
+#           fi
